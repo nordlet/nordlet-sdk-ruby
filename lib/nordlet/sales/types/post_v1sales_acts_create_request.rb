@@ -1,0 +1,31 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Sales
+    module Types
+      class PostV1SalesActsCreateRequest < Internal::Types::Model
+        field :partner_id, -> { String }, optional: false, nullable: false, api_name: "partnerId"
+
+        field :type, -> { Nordlet::Sales::Types::PostV1SalesActsCreateRequestType }, optional: true, nullable: false
+
+        field :document_date, -> { String }, optional: true, nullable: false, api_name: "documentDate"
+
+        field :sale_invoice_id, -> { String }, optional: true, nullable: false, api_name: "saleInvoiceId"
+
+        field :transferred_by_name, -> { String }, optional: true, nullable: false, api_name: "transferredByName"
+
+        field :transferred_by_title, -> { String }, optional: true, nullable: false, api_name: "transferredByTitle"
+
+        field :accepted_by_name, -> { String }, optional: true, nullable: false, api_name: "acceptedByName"
+
+        field :accepted_by_title, -> { String }, optional: true, nullable: false, api_name: "acceptedByTitle"
+
+        field :notes, -> { String }, optional: true, nullable: false
+
+        field :series, -> { String }, optional: true, nullable: false
+
+        field :lines, -> { Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesActsCreateRequestLinesItem] }, optional: true, nullable: false
+      end
+    end
+  end
+end

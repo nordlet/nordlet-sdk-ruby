@@ -1,0 +1,55 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Partners
+    module Types
+      class PostV1PartnersFindOrCreateResponsePartner < Internal::Types::Model
+        field :id, -> { String }, optional: false, nullable: false
+
+        field :type, -> { Nordlet::Partners::Types::PostV1PartnersFindOrCreateResponsePartnerType }, optional: false, nullable: false
+
+        field :name, -> { String }, optional: false, nullable: false
+
+        field :code, -> { String }, optional: false, nullable: true
+
+        field :vat_code, -> { String }, optional: false, nullable: true, api_name: "vatCode"
+
+        field :peppol_id, -> { String }, optional: false, nullable: true, api_name: "peppolId"
+
+        field :email, -> { String }, optional: false, nullable: true
+
+        field :phone, -> { String }, optional: false, nullable: true
+
+        field :self_employment_cert_no, -> { String }, optional: false, nullable: true, api_name: "selfEmploymentCertNo"
+
+        field :birth_date, -> { String }, optional: false, nullable: true, api_name: "birthDate"
+
+        field :is_customer, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isCustomer"
+
+        field :is_supplier, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isSupplier"
+
+        field :payment_term_days, -> { Integer }, optional: false, nullable: true, api_name: "paymentTermDays"
+
+        field :credit_limit, -> { String }, optional: false, nullable: true, api_name: "creditLimit"
+
+        field :price_list_id, -> { String }, optional: false, nullable: true, api_name: "priceListId"
+
+        field :group_id, -> { String }, optional: false, nullable: true, api_name: "groupId"
+
+        field :status_id, -> { String }, optional: false, nullable: true, api_name: "statusId"
+
+        field :vat_valid, -> { Internal::Types::Boolean }, optional: false, nullable: true, api_name: "vatValid"
+
+        field :vat_validated_at, -> { String }, optional: false, nullable: true, api_name: "vatValidatedAt"
+
+        field :address, -> { Nordlet::Partners::Types::PostV1PartnersFindOrCreateResponsePartnerAddress }, optional: false, nullable: true
+
+        field :notes, -> { String }, optional: false, nullable: true
+
+        field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
+
+        field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"
+      end
+    end
+  end
+end

@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Ledger
+    module Types
+      class PostV1LedgerCostCenterGroupsListResponseRowsItem < Internal::Types::Model
+        field :id, -> { String }, optional: false, nullable: false
+
+        field :code, -> { String }, optional: false, nullable: false
+
+        field :name, -> { String }, optional: false, nullable: false
+
+        field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
+      end
+    end
+  end
+end
