@@ -19,7 +19,7 @@ The Nordlet Ruby library provides convenient access to the Nordlet APIs from Rub
 
 ## Reference
 
-A full reference for this library is available [here](./reference.md).
+A full reference for this library is available [here](https://github.com/nordlet/nordlet-sdk-ruby/blob/main/reference.md).
 
 ## Usage
 
