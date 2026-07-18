@@ -22,6 +22,8 @@ module Nordlet
 
         field :value, -> { String }, optional: false, nullable: true
 
+        field :billing_period, -> { Nordlet::Agreements::Types::PostV1AgreementsAgreementsListResponseRowsItemBillingPeriod }, optional: false, nullable: true, api_name: "billingPeriod"
+
         field :currency, -> { String }, optional: false, nullable: false
 
         field :status, -> { Nordlet::Agreements::Types::PostV1AgreementsAgreementsListResponseRowsItemStatus }, optional: false, nullable: false

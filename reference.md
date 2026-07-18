@@ -754,6 +754,20 @@ client.reference.post_v1reference_vat_classifiers_upsert(rows: [{
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per country by any company overrides. Verify the mapping fits the goods and services you sell before relying on it.
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -787,6 +801,82 @@ client.reference.post_v1reference_eu_vat_rates_list
 <dd>
 
 **date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Reference::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_eu_vat_rates_set_overrides</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSetOverridesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.reference.post_v1reference_eu_vat_rates_set_overrides(
+  country_code: "countryCode",
+  rates: [{
+    category: "standard",
+    rate_percent: "ratePercent"
+  }]
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**rates:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem]` 
     
 </dd>
 </dl>
@@ -5864,6 +5954,78 @@ client.sales.post_v1sales_invoices_issue(id: "id")
 </dl>
 </details>
 
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_schedules_list</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_recognition_schedules_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_apply_advance</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesApplyAdvanceResponse</code></summary>
 <dl>
 <dd>
@@ -6520,6 +6682,541 @@ client.sales.post_v1sales_acts_pdf(id: "id")
 <dd>
 
 **locale:** `Nordlet::Sales::Types::PostV1SalesActsPdfRequestLocale` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_compute</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_recognition_compute
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**as_of_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_run</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionRunResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_recognition_run
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**as_of_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**posting_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**schedule_ids:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_progress</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionProgressResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_recognition_progress(
+  invoice_line_id: "invoiceLineId",
+  percent_complete: "percentComplete"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**invoice_line_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**percent_complete:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_modify</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionModifyResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Apply an IFRS 15 contract modification to a deferred invoice line. Prospective: cancel the pending schedule and respread the unrecognized remainder over the new terms. Cumulative catch-up (ratable only): recompute revenue as if the new terms applied from the start and post the difference immediately.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_recognition_modify(
+  invoice_line_id: "invoiceLineId",
+  approach: "prospective"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**invoice_line_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**approach:** `Nordlet::Sales::Types::PostV1SalesRecognitionModifyRequestApproach` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**new_end_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**new_milestones:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionModifyRequestNewMilestonesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_runs_list</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionRunsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_recognition_runs_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionRunsListRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionRunsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_summary</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionSummaryResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_recognition_summary
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**invoice_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_refund_liability_list</a>(request) -> Nordlet::Sales::Types::PostV1SalesRefundLiabilityListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_refund_liability_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRefundLiabilityListRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRefundLiabilityListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_refund_liability_true_up</a>(request) -> Nordlet::Sales::Types::PostV1SalesRefundLiabilityTrueUpResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_refund_liability_true_up(
+  invoice_id: "invoiceId",
+  estimated_total: "estimatedTotal"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**invoice_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**estimated_total:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date:** `String` 
     
 </dd>
 </dl>
@@ -7716,6 +8413,365 @@ client.declarations.post_v1declarations_eu_ioss_compute(
 <dd>
 
 **month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_distance_sales_threshold_get</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuDistanceSalesThresholdGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_eu_distance_sales_threshold_get
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_union_turnover_get</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuUnionTurnoverGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_eu_union_turnover_get
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_sme_cross_border_report_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuSmeCrossBorderReportComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_eu_sme_cross_border_report_compute(
+  year: 1000000,
+  quarter: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quarter:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_sme_thresholds_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuSmeThresholdsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_eu_sme_thresholds_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_sme_threshold_get</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuSmeThresholdGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_eu_sme_threshold_get
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_vat_return_packs_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuVatReturnPacksListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_eu_vat_return_packs_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_vat_return_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuVatReturnComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_eu_vat_return_compute(
+  country_code: "countryCode",
+  year: 1000000,
+  month: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**months:** `Integer` 
     
 </dd>
 </dl>
@@ -13105,6 +14161,14 @@ client.agreements.post_v1agreements_agreements_create(
 <dl>
 <dd>
 
+**billing_period:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateRequestBillingPeriod` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **currency:** `String` 
     
 </dd>
@@ -13273,6 +14337,14 @@ client.agreements.post_v1agreements_agreements_update(id: "id")
 <dl>
 <dd>
 
+**billing_period:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsUpdateRequestBillingPeriod` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **status:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsUpdateRequestStatus` 
     
 </dd>
@@ -13402,6 +14474,110 @@ client.agreements.post_v1agreements_agreements_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsAgreementsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Agreements::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_agreements_generate_invoice</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsAgreementsGenerateInvoiceResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.agreements.post_v1agreements_agreements_generate_invoice(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**as_of_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Agreements::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_agreements_billing_run</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsAgreementsBillingRunResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.agreements.post_v1agreements_agreements_billing_run
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**as_of_date:** `String` 
     
 </dd>
 </dl>
@@ -21410,6 +22586,14 @@ client.account.post_v1account_companies_create(name: "name")
 <dl>
 <dd>
 
+**sme_exemption_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **is_vat_payer:** `Internal::Types::Boolean` 
     
 </dd>
@@ -21635,6 +22819,14 @@ client.account.post_v1account_companies_update
 <dd>
 
 **vat_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sme_exemption_number:** `String` 
     
 </dd>
 </dl>

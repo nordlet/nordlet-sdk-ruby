@@ -23,6 +23,9 @@ module Nordlet
         SETTLEMENTS_COMMISSION_REVENUE = "settlements.commissionRevenue"
         SETTLEMENTS_SELLER_PAYABLE = "settlements.sellerPayable"
         SETTLEMENTS_SUSPENSE = "settlements.suspense"
+        REVENUE_DEFERRED_INCOME = "revenue.deferredIncome"
+        REVENUE_CONTRACT_ASSET = "revenue.contractAsset"
+        REVENUE_REFUND_LIABILITY = "revenue.refundLiability"
       end
     end
   end

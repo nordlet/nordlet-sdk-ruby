@@ -12,6 +12,8 @@ module Nordlet
 
         field :vat_code, -> { String }, optional: false, nullable: true, api_name: "vatCode"
 
+        field :sme_exemption_number, -> { String }, optional: false, nullable: true, api_name: "smeExemptionNumber"
+
         field :is_vat_payer, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isVatPayer"
 
         field :is_sandbox, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isSandbox"

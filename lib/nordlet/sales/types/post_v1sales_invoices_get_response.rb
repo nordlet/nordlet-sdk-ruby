@@ -40,6 +40,8 @@ module Nordlet
 
         field :credited_invoice_id, -> { String }, optional: false, nullable: true, api_name: "creditedInvoiceId"
 
+        field :agreement_id, -> { String }, optional: false, nullable: true, api_name: "agreementId"
+
         field :vat_scheme, -> { Nordlet::Sales::Types::PostV1SalesInvoicesGetResponseVatScheme }, optional: false, nullable: true, api_name: "vatScheme"
 
         field :vat_country_code, -> { String }, optional: false, nullable: true, api_name: "vatCountryCode"

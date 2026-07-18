@@ -394,6 +394,9 @@ module Nordlet
         end
       end
 
+      # Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per country by any company overrides.
+      # Verify the mapping fits the goods and services you sell before relying on it.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Reference::Types::PostV1ReferenceEuVatRatesListRequest]
       # @option request_options [String] :base_url
@@ -420,6 +423,42 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Reference::Types::PostV1ReferenceEuVatRatesListResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the
+      # overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return
+      # rate classification.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSetOverridesRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSetOverridesResponse]
+      def post_v1reference_eu_vat_rates_set_overrides(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/reference/eu-vat-rates/set-overrides",
+          body: Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSetOverridesRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSetOverridesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

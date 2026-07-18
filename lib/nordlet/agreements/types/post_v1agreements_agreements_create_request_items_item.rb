@@ -11,6 +11,8 @@ module Nordlet
         field :quantity, -> { String }, optional: true, nullable: false
 
         field :unit_price, -> { String }, optional: true, nullable: false, api_name: "unitPrice"
+
+        field :vat_rate_percent, -> { String }, optional: true, nullable: false, api_name: "vatRatePercent"
       end
     end
   end

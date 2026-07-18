@@ -10,6 +10,8 @@ module Nordlet
 
         field :vat_code, -> { String }, optional: true, nullable: false, api_name: "vatCode"
 
+        field :sme_exemption_number, -> { String }, optional: true, nullable: false, api_name: "smeExemptionNumber"
+
         field :is_vat_payer, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "isVatPayer"
 
         field :address, -> { Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestAddress }, optional: true, nullable: false

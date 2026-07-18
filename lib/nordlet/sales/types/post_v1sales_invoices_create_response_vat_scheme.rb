@@ -14,6 +14,7 @@ module Nordlet
         MARKETPLACE_DEEMED = "marketplace_deemed"
         EXPORT = "export"
         OUT_OF_SCOPE = "out_of_scope"
+        SME_EXEMPT = "sme_exempt"
       end
     end
   end

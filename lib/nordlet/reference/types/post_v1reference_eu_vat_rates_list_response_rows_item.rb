@@ -13,6 +13,8 @@ module Nordlet
         field :valid_from, -> { String }, optional: false, nullable: true, api_name: "validFrom"
 
         field :valid_to, -> { String }, optional: false, nullable: true, api_name: "validTo"
+
+        field :source, -> { Nordlet::Reference::Types::PostV1ReferenceEuVatRatesListResponseRowsItemSource }, optional: false, nullable: false
       end
     end
   end

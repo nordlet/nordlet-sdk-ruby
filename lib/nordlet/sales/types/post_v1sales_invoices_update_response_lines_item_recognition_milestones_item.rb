@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Sales
+    module Types
+      class PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem < Internal::Types::Model
+        field :description, -> { String }, optional: false, nullable: false
+
+        field :expected_date, -> { String }, optional: false, nullable: true, api_name: "expectedDate"
+
+        field :percent, -> { String }, optional: false, nullable: false
+      end
+    end
+  end
+end

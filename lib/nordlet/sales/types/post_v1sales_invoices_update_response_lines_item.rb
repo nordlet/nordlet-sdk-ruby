@@ -31,6 +31,20 @@ module Nordlet
         field :line_gross, -> { String }, optional: false, nullable: false, api_name: "lineGross"
 
         field :sort_order, -> { Integer }, optional: false, nullable: false, api_name: "sortOrder"
+
+        field :recognition_method, -> { Nordlet::Sales::Types::PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMethod }, optional: false, nullable: false, api_name: "recognitionMethod"
+
+        field :recognition_start_date, -> { String }, optional: false, nullable: true, api_name: "recognitionStartDate"
+
+        field :recognition_end_date, -> { String }, optional: false, nullable: true, api_name: "recognitionEndDate"
+
+        field :recognition_milestones, -> { Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesUpdateResponseLinesItemRecognitionMilestonesItem] }, optional: false, nullable: true, api_name: "recognitionMilestones"
+
+        field :standalone_selling_price, -> { String }, optional: false, nullable: true, api_name: "standaloneSellingPrice"
+
+        field :allocated_net, -> { String }, optional: false, nullable: true, api_name: "allocatedNet"
+
+        field :refund_estimate_percent, -> { String }, optional: false, nullable: true, api_name: "refundEstimatePercent"
       end
     end
   end

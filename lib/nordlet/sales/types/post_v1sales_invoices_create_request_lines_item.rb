@@ -21,6 +21,12 @@ module Nordlet
         field :vat_classifier_code, -> { String }, optional: true, nullable: false, api_name: "vatClassifierCode"
 
         field :cost_center_id, -> { String }, optional: true, nullable: false, api_name: "costCenterId"
+
+        field :recognition, -> { Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequestLinesItemRecognition }, optional: true, nullable: false
+
+        field :standalone_selling_price, -> { String }, optional: true, nullable: false, api_name: "standaloneSellingPrice"
+
+        field :refund_estimate_percent, -> { String }, optional: true, nullable: false, api_name: "refundEstimatePercent"
       end
     end
   end

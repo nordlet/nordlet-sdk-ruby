@@ -16,6 +16,10 @@ module Nordlet
 
         field :totals, -> { Nordlet::Declarations::Types::PostV1DeclarationsEuOssComputeResponseTotals }, optional: false, nullable: false
 
+        field :corrections, -> { Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsEuOssComputeResponseCorrectionsItem] }, optional: false, nullable: false
+
+        field :corrections_total, -> { Nordlet::Declarations::Types::PostV1DeclarationsEuOssComputeResponseCorrectionsTotal }, optional: false, nullable: false, api_name: "correctionsTotal"
+
         field :warnings, -> { Internal::Types::Array[String] }, optional: false, nullable: false
 
         field :period_quarter, -> { Integer }, optional: false, nullable: false, api_name: "periodQuarter"
