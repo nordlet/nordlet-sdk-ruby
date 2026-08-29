@@ -36,6 +36,8 @@ module Nordlet
 
         field :credited_invoice_id, -> { String }, optional: false, nullable: true, api_name: "creditedInvoiceId"
 
+        field :purchase_order_id, -> { String }, optional: false, nullable: true, api_name: "purchaseOrderId"
+
         field :notes, -> { String }, optional: false, nullable: true
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"

@@ -10,6 +10,8 @@ module Nordlet
 
         field :warehouse_id, -> { String }, optional: false, nullable: false, api_name: "warehouseId"
 
+        field :routing_id, -> { String }, optional: true, nullable: false, api_name: "routingId"
+
         field :quantity, -> { String }, optional: false, nullable: false
 
         field :date, -> { String }, optional: false, nullable: false

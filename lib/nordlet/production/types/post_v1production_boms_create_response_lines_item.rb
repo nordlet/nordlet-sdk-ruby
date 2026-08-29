@@ -9,6 +9,8 @@ module Nordlet
         field :component_item_id, -> { String }, optional: false, nullable: false, api_name: "componentItemId"
 
         field :quantity, -> { String }, optional: false, nullable: false
+
+        field :scrap_percent, -> { String }, optional: false, nullable: false, api_name: "scrapPercent"
       end
     end
   end

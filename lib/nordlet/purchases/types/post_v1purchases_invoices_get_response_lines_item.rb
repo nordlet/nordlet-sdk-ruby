@@ -24,6 +24,8 @@ module Nordlet
 
         field :cost_center_id, -> { String }, optional: false, nullable: true, api_name: "costCenterId"
 
+        field :project_id, -> { String }, optional: false, nullable: true, api_name: "projectId"
+
         field :account_code, -> { String }, optional: false, nullable: true, api_name: "accountCode"
 
         field :line_net, -> { String }, optional: false, nullable: false, api_name: "lineNet"

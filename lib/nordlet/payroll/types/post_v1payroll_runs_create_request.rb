@@ -8,6 +8,8 @@ module Nordlet
 
         field :month, -> { Integer }, optional: false, nullable: false
 
+        field :include_natura, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "includeNatura"
+
         field :lines, -> { Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsCreateRequestLinesItem] }, optional: true, nullable: false
 
         field :notes, -> { String }, optional: true, nullable: false

@@ -14,6 +14,8 @@ module Nordlet
 
         field :quantity, -> { String }, optional: false, nullable: false
 
+        field :lot_number, -> { String }, optional: true, nullable: false, api_name: "lotNumber"
+
         field :notes, -> { String }, optional: true, nullable: false
       end
     end

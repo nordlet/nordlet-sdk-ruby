@@ -10,6 +10,8 @@ module Nordlet
 
         field :item_id, -> { String }, optional: false, nullable: false, api_name: "itemId"
 
+        field :lot_id, -> { String }, optional: false, nullable: true, api_name: "lotId"
+
         field :date, -> { String }, optional: false, nullable: false
 
         field :direction, -> { Nordlet::Inventory::Types::PostV1InventoryStockMovementsListResponseRowsItemDirection }, optional: false, nullable: false

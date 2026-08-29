@@ -12,6 +12,8 @@ module Nordlet
 
         field :output_quantity, -> { String }, optional: true, nullable: false, api_name: "outputQuantity"
 
+        field :routing_id, -> { String }, optional: true, nullable: false, api_name: "routingId"
+
         field :lines, -> { Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionBomsCreateRequestLinesItem] }, optional: false, nullable: false
       end
     end

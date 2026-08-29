@@ -18,6 +18,8 @@ module Nordlet
 
         field :credited_invoice_id, -> { String }, optional: true, nullable: false, api_name: "creditedInvoiceId"
 
+        field :purchase_order_id, -> { String }, optional: true, nullable: false, api_name: "purchaseOrderId"
+
         field :notes, -> { String }, optional: true, nullable: false
 
         field :lines, -> { Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesCreateRequestLinesItem] }, optional: false, nullable: false

@@ -17,6 +17,8 @@ module Nordlet
         PURCHASES_DEFAULT_EXPENSE = "purchases.defaultExpense"
         INVENTORY_COGS = "inventory.cogs"
         INVENTORY_STOCK = "inventory.stock"
+        PRODUCTION_LABOR_APPLIED = "production.laborApplied"
+        PRODUCTION_SCRAP = "production.scrap"
         BANK_FX_GAIN = "bank.fxGain"
         BANK_FX_LOSS = "bank.fxLoss"
         SETTLEMENTS_FEES = "settlements.fees"

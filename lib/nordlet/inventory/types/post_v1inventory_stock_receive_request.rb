@@ -14,6 +14,10 @@ module Nordlet
 
         field :unit_cost, -> { String }, optional: false, nullable: false, api_name: "unitCost"
 
+        field :lot_number, -> { String }, optional: true, nullable: false, api_name: "lotNumber"
+
+        field :expiry_date, -> { String }, optional: true, nullable: false, api_name: "expiryDate"
+
         field :notes, -> { String }, optional: true, nullable: false
       end
     end

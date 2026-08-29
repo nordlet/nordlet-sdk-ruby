@@ -12,11 +12,21 @@ module Nordlet
 
         field :warehouse_id, -> { String }, optional: false, nullable: false, api_name: "warehouseId"
 
+        field :routing_id, -> { String }, optional: false, nullable: true, api_name: "routingId"
+
         field :quantity, -> { String }, optional: false, nullable: false
 
         field :date, -> { String }, optional: false, nullable: false
 
         field :status, -> { Nordlet::Production::Types::PostV1ProductionOrdersListResponseRowsItemStatus }, optional: false, nullable: false
+
+        field :scrapped_quantity, -> { String }, optional: false, nullable: true, api_name: "scrappedQuantity"
+
+        field :material_cost, -> { String }, optional: false, nullable: true, api_name: "materialCost"
+
+        field :labor_cost, -> { String }, optional: false, nullable: true, api_name: "laborCost"
+
+        field :scrap_cost, -> { String }, optional: false, nullable: true, api_name: "scrapCost"
 
         field :total_cost, -> { String }, optional: false, nullable: true, api_name: "totalCost"
 

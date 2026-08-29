@@ -11,6 +11,10 @@ module Nordlet
         field :counted_qty, -> { String }, optional: false, nullable: false, api_name: "countedQty"
 
         field :unit_cost, -> { String }, optional: true, nullable: false, api_name: "unitCost"
+
+        field :lot_number, -> { String }, optional: true, nullable: false, api_name: "lotNumber"
+
+        field :expiry_date, -> { String }, optional: true, nullable: false, api_name: "expiryDate"
       end
     end
   end

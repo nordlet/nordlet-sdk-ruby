@@ -26,6 +26,8 @@ module Nordlet
 
         field :peppol_id, -> { String }, optional: true, nullable: false, api_name: "peppolId"
 
+        field :sepa_creditor_id, -> { String }, optional: true, nullable: false, api_name: "sepaCreditorId"
+
         field :default_invoice_currency, -> { String }, optional: true, nullable: false, api_name: "defaultInvoiceCurrency"
 
         field :country_code, -> { Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestCountryCode }, optional: true, nullable: false, api_name: "countryCode"

@@ -55,6 +55,8 @@ module Nordlet
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"
 
         field :lines, -> { Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesApplyAdvanceResponseLinesItem] }, optional: false, nullable: false
+
+        field :vat_evidence, -> { Nordlet::Sales::Types::PostV1SalesInvoicesApplyAdvanceResponseVatEvidence }, optional: false, nullable: true, api_name: "vatEvidence"
       end
     end
   end

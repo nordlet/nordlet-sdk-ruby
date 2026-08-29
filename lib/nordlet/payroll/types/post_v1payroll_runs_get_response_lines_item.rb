@@ -14,6 +14,8 @@ module Nordlet
 
         field :gross, -> { String }, optional: false, nullable: false
 
+        field :natura, -> { String }, optional: false, nullable: false
+
         field :additions, -> { Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsGetResponseLinesItemAdditionsItem] }, optional: false, nullable: false
 
         field :deductions, -> { Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsGetResponseLinesItemDeductionsItem] }, optional: false, nullable: false

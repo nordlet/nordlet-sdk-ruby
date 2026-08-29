@@ -12,6 +12,8 @@ module Nordlet
 
         field :role, -> { String }, optional: false, nullable: true
 
+        field :billing, -> { Nordlet::Account::Types::PostV1AccountMeResponseBilling }, optional: false, nullable: false
+
         field :companies, -> { Internal::Types::Array[Nordlet::Account::Types::PostV1AccountMeResponseCompaniesItem] }, optional: false, nullable: false
       end
     end

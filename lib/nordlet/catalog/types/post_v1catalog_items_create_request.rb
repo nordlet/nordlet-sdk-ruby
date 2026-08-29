@@ -6,6 +6,8 @@ module Nordlet
       class PostV1CatalogItemsCreateRequest < Internal::Types::Model
         field :type, -> { Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestType }, optional: true, nullable: false
 
+        field :tracking, -> { Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestTracking }, optional: true, nullable: false
+
         field :name, -> { String }, optional: false, nullable: false
 
         field :code, -> { String }, optional: true, nullable: false

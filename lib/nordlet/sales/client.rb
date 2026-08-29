@@ -202,6 +202,77 @@ module Nordlet
         end
       end
 
+      # Render an issued invoice as the national e-invoicing payload for the company country: FatturaPA (IT), KSeF FA(3)
+      # (PL) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceXMLRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceXMLResponse]
+      def post_v1sales_invoices_einvoice_xml(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/invoices/einvoice-xml",
+          body: Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceXMLRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceXMLResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Build the national e-invoicing payload and deliver it to the bridge endpoint configured for the country gateway
+      # in compliance settings. The bridge (an accredited intermediary or connector) handles the certified national
+      # channel - SdI accreditation, KSeF sessions or ANAF SPV OAuth.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendResponse]
+      def post_v1sales_invoices_einvoice_send(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/invoices/einvoice-send",
+          body: Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesUpdateRequest]
       # @option request_options [String] :base_url

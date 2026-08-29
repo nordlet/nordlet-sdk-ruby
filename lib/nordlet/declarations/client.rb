@@ -586,6 +586,42 @@ module Nordlet
         end
       end
 
+      # Generate the Polish JPK_V7M(3) file (VAT declaration with evidence) for a month, per the MF schema in force
+      # since February 2026. Amounts must already be in PLN; rows are marked BFK until a KSeF integration supplies
+      # invoice numbers. Review the warnings before submitting via e-dokumenty.mf.gov.pl.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Declarations::Types::PostV1DeclarationsPlJpkV7MGenerateRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Declarations::Types::PostV1DeclarationsPlJpkV7MGenerateResponse]
+      def post_v1declarations_pl_jpk_v7m_generate(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/declarations/pl/jpk-v7m/generate",
+          body: Nordlet::Declarations::Types::PostV1DeclarationsPlJpkV7MGenerateRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Declarations::Types::PostV1DeclarationsPlJpkV7MGenerateResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::PostV1DeclarationsConfigsListRequest]
       # @option request_options [String] :base_url

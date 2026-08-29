@@ -43,6 +43,11 @@ module Nordlet
       @purchases ||= Nordlet::Purchases::Client.new(client: @raw_client)
     end
 
+    # @return [Nordlet::Capture::Client]
+    def capture
+      @capture ||= Nordlet::Capture::Client.new(client: @raw_client)
+    end
+
     # @return [Nordlet::Declarations::Client]
     def declarations
       @declarations ||= Nordlet::Declarations::Client.new(client: @raw_client)
@@ -61,6 +66,11 @@ module Nordlet
     # @return [Nordlet::Hr::Client]
     def hr
       @hr ||= Nordlet::Hr::Client.new(client: @raw_client)
+    end
+
+    # @return [Nordlet::Fleet::Client]
+    def fleet
+      @fleet ||= Nordlet::Fleet::Client.new(client: @raw_client)
     end
 
     # @return [Nordlet::Payroll::Client]
@@ -91,6 +101,11 @@ module Nordlet
     # @return [Nordlet::Cash::Client]
     def cash
       @cash ||= Nordlet::Cash::Client.new(client: @raw_client)
+    end
+
+    # @return [Nordlet::Projects::Client]
+    def projects
+      @projects ||= Nordlet::Projects::Client.new(client: @raw_client)
     end
 
     # @return [Nordlet::Transport::Client]
@@ -136,6 +151,11 @@ module Nordlet
     # @return [Nordlet::Public::Client]
     def public
       @public ||= Nordlet::Public::Client.new(client: @raw_client)
+    end
+
+    # @return [Nordlet::Billing::Client]
+    def billing
+      @billing ||= Nordlet::Billing::Client.new(client: @raw_client)
     end
 
     # @return [Nordlet::Account::Client]

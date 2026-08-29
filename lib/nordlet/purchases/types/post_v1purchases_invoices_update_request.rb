@@ -16,6 +16,8 @@ module Nordlet
 
         field :currency, -> { String }, optional: true, nullable: false
 
+        field :purchase_order_id, -> { String }, optional: true, nullable: false, api_name: "purchaseOrderId"
+
         field :notes, -> { String }, optional: true, nullable: false
 
         field :lines, -> { Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesUpdateRequestLinesItem] }, optional: true, nullable: false

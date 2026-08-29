@@ -8,6 +8,8 @@ module Nordlet
 
         field :type, -> { Nordlet::Catalog::Types::PostV1CatalogItemsUpdateRequestType }, optional: true, nullable: false
 
+        field :tracking, -> { Nordlet::Catalog::Types::PostV1CatalogItemsUpdateRequestTracking }, optional: true, nullable: false
+
         field :name, -> { String }, optional: true, nullable: false
 
         field :code, -> { String }, optional: true, nullable: false

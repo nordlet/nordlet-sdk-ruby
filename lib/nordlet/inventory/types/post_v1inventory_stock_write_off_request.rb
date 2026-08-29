@@ -12,6 +12,8 @@ module Nordlet
 
         field :quantity, -> { String }, optional: false, nullable: false
 
+        field :lot_number, -> { String }, optional: true, nullable: false, api_name: "lotNumber"
+
         field :expense_account_code, -> { String }, optional: true, nullable: false, api_name: "expenseAccountCode"
 
         field :inventory_account_code, -> { String }, optional: true, nullable: false, api_name: "inventoryAccountCode"

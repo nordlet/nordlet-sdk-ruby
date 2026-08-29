@@ -38,6 +38,8 @@ module Nordlet
 
         field :peppol_id, -> { String }, optional: false, nullable: true, api_name: "peppolId"
 
+        field :sepa_creditor_id, -> { String }, optional: false, nullable: true, api_name: "sepaCreditorId"
+
         field :logo_file_id, -> { String }, optional: false, nullable: true, api_name: "logoFileId"
       end
     end

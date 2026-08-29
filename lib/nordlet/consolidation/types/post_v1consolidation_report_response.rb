@@ -24,6 +24,8 @@ module Nordlet
 
         field :eliminations, -> { Nordlet::Consolidation::Types::PostV1ConsolidationReportResponseEliminations }, optional: false, nullable: false
 
+        field :cash_flow, -> { Nordlet::Consolidation::Types::PostV1ConsolidationReportResponseCashFlow }, optional: false, nullable: false, api_name: "cashFlow"
+
         field :intercompany_candidates, -> { Internal::Types::Array[Nordlet::Consolidation::Types::PostV1ConsolidationReportResponseIntercompanyCandidatesItem] }, optional: false, nullable: false, api_name: "intercompanyCandidates"
       end
     end

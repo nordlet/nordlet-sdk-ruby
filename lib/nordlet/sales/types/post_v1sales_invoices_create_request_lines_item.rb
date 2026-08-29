@@ -22,6 +22,8 @@ module Nordlet
 
         field :cost_center_id, -> { String }, optional: true, nullable: false, api_name: "costCenterId"
 
+        field :project_id, -> { String }, optional: true, nullable: false, api_name: "projectId"
+
         field :recognition, -> { Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequestLinesItemRecognition }, optional: true, nullable: false
 
         field :standalone_selling_price, -> { String }, optional: true, nullable: false, api_name: "standaloneSellingPrice"
