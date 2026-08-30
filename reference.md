@@ -12478,6 +12478,307 @@ client.ledger.post_v1ledger_journal_transactions_create(
 </dl>
 </details>
 
+## Migration
+<details><summary><code>client.migration.<a href="/lib/nordlet/migration/client.rb">check_a_historical_books_package_without_writing_anything</a>(request) -> Nordlet::Migration::Types::PostV1MigrationBooksValidateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Runs every check the import runs (accounts, partners, balances, open invoices, assets, stock) and returns the same summary and warnings, then rolls everything back. Nothing is stored.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.migration.check_a_historical_books_package_without_writing_anything(cutover_date: "cutoverDate")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**cutover_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**source:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**accounts:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestAccountsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partners:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestPartnersItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**items:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestItemsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**opening_balances:** `Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestOpeningBalances` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**journal:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestJournalItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**open_receivables:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestOpenReceivablesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**open_payables:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestOpenPayablesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_groups:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestAssetGroupsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fixed_assets:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestFixedAssetsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**stock:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestStockItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Migration::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.migration.<a href="/lib/nordlet/migration/client.rb">import_historical_books_from_a_previous_accounting_system</a>(request) -> Nordlet::Migration::Types::PostV1MigrationBooksImportResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The whole package is written in one database transaction — if any row fails, nothing is stored.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.migration.import_historical_books_from_a_previous_accounting_system(cutover_date: "cutoverDate")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**cutover_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**source:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**accounts:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestAccountsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partners:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestPartnersItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**items:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestItemsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**opening_balances:** `Nordlet::Migration::Types::PostV1MigrationBooksImportRequestOpeningBalances` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**journal:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestJournalItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**open_receivables:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestOpenReceivablesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**open_payables:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestOpenPayablesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_groups:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestAssetGroupsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fixed_assets:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestFixedAssetsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**stock:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestStockItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Migration::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Assets
 <details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_groups_create</a>(request) -> Nordlet::Assets::Types::PostV1AssetsGroupsCreateResponse</code></summary>
 <dl>

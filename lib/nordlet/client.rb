@@ -58,6 +58,11 @@ module Nordlet
       @ledger ||= Nordlet::Ledger::Client.new(client: @raw_client)
     end
 
+    # @return [Nordlet::Migration::Client]
+    def migration
+      @migration ||= Nordlet::Migration::Client.new(client: @raw_client)
+    end
+
     # @return [Nordlet::Assets::Client]
     def assets
       @assets ||= Nordlet::Assets::Client.new(client: @raw_client)
