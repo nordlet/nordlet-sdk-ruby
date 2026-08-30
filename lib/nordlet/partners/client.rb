@@ -650,6 +650,42 @@ module Nordlet
         end
       end
 
+      # Removes birth date, self-employment certificate number, email, phone, address, notes, contacts, addresses and
+      # bank accounts, then hides the partner. The name, code and VAT number stay because issued invoices must keep
+      # identifying the counterparty for the statutory retention period.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Partners::Types::PostV1PartnersAnonymizeRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Partners::Types::PostV1PartnersAnonymizeResponse]
+      def blank_a_partners_personal_data_and_hide_the_record(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/partners/anonymize",
+          body: Nordlet::Partners::Types::PostV1PartnersAnonymizeRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Partners::Types::PostV1PartnersAnonymizeResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # @param request_options [Hash]
       # @param params [Nordlet::Partners::Types::PostV1PartnersListRequest]
       # @option request_options [String] :base_url

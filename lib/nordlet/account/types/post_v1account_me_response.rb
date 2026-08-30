@@ -14,6 +14,8 @@ module Nordlet
 
         field :billing, -> { Nordlet::Account::Types::PostV1AccountMeResponseBilling }, optional: false, nullable: false
 
+        field :consent, -> { Nordlet::Account::Types::PostV1AccountMeResponseConsent }, optional: false, nullable: false
+
         field :companies, -> { Internal::Types::Array[Nordlet::Account::Types::PostV1AccountMeResponseCompaniesItem] }, optional: false, nullable: false
       end
     end

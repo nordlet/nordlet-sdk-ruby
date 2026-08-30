@@ -3324,6 +3324,68 @@ client.partners.post_v1partners_delete(id: "id")
 </dl>
 </details>
 
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">blank_a_partners_personal_data_and_hide_the_record</a>(request) -> Nordlet::Partners::Types::PostV1PartnersAnonymizeResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Removes birth date, self-employment certificate number, email, phone, address, notes, contacts, addresses and bank accounts, then hides the partner. The name, code and VAT number stay because issued invoices must keep identifying the counterparty for the statutory retention period.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.blank_a_partners_personal_data_and_hide_the_record(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersListResponse</code></summary>
 <dl>
 <dd>
@@ -14058,6 +14120,116 @@ client.hr.post_v1hr_employees_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Hr::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_delete</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.hr.post_v1hr_employees_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Hr::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">blank_an_employees_personal_data_and_hide_the_record</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesAnonymizeResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replaces the name with a placeholder and removes personal code, birth date, contact details, address, bank account, social-insurance number, notes and sick-leave reasons. Payroll and contract rows stay linked to the record for the statutory retention period.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.hr.blank_an_employees_personal_data_and_hide_the_record(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
     
 </dd>
 </dl>
@@ -28890,6 +29062,22 @@ client.account.post_v1account_login_link_request(email: "email")
 <dl>
 <dd>
 
+**accept_terms:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**accept_dpa:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Account::RequestOptions` 
     
 </dd>
@@ -29425,6 +29613,22 @@ client.account.post_v1account_invites_accept(token: "token")
 <dd>
 
 **locale:** `Nordlet::Account::Types::PostV1AccountInvitesAcceptRequestLocale` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**accept_terms:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**accept_dpa:** `Internal::Types::Boolean` 
     
 </dd>
 </dl>
@@ -30161,6 +30365,399 @@ client.account.post_v1account_api_keys_revoke(id: "id")
 <dd>
 
 **id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_consent_accept</a>(request) -> Nordlet::Account::Types::PostV1AccountConsentAcceptResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_consent_accept(
+  accept_terms: true,
+  accept_dpa: true
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**accept_terms:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**accept_dpa:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_profile_update</a>(request) -> Nordlet::Account::Types::PostV1AccountProfileUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_profile_update
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_email_change_request</a>(request) -> Nordlet::Account::Types::PostV1AccountEmailChangeRequestResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_email_change_request(new_email: "newEmail")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**new_email:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**locale:** `Nordlet::Account::Types::PostV1AccountEmailChangeRequestRequestLocale` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_sessions_list</a>(request) -> Nordlet::Account::Types::PostV1AccountSessionsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_sessions_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_sessions_revoke</a>(request) -> Nordlet::Account::Types::PostV1AccountSessionsRevokeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_sessions_revoke(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_sessions_revoke_others</a>(request) -> Nordlet::Account::Types::PostV1AccountSessionsRevokeOthersResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_sessions_revoke_others
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">download_everything_nordlet_stores_about_the_signed_in_user</a>(request) -> Nordlet::Account::Types::PostV1AccountExportResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.download_everything_nordlet_stores_about_the_signed_in_user
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">delete_the_signed_in_user_account</a>(request) -> Nordlet::Account::Types::PostV1AccountDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Removes the user: sessions, sign-in links, memberships and pending invitations are deleted at once; the email and name are replaced by an anonymous placeholder immediately and the remaining row is removed after 30 days. Refused while the user still owns or pays for a company that is not deleted.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.delete_the_signed_in_user_account(confirm_email: "confirmEmail")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**confirm_email:** `String` 
     
 </dd>
 </dl>

@@ -235,6 +235,74 @@ module Nordlet
       end
 
       # @param request_options [Hash]
+      # @param params [Nordlet::Hr::Types::PostV1HrEmployeesDeleteRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Hr::Types::PostV1HrEmployeesDeleteResponse]
+      def post_v1hr_employees_delete(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/hr/employees/delete",
+          body: Nordlet::Hr::Types::PostV1HrEmployeesDeleteRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Hr::Types::PostV1HrEmployeesDeleteResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Replaces the name with a placeholder and removes personal code, birth date, contact details, address, bank
+      # account, social-insurance number, notes and sick-leave reasons. Payroll and contract rows stay linked to the
+      # record for the statutory retention period.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Hr::Types::PostV1HrEmployeesAnonymizeRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Hr::Types::PostV1HrEmployeesAnonymizeResponse]
+      def blank_an_employees_personal_data_and_hide_the_record(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/hr/employees/anonymize",
+          body: Nordlet::Hr::Types::PostV1HrEmployeesAnonymizeRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Hr::Types::PostV1HrEmployeesAnonymizeResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::PostV1HrContractsCreateRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
