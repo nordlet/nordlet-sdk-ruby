@@ -12,7 +12,9 @@ module Nordlet
 
         field :schedule_id, -> { String }, optional: true, nullable: false, api_name: "scheduleId"
 
-        field :contract_no, -> { String }, optional: false, nullable: false, api_name: "contractNo"
+        field :agreement_id, -> { String }, optional: true, nullable: false, api_name: "agreementId"
+
+        field :contract_no, -> { String }, optional: true, nullable: false, api_name: "contractNo"
 
         field :type, -> { Nordlet::Hr::Types::PostV1HrContractsCreateRequestType }, optional: true, nullable: false
 
@@ -24,7 +26,7 @@ module Nordlet
 
         field :salary_type, -> { Nordlet::Hr::Types::PostV1HrContractsCreateRequestSalaryType }, optional: true, nullable: false, api_name: "salaryType"
 
-        field :work_hours_per_week, -> { String }, optional: true, nullable: false, api_name: "workHoursPerWeek"
+        field :work_hours, -> { String }, optional: true, nullable: false, api_name: "workHours"
 
         field :notes, -> { String }, optional: true, nullable: false
       end

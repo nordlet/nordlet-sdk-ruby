@@ -14,6 +14,8 @@ module Nordlet
 
         field :document_id, -> { String }, optional: false, nullable: true, api_name: "documentId"
 
+        field :partner_id, -> { String }, optional: false, nullable: true, api_name: "partnerId"
+
         field :status, -> { Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsCreateResponseStatus }, optional: false, nullable: false
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"

@@ -8,7 +8,13 @@ module Nordlet
 
         field :type_id, -> { String }, optional: false, nullable: true, api_name: "typeId"
 
-        field :partner_id, -> { String }, optional: false, nullable: false, api_name: "partnerId"
+        field :kind, -> { Nordlet::Agreements::Types::PostV1AgreementsAgreementsGetResponseKind }, optional: false, nullable: false
+
+        field :partner_id, -> { String }, optional: false, nullable: true, api_name: "partnerId"
+
+        field :employee_id, -> { String }, optional: false, nullable: true, api_name: "employeeId"
+
+        field :bank_account_id, -> { String }, optional: false, nullable: true, api_name: "bankAccountId"
 
         field :number, -> { String }, optional: false, nullable: false
 
@@ -29,6 +35,8 @@ module Nordlet
         field :status, -> { Nordlet::Agreements::Types::PostV1AgreementsAgreementsGetResponseStatus }, optional: false, nullable: false
 
         field :notes, -> { String }, optional: false, nullable: true
+
+        field :document_ref, -> { String }, optional: false, nullable: true, api_name: "documentRef"
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 

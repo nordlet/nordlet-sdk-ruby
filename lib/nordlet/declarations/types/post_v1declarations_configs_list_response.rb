@@ -4,6 +4,8 @@ module Nordlet
   module Declarations
     module Types
       class PostV1DeclarationsConfigsListResponse < Internal::Types::Model
+        field :company_country, -> { String }, optional: false, nullable: false, api_name: "companyCountry"
+
         field :rows, -> { Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsConfigsListResponseRowsItem] }, optional: false, nullable: false
       end
     end

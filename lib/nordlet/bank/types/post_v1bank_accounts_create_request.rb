@@ -11,6 +11,8 @@ module Nordlet
         field :currency, -> { String }, optional: true, nullable: false
 
         field :account_code, -> { String }, optional: true, nullable: false, api_name: "accountCode"
+
+        field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
       end
     end
   end

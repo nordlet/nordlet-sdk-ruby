@@ -6,7 +6,7 @@ module Nordlet
       class PostV1FilesUploadRequest < Internal::Types::Model
         field :entity, -> { String }, optional: false, nullable: false
 
-        field :entity_id, -> { String }, optional: false, nullable: false, api_name: "entityId"
+        field :entity_id, -> { String }, optional: true, nullable: false, api_name: "entityId"
 
         field :file_name, -> { String }, optional: false, nullable: false, api_name: "fileName"
 

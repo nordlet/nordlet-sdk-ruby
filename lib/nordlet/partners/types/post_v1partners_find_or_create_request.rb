@@ -39,6 +39,8 @@ module Nordlet
         field :address, -> { Nordlet::Partners::Types::PostV1PartnersFindOrCreateRequestAddress }, optional: true, nullable: false
 
         field :notes, -> { String }, optional: true, nullable: false
+
+        field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
       end
     end
   end

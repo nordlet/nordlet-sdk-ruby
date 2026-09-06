@@ -6,7 +6,13 @@ module Nordlet
       class PostV1AgreementsAgreementsCreateRequest < Internal::Types::Model
         field :type_id, -> { String }, optional: true, nullable: false, api_name: "typeId"
 
-        field :partner_id, -> { String }, optional: false, nullable: false, api_name: "partnerId"
+        field :kind, -> { Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateRequestKind }, optional: true, nullable: false
+
+        field :partner_id, -> { String }, optional: true, nullable: false, api_name: "partnerId"
+
+        field :employee_id, -> { String }, optional: true, nullable: false, api_name: "employeeId"
+
+        field :bank_account_id, -> { String }, optional: true, nullable: false, api_name: "bankAccountId"
 
         field :number, -> { String }, optional: false, nullable: false
 
@@ -27,6 +33,8 @@ module Nordlet
         field :status, -> { Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateRequestStatus }, optional: true, nullable: false
 
         field :notes, -> { String }, optional: true, nullable: false
+
+        field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
 
         field :items, -> { Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateRequestItemsItem] }, optional: true, nullable: false
       end

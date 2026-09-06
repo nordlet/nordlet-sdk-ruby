@@ -42,6 +42,8 @@ module Nordlet
 
         field :notes, -> { String }, optional: false, nullable: true
 
+        field :attributes, -> { Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesCreateResponseAttributesItem] }, optional: false, nullable: true
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
       end
     end

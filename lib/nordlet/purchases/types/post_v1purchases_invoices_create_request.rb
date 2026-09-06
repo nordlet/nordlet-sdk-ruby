@@ -22,6 +22,8 @@ module Nordlet
 
         field :notes, -> { String }, optional: true, nullable: false
 
+        field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
+
         field :lines, -> { Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesCreateRequestLinesItem] }, optional: false, nullable: false
       end
     end

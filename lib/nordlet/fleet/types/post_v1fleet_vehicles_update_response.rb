@@ -32,6 +32,8 @@ module Nordlet
 
         field :notes, -> { String }, optional: false, nullable: true
 
+        field :documents, -> { Internal::Types::Array[Nordlet::Fleet::Types::PostV1FleetVehiclesUpdateResponseDocumentsItem] }, optional: false, nullable: true
+
         field :current_assignment, -> { Nordlet::Fleet::Types::PostV1FleetVehiclesUpdateResponseCurrentAssignment }, optional: false, nullable: true, api_name: "currentAssignment"
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"

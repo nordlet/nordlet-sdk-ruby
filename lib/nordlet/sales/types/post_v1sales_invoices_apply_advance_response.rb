@@ -50,6 +50,8 @@ module Nordlet
 
         field :notes, -> { String }, optional: false, nullable: true
 
+        field :document_ref, -> { String }, optional: false, nullable: true, api_name: "documentRef"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"

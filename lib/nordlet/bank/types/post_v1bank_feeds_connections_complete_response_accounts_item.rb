@@ -10,6 +10,10 @@ module Nordlet
 
         field :bank_account_id, -> { String }, optional: false, nullable: true, api_name: "bankAccountId"
 
+        field :import_template_id, -> { String }, optional: false, nullable: true, api_name: "importTemplateId"
+
+        field :sync_schedule, -> { Nordlet::Bank::Types::PostV1BankFeedsConnectionsCompleteResponseAccountsItemSyncSchedule }, optional: false, nullable: false, api_name: "syncSchedule"
+
         field :external_id, -> { String }, optional: false, nullable: false, api_name: "externalId"
 
         field :iban, -> { String }, optional: false, nullable: true

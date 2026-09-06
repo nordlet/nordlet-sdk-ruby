@@ -8,6 +8,8 @@ module Nordlet
 
         field :name, -> { String }, optional: false, nullable: false
 
+        field :translations, -> { Nordlet::Ledger::Types::PostV1LedgerAccountsCreateRequestTranslations }, optional: true, nullable: false
+
         field :type, -> { Nordlet::Ledger::Types::PostV1LedgerAccountsCreateRequestType }, optional: false, nullable: false
 
         field :parent_id, -> { String }, optional: true, nullable: false, api_name: "parentId"

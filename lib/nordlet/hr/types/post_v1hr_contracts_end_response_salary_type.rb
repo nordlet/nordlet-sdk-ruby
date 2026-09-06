@@ -8,6 +8,9 @@ module Nordlet
 
         MONTHLY = "monthly"
         HOURLY = "hourly"
+        WEEKLY = "weekly"
+        DAILY = "daily"
+        YEARLY = "yearly"
       end
     end
   end

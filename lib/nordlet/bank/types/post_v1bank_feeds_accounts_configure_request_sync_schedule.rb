@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 module Nordlet
-  module Reference
+  module Bank
     module Types
-      module PostV1ReferenceEuVatRatesImportsListResponseRowsItemTrigger
+      module PostV1BankFeedsAccountsConfigureRequestSyncSchedule
         extend Nordlet::Internal::Types::Enum
 
-        SEED = "seed"
-        SCHEDULED = "scheduled"
         MANUAL = "manual"
+        DAILY = "daily"
+        WEEKLY = "weekly"
+        MONTHLY = "monthly"
       end
     end
   end

@@ -8,6 +8,8 @@ module Nordlet
 
         field :type_id, -> { String }, optional: true, nullable: false, api_name: "typeId"
 
+        field :kind, -> { Nordlet::Agreements::Types::PostV1AgreementsAgreementsUpdateRequestKind }, optional: true, nullable: false
+
         field :name, -> { String }, optional: true, nullable: false
 
         field :end_date, -> { String }, optional: true, nullable: false, api_name: "endDate"
@@ -21,6 +23,8 @@ module Nordlet
         field :status, -> { Nordlet::Agreements::Types::PostV1AgreementsAgreementsUpdateRequestStatus }, optional: true, nullable: false
 
         field :notes, -> { String }, optional: true, nullable: false
+
+        field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
       end
     end
   end

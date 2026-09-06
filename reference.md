@@ -820,122 +820,6 @@ client.reference.post_v1reference_eu_vat_rates_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_eu_vat_rates_imports_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceEuVatRatesImportsListResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-History of EU VAT rate imports from the EC TEDB VatRetrievalService: when rates were pulled, what changed, and whether the run succeeded. The initial seed run carries the built-in snapshot.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.reference.post_v1reference_eu_vat_rates_imports_list
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**limit:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Reference::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_eu_vat_rates_sync</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSyncResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Trigger an immediate pull of EU VAT rates from the EC TEDB VatRetrievalService. Rates are shared reference data: new rates open with today as their effective date, rates that disappeared are closed with a validity end date. Returns the finished import run.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.reference.post_v1reference_eu_vat_rates_sync
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Reference::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 <details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_eu_vat_rates_set_overrides</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSetOverridesResponse</code></summary>
 <dl>
 <dd>
@@ -2840,6 +2724,14 @@ client.partners.post_v1partners_create(name: "name")
 <dl>
 <dd>
 
+**document_ref:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Partners::RequestOptions` 
     
 </dd>
@@ -3017,6 +2909,14 @@ client.partners.post_v1partners_find_or_create(name: "name")
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_ref:** `String` 
     
 </dd>
 </dl>
@@ -3257,6 +3157,14 @@ client.partners.post_v1partners_update(id: "id")
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_ref:** `String` 
     
 </dd>
 </dl>
@@ -4461,6 +4369,14 @@ client.catalog.post_v1catalog_items_create(name: "name")
 <dl>
 <dd>
 
+**document_ref:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **translations:** `Internal::Types::Hash[String, Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestTranslationsValue]` 
     
 </dd>
@@ -4710,6 +4626,14 @@ client.catalog.post_v1catalog_items_update(id: "id")
 <dd>
 
 **attributes:** `Internal::Types::Hash[String, String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_ref:** `String` 
     
 </dd>
 </dl>
@@ -5756,6 +5680,14 @@ client.sales.post_v1sales_invoices_create(
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_ref:** `String` 
     
 </dd>
 </dl>
@@ -7799,6 +7731,14 @@ client.purchases.post_v1purchases_invoices_create(
 <dl>
 <dd>
 
+**document_ref:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **lines:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesCreateRequestLinesItem]` 
     
 </dd>
@@ -8244,6 +8184,14 @@ client.purchases.post_v1purchases_orders_create(
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_ref:** `String` 
     
 </dd>
 </dl>
@@ -11133,6 +11081,14 @@ client.ledger.post_v1ledger_accounts_create(
 <dl>
 <dd>
 
+**translations:** `Nordlet::Ledger::Types::PostV1LedgerAccountsCreateRequestTranslations` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **type:** `Nordlet::Ledger::Types::PostV1LedgerAccountsCreateRequestType` 
     
 </dd>
@@ -11206,6 +11162,14 @@ client.ledger.post_v1ledger_accounts_update(id: "id")
 <dd>
 
 **name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**translations:** `Nordlet::Ledger::Types::PostV1LedgerAccountsUpdateRequestTranslations` 
     
 </dd>
 </dl>
@@ -13113,6 +13077,14 @@ client.assets.post_v1assets_assets_create(
 <dl>
 <dd>
 
+**documents:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsCreateRequestDocumentsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Assets::RequestOptions` 
     
 </dd>
@@ -13815,6 +13787,14 @@ client.hr.post_v1hr_employees_create(
 <dl>
 <dd>
 
+**attributes:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesCreateRequestAttributesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Hr::RequestOptions` 
     
 </dd>
@@ -13976,6 +13956,14 @@ client.hr.post_v1hr_employees_update(id: "id")
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**attributes:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesUpdateRequestAttributesItem]` 
     
 </dd>
 </dl>
@@ -14264,7 +14252,6 @@ client.hr.blank_an_employees_personal_data_and_hide_the_record(id: "id")
 ```ruby
 client.hr.post_v1hr_contracts_create(
   employee_id: "employeeId",
-  contract_no: "contractNo",
   start_date: "startDate",
   base_salary: "baseSalary"
 )
@@ -14307,6 +14294,14 @@ client.hr.post_v1hr_contracts_create(
 <dd>
 
 **schedule_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**agreement_id:** `String` 
     
 </dd>
 </dl>
@@ -14362,7 +14357,7 @@ client.hr.post_v1hr_contracts_create(
 <dl>
 <dd>
 
-**work_hours_per_week:** `String` 
+**work_hours:** `String` 
     
 </dd>
 </dl>
@@ -15659,6 +15654,14 @@ client.fleet.post_v1fleet_vehicles_create(
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**documents:** `Internal::Types::Array[Nordlet::Fleet::Types::PostV1FleetVehiclesCreateRequestDocumentsItem]` 
     
 </dd>
 </dl>
@@ -17098,7 +17101,6 @@ client.agreements.post_v1agreements_types_list
 
 ```ruby
 client.agreements.post_v1agreements_agreements_create(
-  partner_id: "partnerId",
   number: "number",
   start_date: "startDate"
 )
@@ -17124,7 +17126,31 @@ client.agreements.post_v1agreements_agreements_create(
 <dl>
 <dd>
 
+**kind:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**employee_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_id:** `String` 
     
 </dd>
 </dl>
@@ -17205,6 +17231,14 @@ client.agreements.post_v1agreements_agreements_create(
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_ref:** `String` 
     
 </dd>
 </dl>
@@ -17324,6 +17358,14 @@ client.agreements.post_v1agreements_agreements_update(id: "id")
 <dl>
 <dd>
 
+**kind:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsUpdateRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **name:** `String` 
     
 </dd>
@@ -17373,6 +17415,14 @@ client.agreements.post_v1agreements_agreements_update(id: "id")
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_ref:** `String` 
     
 </dd>
 </dl>
@@ -24183,6 +24233,14 @@ client.bank.post_v1bank_accounts_create(name: "name")
 <dl>
 <dd>
 
+**document_ref:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Bank::RequestOptions` 
     
 </dd>
@@ -24448,6 +24506,14 @@ client.bank.post_v1bank_statements_import(
 <dl>
 <dd>
 
+**template_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **format:** `Nordlet::Bank::Types::PostV1BankStatementsImportRequestFormat` 
     
 </dd>
@@ -24616,6 +24682,100 @@ client.bank.post_v1bank_transactions_match(
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_transactions_record</a>(request) -> Nordlet::Bank::Types::PostV1BankTransactionsRecordResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_transactions_record(
+  bank_account_id: "bankAccountId",
+  date: "date",
+  amount: "amount",
+  document_type: "sale_invoice",
+  document_id: "documentId"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**bank_account_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_type:** `Nordlet::Bank::Types::PostV1BankTransactionsRecordRequestDocumentType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_payments_export</a>(request) -> Nordlet::Bank::Types::PostV1BankPaymentsExportResponse</code></summary>
 <dl>
 <dd>
@@ -24664,6 +24824,409 @@ client.bank.post_v1bank_payments_export(
 <dd>
 
 **execution_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">create_a_bank_import_template_fields_default_to_the_types_standard_field_list</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.create_a_bank_import_template_fields_default_to_the_types_standard_field_list(
+  name: "name",
+  type: "stripe"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type:** `Nordlet::Bank::Types::PostV1BankImportTemplatesCreateRequestType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fields:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankImportTemplatesCreateRequestFieldsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**meta_fields:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_meta_field:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_vat_rate_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**company_meta_field:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_item_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**advance_invoices:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_import_templates_update</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_import_templates_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type:** `Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateRequestType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fields:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateRequestFieldsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**meta_fields:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_meta_field:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_vat_rate_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**company_meta_field:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_item_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**advance_invoices:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_import_templates_delete</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_import_templates_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_import_templates_get</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_import_templates_get(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_import_templates_list</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_import_templates_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankImportTemplatesListRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankImportTemplatesListRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -25907,6 +26470,70 @@ client.bank.point_a_bank_feed_account_at_a_ledger_bank_account_so_its_transactio
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">choose_the_import_template_applied_on_sync_and_how_often_the_account_is_synced_automatically</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsAccountsConfigureResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.choose_the_import_template_applied_on_sync_and_how_often_the_account_is_synced_automatically(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**import_template_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sync_schedule:** `Nordlet::Bank::Types::PostV1BankFeedsAccountsConfigureRequestSyncSchedule` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">pull_new_transactions_from_the_bank_into_the_ledger_emits_bank_feed_synced</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsSyncResponse</code></summary>
 <dl>
 <dd>
@@ -25995,7 +26622,6 @@ client.bank.pull_new_transactions_from_the_bank_into_the_ledger_emits_bank_feed_
 ```ruby
 client.files.post_v1files_upload(
   entity: "entity",
-  entity_id: "entityId",
   file_name: "fileName",
   mime_type: "mimeType",
   content: "content"

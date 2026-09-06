@@ -36,6 +36,8 @@ module Nordlet
 
         field :notes, -> { String }, optional: true, nullable: false
 
+        field :attributes, -> { Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesUpdateRequestAttributesItem] }, optional: true, nullable: false
+
         field :id, -> { String }, optional: false, nullable: false
 
         field :termination_date, -> { String }, optional: true, nullable: false, api_name: "terminationDate"

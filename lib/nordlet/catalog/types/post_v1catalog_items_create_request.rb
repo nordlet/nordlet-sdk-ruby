@@ -40,6 +40,8 @@ module Nordlet
 
         field :attributes, -> { Internal::Types::Hash[String, String] }, optional: true, nullable: false
 
+        field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
+
         field :translations, -> { Internal::Types::Hash[String, Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestTranslationsValue] }, optional: true, nullable: false
 
         field :components, -> { Internal::Types::Array[Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestComponentsItem] }, optional: true, nullable: false

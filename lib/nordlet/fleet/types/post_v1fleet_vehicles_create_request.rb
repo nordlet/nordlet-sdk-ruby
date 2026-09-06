@@ -27,6 +27,8 @@ module Nordlet
         field :insurance_due, -> { String }, optional: true, nullable: false, api_name: "insuranceDue"
 
         field :notes, -> { String }, optional: true, nullable: false
+
+        field :documents, -> { Internal::Types::Array[Nordlet::Fleet::Types::PostV1FleetVehiclesCreateRequestDocumentsItem] }, optional: true, nullable: false
       end
     end
   end

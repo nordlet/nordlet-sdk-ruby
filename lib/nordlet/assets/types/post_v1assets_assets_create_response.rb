@@ -36,6 +36,8 @@ module Nordlet
 
         field :notes, -> { String }, optional: false, nullable: true
 
+        field :documents, -> { Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsCreateResponseDocumentsItem] }, optional: false, nullable: true
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
       end
     end

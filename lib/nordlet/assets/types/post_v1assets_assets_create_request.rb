@@ -21,6 +21,8 @@ module Nordlet
         field :useful_life_months, -> { Integer }, optional: true, nullable: false, api_name: "usefulLifeMonths"
 
         field :notes, -> { String }, optional: true, nullable: false
+
+        field :documents, -> { Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsCreateRequestDocumentsItem] }, optional: true, nullable: false
       end
     end
   end

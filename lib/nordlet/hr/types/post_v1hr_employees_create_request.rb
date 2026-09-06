@@ -35,6 +35,8 @@ module Nordlet
         field :pension_accumulation, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "pensionAccumulation"
 
         field :notes, -> { String }, optional: true, nullable: false
+
+        field :attributes, -> { Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesCreateRequestAttributesItem] }, optional: true, nullable: false
       end
     end
   end
