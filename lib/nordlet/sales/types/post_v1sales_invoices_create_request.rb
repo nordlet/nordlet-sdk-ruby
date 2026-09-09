@@ -26,6 +26,24 @@ module Nordlet
 
         field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
 
+        field :operation_type_id, -> { String }, optional: true, nullable: false, api_name: "operationTypeId"
+
+        field :document_series_id, -> { String }, optional: true, nullable: false, api_name: "documentSeriesId"
+
+        field :series_label, -> { String }, optional: true, nullable: false, api_name: "seriesLabel"
+
+        field :order_number, -> { String }, optional: true, nullable: false, api_name: "orderNumber"
+
+        field :issued_by_name, -> { String }, optional: true, nullable: false, api_name: "issuedByName"
+
+        field :issued_by_title, -> { String }, optional: true, nullable: false, api_name: "issuedByTitle"
+
+        field :received_by_name, -> { String }, optional: true, nullable: false, api_name: "receivedByName"
+
+        field :received_by_title, -> { String }, optional: true, nullable: false, api_name: "receivedByTitle"
+
+        field :discount_percent, -> { String }, optional: true, nullable: false, api_name: "discountPercent"
+
         field :lines, -> { Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequestLinesItem] }, optional: false, nullable: false
       end
     end

@@ -108,6 +108,14 @@ client.reference.post_v1reference_exchange_rates_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Reference::RequestOptions` 
     
 </dd>
@@ -248,6 +256,14 @@ client.reference.post_v1reference_exchange_rates_overrides_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Reference::RequestOptions` 
     
 </dd>
@@ -359,6 +375,150 @@ client.reference.post_v1reference_countries_list
 </dl>
 </details>
 
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_lt_counties_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceLtCountiesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.reference.post_v1reference_lt_counties_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Reference::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_lt_municipalities_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceLtMunicipalitiesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.reference.post_v1reference_lt_municipalities_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**county_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Reference::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_lt_cities_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceLtCitiesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.reference.post_v1reference_lt_cities_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**municipality_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**q:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Reference::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_banks_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceBanksListResponse</code></summary>
 <dl>
 <dd>
@@ -412,6 +572,14 @@ client.reference.post_v1reference_banks_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceBanksListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -615,6 +783,14 @@ client.reference.post_v1reference_currencies_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Reference::RequestOptions` 
     
 </dd>
@@ -680,6 +856,14 @@ client.reference.post_v1reference_vat_classifiers_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceVatClassifiersListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -1076,6 +1260,14 @@ client.reference.post_v1reference_cn_codes_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Reference::RequestOptions` 
     
 </dd>
@@ -1287,6 +1479,14 @@ client.reference.post_v1reference_units_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Reference::RequestOptions` 
     
 </dd>
@@ -1427,6 +1627,14 @@ client.reference.post_v1reference_series_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceSeriesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -1747,6 +1955,14 @@ client.partners.post_v1partners_addresses_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Partners::RequestOptions` 
     
 </dd>
@@ -2039,6 +2255,14 @@ client.partners.post_v1partners_contacts_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersContactsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -2345,6 +2569,182 @@ client.partners.post_v1partners_bank_accounts_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_files_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersFilesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1partners_files_list(partner_id: "partnerId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">reminders_the_overnight_debt_reminder_job_would_send_today_for_this_company</a>(request) -> Nordlet::Partners::Types::PostV1PartnersDebtRemindersPreviewResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.reminders_the_overnight_debt_reminder_job_would_send_today_for_this_company
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_debt_reminders_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersDebtRemindersListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1partners_debt_reminders_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersDebtRemindersListRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersDebtRemindersListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Partners::RequestOptions` 
     
 </dd>
@@ -2466,6 +2866,14 @@ client.partners.post_v1partners_vat_reviews_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersVatReviewsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -2716,6 +3124,14 @@ client.partners.post_v1partners_create(name: "name")
 <dl>
 <dd>
 
+**correspondence_address:** `Nordlet::Partners::Types::PostV1PartnersCreateRequestCorrespondenceAddress` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **notes:** `String` 
     
 </dd>
@@ -2725,6 +3141,134 @@ client.partners.post_v1partners_create(name: "name")
 <dd>
 
 **document_ref:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**short_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**website:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fax:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**eori_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**other_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**foreign_tax_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auto_debt_reminder:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**late_interest_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**first_call_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_call_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_call_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**rating:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_employee:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_group_member:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**legal_country_class:** `Nordlet::Partners::Types::PostV1PartnersCreateRequestLegalCountryClass` 
     
 </dd>
 </dl>
@@ -2908,6 +3452,14 @@ client.partners.post_v1partners_find_or_create(name: "name")
 <dl>
 <dd>
 
+**correspondence_address:** `Nordlet::Partners::Types::PostV1PartnersFindOrCreateRequestCorrespondenceAddress` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **notes:** `String` 
     
 </dd>
@@ -2917,6 +3469,134 @@ client.partners.post_v1partners_find_or_create(name: "name")
 <dd>
 
 **document_ref:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**short_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**website:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fax:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**eori_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**other_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**foreign_tax_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auto_debt_reminder:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**late_interest_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**first_call_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_call_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_call_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**rating:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_employee:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_group_member:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**legal_country_class:** `Nordlet::Partners::Types::PostV1PartnersFindOrCreateRequestLegalCountryClass` 
     
 </dd>
 </dl>
@@ -3156,6 +3836,14 @@ client.partners.post_v1partners_update(id: "id")
 <dl>
 <dd>
 
+**correspondence_address:** `Nordlet::Partners::Types::PostV1PartnersUpdateRequestCorrespondenceAddress` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **notes:** `String` 
     
 </dd>
@@ -3165,6 +3853,134 @@ client.partners.post_v1partners_update(id: "id")
 <dd>
 
 **document_ref:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**short_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**website:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fax:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**eori_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**other_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**foreign_tax_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auto_debt_reminder:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**late_interest_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**first_call_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_call_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_call_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**rating:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_employee:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_group_member:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**legal_country_class:** `Nordlet::Partners::Types::PostV1PartnersUpdateRequestLegalCountryClass` 
     
 </dd>
 </dl>
@@ -3347,6 +4163,14 @@ client.partners.post_v1partners_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -4128,6 +4952,14 @@ client.partners.post_v1partners_inquiries_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Partners::RequestOptions` 
     
 </dd>
@@ -4177,6 +5009,1023 @@ client.partners.post_v1partners_credit_check(partner_id: "partnerId")
 <dd>
 
 **additional_amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_create</a>(request) -> Nordlet::Partners::Types::PostV1LeadsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_create(name: "name")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contact_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**email:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**phone:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**website:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**source_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `Nordlet::Partners::Types::PostV1LeadsCreateRequestStatus` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**estimated_value:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**currency:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assigned_user_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**documents:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1LeadsCreateRequestDocumentsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_get</a>(request) -> Nordlet::Partners::Types::PostV1LeadsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_get(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_update</a>(request) -> Nordlet::Partners::Types::PostV1LeadsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contact_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**email:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**phone:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**website:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**source_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `Nordlet::Partners::Types::PostV1LeadsUpdateRequestStatus` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**estimated_value:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**currency:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assigned_user_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**documents:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1LeadsUpdateRequestDocumentsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_delete</a>(request) -> Nordlet::Partners::Types::PostV1LeadsDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_list</a>(request) -> Nordlet::Partners::Types::PostV1LeadsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1LeadsListRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1LeadsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_notes_create</a>(request) -> Nordlet::Partners::Types::PostV1LeadsNotesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_notes_create(
+  lead_id: "leadId",
+  body: "body"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**lead_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**body:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_notes_delete</a>(request) -> Nordlet::Partners::Types::PostV1LeadsNotesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_notes_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_notes_list</a>(request) -> Nordlet::Partners::Types::PostV1LeadsNotesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_notes_list(lead_id: "leadId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**lead_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_files_list</a>(request) -> Nordlet::Partners::Types::PostV1LeadsFilesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_files_list(lead_id: "leadId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**lead_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_create</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_sources_create(name: "name")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_update</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_sources_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_delete</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_sources_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_list</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_sources_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_options</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesOptionsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_sources_options
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_convert</a>(request) -> Nordlet::Partners::Types::PostV1LeadsConvertResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a customer partner from the lead, move the lead files to the partner, copy the lead notes into the partner notes and mark the lead as converted.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.post_v1leads_convert(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partner_type:** `Nordlet::Partners::Types::PostV1LeadsConvertRequestPartnerType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_code:** `String` 
     
 </dd>
 </dl>
@@ -4386,6 +6235,222 @@ client.catalog.post_v1catalog_items_create(name: "name")
 <dd>
 
 **components:** `Internal::Types::Array[Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestComponentsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**kind_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sale_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**purchase_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**expense_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**manufacturer:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**gross_mass_kg:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**min_quantity:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cost_price:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_free_price:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_returnable:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**comment_required:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**price_from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**price_to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**min_price:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**discount_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_discount_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**loyalty_points:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**department:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**age_restriction:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**package_quantity:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tara_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**certificate_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**certificate_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**valid_from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**valid_to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pos_flags:** `Internal::Types::Hash[String, Internal::Types::Boolean]` 
     
 </dd>
 </dl>
@@ -4657,6 +6722,222 @@ client.catalog.post_v1catalog_items_update(id: "id")
 <dl>
 <dd>
 
+**kind_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sale_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**purchase_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**expense_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**manufacturer:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**gross_mass_kg:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**min_quantity:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cost_price:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_free_price:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_returnable:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**comment_required:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**price_from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**price_to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**min_price:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**discount_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_discount_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**loyalty_points:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**department:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**age_restriction:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**package_quantity:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tara_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**certificate_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**certificate_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**valid_from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**valid_to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pos_flags:** `Internal::Types::Hash[String, Internal::Types::Boolean]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Catalog::RequestOptions` 
     
 </dd>
@@ -4770,6 +7051,596 @@ client.catalog.post_v1catalog_items_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Catalog::Types::PostV1CatalogItemsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_files_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsFilesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_items_files_list(item_id: "itemId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**item_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_kinds_create</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsKindsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_items_kinds_create(
+  code: "code",
+  name: "name"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**saft_type:** `Nordlet::Catalog::Types::PostV1CatalogItemsKindsCreateRequestSaftType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quantity_accounting:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort_order:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_kinds_update</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsKindsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_items_kinds_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**saft_type:** `Nordlet::Catalog::Types::PostV1CatalogItemsKindsUpdateRequestSaftType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quantity_accounting:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort_order:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_kinds_delete</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsKindsDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_items_kinds_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_kinds_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsKindsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_items_kinds_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_create</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_units_create(
+  code: "code",
+  name: "name"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_update</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_units_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_delete</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_units_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_units_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Catalog::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_options</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsOptionsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.catalog.post_v1catalog_units_options
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**locale:** `Nordlet::Catalog::Types::PostV1CatalogUnitsOptionsRequestLocale` 
     
 </dd>
 </dl>
@@ -5695,6 +8566,78 @@ client.sales.post_v1sales_invoices_create(
 <dl>
 <dd>
 
+**operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_series_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**series_label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**order_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**issued_by_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**issued_by_title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**received_by_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**received_by_title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**discount_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **lines:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequestLinesItem]` 
     
 </dd>
@@ -6203,6 +9146,78 @@ client.sales.post_v1sales_invoices_update(id: "id")
 <dl>
 <dd>
 
+**operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_series_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**series_label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**discount_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**order_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**issued_by_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**issued_by_title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**received_by_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**received_by_title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **lines:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesUpdateRequestLinesItem]` 
     
 </dd>
@@ -6343,6 +9358,238 @@ client.sales.post_v1sales_invoices_issue(id: "id")
 </dl>
 </details>
 
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_lock</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesLockResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_invoices_lock(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_unlock</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesUnlockResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_invoices_unlock(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_payment_link</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesPaymentLinkResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_invoices_payment_link(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_payment_settings_get</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_invoices_payment_settings_get
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_payment_settings_update</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_invoices_payment_settings_update
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**payment_link_template:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_schedules_list</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListResponse</code></summary>
 <dl>
 <dd>
@@ -6396,6 +9643,14 @@ client.sales.post_v1sales_recognition_schedules_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -6535,6 +9790,14 @@ client.sales.post_v1sales_invoices_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -7022,6 +10285,14 @@ client.sales.post_v1sales_acts_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Sales::RequestOptions` 
     
 </dd>
@@ -7071,6 +10342,1113 @@ client.sales.post_v1sales_acts_pdf(id: "id")
 <dd>
 
 **locale:** `Nordlet::Sales::Types::PostV1SalesActsPdfRequestLocale` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_create</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1operation_types_create(
+  code: "code",
+  name: "name"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_type:** `Nordlet::Sales::Types::PostV1OperationTypesCreateRequestInvoiceType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payer_partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**debit_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**credit_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**expense_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**advance_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**income_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_purchase:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_sale:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_write_off:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_internal_movement:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_purchase_return:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_sales_return:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_consignment:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_production:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_asset_in:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_asset_out:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_cash_register_sale:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_in_vat_register:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_in_saft:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort_order:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_update</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1operation_types_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_type:** `Nordlet::Sales::Types::PostV1OperationTypesUpdateRequestInvoiceType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payer_partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**debit_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**credit_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**expense_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**advance_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**income_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_purchase:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_sale:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_write_off:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_internal_movement:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_purchase_return:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_sales_return:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_consignment:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_production:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_asset_in:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_asset_out:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_cash_register_sale:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_in_vat_register:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_in_saft:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort_order:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_get</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1operation_types_get(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_delete</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1operation_types_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_list</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1operation_types_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1OperationTypesListRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1OperationTypesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_create</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1document_series_create(prefix: "prefix")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**document_type:** `Nordlet::Sales::Types::PostV1DocumentSeriesCreateRequestDocumentType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**prefix:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**number_length:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_number:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warehouse_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**print_series:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_default:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_update</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1document_series_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_type:** `Nordlet::Sales::Types::PostV1DocumentSeriesUpdateRequestDocumentType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**prefix:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**number_length:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_number:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warehouse_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**print_series:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_default:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_get</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1document_series_get(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_delete</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1document_series_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_list</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1document_series_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1DocumentSeriesListRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1DocumentSeriesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -7426,6 +11804,14 @@ client.sales.post_v1sales_recognition_runs_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Sales::RequestOptions` 
     
 </dd>
@@ -7539,6 +11925,14 @@ client.sales.post_v1sales_refund_liability_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRefundLiabilityListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -7723,6 +12117,14 @@ client.purchases.post_v1purchases_invoices_create(
 <dl>
 <dd>
 
+**operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **notes:** `String` 
     
 </dd>
@@ -7884,6 +12286,14 @@ client.purchases.post_v1purchases_invoices_update(id: "id")
 <dd>
 
 **purchase_order_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**operation_type_id:** `String` 
     
 </dd>
 </dl>
@@ -8084,6 +12494,14 @@ client.purchases.post_v1purchases_invoices_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -8424,6 +12842,14 @@ client.purchases.post_v1purchases_orders_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesOrdersListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -8966,6 +13392,14 @@ client.purchases.post_v1purchases_receipts_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Purchases::RequestOptions` 
     
 </dd>
@@ -9035,6 +13469,254 @@ client.purchases.post_v1purchases_invoices_match(invoice_id: "invoiceId")
 </details>
 
 ## Capture
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">post_v1capture_settings_get</a>(request) -> Nordlet::Capture::Types::PostV1CaptureSettingsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.capture.post_v1capture_settings_get
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Capture::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">post_v1capture_settings_update</a>(request) -> Nordlet::Capture::Types::PostV1CaptureSettingsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.capture.post_v1capture_settings_update
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**intake_enabled:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**capture_auto_extract:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Capture::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">post_v1capture_settings_regenerate_intake</a>(request) -> Nordlet::Capture::Types::PostV1CaptureSettingsRegenerateIntakeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.capture.post_v1capture_settings_regenerate_intake
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Capture::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">receive_an_inbound_email_with_supplier_documents_attached_postmark_style_or_generic_json</a>(request) -> Nordlet::Capture::Types::PostV1CaptureInboundEmailResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.capture.receive_an_inbound_email_with_supplier_documents_attached_postmark_style_or_generic_json
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**postmark_to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_full:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureInboundEmailRequestToFullItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**postmark_from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**postmark_subject:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**postmark_attachments:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureInboundEmailRequestAttachmentsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to:** `Nordlet::Capture::Types::PostV1CaptureInboundEmailRequestTo` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**subject:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**attachments:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureInboundEmailRequestAttachmentsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Capture::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">read_a_vendor_bill_or_receipt_and_return_an_editable_purchase_invoice_draft</a>(request) -> Nordlet::Capture::Types::PostV1CaptureDocumentsUploadResponse</code></summary>
 <dl>
 <dd>
@@ -9252,6 +13934,14 @@ client.capture.post_v1capture_documents_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureDocumentsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -10948,6 +15638,14 @@ client.declarations.post_v1declarations_submissions_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Declarations::RequestOptions` 
     
 </dd>
@@ -11014,6 +15712,14 @@ client.ledger.post_v1ledger_accounts_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerAccountsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -11305,6 +16011,14 @@ client.ledger.post_v1ledger_periods_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Ledger::RequestOptions` 
     
 </dd>
@@ -11488,6 +16202,14 @@ client.ledger.post_v1ledger_journal_transactions_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -11699,6 +16421,14 @@ client.ledger.post_v1ledger_cost_centers_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerCostCentersListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -11942,6 +16672,14 @@ client.ledger.post_v1ledger_cost_center_groups_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerCostCenterGroupsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -12368,6 +17106,14 @@ client.ledger.post_v1ledger_owners_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerOwnersListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -12959,6 +17705,14 @@ client.assets.post_v1assets_groups_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Assets::RequestOptions` 
     
 </dd>
@@ -13198,6 +17952,14 @@ client.assets.post_v1assets_assets_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -13609,6 +18371,14 @@ client.hr.post_v1hr_positions_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrPositionsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -14115,6 +18885,14 @@ client.hr.post_v1hr_employees_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Hr::RequestOptions` 
     
 </dd>
@@ -14512,6 +19290,14 @@ client.hr.post_v1hr_contracts_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Hr::RequestOptions` 
     
 </dd>
@@ -14810,6 +19596,14 @@ client.hr.post_v1hr_incapacity_certificates_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrIncapacityCertificatesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -15142,6 +19936,14 @@ client.hr.post_v1hr_employees_records_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesRecordsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -15941,6 +20743,14 @@ client.fleet.post_v1fleet_vehicles_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Fleet::RequestOptions` 
     
 </dd>
@@ -16165,6 +20975,14 @@ client.fleet.post_v1fleet_assignments_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Fleet::Types::PostV1FleetAssignmentsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -16732,6 +21550,14 @@ client.payroll.post_v1payroll_runs_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Payroll::RequestOptions` 
     
 </dd>
@@ -17068,6 +21894,14 @@ client.agreements.post_v1agreements_types_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsTypesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -17550,6 +22384,14 @@ client.agreements.post_v1agreements_agreements_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Agreements::RequestOptions` 
     
 </dd>
@@ -17835,6 +22677,14 @@ client.agreements.post_v1agreements_insurance_policies_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Agreements::RequestOptions` 
     
 </dd>
@@ -18104,6 +22954,14 @@ client.inventory.post_v1inventory_warehouses_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryWarehousesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -18646,6 +23504,14 @@ client.inventory.post_v1inventory_stock_movements_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Inventory::RequestOptions` 
     
 </dd>
@@ -18711,6 +23577,14 @@ client.inventory.post_v1inventory_lots_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryLotsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -19049,6 +23923,14 @@ client.inventory.post_v1inventory_landed_costs_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Inventory::RequestOptions` 
     
 </dd>
@@ -19333,6 +24215,14 @@ client.inventory.post_v1inventory_reorder_rules_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryReorderRulesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -19648,6 +24538,14 @@ client.production.post_v1production_work_centers_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Production::RequestOptions` 
     
 </dd>
@@ -19841,6 +24739,14 @@ client.production.post_v1production_routings_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionRoutingsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -20135,6 +25041,14 @@ client.production.post_v1production_maintenance_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Production::RequestOptions` 
     
 </dd>
@@ -20344,6 +25258,14 @@ client.production.post_v1production_boms_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionBomsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -20717,6 +25639,14 @@ client.production.post_v1production_quality_checks_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Production::RequestOptions` 
     
 </dd>
@@ -20902,6 +25832,14 @@ client.production.post_v1production_orders_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionOrdersListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -21147,6 +26085,14 @@ client.ecommerce.post_v1ecommerce_orders_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Ecommerce::Types::PostV1EcommerceOrdersListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -21705,6 +26651,14 @@ client.cash.post_v1cash_orders_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Cash::RequestOptions` 
     
 </dd>
@@ -22077,6 +27031,14 @@ client.projects.post_v1projects_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Projects::RequestOptions` 
     
 </dd>
@@ -22378,6 +27340,14 @@ client.projects.post_v1projects_time_entries_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Projects::Types::PostV1ProjectsTimeEntriesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -23167,6 +28137,14 @@ client.transport.post_v1transport_waybills_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Transport::RequestOptions` 
     
 </dd>
@@ -23412,6 +28390,14 @@ client.pos.post_v1pos_devices_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Pos::Types::PostV1PosDevicesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -23707,7 +28693,331 @@ client.pos.post_v1pos_reports_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Pos::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Calendar
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_list</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.calendar.post_v1calendar_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_done:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Calendar::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_get</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.calendar.post_v1calendar_get(key: "key")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**key:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Calendar::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_create</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.calendar.post_v1calendar_create(
+  title: "title",
+  due_date: "dueDate"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**due_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**done:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Calendar::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_update</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.calendar.post_v1calendar_update(key: "key")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**key:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**due_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**done:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Calendar::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_delete</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.calendar.post_v1calendar_delete(key: "key")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**key:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Calendar::RequestOptions` 
     
 </dd>
 </dl>
@@ -23773,6 +29083,14 @@ client.audit.post_v1audit_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Audit::Types::PostV1AuditListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -23913,6 +29231,14 @@ client.webhooks.post_v1webhooks_subscriptions_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Webhooks::Types::PostV1WebhooksSubscriptionsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -24105,6 +29431,14 @@ client.webhooks.post_v1webhooks_deliveries_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Webhooks::Types::PostV1WebhooksDeliveriesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -24306,6 +29640,14 @@ client.bank.post_v1bank_accounts_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankAccountsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -24530,6 +29872,14 @@ client.bank.post_v1bank_statements_import(
 <dl>
 <dd>
 
+**transfers_csv:** `String` — Stripe transfers export (plain CSV or base64) used to post lender payouts and commissions
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Bank::RequestOptions` 
     
 </dd>
@@ -24595,6 +29945,14 @@ client.bank.post_v1bank_transactions_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankTransactionsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -24946,6 +30304,54 @@ client.bank.create_a_bank_import_template_fields_default_to_the_types_standard_f
 <dl>
 <dd>
 
+**authorization_operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payout_operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**commission_operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lender_meta_field:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partial_refund_label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**full_refund_label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Bank::RequestOptions` 
     
 </dd>
@@ -25051,6 +30457,54 @@ client.bank.post_v1bank_import_templates_update(id: "id")
 <dd>
 
 **advance_invoices:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**authorization_operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payout_operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**commission_operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lender_meta_field:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partial_refund_label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**full_refund_label:** `String` 
     
 </dd>
 </dl>
@@ -25230,6 +30684,305 @@ client.bank.post_v1bank_import_templates_list
     
 </dd>
 </dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_match_rules_create</a>(request) -> Nordlet::Bank::Types::PostV1BankMatchRulesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_match_rules_create(
+  name: "name",
+  pattern: "pattern"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**provider:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pattern:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payout_id_prefix:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date_window_days:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_match_rules_update</a>(request) -> Nordlet::Bank::Types::PostV1BankMatchRulesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_match_rules_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**provider:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pattern:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payout_id_prefix:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date_window_days:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_match_rules_delete</a>(request) -> Nordlet::Bank::Types::PostV1BankMatchRulesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_match_rules_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_match_rules_list</a>(request) -> Nordlet::Bank::Types::PostV1BankMatchRulesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_match_rules_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
 
 <dl>
 <dd>
@@ -25590,6 +31343,14 @@ client.bank.post_v1bank_mandates_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Bank::RequestOptions` 
     
 </dd>
@@ -25852,6 +31613,14 @@ client.bank.post_v1bank_settlements_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Bank::RequestOptions` 
     
 </dd>
@@ -25949,6 +31718,141 @@ client.bank.post_v1bank_settlements_match(line_id: "lineId")
 <dd>
 
 **invoice_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_link</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsLinkResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Attach the incoming bank-statement line that carries this payout to the settlement batch.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_settlements_link(
+  id: "id",
+  bank_transaction_id: "bankTransactionId"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_transaction_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_unlink</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsUnlinkResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Detach the bank-statement line from the settlement batch and return the line to unmatched.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.post_v1bank_settlements_unlink(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
     
 </dd>
 </dl>
@@ -26331,6 +32235,14 @@ client.bank.post_v1bank_feeds_connections_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankFeedsConnectionsListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -26793,6 +32705,14 @@ client.files.post_v1files_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Files::Types::PostV1FilesListRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -28478,6 +34398,14 @@ client.reports.post_v1reports_jobs_list
 <dl>
 <dd>
 
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Reports::RequestOptions` 
     
 </dd>
@@ -29391,6 +35319,54 @@ client.public.post_v1public_integration_requests(
 </dl>
 </details>
 
+<details><summary><code>client.public.<a href="/lib/nordlet/public/client.rb">get_v1public_pay_token</a>(token:) -> </code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.public.get_v1public_pay_token(token: "token")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**token:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Public::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Billing
 <details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">post_v1billing_account_get</a>(request) -> Nordlet::Billing::Types::PostV1BillingAccountGetResponse</code></summary>
 <dl>
@@ -29517,6 +35493,54 @@ client.billing.post_v1billing_topup_create(amount_cents: 1000000)
 <dd>
 
 **locale:** `Nordlet::Billing::Types::PostV1BillingTopupCreateRequestLocale` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Billing::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">post_v1billing_portal_create</a>(request) -> Nordlet::Billing::Types::PostV1BillingPortalCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.billing.post_v1billing_portal_create
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**locale:** `Nordlet::Billing::Types::PostV1BillingPortalCreateRequestLocale` 
     
 </dd>
 </dl>
@@ -29697,6 +35721,14 @@ client.account.post_v1account_login_link_request(email: "email")
 <dd>
 
 **accept_dpa:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**referral_code:** `String` 
     
 </dd>
 </dl>
@@ -31387,6 +37419,198 @@ client.account.delete_the_signed_in_user_account(confirm_email: "confirmEmail")
     
 </dd>
 </dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_referral_get</a>(request) -> Nordlet::Account::Types::PostV1AccountReferralGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_referral_get
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_table_settings_get</a>(request) -> Nordlet::Account::Types::PostV1AccountTableSettingsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_table_settings_get(table_key: "tableKey")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**table_key:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_table_settings_set</a>(request) -> Nordlet::Account::Types::PostV1AccountTableSettingsSetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_table_settings_set(table_key: "tableKey")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**table_key:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**columns:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_table_settings_list</a>(request) -> Nordlet::Account::Types::PostV1AccountTableSettingsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_table_settings_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
 
 <dl>
 <dd>

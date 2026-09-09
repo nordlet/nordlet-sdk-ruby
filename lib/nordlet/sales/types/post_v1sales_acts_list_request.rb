@@ -11,6 +11,8 @@ module Nordlet
         field :sort, -> { Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesActsListRequestSortItem] }, optional: true, nullable: false
 
         field :filter, -> { Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesActsListRequestFilterItem] }, optional: true, nullable: false
+
+        field :totals, -> { Internal::Types::Array[String] }, optional: true, nullable: false
       end
     end
   end

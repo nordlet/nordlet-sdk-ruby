@@ -1,0 +1,16 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Partners
+    module Types
+      module PostV1LeadsUpdateRequestStatus
+        extend Nordlet::Internal::Types::Enum
+
+        NEW = "new"
+        CONTACTED = "contacted"
+        QUALIFIED = "qualified"
+        LOST = "lost"
+      end
+    end
+  end
+end

@@ -8,6 +8,10 @@ module Nordlet
 
         field :city, -> { String }, optional: true, nullable: false
 
+        field :municipality, -> { String }, optional: true, nullable: false
+
+        field :county, -> { String }, optional: true, nullable: false
+
         field :postal_code, -> { String }, optional: true, nullable: false, api_name: "postalCode"
 
         field :country_code, -> { String }, optional: true, nullable: false, api_name: "countryCode"

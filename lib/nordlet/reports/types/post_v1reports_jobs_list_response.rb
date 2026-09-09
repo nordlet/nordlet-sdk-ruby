@@ -11,6 +11,8 @@ module Nordlet
         field :page_size, -> { Integer }, optional: false, nullable: false, api_name: "pageSize"
 
         field :total, -> { Integer }, optional: false, nullable: false
+
+        field :totals, -> { Internal::Types::Hash[String, String] }, optional: true, nullable: false
       end
     end
   end

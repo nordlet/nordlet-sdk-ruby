@@ -52,6 +52,30 @@ module Nordlet
 
         field :document_ref, -> { String }, optional: false, nullable: true, api_name: "documentRef"
 
+        field :operation_type_id, -> { String }, optional: false, nullable: true, api_name: "operationTypeId"
+
+        field :document_series_id, -> { String }, optional: false, nullable: true, api_name: "documentSeriesId"
+
+        field :series_label, -> { String }, optional: false, nullable: true, api_name: "seriesLabel"
+
+        field :discount_percent, -> { String }, optional: false, nullable: false, api_name: "discountPercent"
+
+        field :order_number, -> { String }, optional: false, nullable: true, api_name: "orderNumber"
+
+        field :issued_by_name, -> { String }, optional: false, nullable: true, api_name: "issuedByName"
+
+        field :issued_by_title, -> { String }, optional: false, nullable: true, api_name: "issuedByTitle"
+
+        field :received_by_name, -> { String }, optional: false, nullable: true, api_name: "receivedByName"
+
+        field :received_by_title, -> { String }, optional: false, nullable: true, api_name: "receivedByTitle"
+
+        field :locked_at, -> { String }, optional: false, nullable: true, api_name: "lockedAt"
+
+        field :locked_by, -> { String }, optional: false, nullable: true, api_name: "lockedBy"
+
+        field :pay_token, -> { String }, optional: false, nullable: true, api_name: "payToken"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"

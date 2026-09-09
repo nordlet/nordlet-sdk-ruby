@@ -26,6 +26,8 @@ module Nordlet
 
         field :journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "journalTransactionId"
 
+        field :bank_transaction_id, -> { String }, optional: false, nullable: true, api_name: "bankTransactionId"
+
         field :line_count, -> { Integer }, optional: false, nullable: false, api_name: "lineCount"
 
         field :matched_count, -> { Integer }, optional: false, nullable: false, api_name: "matchedCount"

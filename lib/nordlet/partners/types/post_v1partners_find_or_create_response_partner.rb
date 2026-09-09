@@ -44,9 +44,43 @@ module Nordlet
 
         field :address, -> { Nordlet::Partners::Types::PostV1PartnersFindOrCreateResponsePartnerAddress }, optional: false, nullable: true
 
+        field :correspondence_address, -> { Nordlet::Partners::Types::PostV1PartnersFindOrCreateResponsePartnerCorrespondenceAddress }, optional: false, nullable: true, api_name: "correspondenceAddress"
+
         field :notes, -> { String }, optional: false, nullable: true
 
         field :document_ref, -> { String }, optional: false, nullable: true, api_name: "documentRef"
+
+        field :short_name, -> { String }, optional: false, nullable: true, api_name: "shortName"
+
+        field :website, -> { String }, optional: false, nullable: true
+
+        field :fax, -> { String }, optional: false, nullable: true
+
+        field :eori_code, -> { String }, optional: false, nullable: true, api_name: "eoriCode"
+
+        field :other_code, -> { String }, optional: false, nullable: true, api_name: "otherCode"
+
+        field :foreign_tax_number, -> { String }, optional: false, nullable: true, api_name: "foreignTaxNumber"
+
+        field :auto_debt_reminder, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "autoDebtReminder"
+
+        field :late_interest_percent, -> { String }, optional: false, nullable: true, api_name: "lateInterestPercent"
+
+        field :first_call_date, -> { String }, optional: false, nullable: true, api_name: "firstCallDate"
+
+        field :last_call_date, -> { String }, optional: false, nullable: true, api_name: "lastCallDate"
+
+        field :next_call_date, -> { String }, optional: false, nullable: true, api_name: "nextCallDate"
+
+        field :rating, -> { Integer }, optional: false, nullable: true
+
+        field :is_employee, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isEmployee"
+
+        field :is_group_member, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isGroupMember"
+
+        field :is_active, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isActive"
+
+        field :legal_country_class, -> { Nordlet::Partners::Types::PostV1PartnersFindOrCreateResponsePartnerLegalCountryClass }, optional: false, nullable: true, api_name: "legalCountryClass"
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 

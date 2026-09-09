@@ -123,6 +123,11 @@ module Nordlet
       @pos ||= Nordlet::Pos::Client.new(client: @raw_client)
     end
 
+    # @return [Nordlet::Calendar::Client]
+    def calendar
+      @calendar ||= Nordlet::Calendar::Client.new(client: @raw_client)
+    end
+
     # @return [Nordlet::Audit::Client]
     def audit
       @audit ||= Nordlet::Audit::Client.new(client: @raw_client)

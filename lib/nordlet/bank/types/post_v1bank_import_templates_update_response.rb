@@ -24,6 +24,18 @@ module Nordlet
 
         field :advance_invoices, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "advanceInvoices"
 
+        field :authorization_operation_type_id, -> { String }, optional: false, nullable: true, api_name: "authorizationOperationTypeId"
+
+        field :payout_operation_type_id, -> { String }, optional: false, nullable: true, api_name: "payoutOperationTypeId"
+
+        field :commission_operation_type_id, -> { String }, optional: false, nullable: true, api_name: "commissionOperationTypeId"
+
+        field :lender_meta_field, -> { String }, optional: false, nullable: true, api_name: "lenderMetaField"
+
+        field :partial_refund_label, -> { String }, optional: false, nullable: true, api_name: "partialRefundLabel"
+
+        field :full_refund_label, -> { String }, optional: false, nullable: true, api_name: "fullRefundLabel"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"

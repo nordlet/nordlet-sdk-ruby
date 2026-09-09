@@ -11,6 +11,8 @@ module Nordlet
         field :accept_terms, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "acceptTerms"
 
         field :accept_dpa, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "acceptDpa"
+
+        field :referral_code, -> { String }, optional: true, nullable: false, api_name: "referralCode"
       end
     end
   end

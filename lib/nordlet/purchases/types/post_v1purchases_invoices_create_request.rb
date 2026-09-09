@@ -20,6 +20,8 @@ module Nordlet
 
         field :purchase_order_id, -> { String }, optional: true, nullable: false, api_name: "purchaseOrderId"
 
+        field :operation_type_id, -> { String }, optional: true, nullable: false, api_name: "operationTypeId"
+
         field :notes, -> { String }, optional: true, nullable: false
 
         field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"

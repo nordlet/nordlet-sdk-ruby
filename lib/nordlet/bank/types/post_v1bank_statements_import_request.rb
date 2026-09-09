@@ -11,6 +11,8 @@ module Nordlet
         field :format, -> { Nordlet::Bank::Types::PostV1BankStatementsImportRequestFormat }, optional: true, nullable: false
 
         field :content, -> { String }, optional: false, nullable: false
+
+        field :transfers_csv, -> { String }, optional: true, nullable: false, api_name: "transfersCsv"
       end
     end
   end

@@ -18,6 +18,10 @@ module Nordlet
 
         field :payments_configured, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "paymentsConfigured"
 
+        field :has_payment_account, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "hasPaymentAccount"
+
+        field :has_subscription, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "hasSubscription"
+
         field :month_to_date, -> { Nordlet::Billing::Types::PostV1BillingAccountSetPlanResponseMonthToDate }, optional: false, nullable: false, api_name: "monthToDate"
 
         field :plans, -> { Internal::Types::Hash[String, Nordlet::Billing::Types::PostV1BillingAccountSetPlanResponsePlansValue] }, optional: false, nullable: false
