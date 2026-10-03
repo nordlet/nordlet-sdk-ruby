@@ -32,11 +32,13 @@ module Nordlet
 
         field :termination_date, -> { String }, optional: false, nullable: true, api_name: "terminationDate"
 
-        field :apply_npd, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "applyNpd"
+        field :apply_allowance, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "applyAllowance"
 
-        field :npd_override, -> { String }, optional: false, nullable: true, api_name: "npdOverride"
+        field :allowance_override, -> { String }, optional: false, nullable: true, api_name: "allowanceOverride"
 
         field :pension_accumulation, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "pensionAccumulation"
+
+        field :payroll_options, -> { Internal::Types::Hash[String, String] }, optional: false, nullable: false, api_name: "payrollOptions"
 
         field :status, -> { Nordlet::Hr::Types::PostV1HrEmployeesListResponseRowsItemStatus }, optional: false, nullable: false
 

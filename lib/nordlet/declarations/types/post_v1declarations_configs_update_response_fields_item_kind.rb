@@ -9,6 +9,8 @@ module Nordlet
         TEXT = "text"
         SECRET = "secret"
         SELECT = "select"
+        URL = "url"
+        CERTIFICATE = "certificate"
       end
     end
   end

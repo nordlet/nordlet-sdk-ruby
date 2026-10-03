@@ -938,6 +938,42 @@ module Nordlet
         end
       end
 
+      # A line with its own rate or amount is split with that value when the batch is posted. A line without one falls
+      # back to the commissionPercent given to the posting call, and without that the amount goes to the suspense
+      # account. Send both fields as null to clear the line back to the fallback.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Bank::Types::PostV1BankSettlementsCommissionRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Bank::Types::PostV1BankSettlementsCommissionResponse]
+      def set_what_the_marketplace_keeps_from_one_settlement_line_as_a_rate_or_as_an_amount(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/bank/settlements/commission",
+          body: Nordlet::Bank::Types::PostV1BankSettlementsCommissionRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Bank::Types::PostV1BankSettlementsCommissionResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # Attach the incoming bank-statement line that carries this payout to the settlement batch.
       #
       # @param request_options [Hash]

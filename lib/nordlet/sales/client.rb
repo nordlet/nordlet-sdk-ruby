@@ -237,9 +237,11 @@ module Nordlet
         end
       end
 
-      # Build the national e-invoicing payload and deliver it to the bridge endpoint configured for the country gateway
-      # in compliance settings. The bridge (an accredited intermediary or connector) handles the certified national
-      # channel - SdI accreditation, KSeF sessions or ANAF SPV OAuth.
+      # Build the national e-invoicing payload and deliver it over the transport configured for the country gateway in
+      # compliance settings. With transport=direct the request talks to the tax authority itself - SdICoop over 2-way
+      # TLS for Italy, a KSeF session for Poland, ANAF SPV OAuth for Romania - and returns the national number as soon
+      # as the channel assigns one. With transport=bridge the payload goes to the configured bridge endpoint (an
+      # accredited intermediary or connector) instead.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendRequest]
@@ -267,6 +269,42 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Ask the national e-invoicing channel what happened to an invoice that was already sent, and store the answer.
+      # Italy, Poland and Romania return the outcome only on request - none of them calls back - so this is the way the
+      # national number and any rejection reason reach the invoice.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusResponse]
+      def post_v1sales_invoices_einvoice_status(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/invoices/einvoice-status",
+          body: Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

@@ -20,6 +20,10 @@ module Nordlet
 
         field :country_code, -> { String }, optional: false, nullable: false, api_name: "countryCode"
 
+        field :chart_template, -> { String }, optional: false, nullable: false, api_name: "chartTemplate"
+
+        field :country_chart_template, -> { String }, optional: false, nullable: false, api_name: "countryChartTemplate"
+
         field :base_currency, -> { String }, optional: false, nullable: false, api_name: "baseCurrency"
 
         field :default_invoice_currency, -> { String }, optional: false, nullable: false, api_name: "defaultInvoiceCurrency"
@@ -41,6 +45,32 @@ module Nordlet
         field :sepa_creditor_id, -> { String }, optional: false, nullable: true, api_name: "sepaCreditorId"
 
         field :logo_file_id, -> { String }, optional: false, nullable: true, api_name: "logoFileId"
+
+        field :legal_form, -> { String }, optional: false, nullable: true, api_name: "legalForm"
+
+        field :registry_name, -> { String }, optional: false, nullable: true, api_name: "registryName"
+
+        field :incorporated_on, -> { String }, optional: false, nullable: true, api_name: "incorporatedOn"
+
+        field :share_capital, -> { String }, optional: false, nullable: true, api_name: "shareCapital"
+
+        field :accounts_kept_by, -> { Nordlet::Account::Types::PostV1AccountCompaniesUpdateResponseAccountsKeptBy }, optional: false, nullable: true, api_name: "accountsKeptBy"
+
+        field :vat_period, -> { Nordlet::Account::Types::PostV1AccountCompaniesUpdateResponseVatPeriod }, optional: false, nullable: true, api_name: "vatPeriod"
+
+        field :fiscal_year_end_month, -> { Integer }, optional: false, nullable: true, api_name: "fiscalYearEndMonth"
+
+        field :time_zone, -> { String }, optional: false, nullable: false, api_name: "timeZone"
+
+        field :filing_options, -> { Internal::Types::Hash[String, String] }, optional: false, nullable: true, api_name: "filingOptions"
+
+        field :bookkeeper_name, -> { String }, optional: false, nullable: true, api_name: "bookkeeperName"
+
+        field :auditor_name, -> { String }, optional: false, nullable: true, api_name: "auditorName"
+
+        field :auditor_registration_number, -> { String }, optional: false, nullable: true, api_name: "auditorRegistrationNumber"
+
+        field :audit_required, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "auditRequired"
       end
     end
   end

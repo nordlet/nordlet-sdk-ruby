@@ -26,6 +26,8 @@ module Nordlet
 
         field :recognition, -> { Nordlet::Sales::Types::PostV1SalesInvoicesUpdateRequestLinesItemRecognition }, optional: true, nullable: false
 
+        field :vat_exemption_basis, -> { String }, optional: true, nullable: false, api_name: "vatExemptionBasis"
+
         field :standalone_selling_price, -> { String }, optional: true, nullable: false, api_name: "standaloneSellingPrice"
 
         field :refund_estimate_percent, -> { String }, optional: true, nullable: false, api_name: "refundEstimatePercent"

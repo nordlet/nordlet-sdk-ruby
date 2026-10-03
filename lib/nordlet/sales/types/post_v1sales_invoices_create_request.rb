@@ -16,7 +16,17 @@ module Nordlet
 
         field :credited_invoice_id, -> { String }, optional: true, nullable: false, api_name: "creditedInvoiceId"
 
+        field :agreement_id, -> { String }, optional: true, nullable: false, api_name: "agreementId"
+
         field :vat_scheme, -> { Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequestVatScheme }, optional: true, nullable: false, api_name: "vatScheme"
+
+        field :intrastat_transport_mode, -> { String }, optional: true, nullable: false, api_name: "intrastatTransportMode"
+
+        field :intrastat_delivery_terms, -> { String }, optional: true, nullable: false, api_name: "intrastatDeliveryTerms"
+
+        field :intrastat_region, -> { String }, optional: true, nullable: false, api_name: "intrastatRegion"
+
+        field :intrastat_nature_of_transaction, -> { String }, optional: true, nullable: false, api_name: "intrastatNatureOfTransaction"
 
         field :vat_country_code, -> { String }, optional: true, nullable: false, api_name: "vatCountryCode"
 

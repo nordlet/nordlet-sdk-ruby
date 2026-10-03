@@ -42,6 +42,16 @@ module Nordlet
 
         field :notes, -> { String }, optional: false, nullable: true
 
+        field :intrastat_transport_mode, -> { String }, optional: false, nullable: true, api_name: "intrastatTransportMode"
+
+        field :intrastat_delivery_terms, -> { String }, optional: false, nullable: true, api_name: "intrastatDeliveryTerms"
+
+        field :intrastat_region, -> { String }, optional: false, nullable: true, api_name: "intrastatRegion"
+
+        field :intrastat_nature_of_transaction, -> { String }, optional: false, nullable: true, api_name: "intrastatNatureOfTransaction"
+
+        field :einvoice_number, -> { String }, optional: false, nullable: true, api_name: "einvoiceNumber"
+
         field :document_ref, -> { String }, optional: false, nullable: true, api_name: "documentRef"
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"

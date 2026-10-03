@@ -6,9 +6,9 @@ module Nordlet
       module PostV1BillingTopupCreateRequestLocale
         extend Nordlet::Internal::Types::Enum
 
-        LT = "lt"
         EN = "en"
-        RU = "ru"
+        LT = "lt"
+        DE = "de"
       end
     end
   end

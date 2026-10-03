@@ -107,6 +107,76 @@ module Nordlet
       end
 
       # @param request_options [Hash]
+      # @param params [Nordlet::Assets::Types::PostV1AssetsAssetsUpdateRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Assets::Types::PostV1AssetsAssetsUpdateResponse]
+      def post_v1assets_assets_update(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/assets/assets/update",
+          body: Nordlet::Assets::Types::PostV1AssetsAssetsUpdateRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Assets::Types::PostV1AssetsAssetsUpdateResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Record the input VAT facts of a capital good that the annual VAT return needs for the adjustment of the
+      # deduction over the adjustment period (Article 187 of the VAT Directive, § 15a UStG): the input VAT on the
+      # acquisition, the date of first use, the share of use for deductible turnover at first use, whether it is land or
+      # a building (ten-year period instead of five), and every later year in which the share changed or the good was
+      # sold or withdrawn. Allowed also after depreciation has been posted.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Assets::Types::PostV1AssetsAssetsInputVatRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Assets::Types::PostV1AssetsAssetsInputVatResponse]
+      def post_v1assets_assets_input_vat(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/assets/assets/input-vat",
+          body: Nordlet::Assets::Types::PostV1AssetsAssetsInputVatRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Assets::Types::PostV1AssetsAssetsInputVatResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::PostV1AssetsAssetsGetRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers

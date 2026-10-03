@@ -10,6 +10,8 @@ module Nordlet
 
         field :include_natura, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "includeNatura"
 
+        field :gross_overrides, -> { Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsCreateRequestGrossOverridesItem] }, optional: true, nullable: false, api_name: "grossOverrides"
+
         field :lines, -> { Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsCreateRequestLinesItem] }, optional: true, nullable: false
 
         field :notes, -> { String }, optional: true, nullable: false

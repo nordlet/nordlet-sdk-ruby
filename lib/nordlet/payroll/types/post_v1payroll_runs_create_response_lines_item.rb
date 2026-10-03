@@ -22,15 +22,25 @@ module Nordlet
 
         field :taxable_base, -> { String }, optional: false, nullable: false, api_name: "taxableBase"
 
-        field :npd, -> { String }, optional: false, nullable: false
+        field :tax_allowance, -> { String }, optional: false, nullable: false, api_name: "taxAllowance"
 
-        field :gpm, -> { String }, optional: false, nullable: false
+        field :income_tax, -> { String }, optional: false, nullable: false, api_name: "incomeTax"
 
-        field :sodra_employee, -> { String }, optional: false, nullable: false, api_name: "sodraEmployee"
+        field :employee_contributions, -> { String }, optional: false, nullable: false, api_name: "employeeContributions"
 
-        field :sodra_employer, -> { String }, optional: false, nullable: false, api_name: "sodraEmployer"
+        field :employer_contributions, -> { String }, optional: false, nullable: false, api_name: "employerContributions"
+
+        field :components, -> { Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsCreateResponseLinesItemComponentsItem] }, optional: false, nullable: false
 
         field :net, -> { String }, optional: false, nullable: false
+
+        field :days_worked, -> { String }, optional: false, nullable: true, api_name: "daysWorked"
+
+        field :hours_worked, -> { String }, optional: false, nullable: true, api_name: "hoursWorked"
+
+        field :registered_days, -> { String }, optional: false, nullable: true, api_name: "registeredDays"
+
+        field :average_hourly_earnings, -> { String }, optional: false, nullable: true, api_name: "averageHourlyEarnings"
       end
     end
   end

@@ -16,6 +16,8 @@ module Nordlet
 
         field :transport_mode, -> { String }, optional: false, nullable: true, api_name: "transportMode"
 
+        field :region_code, -> { String }, optional: false, nullable: true, api_name: "regionCode"
+
         field :country, -> { String }, optional: false, nullable: false
 
         field :origin_country, -> { String }, optional: false, nullable: true, api_name: "originCountry"

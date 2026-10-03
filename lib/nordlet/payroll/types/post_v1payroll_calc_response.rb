@@ -4,13 +4,17 @@ module Nordlet
   module Payroll
     module Types
       class PostV1PayrollCalcResponse < Internal::Types::Model
-        field :npd, -> { String }, optional: false, nullable: false
+        field :country_code, -> { String }, optional: false, nullable: false, api_name: "countryCode"
 
-        field :gpm, -> { String }, optional: false, nullable: false
+        field :tax_allowance, -> { String }, optional: false, nullable: false, api_name: "taxAllowance"
 
-        field :sodra_employee, -> { String }, optional: false, nullable: false, api_name: "sodraEmployee"
+        field :income_tax, -> { String }, optional: false, nullable: false, api_name: "incomeTax"
 
-        field :sodra_employer, -> { String }, optional: false, nullable: false, api_name: "sodraEmployer"
+        field :employee_contributions, -> { String }, optional: false, nullable: false, api_name: "employeeContributions"
+
+        field :employer_contributions, -> { String }, optional: false, nullable: false, api_name: "employerContributions"
+
+        field :components, -> { Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollCalcResponseComponentsItem] }, optional: false, nullable: false
 
         field :net, -> { String }, optional: false, nullable: false
       end

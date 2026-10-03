@@ -8,7 +8,7 @@ module Nordlet
 
         field :name, -> { String }, optional: true, nullable: false
 
-        field :translations, -> { Nordlet::Ledger::Types::PostV1LedgerAccountsUpdateRequestTranslations }, optional: true, nullable: false
+        field :translations, -> { Internal::Types::Hash[String, Nordlet::Ledger::Types::PostV1LedgerAccountsUpdateRequestTranslationsValue] }, optional: true, nullable: false
 
         field :parent_id, -> { String }, optional: true, nullable: false, api_name: "parentId"
 

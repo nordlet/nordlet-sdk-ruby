@@ -12,6 +12,8 @@ module Nordlet
 
         field :referred_count, -> { Integer }, optional: false, nullable: false, api_name: "referredCount"
 
+        field :rates, -> { Nordlet::Account::Types::PostV1AccountReferralGetResponseRates }, optional: false, nullable: false
+
         field :history, -> { Internal::Types::Array[Nordlet::Account::Types::PostV1AccountReferralGetResponseHistoryItem] }, optional: false, nullable: false
       end
     end

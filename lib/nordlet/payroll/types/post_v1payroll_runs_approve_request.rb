@@ -16,6 +16,8 @@ module Nordlet
 
         field :sodra_account_code, -> { String }, optional: true, nullable: false, api_name: "sodraAccountCode"
 
+        field :employer_social_account_code, -> { String }, optional: true, nullable: false, api_name: "employerSocialAccountCode"
+
         field :deduction_account_code, -> { String }, optional: true, nullable: false, api_name: "deductionAccountCode"
       end
     end

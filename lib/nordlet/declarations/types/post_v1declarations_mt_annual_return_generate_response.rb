@@ -1,0 +1,39 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Declarations
+    module Types
+      class PostV1DeclarationsMtAnnualReturnGenerateResponse < Internal::Types::Model
+        field :year, -> { Integer }, optional: false, nullable: false
+
+        field :made_up_to, -> { String }, optional: false, nullable: true, api_name: "madeUpTo"
+
+        field :mbr_number, -> { String }, optional: false, nullable: false, api_name: "mbrNumber"
+
+        field :company_name, -> { String }, optional: false, nullable: false, api_name: "companyName"
+
+        field :file_name, -> { String }, optional: false, nullable: false, api_name: "fileName"
+
+        field :xml, -> { String }, optional: false, nullable: false
+
+        field :pdf_file_name, -> { String }, optional: false, nullable: false, api_name: "pdfFileName"
+
+        field :pdf, -> { String }, optional: false, nullable: false
+
+        field :form_source, -> { String }, optional: false, nullable: false, api_name: "formSource"
+
+        field :fields, -> { Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsMtAnnualReturnGenerateResponseFieldsItem] }, optional: false, nullable: false
+
+        field :members, -> { Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsMtAnnualReturnGenerateResponseMembersItem] }, optional: false, nullable: false
+
+        field :officers, -> { Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsMtAnnualReturnGenerateResponseOfficersItem] }, optional: false, nullable: false
+
+        field :warnings, -> { Internal::Types::Array[String] }, optional: false, nullable: false
+
+        field :notes, -> { Internal::Types::Array[String] }, optional: false, nullable: false
+
+        field :source, -> { String }, optional: false, nullable: false
+      end
+    end
+  end
+end

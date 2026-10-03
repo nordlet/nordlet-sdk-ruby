@@ -22,6 +22,10 @@ module Nordlet
 
         field :has_subscription, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "hasSubscription"
 
+        field :payment_failed_at, -> { String }, optional: false, nullable: true, api_name: "paymentFailedAt"
+
+        field :payment_failed_invoice_url, -> { String }, optional: false, nullable: true, api_name: "paymentFailedInvoiceUrl"
+
         field :month_to_date, -> { Nordlet::Billing::Types::PostV1BillingAccountSetPlanResponseMonthToDate }, optional: false, nullable: false, api_name: "monthToDate"
 
         field :plans, -> { Internal::Types::Hash[String, Nordlet::Billing::Types::PostV1BillingAccountSetPlanResponsePlansValue] }, optional: false, nullable: false

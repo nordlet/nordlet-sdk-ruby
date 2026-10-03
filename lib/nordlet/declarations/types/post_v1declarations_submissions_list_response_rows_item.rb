@@ -24,6 +24,38 @@ module Nordlet
 
         field :message, -> { String }, optional: false, nullable: true
 
+        field :rule_key, -> { String }, optional: false, nullable: true, api_name: "ruleKey"
+
+        field :period, -> { String }, optional: false, nullable: true
+
+        field :document_key, -> { String }, optional: false, nullable: true, api_name: "documentKey"
+
+        field :origin, -> { String }, optional: false, nullable: false
+
+        field :transport_system, -> { String }, optional: false, nullable: true, api_name: "transportSystem"
+
+        field :submitted_at, -> { String }, optional: false, nullable: true, api_name: "submittedAt"
+
+        field :accepted_at, -> { String }, optional: false, nullable: true, api_name: "acceptedAt"
+
+        field :rejected_at, -> { String }, optional: false, nullable: true, api_name: "rejectedAt"
+
+        field :checked_at, -> { String }, optional: false, nullable: true, api_name: "checkedAt"
+
+        field :next_check_at, -> { String }, optional: false, nullable: true, api_name: "nextCheckAt"
+
+        field :attempts, -> { Integer }, optional: false, nullable: false
+
+        field :delivery_error, -> { String }, optional: false, nullable: true, api_name: "deliveryError"
+
+        field :sent_sha256, -> { String }, optional: false, nullable: true, api_name: "sentSha256"
+
+        field :certificate_fingerprint, -> { String }, optional: false, nullable: true, api_name: "certificateFingerprint"
+
+        field :submitted_by_actor_type, -> { String }, optional: false, nullable: true, api_name: "submittedByActorType"
+
+        field :submitted_by_actor_id, -> { String }, optional: false, nullable: true, api_name: "submittedByActorId"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"

@@ -13,6 +13,10 @@ module Nordlet
         field :fee_amount, -> { String }, optional: false, nullable: false, api_name: "feeAmount"
 
         field :suspense_amount, -> { String }, optional: false, nullable: false, api_name: "suspenseAmount"
+
+        field :fx_rate, -> { String }, optional: false, nullable: false, api_name: "fxRate"
+
+        field :exchange_difference, -> { String }, optional: false, nullable: false, api_name: "exchangeDifference"
       end
     end
   end

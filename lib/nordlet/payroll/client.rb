@@ -147,7 +147,7 @@ module Nordlet
       # @option request_options [Integer] :timeout_in_seconds
       #
       # @return [Nordlet::Payroll::Types::PostV1PayrollCalcResponse]
-      def post_v1payroll_calc(request_options: {}, **params)
+      def calculate_one_employee_payment_under_the_rules_of_the_company_country(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
@@ -260,6 +260,41 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Payroll::Types::PostV1PayrollRunsListResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # The days and hours worked, the days on the register and the average hourly earnings that some countries report
+      # per employment. The Czech monthly employer report asks for all four. They can be set while the run is a draft.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceResponse]
+      def record_the_time_a_person_worked_in_a_payroll_line(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/payroll/lines/attendance",
+          body: Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

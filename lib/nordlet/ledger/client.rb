@@ -138,6 +138,43 @@ module Nordlet
         end
       end
 
+      # Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a
+      # company registered in Romania, the Lithuanian standard chart otherwise) and switches the posting defaults with
+      # it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand,
+      # or has settings that name an account the new chart does not have.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Ledger::Types::PostV1LedgerAccountsSwitchChartRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Ledger::Types::PostV1LedgerAccountsSwitchChartResponse]
+      def move_a_company_that_has_posted_nothing_yet_to_the_chart_of_accounts_of_its_country(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/ledger/accounts/switch-chart",
+          body: Nordlet::Ledger::Types::PostV1LedgerAccountsSwitchChartRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Ledger::Types::PostV1LedgerAccountsSwitchChartResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # @param request_options [Hash]
       # @param params [Nordlet::Ledger::Types::PostV1LedgerPeriodsListRequest]
       # @option request_options [String] :base_url
@@ -740,6 +777,241 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsCreateResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # The rows or codes of each return or registry deposit of the company country that are filled from account
+      # balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under
+      # Settings → Statement rows.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Ledger::Types::PostV1LedgerStatementRowsSchemesRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Ledger::Types::PostV1LedgerStatementRowsSchemesResponse]
+      def national_statement_layouts_available_to_the_company(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/ledger/statement-rows/schemes",
+          body: Nordlet::Ledger::Types::PostV1LedgerStatementRowsSchemesRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Ledger::Types::PostV1LedgerStatementRowsSchemesResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # @param request_options [Hash]
+      # @param params [Nordlet::Ledger::Types::PostV1LedgerStatementRowsListRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Ledger::Types::PostV1LedgerStatementRowsListResponse]
+      def accounts_placed_on_the_rows_of_a_statement_layout_with_the_row_totals_of_a_period(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/ledger/statement-rows/list",
+          body: Nordlet::Ledger::Types::PostV1LedgerStatementRowsListRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Ledger::Types::PostV1LedgerStatementRowsListResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # A mapping on a code prefix covers every account whose code starts with it; the longest matching prefix wins. An
+      # empty rowCode removes the mapping so the layout default applies again.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Ledger::Types::PostV1LedgerStatementRowsSetRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Ledger::Types::PostV1LedgerStatementRowsSetResponse]
+      def map_an_account_or_an_account_code_prefix_to_a_row_of_a_statement_layout(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/ledger/statement-rows/set",
+          body: Nordlet::Ledger::Types::PostV1LedgerStatementRowsSetRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Ledger::Types::PostV1LedgerStatementRowsSetResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Directors, board members, the company secretary, representatives and liquidators, with their personal
+      # identifier, appointment and resignation dates and whether they sign the annual accounts. Annual returns and
+      # registry deposits are built from this register.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Ledger::Types::PostV1OfficersListRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Ledger::Types::PostV1OfficersListResponse]
+      def officers_of_the_company(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/officers/list",
+          body: Nordlet::Ledger::Types::PostV1OfficersListRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Ledger::Types::PostV1OfficersListResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # @param request_options [Hash]
+      # @param params [Nordlet::Ledger::Types::PostV1OfficersCreateRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Ledger::Types::PostV1OfficersCreateResponse]
+      def record_an_officer_of_the_company(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/officers/create",
+          body: Nordlet::Ledger::Types::PostV1OfficersCreateRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Ledger::Types::PostV1OfficersCreateResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # @param request_options [Hash]
+      # @param params [Nordlet::Ledger::Types::PostV1OfficersUpdateRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Ledger::Types::PostV1OfficersUpdateResponse]
+      def change_a_recorded_officer(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/officers/update",
+          body: Nordlet::Ledger::Types::PostV1OfficersUpdateRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Ledger::Types::PostV1OfficersUpdateResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # @param request_options [Hash]
+      # @param params [Nordlet::Ledger::Types::PostV1OfficersDeleteRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Ledger::Types::PostV1OfficersDeleteResponse]
+      def remove_a_recorded_officer(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/officers/delete",
+          body: Nordlet::Ledger::Types::PostV1OfficersDeleteRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Ledger::Types::PostV1OfficersDeleteResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

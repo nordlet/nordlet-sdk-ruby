@@ -24,6 +24,10 @@ module Nordlet
 
         field :charge_id, -> { String }, optional: false, nullable: true, api_name: "chargeId"
 
+        field :commission_percent, -> { String }, optional: false, nullable: true, api_name: "commissionPercent"
+
+        field :commission_amount, -> { String }, optional: false, nullable: true, api_name: "commissionAmount"
+
         field :reference, -> { String }, optional: false, nullable: true
 
         field :matched_invoice_id, -> { String }, optional: false, nullable: true, api_name: "matchedInvoiceId"

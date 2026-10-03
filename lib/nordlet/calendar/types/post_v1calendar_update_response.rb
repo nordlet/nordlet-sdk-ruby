@@ -23,6 +23,14 @@ module Nordlet
         field :done, -> { Internal::Types::Boolean }, optional: false, nullable: false
 
         field :href, -> { String }, optional: false, nullable: true
+
+        field :submission, -> { Nordlet::Calendar::Types::PostV1CalendarUpdateResponseSubmission }, optional: false, nullable: true
+
+        field :can_submit, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "canSubmit"
+
+        field :can_download, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "canDownload"
+
+        field :automated, -> { Internal::Types::Boolean }, optional: false, nullable: false
       end
     end
   end

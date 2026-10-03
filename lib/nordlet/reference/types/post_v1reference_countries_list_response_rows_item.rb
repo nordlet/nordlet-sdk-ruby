@@ -10,7 +10,7 @@ module Nordlet
 
         field :is_eea, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isEea"
 
-        field :names, -> { Nordlet::Reference::Types::PostV1ReferenceCountriesListResponseRowsItemNames }, optional: false, nullable: false
+        field :names, -> { Internal::Types::Hash[String, String] }, optional: false, nullable: false
       end
     end
   end

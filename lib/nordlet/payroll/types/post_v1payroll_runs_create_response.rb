@@ -10,17 +10,21 @@ module Nordlet
 
         field :month, -> { Integer }, optional: false, nullable: false
 
+        field :country_code, -> { String }, optional: false, nullable: false, api_name: "countryCode"
+
         field :status, -> { Nordlet::Payroll::Types::PostV1PayrollRunsCreateResponseStatus }, optional: false, nullable: false
 
         field :gross_total, -> { String }, optional: false, nullable: false, api_name: "grossTotal"
 
-        field :npd_total, -> { String }, optional: false, nullable: false, api_name: "npdTotal"
+        field :tax_allowance_total, -> { String }, optional: false, nullable: false, api_name: "taxAllowanceTotal"
 
-        field :gpm_total, -> { String }, optional: false, nullable: false, api_name: "gpmTotal"
+        field :income_tax_total, -> { String }, optional: false, nullable: false, api_name: "incomeTaxTotal"
 
-        field :sodra_employee_total, -> { String }, optional: false, nullable: false, api_name: "sodraEmployeeTotal"
+        field :employee_contributions_total, -> { String }, optional: false, nullable: false, api_name: "employeeContributionsTotal"
 
-        field :sodra_employer_total, -> { String }, optional: false, nullable: false, api_name: "sodraEmployerTotal"
+        field :employer_contributions_total, -> { String }, optional: false, nullable: false, api_name: "employerContributionsTotal"
+
+        field :component_totals, -> { Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsCreateResponseComponentTotalsItem] }, optional: false, nullable: false, api_name: "componentTotals"
 
         field :net_total, -> { String }, optional: false, nullable: false, api_name: "netTotal"
 

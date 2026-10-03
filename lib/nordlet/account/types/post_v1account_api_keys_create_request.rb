@@ -7,6 +7,8 @@ module Nordlet
         field :name, -> { String }, optional: false, nullable: false
 
         field :scopes, -> { Internal::Types::Array[String] }, optional: true, nullable: false
+
+        field :expires_in_days, -> { Integer }, optional: true, nullable: false, api_name: "expiresInDays"
       end
     end
   end

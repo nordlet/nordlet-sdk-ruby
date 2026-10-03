@@ -20,6 +20,10 @@ module Nordlet
 
         field :next_number, -> { Integer }, optional: true, nullable: false, api_name: "nextNumber"
 
+        field :allocated_from, -> { Integer }, optional: true, nullable: false, api_name: "allocatedFrom"
+
+        field :allocated_to, -> { Integer }, optional: true, nullable: false, api_name: "allocatedTo"
+
         field :warehouse_id, -> { String }, optional: true, nullable: false, api_name: "warehouseId"
 
         field :print_series, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "printSeries"

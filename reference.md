@@ -8526,7 +8526,47 @@ client.sales.post_v1sales_invoices_create(
 <dl>
 <dd>
 
+**agreement_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **vat_scheme:** `Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequestVatScheme` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_transport_mode:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_delivery_terms:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_region:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_nature_of_transaction:** `String` 
     
 </dd>
 </dl>
@@ -8996,7 +9036,7 @@ client.sales.post_v1sales_invoices_einvoice_xml(id: "id")
 <dl>
 <dd>
 
-Build the national e-invoicing payload and deliver it to the bridge endpoint configured for the country gateway in compliance settings. The bridge (an accredited intermediary or connector) handles the certified national channel - SdI accreditation, KSeF sessions or ANAF SPV OAuth.
+Build the national e-invoicing payload and deliver it over the transport configured for the country gateway in compliance settings. With transport=direct the request talks to the tax authority itself - SdICoop over 2-way TLS for Italy, a KSeF session for Poland, ANAF SPV OAuth for Romania - and returns the national number as soon as the channel assigns one. With transport=bridge the payload goes to the configured bridge endpoint (an accredited intermediary or connector) instead.
 </dd>
 </dl>
 </dd>
@@ -9012,6 +9052,68 @@ Build the national e-invoicing payload and deliver it to the bridge endpoint con
 
 ```ruby
 client.sales.post_v1sales_invoices_einvoice_send(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_einvoice_status</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Ask the national e-invoicing channel what happened to an invoice that was already sent, and store the answer. Italy, Poland and Romania return the outcome only on request - none of them calls back - so this is the way the national number and any rejection reason reach the invoice.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.post_v1sales_invoices_einvoice_status(id: "id")
 ```
 </dd>
 </dl>
@@ -9090,6 +9192,14 @@ client.sales.post_v1sales_invoices_update(id: "id")
 <dl>
 <dd>
 
+**agreement_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **currency:** `String` 
     
 </dd>
@@ -9115,6 +9225,38 @@ client.sales.post_v1sales_invoices_update(id: "id")
 <dd>
 
 **vat_scheme:** `Nordlet::Sales::Types::PostV1SalesInvoicesUpdateRequestVatScheme` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_transport_mode:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_delivery_terms:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_region:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_nature_of_transaction:** `String` 
     
 </dd>
 </dl>
@@ -11112,6 +11254,22 @@ client.sales.post_v1document_series_create(prefix: "prefix")
 <dl>
 <dd>
 
+**allocated_from:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**allocated_to:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **warehouse_id:** `String` 
     
 </dd>
@@ -11241,6 +11399,22 @@ client.sales.post_v1document_series_update(id: "id")
 <dd>
 
 **next_number:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**allocated_from:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**allocated_to:** `Integer` 
     
 </dd>
 </dl>
@@ -12133,6 +12307,46 @@ client.purchases.post_v1purchases_invoices_create(
 <dl>
 <dd>
 
+**intrastat_transport_mode:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_delivery_terms:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_region:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_nature_of_transaction:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**einvoice_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **document_ref:** `String` 
     
 </dd>
@@ -12302,6 +12516,46 @@ client.purchases.post_v1purchases_invoices_update(id: "id")
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_transport_mode:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_delivery_terms:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_region:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_nature_of_transaction:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**einvoice_number:** `String` 
     
 </dd>
 </dl>
@@ -14207,6 +14461,38 @@ client.declarations.post_v1declarations_lt_intrastat_compute(
 <dl>
 <dd>
 
+**region_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**statistical_value_required:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**preparation_time_hours:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**preparation_time_minutes:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **persist:** `Internal::Types::Boolean` 
     
 </dd>
@@ -14731,6 +15017,284 @@ client.declarations.post_v1declarations_lt_saft_generate(
 <dd>
 
 **persist:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_ivaz_amend</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtIvazAmendResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_lt_ivaz_amend(waybill_ids: ["waybillIds"])
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**waybill_ids:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**persist:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_ivaz_cancel</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtIvazCancelResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_lt_ivaz_cancel(entries: [{
+  waybill_id: "waybillId",
+  reason: "1"
+}])
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**entries:** `Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsLtIvazCancelRequestEntriesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**persist:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_fr0564compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtFr0564ComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_lt_fr0564compute(
+  year: 1000000,
+  month: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_gpm312compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtGpm312ComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_lt_gpm312compute(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payout_timing:** `Nordlet::Declarations::Types::PostV1DeclarationsLtGpm312ComputeRequestPayoutTiming` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_pln204compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtPln204ComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_lt_pln204compute(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
     
 </dd>
 </dl>
@@ -15326,6 +15890,4017 @@ client.declarations.post_v1declarations_pl_jpk_v7m_generate(
 </dl>
 </details>
 
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_vat_ue_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlVatUeGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the rows of the Polish recapitulative statement VAT-UE for a month: section C intra-Community supplies of goods, section D intra-Community acquisitions, section E services taxed where the customer is established. Amounts are full złoty per counterparty. The VAT-UE(5) file itself goes out from the EU sales list deadline in the calendar.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_vat_ue_generate(
+  year: 1000000,
+  month: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_intrastat_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlIntrastatGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the rows of the Polish INTRASTAT declaration for a month, arrivals or dispatches, grouped by CN code, partner country, country of origin, partner VAT number, nature of transaction, transport and delivery terms. Values are whole złoty converted at the invoice rate; credit notes with goods lines are returns (code 21). Goods without a CN code are left out and named in the warnings. The IST message itself goes out from the Intrastat deadline in the calendar.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_intrastat_generate(
+  year: 1000000,
+  month: 1000000,
+  flow: "arrivals"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**flow:** `Nordlet::Declarations::Types::PostV1DeclarationsPlIntrastatGenerateRequestFlow` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**transaction_nature:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_ksef_received_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlKsefReceivedListResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List the invoices KSeF holds for this company as the buyer, for a window of acquisition timestamps. Each row carries the KSeF number and, when the document number matches a registered purchase invoice, the invoice it belongs to.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_ksef_received_list(
+  from: "2024-01-15T09:30:00Z",
+  to: "2024-01-15T09:30:00Z"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_offset:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_ksef_received_fetch</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlKsefReceivedFetchResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Read one invoice out of KSeF by its national number. With a purchase invoice given, the KSeF number is written onto that invoice, which is what makes the purchase row of JPK_V7M carry NrKSeF instead of the BFK marker.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_ksef_received_fetch(ksef_number: "ksefNumber")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ksef_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**purchase_invoice_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_ksef_receipt</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlKsefReceiptResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The UPO for a KSeF session. KSeF issues one receipt per session rather than per invoice, so the session reference number from the send is what identifies it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_ksef_receipt
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**session_reference_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_adjustments_recorded_for_a_tax_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The differences between the accounting result and the taxable profit: non-deductible expenses, income added to or left out of the tax base, extra deductible expenses, donations, losses carried forward, reliefs and tax credits. The annual corporate income tax return is built from them.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.tax_adjustments_recorded_for_a_tax_year(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_a_tax_adjustment_for_a_tax_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.record_a_tax_adjustment_for_a_tax_year(
+  year: 1000000,
+  kind: "non_deductible",
+  amount: "amount",
+  description: "description"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsCreateRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">change_a_recorded_tax_adjustment</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.change_a_recorded_tax_adjustment(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsUpdateRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_recorded_tax_adjustment</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.remove_a_recorded_tax_adjustment(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">payments_already_made_towards_a_tax_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+What the company has paid the administration towards a tax before the return is filed: payments on account, tax withheld at source by others, a final settlement, and a refund received. Returns report these on their own lines, so the amount they ask for is the balance.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.payments_already_made_towards_a_tax_of_a_year(
+  tax: "corporate_income_tax",
+  year: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**tax:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsListRequestTax` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_a_payment_made_towards_a_tax</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.record_a_payment_made_towards_a_tax(
+  tax: "corporate_income_tax",
+  year: 1000000,
+  kind: "advance",
+  amount: "amount",
+  paid_on: "paidOn",
+  description: "description"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**tax:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsCreateRequestTax` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsCreateRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**paid_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reference:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">change_a_recorded_tax_payment</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.change_a_recorded_tax_payment(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsUpdateRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**paid_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reference:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_recorded_tax_payment</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.remove_a_recorded_tax_payment(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">adoption_and_signing_facts_of_the_annual_accounts_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Whether the general meeting adopted the annual accounts and on which date, the date the accounts were prepared, and which directors signed them. The annual accounts filed with the trade register are built from these facts.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.adoption_and_signing_facts_of_the_annual_accounts_of_a_year(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_the_adoption_and_preparation_of_the_annual_accounts_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSetResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.record_the_adoption_and_preparation_of_the_annual_accounts_of_a_year(
+  year: 1000000,
+  adopted: true,
+  date_of_preparation: "dateOfPreparation"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**adopted:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**adoption_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date_of_preparation:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**audited:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**audit_report_qualified:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auditor_not_elected:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes_text:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**management_report_text:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auditor_report_text:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auditor_report_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**result_to_reserves:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**result_to_loss_compensation:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**result_to_remainder:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_whether_a_director_signed_the_annual_accounts_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.record_whether_a_director_signed_the_annual_accounts_of_a_year(
+  year: 1000000,
+  director_name: "directorName",
+  director_type: "managing_current",
+  signed: true
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**director_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**director_type:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesCreateRequestDirectorType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**signed:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**signed_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**signed_at:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reason_not_signed:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">change_a_recorded_director_signature</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.change_a_recorded_director_signature(
+  id: "id",
+  director_name: "directorName",
+  director_type: "managing_current",
+  signed: true
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**director_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**director_type:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesUpdateRequestDirectorType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**signed:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**signed_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**signed_at:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reason_not_signed:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_recorded_director_signature</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.remove_a_recorded_director_signature(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_a_decision_to_distribute_profit_a_dividend_an_interim_dividend_or_a_payment_treated_as_one</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.record_a_decision_to_distribute_profit_a_dividend_an_interim_dividend_or_a_payment_treated_as_one(
+  year: 1000000,
+  decided_on: "decidedOn",
+  kind: "dividend",
+  amount: "amount"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**decided_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsCreateRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">change_a_recorded_profit_distribution</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.change_a_recorded_profit_distribution(
+  id: "id",
+  decided_on: "decidedOn",
+  kind: "dividend",
+  amount: "amount"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**decided_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsUpdateRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_recorded_profit_distribution</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.remove_a_recorded_profit_distribution(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">attach_an_uploaded_document_to_the_annual_accounts_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsAttachmentsAddResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Links a file uploaded through files/upload (its storageKey) to the annual accounts of the year as the notes, the management report, the auditor statement, the profit appropriation resolution, the approval certificate, the general data sheet, the full report as a pdf, or another document. Deposits that must carry these documents take them from here.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.attach_an_uploaded_document_to_the_annual_accounts_of_a_year(
+  year: 1000000,
+  kind: "full_report",
+  ref: "ref"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsAttachmentsAddRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ref:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_document_attached_to_the_annual_accounts_and_delete_its_file</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.remove_a_document_attached_to_the_annual_accounts_and_delete_its_file(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_cy_td4generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCyTd4GenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the company income tax return TD4 of a tax year from the ledger and the recorded tax adjustments: the accounting profit, the add-backs, deductions, capital allowances and losses brought forward, the chargeable income, the corporation tax at the rate of the year and the double tax relief, as the fields the company keys into TAXISnet or Tax For All. The Tax Department publishes no upload layout for the TD4; the XML is a working file.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_cy_td4generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_cy_he32generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCyHe32GenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the annual return HE32 of a year: the figures the Registrar’s e-filing screens ask for (company number, registered office, made-up-to date, share capital, register of members, directors and secretary, annual general meeting date, the accounts summary), the working file, and the printed form HE32(I) filled in as a PDF for signing and for keying into the Registrar’s system, which takes the return only through its own screens.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_cy_he32generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_returns_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeReturnsGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build one of the German returns that ELSTER accepts only through a licensed ERiC transmission (E-Bilanz, Körperschaftsteuer, Gewerbesteuer with its Zerlegungserklärung, annual VAT return, Lohnsteuer-Anmeldung, Lohnsteuerbescheinigung) for the company to send through its own ELSTER-capable program. The period is the year, or YYYY-MM for the monthly Lohnsteuer-Anmeldung.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_de_returns_generate(
+  rule_key: "de-e-bilanz",
+  period: "period"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**rule_key:** `Nordlet::Declarations::Types::PostV1DeclarationsDeReturnsGenerateRequestRuleKey` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**period:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_return_facts_get</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeReturnFactsGetResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The facts of one year that the German annual returns (Körperschaftsteuer, Gewerbesteuer, Umsatzsteuererklärung) need and the ledger does not hold: changes of shareholders, contracts with shareholders, the tax contribution account, loss carry-back, the donation carry-forward, the business premises with the municipalities for the apportionment of the trade tax, the land values or property tax and the participations for the trade tax additions and reductions, the foreign income per country for the Anlage AESt, the date of leaving the small-business scheme and the Anlage UN answers of a company seated abroad. A key that is absent has not been answered.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_de_return_facts_get(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_return_facts_set</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeReturnFactsSetResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replace the facts of one year for the German annual returns. The returns built afterwards read them; a key left out stays unanswered.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_de_return_facts_set(
+  year: 1000000,
+  facts: {}
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**facts:** `Nordlet::Declarations::Types::PostV1DeclarationsDeReturnFactsSetRequestFacts` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_deuev_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeDeuevGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the DEÜV notifications of a month (Anmeldung for every start, Abmeldung for every leaving, in December the Jahresmeldung for everyone employed on 31 December) as DSME records with the DBME, DBNA, DBGB and DBAN blocks of Anlage 4 in force from 2026, from the approved payroll runs and the employee record, for the company's own transmission channel.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_de_deuev_generate(
+  year: 1000000,
+  month: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_beitragsnachweis_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeBeitragsnachweisGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the monthly contribution statement to the health insurers (Beitragsnachweis) from the payroll run: one fixed-length record BW02 per insurer, in the record layout in force from 2026, ready for the company's own transmission channel.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_de_beitragsnachweis_generate(
+  year: 1000000,
+  month: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_dk_selskabsskat_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDkSelskabsskatGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the oplysningsskema for selskaber (selskabsselvangivelsen) of an income year from the ledger and the recorded tax adjustments: accounting result before tax, tax adjustments, losses carried forward, taxable income, the 22 % corporation tax, reliefs and the balance, as the rubrikker the company keys into TastSelv Selskabsskat (DIAS). Skatteforvaltningen publishes no file format for the return; the XML is a working file.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_dk_selskabsskat_generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ee_employment_register_send</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEeEmploymentRegisterSendResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send one employment register (töötamise register) entry for an employment contract to e-MTA over X-tee: the start of work, or its end with the reason recorded on the contract.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_ee_employment_register_send(
+  contract_id: "contractId",
+  event: "start"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**contract_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**event:** `Nordlet::Declarations::Types::PostV1DeclarationsEeEmploymentRegisterSendRequestEvent` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_es_verifactu_declaracion_responsable</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Nordlet's declaración responsable for its VERI*FACTU invoicing system (Orden HAC/1177/2024, art. 15), as a PDF and as plain text.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_es_verifactu_declaracion_responsable
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ie_ct1generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsIeCt1GenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the Form CT1 of an accounting year as the ROS version 26 XML and the accompanying financial statements as inline XBRL on the FRS 102 Irish Extension 2026 taxonomy Revenue accepts, both from the ledger, the recorded tax adjustments, the annual accounts record and the officers, for upload through the company’s own ROS account. Says whether the company is above the iXBRL deferral limits (balance sheet total €4.4 million, turnover €8.8 million, 50 employees).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_ie_ct1generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ie_b1generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsIeB1GenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the working paper for the Form B1 annual return of a financial year — company details, registered office, directors and secretary from Settings → Officers, the members from Settings → Shareholders, the issued share capital and the figures of the financial statements — in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_ie_b1generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_it_sdi_purchase_send</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsItSdiPurchaseSendResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the TD16-TD19 integration document for a registered purchase invoice and send it to the Sistema di Interscambio. Since July 2022 a purchase from a supplier established abroad is reported this way instead of the esterometro. The Italian VAT rate to self-assess is a judgement about the supply: pass vatRatePercent unless the purchase lines already carry it, otherwise the request is refused rather than guessed.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_it_sdi_purchase_send(purchase_invoice_id: "purchaseInvoiceId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**purchase_invoice_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_rate_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tipo_documento:** `Nordlet::Declarations::Types::PostV1DeclarationsItSdiPurchaseSendRequestTipoDocumento` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_it_sdi_purchase_preview</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsItSdiPurchasePreviewResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Render the TD16-TD19 integration document for a registered purchase invoice without sending it, so the rate and the document type can be checked first.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_it_sdi_purchase_preview(purchase_invoice_id: "purchaseInvoiceId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**purchase_invoice_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_rate_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tipo_documento:** `Nordlet::Declarations::Types::PostV1DeclarationsItSdiPurchasePreviewRequestTipoDocumento` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_saft_send</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtSaftSendResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_lt_saft_send(
+  from_date: "fromDate",
+  to_date: "toDate"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**data_type:** `Nordlet::Declarations::Types::PostV1DeclarationsLtSaftSendRequestDataType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**confirm:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_sd_ffdata</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtSdFfdataResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Render the Sodra 1-SD or 2-SD notice for the contracts starting or ending in the range as an .ffdata document for EDAS.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_lt_sd_ffdata(
+  type: "1-SD",
+  from_date: "fromDate",
+  to_date: "toDate"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**type:** `Nordlet::Declarations::Types::PostV1DeclarationsLtSdFfdataRequestType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**from_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**manager_full_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**preparator_details:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_pln204ffdata</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtPln204FfdataResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Render the annual corporate income tax return PLN204 as an .ffdata document, including the PLN204S and PLN204Z annexes, from the ledger and the tax adjustments recorded for that year.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_lt_pln204ffdata(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_mt_company_tax_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsMtCompanyTaxGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the company income tax return and self-assessment of a year of assessment from the ledger and the recorded tax adjustments: the accounting profit before tax, the add-backs and deductions, the approved donations, capital allowances and losses carried forward, the chargeable income, the 35 % charge, the relief against the tax and the allocation of the distributable profit to the five tax accounts. The Malta Tax and Customs Administration issues the return as a personalised spreadsheet to the registered tax practitioner and publishes no layout, so the XML is a working file and the figures are keyed into that spreadsheet.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_mt_company_tax_generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_mt_annual_return_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsMtAnnualReturnGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the annual return of a year: the company number, registered office and made-up-to date, the share capital, the register of members, the directors and the company secretary and the accounts summary, as the figures the Malta Business Registry asks for on its own screens, plus the printed Annual Return Form of the Seventh Schedule filled in as a PDF for signing.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_mt_annual_return_generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_jpk_fa_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlJpkFaGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate JPK_FA(4), the on-demand structure with every sales invoice issued in a period, its VAT bases per rate and one row per invoice line. Filed only when the tax office asks for it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_jpk_fa_generate(
+  date_from: "dateFrom",
+  date_to: "dateTo"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**date_from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date_to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_jpk_kr_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlJpkKrGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate JPK_KR(1), the on-demand structure with the chart of accounts and its opening balances and turnover, the journal and the double entries behind it. Filed only when the tax office asks for it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_jpk_kr_generate(
+  date_from: "dateFrom",
+  date_to: "dateTo"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**date_from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date_to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_jpk_mag_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlJpkMagGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate JPK_MAG(2), the on-demand structure with the warehouse documents of one warehouse: goods received from outside (PZ) or internally (PW) and issued to a customer (WZ) or internally (RW). Filed only when the tax office asks for it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_jpk_mag_generate(
+  date_from: "dateFrom",
+  date_to: "dateTo"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**date_from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date_to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warehouse_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_pit11generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlPit11GenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_pit11generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_cit8generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlCit8GenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Generate CIT-8(34), the annual corporate income tax return, from the ledger of the year and the recorded tax adjustments. The tax office code and the small-taxpayer setting come from the e-Deklaracje compliance settings, the seat address from the JPK gateway settings. Names the annexes the figures would need, which are not produced.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_cit8generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_zus_dra_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlZusDraComputeResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Compute the monthly ZUS DRA settlement from the payroll run of one month: the pension, disability, sickness, accident and health insurance contributions and the Labour Fund, Solidarity Fund and guaranteed benefits fund charges, each split between the insured person and the payer. The amounts are carried into Płatnik or ePłatnik by hand.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_zus_dra_compute(
+  year: 1000000,
+  month: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_zus_dra_kedu</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlZusDraKeduResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the KEDU file for one month: the ZUS DRA settlement and one ZUS RCA report per person on the payroll, in the schema kedu_5_4 that Płatnik and ePłatnik import. The payer REGON, short name and declaration deadline code come from the ZUS compliance settings; the insurance title code and working time of each person from the employee record.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_zus_dra_kedu(
+  year: 1000000,
+  month: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_zus_dra_pdf</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlZusDraPdfResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Fill the published ZUS DRA form for one month and return it as a PDF. The amounts, the payer identity and the deadline code are the same ones the KEDU file carries; blocks the payroll does not hold (paid benefits, bridging pensions, income declaration of a self-paying person) stay empty.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_pl_zus_dra_pdf(
+  year: 1000000,
+  month: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ro_etransport_build</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsRoEtransportBuildResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the RO e-Transport declaration for an issued waybill: goods with their tariff codes and masses, the commercial partner, the route and the vehicle. The XML follows the ANAF eTransport v2 schema and is kept as a file on the waybill. Anything listed in blockers has to be filled in before /etransport/send will accept it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_ro_etransport_build(waybill_id: "waybillId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**waybill_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ro_etransport_submit</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsRoEtransportSubmitResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Hand the RO e-Transport declaration for an issued waybill to ANAF under the SPV OAuth token in compliance settings, and return the upload index the UIT is read back with. Answers 422 while any field the ANAF validator requires is still missing.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_ro_etransport_submit(waybill_id: "waybillId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**waybill_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ro_etransport_status</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsRoEtransportStatusResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Read the outcome of an e-Transport declaration from ANAF by its upload index, under the SPV OAuth token in compliance settings. Returns the UIT code once the declaration validates.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_ro_etransport_status(reference: "reference")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**reference:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_li_lohndeklaration_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLiLohndeklarationGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the annual wage declaration (Lohndeklaration) to the AHV-IV-FAK from the approved payroll runs of the year as the CSV that AHVeasy imports under Lohndeklaration → CSV-Import der Lohndaten: one row per employee with the 18 columns of the AHVeasy template, the AHV-liable wage and the ALV wage.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_li_lohndeklaration_generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_li_lohnlisten_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLiLohnlistenGenerateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build the annual wage list (Lohnliste) of a Liechtenstein employer from the approved payroll runs of the year as the XLSX file the tax administration's eLohnausweis / eLohnlisten application imports: one row per employee with PEID, name, birth date, address, gross wage, wage tax withheld and the settlement period.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_li_lohnlisten_generate(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_configs_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsConfigsListResponse</code></summary>
 <dl>
 <dd>
@@ -15408,6 +19983,328 @@ client.declarations.post_v1declarations_configs_update(
 <dd>
 
 **config:** `Internal::Types::Hash[String, String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">store_the_certificate_or_private_key_a_filing_system_authenticates_with</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCertificatesUploadResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.store_the_certificate_or_private_key_a_filing_system_authenticates_with(
+  system: "system",
+  file_name: "fileName",
+  content: "content"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**system:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**content:** `String` — Base64-encoded PEM or PKCS#12 file
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**passphrase:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_certificates_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCertificatesListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_certificates_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_certificates_delete</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCertificatesDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_certificates_delete(
+  system: "system",
+  field_key: "certificate"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**system:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**field_key:** `Nordlet::Declarations::Types::PostV1DeclarationsCertificatesDeleteRequestFieldKey` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">which_deadlines_nordlet_can_file_by_itself_for_this_company_and_which_are_switched_on</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAutomationListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.which_deadlines_nordlet_can_file_by_itself_for_this_company_and_which_are_switched_on
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_automation_update</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAutomationUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.post_v1declarations_automation_update(
+  rule_key: "ruleKey",
+  enabled: true
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**rule_key:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**enabled:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">send_a_filing_whose_delivery_failed_once_more_with_the_bytes_that_were_generated</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsRetryResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.send_a_filing_whose_delivery_failed_once_more_with_the_bytes_that_were_generated(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
     
 </dd>
 </dl>
@@ -15787,7 +20684,7 @@ client.ledger.post_v1ledger_accounts_create(
 <dl>
 <dd>
 
-**translations:** `Nordlet::Ledger::Types::PostV1LedgerAccountsCreateRequestTranslations` 
+**translations:** `Internal::Types::Hash[String, Nordlet::Ledger::Types::PostV1LedgerAccountsCreateRequestTranslationsValue]` 
     
 </dd>
 </dl>
@@ -15875,7 +20772,7 @@ client.ledger.post_v1ledger_accounts_update(id: "id")
 <dl>
 <dd>
 
-**translations:** `Nordlet::Ledger::Types::PostV1LedgerAccountsUpdateRequestTranslations` 
+**translations:** `Internal::Types::Hash[String, Nordlet::Ledger::Types::PostV1LedgerAccountsUpdateRequestTranslationsValue]` 
     
 </dd>
 </dl>
@@ -15925,6 +20822,60 @@ client.ledger.post_v1ledger_accounts_update(id: "id")
 
 ```ruby
 client.ledger.post_v1ledger_accounts_apply_template
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">move_a_company_that_has_posted_nothing_yet_to_the_chart_of_accounts_of_its_country</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerAccountsSwitchChartResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replaces the seeded chart with the chart template of the company country (the Romanian general chart for a company registered in Romania, the Lithuanian standard chart otherwise) and switches the posting defaults with it. Answers 409 when the company already uses that chart, has journal entries, holds accounts created by hand, or has settings that name an account the new chart does not have.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.move_a_company_that_has_posted_nothing_yet_to_the_chart_of_accounts_of_its_country
 ```
 </dd>
 </dl>
@@ -16873,6 +21824,38 @@ client.ledger.post_v1ledger_owners_create(name: "name")
 <dl>
 <dd>
 
+**withholding_tax_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partner_liability:** `Nordlet::Ledger::Types::PostV1LedgerOwnersCreateRequestPartnerLiability` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**special_balance_required:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**supplementary_balance_required:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **address:** `Nordlet::Ledger::Types::PostV1LedgerOwnersCreateRequestAddress` 
     
 </dd>
@@ -16978,6 +21961,38 @@ client.ledger.post_v1ledger_owners_update(id: "id")
 <dd>
 
 **shares_acquisition_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**withholding_tax_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partner_liability:** `Nordlet::Ledger::Types::PostV1LedgerOwnersUpdateRequestPartnerLiability` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**special_balance_required:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**supplementary_balance_required:** `Internal::Types::Boolean` 
     
 </dd>
 </dl>
@@ -17231,6 +22246,530 @@ client.ledger.post_v1ledger_journal_transactions_create(
 <dd>
 
 **entries:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsCreateRequestEntriesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">national_statement_layouts_available_to_the_company</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerStatementRowsSchemesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The rows or codes of each return or registry deposit of the company country that are filled from account balances. Accounts fall into a row by the layout defaults for the standard chart of accounts unless mapped under Settings → Statement rows.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.national_statement_layouts_available_to_the_company
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">accounts_placed_on_the_rows_of_a_statement_layout_with_the_row_totals_of_a_period</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerStatementRowsListResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.accounts_placed_on_the_rows_of_a_statement_layout_with_the_row_totals_of_a_period(scheme: "scheme")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**scheme:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**from_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">map_an_account_or_an_account_code_prefix_to_a_row_of_a_statement_layout</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerStatementRowsSetResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+A mapping on a code prefix covers every account whose code starts with it; the longest matching prefix wins. An empty rowCode removes the mapping so the layout default applies again.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.map_an_account_or_an_account_code_prefix_to_a_row_of_a_statement_layout(
+  scheme: "scheme",
+  account_code: "accountCode"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**scheme:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**row_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">officers_of_the_company</a>(request) -> Nordlet::Ledger::Types::PostV1OfficersListResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Directors, board members, the company secretary, representatives and liquidators, with their personal identifier, appointment and resignation dates and whether they sign the annual accounts. Annual returns and registry deposits are built from this register.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.officers_of_the_company
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">record_an_officer_of_the_company</a>(request) -> Nordlet::Ledger::Types::PostV1OfficersCreateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.record_an_officer_of_the_company(
+  name: "name",
+  role: "director"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**role:** `Nordlet::Ledger::Types::PostV1OfficersCreateRequestRole` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**personal_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**birth_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**appointed_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**power_notary:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resigned_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**signs_accounts:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">change_a_recorded_officer</a>(request) -> Nordlet::Ledger::Types::PostV1OfficersUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.change_a_recorded_officer(
+  id: "id",
+  name: "name",
+  role: "director"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**role:** `Nordlet::Ledger::Types::PostV1OfficersUpdateRequestRole` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**personal_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**birth_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**appointed_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**power_notary:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resigned_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**signs_accounts:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">remove_a_recorded_officer</a>(request) -> Nordlet::Ledger::Types::PostV1OfficersDeleteResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.remove_a_recorded_officer(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
     
 </dd>
 </dl>
@@ -17832,6 +23371,244 @@ client.assets.post_v1assets_assets_create(
 <dd>
 
 **documents:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsCreateRequestDocumentsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Assets::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_assets_update</a>(request) -> Nordlet::Assets::Types::PostV1AssetsAssetsUpdateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.assets.post_v1assets_assets_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**group_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**acquisition_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**depreciation_start_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**acquisition_cost:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**salvage_value:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**useful_life_months:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**documents:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsUpdateRequestDocumentsItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Assets::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_assets_input_vat</a>(request) -> Nordlet::Assets::Types::PostV1AssetsAssetsInputVatResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Record the input VAT facts of a capital good that the annual VAT return needs for the adjustment of the deduction over the adjustment period (Article 187 of the VAT Directive, § 15a UStG): the input VAT on the acquisition, the date of first use, the share of use for deductible turnover at first use, whether it is land or a building (ten-year period instead of five), and every later year in which the share changed or the good was sold or withdrawn. Allowed also after depreciation has been posted.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.assets.post_v1assets_assets_input_vat(
+  id: "id",
+  input_vat_real_estate: true,
+  input_vat_use_changes: [{
+    year: 1000000,
+    percent: "percent",
+    reason: "use_change"
+  }]
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**input_vat_amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**input_vat_first_use_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**input_vat_deductible_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**input_vat_real_estate:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**input_vat_use_changes:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem]` 
     
 </dd>
 </dl>
@@ -18525,7 +24302,7 @@ client.hr.post_v1hr_employees_create(
 <dl>
 <dd>
 
-**apply_npd:** `Internal::Types::Boolean` 
+**apply_allowance:** `Internal::Types::Boolean` 
     
 </dd>
 </dl>
@@ -18533,7 +24310,7 @@ client.hr.post_v1hr_employees_create(
 <dl>
 <dd>
 
-**npd_override:** `String` 
+**allowance_override:** `String` 
     
 </dd>
 </dl>
@@ -18542,6 +24319,14 @@ client.hr.post_v1hr_employees_create(
 <dd>
 
 **pension_accumulation:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payroll_options:** `Internal::Types::Hash[String, String]` 
     
 </dd>
 </dl>
@@ -18701,7 +24486,7 @@ client.hr.post_v1hr_employees_update(id: "id")
 <dl>
 <dd>
 
-**apply_npd:** `Internal::Types::Boolean` 
+**apply_allowance:** `Internal::Types::Boolean` 
     
 </dd>
 </dl>
@@ -18709,7 +24494,7 @@ client.hr.post_v1hr_employees_update(id: "id")
 <dl>
 <dd>
 
-**npd_override:** `String` 
+**allowance_override:** `String` 
     
 </dd>
 </dl>
@@ -18718,6 +24503,14 @@ client.hr.post_v1hr_employees_update(id: "id")
 <dd>
 
 **pension_accumulation:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payroll_options:** `Internal::Types::Hash[String, String]` 
     
 </dd>
 </dl>
@@ -18809,6 +24602,60 @@ client.hr.post_v1hr_employees_get(id: "id")
     
 </dd>
 </dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Hr::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">extra_employee_details_the_country_of_the_company_asks_for</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesFieldsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Attributes a filing of the company country needs about a person that the shared employee record does not carry, such as the sex and place of birth an Italian income certificate asks for. Their values are kept in the payrollOptions of the employee.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.hr.extra_employee_details_the_country_of_the_company_asks_for
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
 
 <dl>
 <dd>
@@ -21268,7 +27115,7 @@ client.payroll.post_v1payroll_schedules_list
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_calc</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollCalcResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">calculate_one_employee_payment_under_the_rules_of_the_company_country</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollCalcResponse</code></summary>
 <dl>
 <dd>
 
@@ -21281,7 +27128,7 @@ client.payroll.post_v1payroll_schedules_list
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_calc(
+client.payroll.calculate_one_employee_payment_under_the_rules_of_the_company_country(
   taxable_base: "taxableBase",
   date: "date"
 )
@@ -21315,7 +27162,7 @@ client.payroll.post_v1payroll_calc(
 <dl>
 <dd>
 
-**apply_npd:** `Internal::Types::Boolean` 
+**apply_allowance:** `Internal::Types::Boolean` 
     
 </dd>
 </dl>
@@ -21323,7 +27170,7 @@ client.payroll.post_v1payroll_calc(
 <dl>
 <dd>
 
-**npd_override:** `String` 
+**allowance_override:** `String` 
     
 </dd>
 </dl>
@@ -21340,6 +27187,22 @@ client.payroll.post_v1payroll_calc(
 <dd>
 
 **fixed_term:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**benefit_in_kind:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**options:** `Internal::Types::Hash[String, String]` 
     
 </dd>
 </dl>
@@ -21407,6 +27270,14 @@ client.payroll.post_v1payroll_runs_create(
 <dd>
 
 **include_natura:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**gross_overrides:** `Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsCreateRequestGrossOverridesItem]` 
     
 </dd>
 </dl>
@@ -21570,6 +27441,100 @@ client.payroll.post_v1payroll_runs_list
 </dl>
 </details>
 
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">record_the_time_a_person_worked_in_a_payroll_line</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The days and hours worked, the days on the register and the average hourly earnings that some countries report per employment. The Czech monthly employer report asks for all four. They can be set while the run is a draft.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.payroll.record_the_time_a_person_worked_in_a_payroll_line(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**days_worked:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**hours_worked:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**registered_days:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**average_hourly_earnings:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Payroll::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_runs_approve</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollRunsApproveResponse</code></summary>
 <dl>
 <dd>
@@ -21639,6 +27604,14 @@ client.payroll.post_v1payroll_runs_approve(id: "id")
 <dd>
 
 **sodra_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**employer_social_account_code:** `String` 
     
 </dd>
 </dl>
@@ -28826,6 +34799,116 @@ client.calendar.post_v1calendar_get(key: "key")
 </dl>
 </details>
 
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">generate_the_filing_for_a_deadline_and_send_it_to_the_administration</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarSubmitResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.calendar.generate_the_filing_for_a_deadline_and_send_it_to_the_administration(key: "key")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**key:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Calendar::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">generate_the_file_of_a_deadline_for_the_company_to_send_itself</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarDownloadResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Builds the file of a deadline whose format Nordlet produces but whose administration takes it only through the company's own account or program. Nothing is sent and no filing is recorded.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.calendar.generate_the_file_of_a_deadline_for_the_company_to_send_itself(key: "key")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**key:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Calendar::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_create</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarCreateResponse</code></summary>
 <dl>
 <dd>
@@ -31737,6 +37820,84 @@ client.bank.post_v1bank_settlements_match(line_id: "lineId")
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">set_what_the_marketplace_keeps_from_one_settlement_line_as_a_rate_or_as_an_amount</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsCommissionResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+A line with its own rate or amount is split with that value when the batch is posted. A line without one falls back to the commissionPercent given to the posting call, and without that the amount goes to the suspense account. Send both fields as null to clear the line back to the fallback.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.set_what_the_marketplace_keeps_from_one_settlement_line_as_a_rate_or_as_an_amount(line_id: "lineId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**line_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**commission_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**commission_amount:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_link</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsLinkResponse</code></summary>
 <dl>
 <dd>
@@ -33584,6 +39745,249 @@ client.reports.post_v1reports_stock_shortage
 <dd>
 
 **warehouse_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Reports::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_sie</a>(request) -> Nordlet::Reports::Types::PostV1ReportsSieResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Export the ledger of one financial year as an SIE file (the Swedish standard accounting interchange format, specification 4B). The file carries the chart of accounts, the opening and closing balance of every balance sheet account and the turnover of every result account for the year and the year before it, and, when asked for, every posted voucher of the year with its lines. Cost centres travel as dimension 1 and projects as dimension 6. Services that build a Swedish annual report read this file.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.reports.post_v1reports_sie(
+  from_date: "fromDate",
+  to_date: "toDate"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_transactions:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Reports::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_datev</a>(request) -> Nordlet::Reports::Types::PostV1ReportsDatevResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Export the posted ledger of a period as a DATEV Buchungsstapel file (DATEV format, category 21, version 700). Every transaction becomes one or more bookings of an amount between an account and a contra account; a transaction with more than two lines is split into pairs whose totals match it. The file is semicolon separated and written in the Windows-1252 character set DATEV expects.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.reports.post_v1reports_datev(
+  from_date: "fromDate",
+  to_date: "toDate"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**consultant_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**client_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Reports::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_fec</a>(request) -> Nordlet::Reports::Types::PostV1ReportsFecResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Export the posted ledger of a period as a French FEC file (fichier des écritures comptables, order of 29 July 2013). One line per journal entry line, with the eighteen fields the order names, in their order, after a header line. Tab separated, UTF-8, comma as the decimal separator.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.reports.post_v1reports_fec(
+  from_date: "fromDate",
+  to_date: "toDate"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_date:** `String` 
     
 </dd>
 </dl>
@@ -35975,6 +42379,62 @@ client.account.post_v1account_members_set_role(
 </dl>
 </details>
 
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_members_transfer_ownership</a>(request) -> Nordlet::Account::Types::PostV1AccountMembersTransferOwnershipResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_members_transfer_ownership(user_id: "userId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**user_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**move_payer:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_members_remove</a>(request) -> Nordlet::Account::Types::PostV1AccountMembersRemoveResponse</code></summary>
 <dl>
 <dd>
@@ -36319,7 +42779,7 @@ client.account.post_v1account_invites_accept(token: "token")
 <dd>
 
 ```ruby
-client.account.post_v1account_locale_set(locale: "lt")
+client.account.post_v1account_locale_set(locale: "en")
 ```
 </dd>
 </dl>
@@ -36422,6 +42882,38 @@ client.account.post_v1account_companies_create(name: "name")
 <dl>
 <dd>
 
+**vat_period:** `Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestVatPeriod` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fiscal_year_end_month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**time_zone:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filing_options:** `Internal::Types::Hash[String, String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **address:** `Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestAddress` 
     
 </dd>
@@ -36479,6 +42971,78 @@ client.account.post_v1account_companies_create(name: "name")
 <dd>
 
 **default_invoice_currency:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**legal_form:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**registry_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**incorporated_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**share_capital:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**accounts_kept_by:** `Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestAccountsKeptBy` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bookkeeper_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auditor_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auditor_registration_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**audit_required:** `Internal::Types::Boolean` 
     
 </dd>
 </dl>
@@ -36670,6 +43234,38 @@ client.account.post_v1account_companies_update
 <dl>
 <dd>
 
+**vat_period:** `Nordlet::Account::Types::PostV1AccountCompaniesUpdateRequestVatPeriod` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fiscal_year_end_month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**time_zone:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filing_options:** `Internal::Types::Hash[String, String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **address:** `Nordlet::Account::Types::PostV1AccountCompaniesUpdateRequestAddress` 
     
 </dd>
@@ -36727,6 +43323,78 @@ client.account.post_v1account_companies_update
 <dd>
 
 **default_invoice_currency:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**legal_form:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**registry_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**incorporated_on:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**share_capital:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**accounts_kept_by:** `Nordlet::Account::Types::PostV1AccountCompaniesUpdateRequestAccountsKeptBy` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bookkeeper_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auditor_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**auditor_registration_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**audit_required:** `Internal::Types::Boolean` 
     
 </dd>
 </dl>
@@ -36942,6 +43610,14 @@ client.account.post_v1account_api_keys_create(name: "name")
 <dl>
 <dd>
 
+**expires_in_days:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Account::RequestOptions` 
     
 </dd>
@@ -36978,6 +43654,70 @@ client.account.post_v1account_api_keys_list
 
 <dl>
 <dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">issue_a_replacement_for_an_api_key_and_set_the_old_one_to_stop_working_after_a_short_overlap</a>(request) -> Nordlet::Account::Types::PostV1AccountAPIKeysRotateResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.issue_a_replacement_for_an_api_key_and_set_the_old_one_to_stop_working_after_a_short_overlap(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**overlap_hours:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**expires_in_days:** `Integer` 
+    
+</dd>
+</dl>
 
 <dl>
 <dd>
@@ -37459,6 +44199,54 @@ client.account.post_v1account_referral_get
 
 <dl>
 <dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_referral_convert</a>(request) -> Nordlet::Account::Types::PostV1AccountReferralConvertResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.post_v1account_referral_convert(points: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**points:** `Integer` 
+    
+</dd>
+</dl>
 
 <dl>
 <dd>

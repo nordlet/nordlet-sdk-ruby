@@ -24,6 +24,16 @@ module Nordlet
 
         field :notes, -> { String }, optional: true, nullable: false
 
+        field :intrastat_transport_mode, -> { String }, optional: true, nullable: false, api_name: "intrastatTransportMode"
+
+        field :intrastat_delivery_terms, -> { String }, optional: true, nullable: false, api_name: "intrastatDeliveryTerms"
+
+        field :intrastat_region, -> { String }, optional: true, nullable: false, api_name: "intrastatRegion"
+
+        field :intrastat_nature_of_transaction, -> { String }, optional: true, nullable: false, api_name: "intrastatNatureOfTransaction"
+
+        field :einvoice_number, -> { String }, optional: true, nullable: false, api_name: "einvoiceNumber"
+
         field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
 
         field :lines, -> { Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesCreateRequestLinesItem] }, optional: false, nullable: false

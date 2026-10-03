@@ -18,6 +18,14 @@ module Nordlet
 
         field :shares_acquisition_date, -> { String }, optional: true, nullable: false, api_name: "sharesAcquisitionDate"
 
+        field :withholding_tax_percent, -> { String }, optional: true, nullable: false, api_name: "withholdingTaxPercent"
+
+        field :partner_liability, -> { Nordlet::Ledger::Types::PostV1LedgerOwnersCreateRequestPartnerLiability }, optional: true, nullable: false, api_name: "partnerLiability"
+
+        field :special_balance_required, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "specialBalanceRequired"
+
+        field :supplementary_balance_required, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "supplementaryBalanceRequired"
+
         field :address, -> { Nordlet::Ledger::Types::PostV1LedgerOwnersCreateRequestAddress }, optional: true, nullable: false
       end
     end

@@ -12,8 +12,6 @@ module Nordlet
 
         field :expires_at, -> { String }, optional: false, nullable: false, api_name: "expiresAt"
 
-        field :invite_url, -> { String }, optional: false, nullable: false, api_name: "inviteUrl"
-
         field :email_sent, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "emailSent"
       end
     end

@@ -22,6 +22,8 @@ module Nordlet
 
         field :net_total, -> { String }, optional: false, nullable: false, api_name: "netTotal"
 
+        field :fx_rate, -> { String }, optional: false, nullable: true, api_name: "fxRate"
+
         field :status, -> { Nordlet::Bank::Types::PostV1BankSettlementsUnlinkResponseStatus }, optional: false, nullable: false
 
         field :journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "journalTransactionId"

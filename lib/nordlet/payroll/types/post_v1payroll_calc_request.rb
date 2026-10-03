@@ -8,13 +8,17 @@ module Nordlet
 
         field :date, -> { String }, optional: false, nullable: false
 
-        field :apply_npd, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "applyNpd"
+        field :apply_allowance, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "applyAllowance"
 
-        field :npd_override, -> { String }, optional: true, nullable: false, api_name: "npdOverride"
+        field :allowance_override, -> { String }, optional: true, nullable: false, api_name: "allowanceOverride"
 
         field :pension_accumulation, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "pensionAccumulation"
 
         field :fixed_term, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "fixedTerm"
+
+        field :benefit_in_kind, -> { String }, optional: true, nullable: false, api_name: "benefitInKind"
+
+        field :options, -> { Internal::Types::Hash[String, String] }, optional: true, nullable: false
       end
     end
   end

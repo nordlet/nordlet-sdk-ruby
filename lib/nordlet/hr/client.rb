@@ -202,6 +202,42 @@ module Nordlet
         end
       end
 
+      # Attributes a filing of the company country needs about a person that the shared employee record does not carry,
+      # such as the sex and place of birth an Italian income certificate asks for. Their values are kept in the
+      # payrollOptions of the employee.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Hr::Types::PostV1HrEmployeesFieldsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Hr::Types::PostV1HrEmployeesFieldsResponse]
+      def extra_employee_details_the_country_of_the_company_asks_for(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/hr/employees/fields",
+          body: Nordlet::Hr::Types::PostV1HrEmployeesFieldsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Hr::Types::PostV1HrEmployeesFieldsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::PostV1HrEmployeesListRequest]
       # @option request_options [String] :base_url

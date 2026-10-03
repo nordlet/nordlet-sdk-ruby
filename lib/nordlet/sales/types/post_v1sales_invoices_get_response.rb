@@ -26,6 +26,8 @@ module Nordlet
 
         field :currency, -> { String }, optional: false, nullable: false
 
+        field :fx_rate, -> { String }, optional: false, nullable: true, api_name: "fxRate"
+
         field :net_total, -> { String }, optional: false, nullable: false, api_name: "netTotal"
 
         field :vat_total, -> { String }, optional: false, nullable: false, api_name: "vatTotal"
@@ -43,6 +45,14 @@ module Nordlet
         field :agreement_id, -> { String }, optional: false, nullable: true, api_name: "agreementId"
 
         field :vat_scheme, -> { Nordlet::Sales::Types::PostV1SalesInvoicesGetResponseVatScheme }, optional: false, nullable: true, api_name: "vatScheme"
+
+        field :intrastat_transport_mode, -> { String }, optional: false, nullable: true, api_name: "intrastatTransportMode"
+
+        field :intrastat_delivery_terms, -> { String }, optional: false, nullable: true, api_name: "intrastatDeliveryTerms"
+
+        field :intrastat_region, -> { String }, optional: false, nullable: true, api_name: "intrastatRegion"
+
+        field :intrastat_nature_of_transaction, -> { String }, optional: false, nullable: true, api_name: "intrastatNatureOfTransaction"
 
         field :vat_country_code, -> { String }, optional: false, nullable: true, api_name: "vatCountryCode"
 
@@ -75,6 +85,22 @@ module Nordlet
         field :locked_by, -> { String }, optional: false, nullable: true, api_name: "lockedBy"
 
         field :pay_token, -> { String }, optional: false, nullable: true, api_name: "payToken"
+
+        field :einvoice_system, -> { String }, optional: false, nullable: true, api_name: "einvoiceSystem"
+
+        field :einvoice_transport, -> { String }, optional: false, nullable: true, api_name: "einvoiceTransport"
+
+        field :einvoice_message_id, -> { String }, optional: false, nullable: true, api_name: "einvoiceMessageId"
+
+        field :einvoice_number, -> { String }, optional: false, nullable: true, api_name: "einvoiceNumber"
+
+        field :einvoice_status, -> { String }, optional: false, nullable: true, api_name: "einvoiceStatus"
+
+        field :einvoice_detail, -> { String }, optional: false, nullable: true, api_name: "einvoiceDetail"
+
+        field :einvoice_sent_at, -> { String }, optional: false, nullable: true, api_name: "einvoiceSentAt"
+
+        field :einvoice_checked_at, -> { String }, optional: false, nullable: true, api_name: "einvoiceCheckedAt"
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 

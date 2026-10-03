@@ -10,6 +10,8 @@ module Nordlet
 
         field :active_company_id, -> { String }, optional: false, nullable: true, api_name: "activeCompanyId"
 
+        field :time_zone, -> { String }, optional: false, nullable: false, api_name: "timeZone"
+
         field :role, -> { String }, optional: false, nullable: true
 
         field :billing, -> { Nordlet::Account::Types::PostV1AccountMeResponseBilling }, optional: false, nullable: false

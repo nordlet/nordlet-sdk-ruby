@@ -15,6 +15,8 @@ module Nordlet
         field :endpoints, -> { Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsConfigsListResponseRowsItemEndpointsItem] }, optional: true, nullable: false
 
         field :values, -> { Internal::Types::Hash[String, String] }, optional: false, nullable: false
+
+        field :accepts_certificate, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "acceptsCertificate"
       end
     end
   end

@@ -16,6 +16,14 @@ module Nordlet
 
         field :transport_mode, -> { Nordlet::Declarations::Types::PostV1DeclarationsLtIntrastatComputeRequestTransportMode }, optional: true, nullable: false, api_name: "transportMode"
 
+        field :region_code, -> { String }, optional: true, nullable: false, api_name: "regionCode"
+
+        field :statistical_value_required, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "statisticalValueRequired"
+
+        field :preparation_time_hours, -> { Integer }, optional: true, nullable: false, api_name: "preparationTimeHours"
+
+        field :preparation_time_minutes, -> { Integer }, optional: true, nullable: false, api_name: "preparationTimeMinutes"
+
         field :persist, -> { Internal::Types::Boolean }, optional: true, nullable: false
       end
     end

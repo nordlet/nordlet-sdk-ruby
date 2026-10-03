@@ -38,6 +38,16 @@ module Nordlet
 
         field :documents, -> { Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsModernizeResponseDocumentsItem] }, optional: false, nullable: true
 
+        field :input_vat_amount, -> { String }, optional: false, nullable: true, api_name: "inputVatAmount"
+
+        field :input_vat_first_use_date, -> { String }, optional: false, nullable: true, api_name: "inputVatFirstUseDate"
+
+        field :input_vat_deductible_percent, -> { String }, optional: false, nullable: true, api_name: "inputVatDeductiblePercent"
+
+        field :input_vat_real_estate, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "inputVatRealEstate"
+
+        field :input_vat_use_changes, -> { Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsModernizeResponseInputVatUseChangesItem] }, optional: false, nullable: false, api_name: "inputVatUseChanges"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
       end
     end

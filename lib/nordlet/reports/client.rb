@@ -458,6 +458,117 @@ module Nordlet
         end
       end
 
+      # Export the ledger of one financial year as an SIE file (the Swedish standard accounting interchange format,
+      # specification 4B). The file carries the chart of accounts, the opening and closing balance of every balance
+      # sheet account and the turnover of every result account for the year and the year before it, and, when asked for,
+      # every posted voucher of the year with its lines. Cost centres travel as dimension 1 and projects as dimension 6.
+      # Services that build a Swedish annual report read this file.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Reports::Types::PostV1ReportsSieRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Reports::Types::PostV1ReportsSieResponse]
+      def post_v1reports_sie(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/reports/sie",
+          body: Nordlet::Reports::Types::PostV1ReportsSieRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Reports::Types::PostV1ReportsSieResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Export the posted ledger of a period as a DATEV Buchungsstapel file (DATEV format, category 21, version 700).
+      # Every transaction becomes one or more bookings of an amount between an account and a contra account; a
+      # transaction with more than two lines is split into pairs whose totals match it. The file is semicolon separated
+      # and written in the Windows-1252 character set DATEV expects.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Reports::Types::PostV1ReportsDatevRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Reports::Types::PostV1ReportsDatevResponse]
+      def post_v1reports_datev(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/reports/datev",
+          body: Nordlet::Reports::Types::PostV1ReportsDatevRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Reports::Types::PostV1ReportsDatevResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Export the posted ledger of a period as a French FEC file (fichier des écritures comptables, order of 29 July
+      # 2013). One line per journal entry line, with the eighteen fields the order names, in their order, after a header
+      # line. Tab separated, UTF-8, comma as the decimal separator.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Reports::Types::PostV1ReportsFecRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Reports::Types::PostV1ReportsFecResponse]
+      def post_v1reports_fec(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/reports/fec",
+          body: Nordlet::Reports::Types::PostV1ReportsFecRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Reports::Types::PostV1ReportsFecResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # @param request_options [Hash]
       # @param params [Nordlet::Reports::Types::PostV1ReportsEuPurchasesRequest]
       # @option request_options [String] :base_url

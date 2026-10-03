@@ -12,6 +12,10 @@ module Nordlet
 
         field :last_used_at, -> { String }, optional: false, nullable: true, api_name: "lastUsedAt"
 
+        field :expires_at, -> { String }, optional: false, nullable: true, api_name: "expiresAt"
+
+        field :replaced_by_key_id, -> { String }, optional: false, nullable: true, api_name: "replacedByKeyId"
+
         field :revoked_at, -> { String }, optional: false, nullable: true, api_name: "revokedAt"
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"

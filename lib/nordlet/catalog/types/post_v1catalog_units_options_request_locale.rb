@@ -6,8 +6,9 @@ module Nordlet
       module PostV1CatalogUnitsOptionsRequestLocale
         extend Nordlet::Internal::Types::Enum
 
-        LT = "lt"
         EN = "en"
+        LT = "lt"
+        DE = "de"
       end
     end
   end

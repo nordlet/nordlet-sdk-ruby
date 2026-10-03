@@ -14,6 +14,14 @@ module Nordlet
 
         field :is_vat_payer, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "isVatPayer"
 
+        field :vat_period, -> { Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestVatPeriod }, optional: true, nullable: false, api_name: "vatPeriod"
+
+        field :fiscal_year_end_month, -> { Integer }, optional: true, nullable: false, api_name: "fiscalYearEndMonth"
+
+        field :time_zone, -> { String }, optional: true, nullable: false, api_name: "timeZone"
+
+        field :filing_options, -> { Internal::Types::Hash[String, String] }, optional: true, nullable: false, api_name: "filingOptions"
+
         field :address, -> { Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestAddress }, optional: true, nullable: false
 
         field :email, -> { String }, optional: true, nullable: false
@@ -29,6 +37,24 @@ module Nordlet
         field :sepa_creditor_id, -> { String }, optional: true, nullable: false, api_name: "sepaCreditorId"
 
         field :default_invoice_currency, -> { String }, optional: true, nullable: false, api_name: "defaultInvoiceCurrency"
+
+        field :legal_form, -> { String }, optional: true, nullable: false, api_name: "legalForm"
+
+        field :registry_name, -> { String }, optional: true, nullable: false, api_name: "registryName"
+
+        field :incorporated_on, -> { String }, optional: true, nullable: false, api_name: "incorporatedOn"
+
+        field :share_capital, -> { String }, optional: true, nullable: false, api_name: "shareCapital"
+
+        field :accounts_kept_by, -> { Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestAccountsKeptBy }, optional: true, nullable: false, api_name: "accountsKeptBy"
+
+        field :bookkeeper_name, -> { String }, optional: true, nullable: false, api_name: "bookkeeperName"
+
+        field :auditor_name, -> { String }, optional: true, nullable: false, api_name: "auditorName"
+
+        field :auditor_registration_number, -> { String }, optional: true, nullable: false, api_name: "auditorRegistrationNumber"
+
+        field :audit_required, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "auditRequired"
 
         field :country_code, -> { Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestCountryCode }, optional: true, nullable: false, api_name: "countryCode"
 
