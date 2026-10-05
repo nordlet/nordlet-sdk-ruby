@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Audit::Types::PostV1AuditListRequest]
+      # @param params [Nordlet::Audit::Types::ListAuditRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Audit::Types::PostV1AuditListResponse]
-      def post_v1audit_list(request_options: {}, **params)
+      # @return [Nordlet::Audit::Types::ListAuditResponse]
+      def list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/audit/list",
-          body: Nordlet::Audit::Types::PostV1AuditListRequest.new(params).to_h,
+          body: Nordlet::Audit::Types::ListAuditRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Audit::Types::PostV1AuditListResponse.load(response.body)
+          Nordlet::Audit::Types::ListAuditResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

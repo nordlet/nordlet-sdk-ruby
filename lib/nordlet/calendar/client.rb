@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Calendar::Types::PostV1CalendarListRequest]
+      # @param params [Nordlet::Calendar::Types::ListCalendarRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Calendar::Types::PostV1CalendarListResponse]
-      def post_v1calendar_list(request_options: {}, **params)
+      # @return [Nordlet::Calendar::Types::ListCalendarResponse]
+      def list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/calendar/list",
-          body: Nordlet::Calendar::Types::PostV1CalendarListRequest.new(params).to_h,
+          body: Nordlet::Calendar::Types::ListCalendarRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Calendar::Types::PostV1CalendarListResponse.load(response.body)
+          Nordlet::Calendar::Types::ListCalendarResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Calendar::Types::PostV1CalendarGetRequest]
+      # @param params [Nordlet::Calendar::Types::GetCalendarRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Calendar::Types::PostV1CalendarGetResponse]
-      def post_v1calendar_get(request_options: {}, **params)
+      # @return [Nordlet::Calendar::Types::GetCalendarResponse]
+      def get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/calendar/get",
-          body: Nordlet::Calendar::Types::PostV1CalendarGetRequest.new(params).to_h,
+          body: Nordlet::Calendar::Types::GetCalendarRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,29 +67,32 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Calendar::Types::PostV1CalendarGetResponse.load(response.body)
+          Nordlet::Calendar::Types::GetCalendarResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
         end
       end
 
+      # With amend: true the return is filed again as a correction of the one already submitted or accepted for the
+      # period; only returns whose format has a correction mark accept it.
+      #
       # @param request_options [Hash]
-      # @param params [Nordlet::Calendar::Types::PostV1CalendarSubmitRequest]
+      # @param params [Nordlet::Calendar::Types::SubmitCalendarRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Calendar::Types::PostV1CalendarSubmitResponse]
-      def generate_the_filing_for_a_deadline_and_send_it_to_the_administration(request_options: {}, **params)
+      # @return [Nordlet::Calendar::Types::SubmitCalendarResponse]
+      def submit(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/calendar/submit",
-          body: Nordlet::Calendar::Types::PostV1CalendarSubmitRequest.new(params).to_h,
+          body: Nordlet::Calendar::Types::SubmitCalendarRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +102,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Calendar::Types::PostV1CalendarSubmitResponse.load(response.body)
+          Nordlet::Calendar::Types::SubmitCalendarResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -110,21 +113,21 @@ module Nordlet
       # company's own account or program. Nothing is sent and no filing is recorded.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Calendar::Types::PostV1CalendarDownloadRequest]
+      # @param params [Nordlet::Calendar::Types::DownloadCalendarRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Calendar::Types::PostV1CalendarDownloadResponse]
-      def generate_the_file_of_a_deadline_for_the_company_to_send_itself(request_options: {}, **params)
+      # @return [Nordlet::Calendar::Types::DownloadCalendarResponse]
+      def download(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/calendar/download",
-          body: Nordlet::Calendar::Types::PostV1CalendarDownloadRequest.new(params).to_h,
+          body: Nordlet::Calendar::Types::DownloadCalendarRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -134,7 +137,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Calendar::Types::PostV1CalendarDownloadResponse.load(response.body)
+          Nordlet::Calendar::Types::DownloadCalendarResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -142,21 +145,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Calendar::Types::PostV1CalendarCreateRequest]
+      # @param params [Nordlet::Calendar::Types::CreateCalendarRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Calendar::Types::PostV1CalendarCreateResponse]
-      def post_v1calendar_create(request_options: {}, **params)
+      # @return [Nordlet::Calendar::Types::CreateCalendarResponse]
+      def create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/calendar/create",
-          body: Nordlet::Calendar::Types::PostV1CalendarCreateRequest.new(params).to_h,
+          body: Nordlet::Calendar::Types::CreateCalendarRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -166,7 +169,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Calendar::Types::PostV1CalendarCreateResponse.load(response.body)
+          Nordlet::Calendar::Types::CreateCalendarResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -174,21 +177,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Calendar::Types::PostV1CalendarUpdateRequest]
+      # @param params [Nordlet::Calendar::Types::UpdateCalendarRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Calendar::Types::PostV1CalendarUpdateResponse]
-      def post_v1calendar_update(request_options: {}, **params)
+      # @return [Nordlet::Calendar::Types::UpdateCalendarResponse]
+      def update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/calendar/update",
-          body: Nordlet::Calendar::Types::PostV1CalendarUpdateRequest.new(params).to_h,
+          body: Nordlet::Calendar::Types::UpdateCalendarRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -198,7 +201,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Calendar::Types::PostV1CalendarUpdateResponse.load(response.body)
+          Nordlet::Calendar::Types::UpdateCalendarResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -206,21 +209,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Calendar::Types::PostV1CalendarDeleteRequest]
+      # @param params [Nordlet::Calendar::Types::DeleteCalendarRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Calendar::Types::PostV1CalendarDeleteResponse]
-      def post_v1calendar_delete(request_options: {}, **params)
+      # @return [Nordlet::Calendar::Types::DeleteCalendarResponse]
+      def delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/calendar/delete",
-          body: Nordlet::Calendar::Types::PostV1CalendarDeleteRequest.new(params).to_h,
+          body: Nordlet::Calendar::Types::DeleteCalendarRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -230,7 +233,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Calendar::Types::PostV1CalendarDeleteResponse.load(response.body)
+          Nordlet::Calendar::Types::DeleteCalendarResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

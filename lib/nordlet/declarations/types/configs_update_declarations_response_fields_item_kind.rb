@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Declarations
+    module Types
+      module ConfigsUpdateDeclarationsResponseFieldsItemKind
+        extend Nordlet::Internal::Types::Enum
+
+        TEXT = "text"
+        SECRET = "secret"
+        SELECT = "select"
+        URL = "url"
+        CERTIFICATE = "certificate"
+      end
+    end
+  end
+end

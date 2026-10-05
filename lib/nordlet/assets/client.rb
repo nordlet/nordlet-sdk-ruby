@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsGroupsCreateRequest]
+      # @param params [Nordlet::Assets::Types::GroupsCreateAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsGroupsCreateResponse]
-      def post_v1assets_groups_create(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::GroupsCreateAssetsResponse]
+      def groups_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/groups/create",
-          body: Nordlet::Assets::Types::PostV1AssetsGroupsCreateRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::GroupsCreateAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsGroupsCreateResponse.load(response.body)
+          Nordlet::Assets::Types::GroupsCreateAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsGroupsListRequest]
+      # @param params [Nordlet::Assets::Types::GroupsListAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsGroupsListResponse]
-      def post_v1assets_groups_list(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::GroupsListAssetsResponse]
+      def groups_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/groups/list",
-          body: Nordlet::Assets::Types::PostV1AssetsGroupsListRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::GroupsListAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsGroupsListResponse.load(response.body)
+          Nordlet::Assets::Types::GroupsListAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsAssetsCreateRequest]
+      # @param params [Nordlet::Assets::Types::AssetsCreateAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsAssetsCreateResponse]
-      def post_v1assets_assets_create(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::AssetsCreateAssetsResponse]
+      def assets_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/assets/create",
-          body: Nordlet::Assets::Types::PostV1AssetsAssetsCreateRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::AssetsCreateAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsAssetsCreateResponse.load(response.body)
+          Nordlet::Assets::Types::AssetsCreateAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsAssetsUpdateRequest]
+      # @param params [Nordlet::Assets::Types::AssetsUpdateAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsAssetsUpdateResponse]
-      def post_v1assets_assets_update(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::AssetsUpdateAssetsResponse]
+      def assets_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/assets/update",
-          body: Nordlet::Assets::Types::PostV1AssetsAssetsUpdateRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::AssetsUpdateAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsAssetsUpdateResponse.load(response.body)
+          Nordlet::Assets::Types::AssetsUpdateAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -145,21 +145,21 @@ module Nordlet
       # sold or withdrawn. Allowed also after depreciation has been posted.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsAssetsInputVatRequest]
+      # @param params [Nordlet::Assets::Types::AssetsInputVatAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsAssetsInputVatResponse]
-      def post_v1assets_assets_input_vat(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::AssetsInputVatAssetsResponse]
+      def assets_input_vat(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/assets/input-vat",
-          body: Nordlet::Assets::Types::PostV1AssetsAssetsInputVatRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::AssetsInputVatAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -169,7 +169,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsAssetsInputVatResponse.load(response.body)
+          Nordlet::Assets::Types::AssetsInputVatAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -177,21 +177,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsAssetsGetRequest]
+      # @param params [Nordlet::Assets::Types::AssetsGetAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsAssetsGetResponse]
-      def post_v1assets_assets_get(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::AssetsGetAssetsResponse]
+      def assets_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/assets/get",
-          body: Nordlet::Assets::Types::PostV1AssetsAssetsGetRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::AssetsGetAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -201,7 +201,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsAssetsGetResponse.load(response.body)
+          Nordlet::Assets::Types::AssetsGetAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -209,21 +209,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsAssetsListRequest]
+      # @param params [Nordlet::Assets::Types::AssetsListAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsAssetsListResponse]
-      def post_v1assets_assets_list(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::AssetsListAssetsResponse]
+      def assets_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/assets/list",
-          body: Nordlet::Assets::Types::PostV1AssetsAssetsListRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::AssetsListAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -233,7 +233,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsAssetsListResponse.load(response.body)
+          Nordlet::Assets::Types::AssetsListAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -241,21 +241,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsAssetsModernizeRequest]
+      # @param params [Nordlet::Assets::Types::AssetsModernizeAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsAssetsModernizeResponse]
-      def post_v1assets_assets_modernize(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::AssetsModernizeAssetsResponse]
+      def assets_modernize(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/assets/modernize",
-          body: Nordlet::Assets::Types::PostV1AssetsAssetsModernizeRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::AssetsModernizeAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -265,7 +265,44 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsAssetsModernizeResponse.load(response.body)
+          Nordlet::Assets::Types::AssetsModernizeAssetsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Dispose of a fixed asset (sold, scrapped or written off). Removes its cost and accumulated depreciation, books
+      # the net book value as a disposal loss and the proceeds as a disposal gain (posting rules assets.disposalLoss,
+      # assets.disposalGain, assets.disposalProceeds), and stops its depreciation. Depreciation must be posted for every
+      # month before the disposal month.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Assets::Types::AssetsDisposeAssetsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Assets::Types::AssetsDisposeAssetsResponse]
+      def assets_dispose(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/assets/assets/dispose",
+          body: Nordlet::Assets::Types::AssetsDisposeAssetsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Assets::Types::AssetsDisposeAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -273,21 +310,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsDepreciationPreviewRequest]
+      # @param params [Nordlet::Assets::Types::DepreciationPreviewAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsDepreciationPreviewResponse]
-      def post_v1assets_depreciation_preview(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::DepreciationPreviewAssetsResponse]
+      def depreciation_preview(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/depreciation/preview",
-          body: Nordlet::Assets::Types::PostV1AssetsDepreciationPreviewRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::DepreciationPreviewAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -297,7 +334,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsDepreciationPreviewResponse.load(response.body)
+          Nordlet::Assets::Types::DepreciationPreviewAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -305,21 +342,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Assets::Types::PostV1AssetsDepreciationPostRequest]
+      # @param params [Nordlet::Assets::Types::DepreciationPostAssetsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Assets::Types::PostV1AssetsDepreciationPostResponse]
-      def post_v1assets_depreciation_post(request_options: {}, **params)
+      # @return [Nordlet::Assets::Types::DepreciationPostAssetsResponse]
+      def depreciation_post(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/assets/depreciation/post",
-          body: Nordlet::Assets::Types::PostV1AssetsDepreciationPostRequest.new(params).to_h,
+          body: Nordlet::Assets::Types::DepreciationPostAssetsRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -329,7 +366,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Assets::Types::PostV1AssetsDepreciationPostResponse.load(response.body)
+          Nordlet::Assets::Types::DepreciationPostAssetsResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

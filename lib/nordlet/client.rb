@@ -28,6 +28,11 @@ module Nordlet
       @partners ||= Nordlet::Partners::Client.new(client: @raw_client)
     end
 
+    # @return [Nordlet::Leads::Client]
+    def leads
+      @leads ||= Nordlet::Leads::Client.new(client: @raw_client)
+    end
+
     # @return [Nordlet::Catalog::Client]
     def catalog
       @catalog ||= Nordlet::Catalog::Client.new(client: @raw_client)
@@ -36,6 +41,16 @@ module Nordlet
     # @return [Nordlet::Sales::Client]
     def sales
       @sales ||= Nordlet::Sales::Client.new(client: @raw_client)
+    end
+
+    # @return [Nordlet::OperationTypes::Client]
+    def operation_types
+      @operation_types ||= Nordlet::OperationTypes::Client.new(client: @raw_client)
+    end
+
+    # @return [Nordlet::DocumentSeries::Client]
+    def document_series
+      @document_series ||= Nordlet::DocumentSeries::Client.new(client: @raw_client)
     end
 
     # @return [Nordlet::Purchases::Client]
@@ -56,6 +71,11 @@ module Nordlet
     # @return [Nordlet::Ledger::Client]
     def ledger
       @ledger ||= Nordlet::Ledger::Client.new(client: @raw_client)
+    end
+
+    # @return [Nordlet::Officers::Client]
+    def officers
+      @officers ||= Nordlet::Officers::Client.new(client: @raw_client)
     end
 
     # @return [Nordlet::Migration::Client]

@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Payroll
+    module Types
+      class RunsCreatePayrollRequest < Internal::Types::Model
+        field :year, -> { Integer }, optional: false, nullable: false
+
+        field :month, -> { Integer }, optional: false, nullable: false
+
+        field :include_natura, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "includeNatura"
+
+        field :gross_overrides, -> { Internal::Types::Array[Nordlet::Payroll::Types::RunsCreatePayrollRequestGrossOverridesItem] }, optional: true, nullable: false, api_name: "grossOverrides"
+
+        field :lines, -> { Internal::Types::Array[Nordlet::Payroll::Types::RunsCreatePayrollRequestLinesItem] }, optional: true, nullable: false
+
+        field :notes, -> { String }, optional: true, nullable: false
+      end
+    end
+  end
+end

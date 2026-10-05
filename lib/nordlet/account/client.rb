@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountLoginLinkRequestRequest]
+      # @param params [Nordlet::Account::Types::LoginLinkRequestAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountLoginLinkRequestResponse]
-      def post_v1account_login_link_request(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::LoginLinkRequestAccountResponse]
+      def login_link_request(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/login-link/request",
-          body: Nordlet::Account::Types::PostV1AccountLoginLinkRequestRequest.new(params).to_h,
+          body: Nordlet::Account::Types::LoginLinkRequestAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountLoginLinkRequestResponse.load(response.body)
+          Nordlet::Account::Types::LoginLinkRequestAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountLoginLinkConsumeRequest]
+      # @param params [Nordlet::Account::Types::LoginLinkConsumeAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountLoginLinkConsumeResponse]
-      def post_v1account_login_link_consume(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::LoginLinkConsumeAccountResponse]
+      def login_link_consume(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/login-link/consume",
-          body: Nordlet::Account::Types::PostV1AccountLoginLinkConsumeRequest.new(params).to_h,
+          body: Nordlet::Account::Types::LoginLinkConsumeAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountLoginLinkConsumeResponse.load(response.body)
+          Nordlet::Account::Types::LoginLinkConsumeAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountLogoutRequest]
+      # @param params [Nordlet::Account::Types::LogoutAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountLogoutResponse]
-      def post_v1account_logout(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::LogoutAccountResponse]
+      def logout(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/logout",
-          body: Nordlet::Account::Types::PostV1AccountLogoutRequest.new(params).to_h,
+          body: Nordlet::Account::Types::LogoutAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountLogoutResponse.load(response.body)
+          Nordlet::Account::Types::LogoutAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountMeRequest]
+      # @param params [Nordlet::Account::Types::MeAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountMeResponse]
-      def post_v1account_me(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::MeAccountResponse]
+      def me(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/me",
-          body: Nordlet::Account::Types::PostV1AccountMeRequest.new(params).to_h,
+          body: Nordlet::Account::Types::MeAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountMeResponse.load(response.body)
+          Nordlet::Account::Types::MeAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountMembersListRequest]
+      # @param params [Nordlet::Account::Types::MembersListAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountMembersListResponse]
-      def post_v1account_members_list(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::MembersListAccountResponse]
+      def members_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/members/list",
-          body: Nordlet::Account::Types::PostV1AccountMembersListRequest.new(params).to_h,
+          body: Nordlet::Account::Types::MembersListAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountMembersListResponse.load(response.body)
+          Nordlet::Account::Types::MembersListAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountMembersSetRoleRequest]
+      # @param params [Nordlet::Account::Types::MembersSetRoleAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountMembersSetRoleResponse]
-      def post_v1account_members_set_role(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::MembersSetRoleAccountResponse]
+      def members_set_role(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/members/set-role",
-          body: Nordlet::Account::Types::PostV1AccountMembersSetRoleRequest.new(params).to_h,
+          body: Nordlet::Account::Types::MembersSetRoleAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountMembersSetRoleResponse.load(response.body)
+          Nordlet::Account::Types::MembersSetRoleAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -203,21 +203,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountMembersTransferOwnershipRequest]
+      # @param params [Nordlet::Account::Types::MembersTransferOwnershipAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountMembersTransferOwnershipResponse]
-      def post_v1account_members_transfer_ownership(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::MembersTransferOwnershipAccountResponse]
+      def members_transfer_ownership(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/members/transfer-ownership",
-          body: Nordlet::Account::Types::PostV1AccountMembersTransferOwnershipRequest.new(params).to_h,
+          body: Nordlet::Account::Types::MembersTransferOwnershipAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -227,7 +227,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountMembersTransferOwnershipResponse.load(response.body)
+          Nordlet::Account::Types::MembersTransferOwnershipAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -235,21 +235,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountMembersRemoveRequest]
+      # @param params [Nordlet::Account::Types::MembersRemoveAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountMembersRemoveResponse]
-      def post_v1account_members_remove(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::MembersRemoveAccountResponse]
+      def members_remove(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/members/remove",
-          body: Nordlet::Account::Types::PostV1AccountMembersRemoveRequest.new(params).to_h,
+          body: Nordlet::Account::Types::MembersRemoveAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -259,7 +259,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountMembersRemoveResponse.load(response.body)
+          Nordlet::Account::Types::MembersRemoveAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -267,21 +267,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountInvitesCreateRequest]
+      # @param params [Nordlet::Account::Types::InvitesCreateAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountInvitesCreateResponse]
-      def post_v1account_invites_create(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::InvitesCreateAccountResponse]
+      def invites_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/invites/create",
-          body: Nordlet::Account::Types::PostV1AccountInvitesCreateRequest.new(params).to_h,
+          body: Nordlet::Account::Types::InvitesCreateAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -291,7 +291,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountInvitesCreateResponse.load(response.body)
+          Nordlet::Account::Types::InvitesCreateAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -299,21 +299,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountInvitesListRequest]
+      # @param params [Nordlet::Account::Types::InvitesListAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountInvitesListResponse]
-      def post_v1account_invites_list(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::InvitesListAccountResponse]
+      def invites_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/invites/list",
-          body: Nordlet::Account::Types::PostV1AccountInvitesListRequest.new(params).to_h,
+          body: Nordlet::Account::Types::InvitesListAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -323,7 +323,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountInvitesListResponse.load(response.body)
+          Nordlet::Account::Types::InvitesListAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -331,21 +331,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountInvitesRevokeRequest]
+      # @param params [Nordlet::Account::Types::InvitesRevokeAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountInvitesRevokeResponse]
-      def post_v1account_invites_revoke(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::InvitesRevokeAccountResponse]
+      def invites_revoke(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/invites/revoke",
-          body: Nordlet::Account::Types::PostV1AccountInvitesRevokeRequest.new(params).to_h,
+          body: Nordlet::Account::Types::InvitesRevokeAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -355,7 +355,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountInvitesRevokeResponse.load(response.body)
+          Nordlet::Account::Types::InvitesRevokeAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -363,21 +363,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountInvitesGetRequest]
+      # @param params [Nordlet::Account::Types::InvitesGetAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountInvitesGetResponse]
-      def post_v1account_invites_get(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::InvitesGetAccountResponse]
+      def invites_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/invites/get",
-          body: Nordlet::Account::Types::PostV1AccountInvitesGetRequest.new(params).to_h,
+          body: Nordlet::Account::Types::InvitesGetAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -387,7 +387,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountInvitesGetResponse.load(response.body)
+          Nordlet::Account::Types::InvitesGetAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -395,21 +395,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountInvitesAcceptRequest]
+      # @param params [Nordlet::Account::Types::InvitesAcceptAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountInvitesAcceptResponse]
-      def post_v1account_invites_accept(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::InvitesAcceptAccountResponse]
+      def invites_accept(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/invites/accept",
-          body: Nordlet::Account::Types::PostV1AccountInvitesAcceptRequest.new(params).to_h,
+          body: Nordlet::Account::Types::InvitesAcceptAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -419,7 +419,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountInvitesAcceptResponse.load(response.body)
+          Nordlet::Account::Types::InvitesAcceptAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -427,21 +427,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountLocaleSetRequest]
+      # @param params [Nordlet::Account::Types::LocaleSetAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountLocaleSetResponse]
-      def post_v1account_locale_set(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::LocaleSetAccountResponse]
+      def locale_set(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/locale/set",
-          body: Nordlet::Account::Types::PostV1AccountLocaleSetRequest.new(params).to_h,
+          body: Nordlet::Account::Types::LocaleSetAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -451,7 +451,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountLocaleSetResponse.load(response.body)
+          Nordlet::Account::Types::LocaleSetAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -459,21 +459,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountCompaniesCreateRequest]
+      # @param params [Nordlet::Account::Types::CompaniesCreateAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountCompaniesCreateResponse]
-      def post_v1account_companies_create(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::CompaniesCreateAccountResponse]
+      def companies_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/companies/create",
-          body: Nordlet::Account::Types::PostV1AccountCompaniesCreateRequest.new(params).to_h,
+          body: Nordlet::Account::Types::CompaniesCreateAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -483,7 +483,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountCompaniesCreateResponse.load(response.body)
+          Nordlet::Account::Types::CompaniesCreateAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -491,21 +491,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountCompaniesSelectRequest]
+      # @param params [Nordlet::Account::Types::CompaniesSelectAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountCompaniesSelectResponse]
-      def post_v1account_companies_select(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::CompaniesSelectAccountResponse]
+      def companies_select(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/companies/select",
-          body: Nordlet::Account::Types::PostV1AccountCompaniesSelectRequest.new(params).to_h,
+          body: Nordlet::Account::Types::CompaniesSelectAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -515,7 +515,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountCompaniesSelectResponse.load(response.body)
+          Nordlet::Account::Types::CompaniesSelectAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -523,21 +523,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountCompaniesProfileRequest]
+      # @param params [Nordlet::Account::Types::CompaniesProfileAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountCompaniesProfileResponse]
-      def post_v1account_companies_profile(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::CompaniesProfileAccountResponse]
+      def companies_profile(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/companies/profile",
-          body: Nordlet::Account::Types::PostV1AccountCompaniesProfileRequest.new(params).to_h,
+          body: Nordlet::Account::Types::CompaniesProfileAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -547,7 +547,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountCompaniesProfileResponse.load(response.body)
+          Nordlet::Account::Types::CompaniesProfileAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -555,21 +555,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountCompaniesUpdateRequest]
+      # @param params [Nordlet::Account::Types::CompaniesUpdateAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountCompaniesUpdateResponse]
-      def post_v1account_companies_update(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::CompaniesUpdateAccountResponse]
+      def companies_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/companies/update",
-          body: Nordlet::Account::Types::PostV1AccountCompaniesUpdateRequest.new(params).to_h,
+          body: Nordlet::Account::Types::CompaniesUpdateAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -579,7 +579,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountCompaniesUpdateResponse.load(response.body)
+          Nordlet::Account::Types::CompaniesUpdateAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -587,21 +587,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountCompaniesArchiveRequest]
+      # @param params [Nordlet::Account::Types::CompaniesArchiveAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountCompaniesArchiveResponse]
-      def post_v1account_companies_archive(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::CompaniesArchiveAccountResponse]
+      def companies_archive(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/companies/archive",
-          body: Nordlet::Account::Types::PostV1AccountCompaniesArchiveRequest.new(params).to_h,
+          body: Nordlet::Account::Types::CompaniesArchiveAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -611,7 +611,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountCompaniesArchiveResponse.load(response.body)
+          Nordlet::Account::Types::CompaniesArchiveAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -619,21 +619,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountCompaniesDeleteRequest]
+      # @param params [Nordlet::Account::Types::CompaniesDeleteAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountCompaniesDeleteResponse]
-      def post_v1account_companies_delete(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::CompaniesDeleteAccountResponse]
+      def companies_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/companies/delete",
-          body: Nordlet::Account::Types::PostV1AccountCompaniesDeleteRequest.new(params).to_h,
+          body: Nordlet::Account::Types::CompaniesDeleteAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -643,7 +643,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountCompaniesDeleteResponse.load(response.body)
+          Nordlet::Account::Types::CompaniesDeleteAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -651,21 +651,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountCompaniesActivateRequest]
+      # @param params [Nordlet::Account::Types::CompaniesActivateAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountCompaniesActivateResponse]
-      def post_v1account_companies_activate(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::CompaniesActivateAccountResponse]
+      def companies_activate(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/companies/activate",
-          body: Nordlet::Account::Types::PostV1AccountCompaniesActivateRequest.new(params).to_h,
+          body: Nordlet::Account::Types::CompaniesActivateAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -675,7 +675,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountCompaniesActivateResponse.load(response.body)
+          Nordlet::Account::Types::CompaniesActivateAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -683,21 +683,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountAPIKeysCreateRequest]
+      # @param params [Nordlet::Account::Types::APIKeysCreateAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountAPIKeysCreateResponse]
-      def post_v1account_api_keys_create(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::APIKeysCreateAccountResponse]
+      def api_keys_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/api-keys/create",
-          body: Nordlet::Account::Types::PostV1AccountAPIKeysCreateRequest.new(params).to_h,
+          body: Nordlet::Account::Types::APIKeysCreateAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -707,7 +707,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountAPIKeysCreateResponse.load(response.body)
+          Nordlet::Account::Types::APIKeysCreateAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -715,21 +715,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountAPIKeysListRequest]
+      # @param params [Nordlet::Account::Types::APIKeysListAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountAPIKeysListResponse]
-      def post_v1account_api_keys_list(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::APIKeysListAccountResponse]
+      def api_keys_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/api-keys/list",
-          body: Nordlet::Account::Types::PostV1AccountAPIKeysListRequest.new(params).to_h,
+          body: Nordlet::Account::Types::APIKeysListAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -739,7 +739,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountAPIKeysListResponse.load(response.body)
+          Nordlet::Account::Types::APIKeysListAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -747,21 +747,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountAPIKeysRotateRequest]
+      # @param params [Nordlet::Account::Types::APIKeysRotateAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountAPIKeysRotateResponse]
-      def issue_a_replacement_for_an_api_key_and_set_the_old_one_to_stop_working_after_a_short_overlap(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::APIKeysRotateAccountResponse]
+      def api_keys_rotate(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/api-keys/rotate",
-          body: Nordlet::Account::Types::PostV1AccountAPIKeysRotateRequest.new(params).to_h,
+          body: Nordlet::Account::Types::APIKeysRotateAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -771,7 +771,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountAPIKeysRotateResponse.load(response.body)
+          Nordlet::Account::Types::APIKeysRotateAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -779,21 +779,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountAPIKeysRevokeRequest]
+      # @param params [Nordlet::Account::Types::APIKeysRevokeAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountAPIKeysRevokeResponse]
-      def post_v1account_api_keys_revoke(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::APIKeysRevokeAccountResponse]
+      def api_keys_revoke(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/api-keys/revoke",
-          body: Nordlet::Account::Types::PostV1AccountAPIKeysRevokeRequest.new(params).to_h,
+          body: Nordlet::Account::Types::APIKeysRevokeAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -803,7 +803,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountAPIKeysRevokeResponse.load(response.body)
+          Nordlet::Account::Types::APIKeysRevokeAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -811,21 +811,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountConsentAcceptRequest]
+      # @param params [Nordlet::Account::Types::ConsentAcceptAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountConsentAcceptResponse]
-      def post_v1account_consent_accept(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::ConsentAcceptAccountResponse]
+      def consent_accept(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/consent/accept",
-          body: Nordlet::Account::Types::PostV1AccountConsentAcceptRequest.new(params).to_h,
+          body: Nordlet::Account::Types::ConsentAcceptAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -835,7 +835,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountConsentAcceptResponse.load(response.body)
+          Nordlet::Account::Types::ConsentAcceptAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -843,21 +843,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountProfileUpdateRequest]
+      # @param params [Nordlet::Account::Types::ProfileUpdateAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountProfileUpdateResponse]
-      def post_v1account_profile_update(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::ProfileUpdateAccountResponse]
+      def profile_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/profile/update",
-          body: Nordlet::Account::Types::PostV1AccountProfileUpdateRequest.new(params).to_h,
+          body: Nordlet::Account::Types::ProfileUpdateAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -867,7 +867,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountProfileUpdateResponse.load(response.body)
+          Nordlet::Account::Types::ProfileUpdateAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -875,21 +875,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountEmailChangeRequestRequest]
+      # @param params [Nordlet::Account::Types::EmailChangeRequestAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountEmailChangeRequestResponse]
-      def post_v1account_email_change_request(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::EmailChangeRequestAccountResponse]
+      def email_change_request(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/email/change-request",
-          body: Nordlet::Account::Types::PostV1AccountEmailChangeRequestRequest.new(params).to_h,
+          body: Nordlet::Account::Types::EmailChangeRequestAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -899,7 +899,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountEmailChangeRequestResponse.load(response.body)
+          Nordlet::Account::Types::EmailChangeRequestAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -907,21 +907,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountSessionsListRequest]
+      # @param params [Nordlet::Account::Types::SessionsListAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountSessionsListResponse]
-      def post_v1account_sessions_list(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::SessionsListAccountResponse]
+      def sessions_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/sessions/list",
-          body: Nordlet::Account::Types::PostV1AccountSessionsListRequest.new(params).to_h,
+          body: Nordlet::Account::Types::SessionsListAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -931,7 +931,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountSessionsListResponse.load(response.body)
+          Nordlet::Account::Types::SessionsListAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -939,21 +939,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountSessionsRevokeRequest]
+      # @param params [Nordlet::Account::Types::SessionsRevokeAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountSessionsRevokeResponse]
-      def post_v1account_sessions_revoke(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::SessionsRevokeAccountResponse]
+      def sessions_revoke(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/sessions/revoke",
-          body: Nordlet::Account::Types::PostV1AccountSessionsRevokeRequest.new(params).to_h,
+          body: Nordlet::Account::Types::SessionsRevokeAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -963,7 +963,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountSessionsRevokeResponse.load(response.body)
+          Nordlet::Account::Types::SessionsRevokeAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -971,21 +971,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountSessionsRevokeOthersRequest]
+      # @param params [Nordlet::Account::Types::SessionsRevokeOthersAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountSessionsRevokeOthersResponse]
-      def post_v1account_sessions_revoke_others(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::SessionsRevokeOthersAccountResponse]
+      def sessions_revoke_others(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/sessions/revoke-others",
-          body: Nordlet::Account::Types::PostV1AccountSessionsRevokeOthersRequest.new(params).to_h,
+          body: Nordlet::Account::Types::SessionsRevokeOthersAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -995,7 +995,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountSessionsRevokeOthersResponse.load(response.body)
+          Nordlet::Account::Types::SessionsRevokeOthersAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1003,21 +1003,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountExportRequest]
+      # @param params [Nordlet::Account::Types::ExportAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountExportResponse]
-      def download_everything_nordlet_stores_about_the_signed_in_user(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::ExportAccountResponse]
+      def export(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/export",
-          body: Nordlet::Account::Types::PostV1AccountExportRequest.new(params).to_h,
+          body: Nordlet::Account::Types::ExportAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1027,7 +1027,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountExportResponse.load(response.body)
+          Nordlet::Account::Types::ExportAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1039,21 +1039,21 @@ module Nordlet
       # Refused while the user still owns or pays for a company that is not deleted.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountDeleteRequest]
+      # @param params [Nordlet::Account::Types::DeleteAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountDeleteResponse]
-      def delete_the_signed_in_user_account(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::DeleteAccountResponse]
+      def delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/delete",
-          body: Nordlet::Account::Types::PostV1AccountDeleteRequest.new(params).to_h,
+          body: Nordlet::Account::Types::DeleteAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1063,7 +1063,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountDeleteResponse.load(response.body)
+          Nordlet::Account::Types::DeleteAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1071,21 +1071,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountReferralGetRequest]
+      # @param params [Nordlet::Account::Types::ReferralGetAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountReferralGetResponse]
-      def post_v1account_referral_get(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::ReferralGetAccountResponse]
+      def referral_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/referral/get",
-          body: Nordlet::Account::Types::PostV1AccountReferralGetRequest.new(params).to_h,
+          body: Nordlet::Account::Types::ReferralGetAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1095,7 +1095,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountReferralGetResponse.load(response.body)
+          Nordlet::Account::Types::ReferralGetAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1103,21 +1103,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountReferralConvertRequest]
+      # @param params [Nordlet::Account::Types::ReferralConvertAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountReferralConvertResponse]
-      def post_v1account_referral_convert(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::ReferralConvertAccountResponse]
+      def referral_convert(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/referral/convert",
-          body: Nordlet::Account::Types::PostV1AccountReferralConvertRequest.new(params).to_h,
+          body: Nordlet::Account::Types::ReferralConvertAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1127,7 +1127,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountReferralConvertResponse.load(response.body)
+          Nordlet::Account::Types::ReferralConvertAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1135,21 +1135,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountTableSettingsGetRequest]
+      # @param params [Nordlet::Account::Types::TableSettingsGetAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountTableSettingsGetResponse]
-      def post_v1account_table_settings_get(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::TableSettingsGetAccountResponse]
+      def table_settings_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/table-settings/get",
-          body: Nordlet::Account::Types::PostV1AccountTableSettingsGetRequest.new(params).to_h,
+          body: Nordlet::Account::Types::TableSettingsGetAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1159,7 +1159,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountTableSettingsGetResponse.load(response.body)
+          Nordlet::Account::Types::TableSettingsGetAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1167,21 +1167,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountTableSettingsSetRequest]
+      # @param params [Nordlet::Account::Types::TableSettingsSetAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountTableSettingsSetResponse]
-      def post_v1account_table_settings_set(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::TableSettingsSetAccountResponse]
+      def table_settings_set(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/table-settings/set",
-          body: Nordlet::Account::Types::PostV1AccountTableSettingsSetRequest.new(params).to_h,
+          body: Nordlet::Account::Types::TableSettingsSetAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1191,7 +1191,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountTableSettingsSetResponse.load(response.body)
+          Nordlet::Account::Types::TableSettingsSetAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1199,21 +1199,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Account::Types::PostV1AccountTableSettingsListRequest]
+      # @param params [Nordlet::Account::Types::TableSettingsListAccountRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Account::Types::PostV1AccountTableSettingsListResponse]
-      def post_v1account_table_settings_list(request_options: {}, **params)
+      # @return [Nordlet::Account::Types::TableSettingsListAccountResponse]
+      def table_settings_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/account/table-settings/list",
-          body: Nordlet::Account::Types::PostV1AccountTableSettingsListRequest.new(params).to_h,
+          body: Nordlet::Account::Types::TableSettingsListAccountRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1223,7 +1223,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Account::Types::PostV1AccountTableSettingsListResponse.load(response.body)
+          Nordlet::Account::Types::TableSettingsListAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

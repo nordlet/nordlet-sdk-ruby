@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollDepartmentsCreateRequest]
+      # @param params [Nordlet::Payroll::Types::DepartmentsCreatePayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollDepartmentsCreateResponse]
-      def post_v1payroll_departments_create(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::DepartmentsCreatePayrollResponse]
+      def departments_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/departments/create",
-          body: Nordlet::Payroll::Types::PostV1PayrollDepartmentsCreateRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::DepartmentsCreatePayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollDepartmentsCreateResponse.load(response.body)
+          Nordlet::Payroll::Types::DepartmentsCreatePayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollDepartmentsListRequest]
+      # @param params [Nordlet::Payroll::Types::DepartmentsListPayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollDepartmentsListResponse]
-      def post_v1payroll_departments_list(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::DepartmentsListPayrollResponse]
+      def departments_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/departments/list",
-          body: Nordlet::Payroll::Types::PostV1PayrollDepartmentsListRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::DepartmentsListPayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollDepartmentsListResponse.load(response.body)
+          Nordlet::Payroll::Types::DepartmentsListPayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollSchedulesCreateRequest]
+      # @param params [Nordlet::Payroll::Types::SchedulesCreatePayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollSchedulesCreateResponse]
-      def post_v1payroll_schedules_create(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::SchedulesCreatePayrollResponse]
+      def schedules_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/schedules/create",
-          body: Nordlet::Payroll::Types::PostV1PayrollSchedulesCreateRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::SchedulesCreatePayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollSchedulesCreateResponse.load(response.body)
+          Nordlet::Payroll::Types::SchedulesCreatePayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollSchedulesListRequest]
+      # @param params [Nordlet::Payroll::Types::SchedulesListPayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollSchedulesListResponse]
-      def post_v1payroll_schedules_list(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::SchedulesListPayrollResponse]
+      def schedules_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/schedules/list",
-          body: Nordlet::Payroll::Types::PostV1PayrollSchedulesListRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::SchedulesListPayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollSchedulesListResponse.load(response.body)
+          Nordlet::Payroll::Types::SchedulesListPayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollCalcRequest]
+      # @param params [Nordlet::Payroll::Types::CalcPayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollCalcResponse]
-      def calculate_one_employee_payment_under_the_rules_of_the_company_country(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::CalcPayrollResponse]
+      def calc(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/calc",
-          body: Nordlet::Payroll::Types::PostV1PayrollCalcRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::CalcPayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollCalcResponse.load(response.body)
+          Nordlet::Payroll::Types::CalcPayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollRunsCreateRequest]
+      # @param params [Nordlet::Payroll::Types::RunsCreatePayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollRunsCreateResponse]
-      def post_v1payroll_runs_create(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::RunsCreatePayrollResponse]
+      def runs_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/runs/create",
-          body: Nordlet::Payroll::Types::PostV1PayrollRunsCreateRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::RunsCreatePayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollRunsCreateResponse.load(response.body)
+          Nordlet::Payroll::Types::RunsCreatePayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -203,21 +203,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollRunsGetRequest]
+      # @param params [Nordlet::Payroll::Types::RunsGetPayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollRunsGetResponse]
-      def post_v1payroll_runs_get(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::RunsGetPayrollResponse]
+      def runs_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/runs/get",
-          body: Nordlet::Payroll::Types::PostV1PayrollRunsGetRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::RunsGetPayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -227,7 +227,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollRunsGetResponse.load(response.body)
+          Nordlet::Payroll::Types::RunsGetPayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -235,21 +235,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollRunsListRequest]
+      # @param params [Nordlet::Payroll::Types::RunsListPayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollRunsListResponse]
-      def post_v1payroll_runs_list(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::RunsListPayrollResponse]
+      def runs_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/runs/list",
-          body: Nordlet::Payroll::Types::PostV1PayrollRunsListRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::RunsListPayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -259,7 +259,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollRunsListResponse.load(response.body)
+          Nordlet::Payroll::Types::RunsListPayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -270,21 +270,21 @@ module Nordlet
       # per employment. The Czech monthly employer report asks for all four. They can be set while the run is a draft.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceRequest]
+      # @param params [Nordlet::Payroll::Types::LinesAttendancePayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceResponse]
-      def record_the_time_a_person_worked_in_a_payroll_line(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::LinesAttendancePayrollResponse]
+      def lines_attendance(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/lines/attendance",
-          body: Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::LinesAttendancePayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -294,7 +294,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceResponse.load(response.body)
+          Nordlet::Payroll::Types::LinesAttendancePayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -302,21 +302,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollRunsApproveRequest]
+      # @param params [Nordlet::Payroll::Types::RunsApprovePayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollRunsApproveResponse]
-      def post_v1payroll_runs_approve(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::RunsApprovePayrollResponse]
+      def runs_approve(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/runs/approve",
-          body: Nordlet::Payroll::Types::PostV1PayrollRunsApproveRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::RunsApprovePayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -326,7 +326,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollRunsApproveResponse.load(response.body)
+          Nordlet::Payroll::Types::RunsApprovePayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -334,21 +334,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollRunsCancelRequest]
+      # @param params [Nordlet::Payroll::Types::RunsCancelPayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollRunsCancelResponse]
-      def post_v1payroll_runs_cancel(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::RunsCancelPayrollResponse]
+      def runs_cancel(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/runs/cancel",
-          body: Nordlet::Payroll::Types::PostV1PayrollRunsCancelRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::RunsCancelPayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -358,7 +358,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollRunsCancelResponse.load(response.body)
+          Nordlet::Payroll::Types::RunsCancelPayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -366,21 +366,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Payroll::Types::PostV1PayrollPaymentsExportRequest]
+      # @param params [Nordlet::Payroll::Types::PaymentsExportPayrollRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Payroll::Types::PostV1PayrollPaymentsExportResponse]
-      def post_v1payroll_payments_export(request_options: {}, **params)
+      # @return [Nordlet::Payroll::Types::PaymentsExportPayrollResponse]
+      def payments_export(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/payroll/payments/export",
-          body: Nordlet::Payroll::Types::PostV1PayrollPaymentsExportRequest.new(params).to_h,
+          body: Nordlet::Payroll::Types::PaymentsExportPayrollRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -390,7 +390,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Payroll::Types::PostV1PayrollPaymentsExportResponse.load(response.body)
+          Nordlet::Payroll::Types::PaymentsExportPayrollResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

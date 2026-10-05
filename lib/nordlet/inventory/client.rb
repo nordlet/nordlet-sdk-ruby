@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventorySettingsGetRequest]
+      # @param params [Nordlet::Inventory::Types::SettingsGetInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventorySettingsGetResponse]
-      def post_v1inventory_settings_get(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::SettingsGetInventoryResponse]
+      def settings_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/settings/get",
-          body: Nordlet::Inventory::Types::PostV1InventorySettingsGetRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::SettingsGetInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventorySettingsGetResponse.load(response.body)
+          Nordlet::Inventory::Types::SettingsGetInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventorySettingsUpdateRequest]
+      # @param params [Nordlet::Inventory::Types::SettingsUpdateInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventorySettingsUpdateResponse]
-      def post_v1inventory_settings_update(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::SettingsUpdateInventoryResponse]
+      def settings_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/settings/update",
-          body: Nordlet::Inventory::Types::PostV1InventorySettingsUpdateRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::SettingsUpdateInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventorySettingsUpdateResponse.load(response.body)
+          Nordlet::Inventory::Types::SettingsUpdateInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryWarehousesCreateRequest]
+      # @param params [Nordlet::Inventory::Types::WarehousesCreateInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryWarehousesCreateResponse]
-      def post_v1inventory_warehouses_create(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::WarehousesCreateInventoryResponse]
+      def warehouses_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/warehouses/create",
-          body: Nordlet::Inventory::Types::PostV1InventoryWarehousesCreateRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::WarehousesCreateInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryWarehousesCreateResponse.load(response.body)
+          Nordlet::Inventory::Types::WarehousesCreateInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryWarehousesListRequest]
+      # @param params [Nordlet::Inventory::Types::WarehousesListInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryWarehousesListResponse]
-      def post_v1inventory_warehouses_list(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::WarehousesListInventoryResponse]
+      def warehouses_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/warehouses/list",
-          body: Nordlet::Inventory::Types::PostV1InventoryWarehousesListRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::WarehousesListInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryWarehousesListResponse.load(response.body)
+          Nordlet::Inventory::Types::WarehousesListInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryStockReceiveRequest]
+      # @param params [Nordlet::Inventory::Types::StockReceiveInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryStockReceiveResponse]
-      def post_v1inventory_stock_receive(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::StockReceiveInventoryResponse]
+      def stock_receive(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/stock/receive",
-          body: Nordlet::Inventory::Types::PostV1InventoryStockReceiveRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::StockReceiveInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryStockReceiveResponse.load(response.body)
+          Nordlet::Inventory::Types::StockReceiveInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryStockWriteOffRequest]
+      # @param params [Nordlet::Inventory::Types::StockWriteOffInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryStockWriteOffResponse]
-      def post_v1inventory_stock_write_off(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::StockWriteOffInventoryResponse]
+      def stock_write_off(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/stock/write-off",
-          body: Nordlet::Inventory::Types::PostV1InventoryStockWriteOffRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::StockWriteOffInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryStockWriteOffResponse.load(response.body)
+          Nordlet::Inventory::Types::StockWriteOffInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -203,21 +203,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryStockTransferRequest]
+      # @param params [Nordlet::Inventory::Types::StockTransferInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryStockTransferResponse]
-      def post_v1inventory_stock_transfer(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::StockTransferInventoryResponse]
+      def stock_transfer(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/stock/transfer",
-          body: Nordlet::Inventory::Types::PostV1InventoryStockTransferRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::StockTransferInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -227,7 +227,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryStockTransferResponse.load(response.body)
+          Nordlet::Inventory::Types::StockTransferInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -235,21 +235,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryStockTakeRequest]
+      # @param params [Nordlet::Inventory::Types::StockTakeInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryStockTakeResponse]
-      def post_v1inventory_stock_take(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::StockTakeInventoryResponse]
+      def stock_take(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/stock/take",
-          body: Nordlet::Inventory::Types::PostV1InventoryStockTakeRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::StockTakeInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -259,7 +259,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryStockTakeResponse.load(response.body)
+          Nordlet::Inventory::Types::StockTakeInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -267,21 +267,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryStockLevelsRequest]
+      # @param params [Nordlet::Inventory::Types::StockLevelsInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryStockLevelsResponse]
-      def post_v1inventory_stock_levels(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::StockLevelsInventoryResponse]
+      def stock_levels(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/stock/levels",
-          body: Nordlet::Inventory::Types::PostV1InventoryStockLevelsRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::StockLevelsInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -291,7 +291,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryStockLevelsResponse.load(response.body)
+          Nordlet::Inventory::Types::StockLevelsInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -299,21 +299,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryStockMovementsListRequest]
+      # @param params [Nordlet::Inventory::Types::StockMovementsListInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryStockMovementsListResponse]
-      def post_v1inventory_stock_movements_list(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::StockMovementsListInventoryResponse]
+      def stock_movements_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/stock/movements/list",
-          body: Nordlet::Inventory::Types::PostV1InventoryStockMovementsListRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::StockMovementsListInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -323,7 +323,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryStockMovementsListResponse.load(response.body)
+          Nordlet::Inventory::Types::StockMovementsListInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -331,21 +331,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryLotsListRequest]
+      # @param params [Nordlet::Inventory::Types::LotsListInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryLotsListResponse]
-      def post_v1inventory_lots_list(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::LotsListInventoryResponse]
+      def lots_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/lots/list",
-          body: Nordlet::Inventory::Types::PostV1InventoryLotsListRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::LotsListInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -355,7 +355,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryLotsListResponse.load(response.body)
+          Nordlet::Inventory::Types::LotsListInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -363,21 +363,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryLotsGetRequest]
+      # @param params [Nordlet::Inventory::Types::LotsGetInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryLotsGetResponse]
-      def post_v1inventory_lots_get(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::LotsGetInventoryResponse]
+      def lots_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/lots/get",
-          body: Nordlet::Inventory::Types::PostV1InventoryLotsGetRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::LotsGetInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -387,7 +387,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryLotsGetResponse.load(response.body)
+          Nordlet::Inventory::Types::LotsGetInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -395,21 +395,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryLotsUpdateRequest]
+      # @param params [Nordlet::Inventory::Types::LotsUpdateInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryLotsUpdateResponse]
-      def post_v1inventory_lots_update(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::LotsUpdateInventoryResponse]
+      def lots_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/lots/update",
-          body: Nordlet::Inventory::Types::PostV1InventoryLotsUpdateRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::LotsUpdateInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -419,7 +419,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryLotsUpdateResponse.load(response.body)
+          Nordlet::Inventory::Types::LotsUpdateInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -427,21 +427,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryLandedCostsCreateRequest]
+      # @param params [Nordlet::Inventory::Types::LandedCostsCreateInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryLandedCostsCreateResponse]
-      def post_v1inventory_landed_costs_create(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::LandedCostsCreateInventoryResponse]
+      def landed_costs_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/landed-costs/create",
-          body: Nordlet::Inventory::Types::PostV1InventoryLandedCostsCreateRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::LandedCostsCreateInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -451,7 +451,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryLandedCostsCreateResponse.load(response.body)
+          Nordlet::Inventory::Types::LandedCostsCreateInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -459,21 +459,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryLandedCostsGetRequest]
+      # @param params [Nordlet::Inventory::Types::LandedCostsGetInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryLandedCostsGetResponse]
-      def post_v1inventory_landed_costs_get(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::LandedCostsGetInventoryResponse]
+      def landed_costs_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/landed-costs/get",
-          body: Nordlet::Inventory::Types::PostV1InventoryLandedCostsGetRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::LandedCostsGetInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -483,7 +483,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryLandedCostsGetResponse.load(response.body)
+          Nordlet::Inventory::Types::LandedCostsGetInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -491,21 +491,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryLandedCostsListRequest]
+      # @param params [Nordlet::Inventory::Types::LandedCostsListInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryLandedCostsListResponse]
-      def post_v1inventory_landed_costs_list(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::LandedCostsListInventoryResponse]
+      def landed_costs_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/landed-costs/list",
-          body: Nordlet::Inventory::Types::PostV1InventoryLandedCostsListRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::LandedCostsListInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -515,7 +515,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryLandedCostsListResponse.load(response.body)
+          Nordlet::Inventory::Types::LandedCostsListInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -523,21 +523,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryReorderRulesCreateRequest]
+      # @param params [Nordlet::Inventory::Types::ReorderRulesCreateInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryReorderRulesCreateResponse]
-      def post_v1inventory_reorder_rules_create(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::ReorderRulesCreateInventoryResponse]
+      def reorder_rules_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/reorder-rules/create",
-          body: Nordlet::Inventory::Types::PostV1InventoryReorderRulesCreateRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::ReorderRulesCreateInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -547,7 +547,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryReorderRulesCreateResponse.load(response.body)
+          Nordlet::Inventory::Types::ReorderRulesCreateInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -555,21 +555,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryReorderRulesUpdateRequest]
+      # @param params [Nordlet::Inventory::Types::ReorderRulesUpdateInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryReorderRulesUpdateResponse]
-      def post_v1inventory_reorder_rules_update(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::ReorderRulesUpdateInventoryResponse]
+      def reorder_rules_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/reorder-rules/update",
-          body: Nordlet::Inventory::Types::PostV1InventoryReorderRulesUpdateRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::ReorderRulesUpdateInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -579,7 +579,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryReorderRulesUpdateResponse.load(response.body)
+          Nordlet::Inventory::Types::ReorderRulesUpdateInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -587,21 +587,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryReorderRulesDeleteRequest]
+      # @param params [Nordlet::Inventory::Types::ReorderRulesDeleteInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryReorderRulesDeleteResponse]
-      def post_v1inventory_reorder_rules_delete(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::ReorderRulesDeleteInventoryResponse]
+      def reorder_rules_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/reorder-rules/delete",
-          body: Nordlet::Inventory::Types::PostV1InventoryReorderRulesDeleteRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::ReorderRulesDeleteInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -611,7 +611,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryReorderRulesDeleteResponse.load(response.body)
+          Nordlet::Inventory::Types::ReorderRulesDeleteInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -619,21 +619,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryReorderRulesListRequest]
+      # @param params [Nordlet::Inventory::Types::ReorderRulesListInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryReorderRulesListResponse]
-      def post_v1inventory_reorder_rules_list(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::ReorderRulesListInventoryResponse]
+      def reorder_rules_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/reorder-rules/list",
-          body: Nordlet::Inventory::Types::PostV1InventoryReorderRulesListRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::ReorderRulesListInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -643,7 +643,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryReorderRulesListResponse.load(response.body)
+          Nordlet::Inventory::Types::ReorderRulesListInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -651,21 +651,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Inventory::Types::PostV1InventoryReorderRulesCheckRequest]
+      # @param params [Nordlet::Inventory::Types::ReorderRulesCheckInventoryRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Inventory::Types::PostV1InventoryReorderRulesCheckResponse]
-      def post_v1inventory_reorder_rules_check(request_options: {}, **params)
+      # @return [Nordlet::Inventory::Types::ReorderRulesCheckInventoryResponse]
+      def reorder_rules_check(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inventory/reorder-rules/check",
-          body: Nordlet::Inventory::Types::PostV1InventoryReorderRulesCheckRequest.new(params).to_h,
+          body: Nordlet::Inventory::Types::ReorderRulesCheckInventoryRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -675,7 +675,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Inventory::Types::PostV1InventoryReorderRulesCheckResponse.load(response.body)
+          Nordlet::Inventory::Types::ReorderRulesCheckInventoryResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

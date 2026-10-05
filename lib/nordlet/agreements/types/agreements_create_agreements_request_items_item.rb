@@ -1,0 +1,19 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Agreements
+    module Types
+      class AgreementsCreateAgreementsRequestItemsItem < Internal::Types::Model
+        field :item_id, -> { String }, optional: true, nullable: false, api_name: "itemId"
+
+        field :description, -> { String }, optional: false, nullable: false
+
+        field :quantity, -> { String }, optional: true, nullable: false
+
+        field :unit_price, -> { String }, optional: true, nullable: false, api_name: "unitPrice"
+
+        field :vat_rate_percent, -> { String }, optional: true, nullable: false, api_name: "vatRatePercent"
+      end
+    end
+  end
+end

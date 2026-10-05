@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Transport::Types::PostV1TransportWaybillsCreateRequest]
+      # @param params [Nordlet::Transport::Types::WaybillsCreateTransportRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Transport::Types::PostV1TransportWaybillsCreateResponse]
-      def post_v1transport_waybills_create(request_options: {}, **params)
+      # @return [Nordlet::Transport::Types::WaybillsCreateTransportResponse]
+      def waybills_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/transport/waybills/create",
-          body: Nordlet::Transport::Types::PostV1TransportWaybillsCreateRequest.new(params).to_h,
+          body: Nordlet::Transport::Types::WaybillsCreateTransportRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Transport::Types::PostV1TransportWaybillsCreateResponse.load(response.body)
+          Nordlet::Transport::Types::WaybillsCreateTransportResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Transport::Types::PostV1TransportWaybillsUpdateRequest]
+      # @param params [Nordlet::Transport::Types::WaybillsUpdateTransportRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Transport::Types::PostV1TransportWaybillsUpdateResponse]
-      def post_v1transport_waybills_update(request_options: {}, **params)
+      # @return [Nordlet::Transport::Types::WaybillsUpdateTransportResponse]
+      def waybills_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/transport/waybills/update",
-          body: Nordlet::Transport::Types::PostV1TransportWaybillsUpdateRequest.new(params).to_h,
+          body: Nordlet::Transport::Types::WaybillsUpdateTransportRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Transport::Types::PostV1TransportWaybillsUpdateResponse.load(response.body)
+          Nordlet::Transport::Types::WaybillsUpdateTransportResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Transport::Types::PostV1TransportWaybillsIssueRequest]
+      # @param params [Nordlet::Transport::Types::WaybillsIssueTransportRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Transport::Types::PostV1TransportWaybillsIssueResponse]
-      def post_v1transport_waybills_issue(request_options: {}, **params)
+      # @return [Nordlet::Transport::Types::WaybillsIssueTransportResponse]
+      def waybills_issue(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/transport/waybills/issue",
-          body: Nordlet::Transport::Types::PostV1TransportWaybillsIssueRequest.new(params).to_h,
+          body: Nordlet::Transport::Types::WaybillsIssueTransportRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Transport::Types::PostV1TransportWaybillsIssueResponse.load(response.body)
+          Nordlet::Transport::Types::WaybillsIssueTransportResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Transport::Types::PostV1TransportWaybillsCancelRequest]
+      # @param params [Nordlet::Transport::Types::WaybillsCancelTransportRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Transport::Types::PostV1TransportWaybillsCancelResponse]
-      def post_v1transport_waybills_cancel(request_options: {}, **params)
+      # @return [Nordlet::Transport::Types::WaybillsCancelTransportResponse]
+      def waybills_cancel(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/transport/waybills/cancel",
-          body: Nordlet::Transport::Types::PostV1TransportWaybillsCancelRequest.new(params).to_h,
+          body: Nordlet::Transport::Types::WaybillsCancelTransportRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Transport::Types::PostV1TransportWaybillsCancelResponse.load(response.body)
+          Nordlet::Transport::Types::WaybillsCancelTransportResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Transport::Types::PostV1TransportWaybillsGetRequest]
+      # @param params [Nordlet::Transport::Types::WaybillsGetTransportRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Transport::Types::PostV1TransportWaybillsGetResponse]
-      def post_v1transport_waybills_get(request_options: {}, **params)
+      # @return [Nordlet::Transport::Types::WaybillsGetTransportResponse]
+      def waybills_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/transport/waybills/get",
-          body: Nordlet::Transport::Types::PostV1TransportWaybillsGetRequest.new(params).to_h,
+          body: Nordlet::Transport::Types::WaybillsGetTransportRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Transport::Types::PostV1TransportWaybillsGetResponse.load(response.body)
+          Nordlet::Transport::Types::WaybillsGetTransportResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Transport::Types::PostV1TransportWaybillsListRequest]
+      # @param params [Nordlet::Transport::Types::WaybillsListTransportRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Transport::Types::PostV1TransportWaybillsListResponse]
-      def post_v1transport_waybills_list(request_options: {}, **params)
+      # @return [Nordlet::Transport::Types::WaybillsListTransportResponse]
+      def waybills_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/transport/waybills/list",
-          body: Nordlet::Transport::Types::PostV1TransportWaybillsListRequest.new(params).to_h,
+          body: Nordlet::Transport::Types::WaybillsListTransportRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Transport::Types::PostV1TransportWaybillsListResponse.load(response.body)
+          Nordlet::Transport::Types::WaybillsListTransportResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

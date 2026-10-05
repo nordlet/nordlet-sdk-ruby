@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesCreateSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesCreateResponse]
-      def post_v1sales_invoices_create(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesCreateSalesResponse]
+      def invoices_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/create",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesCreateSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesCreateResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesCreateSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesGetRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesGetSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesGetResponse]
-      def post_v1sales_invoices_get(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesGetSalesResponse]
+      def invoices_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/get",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesGetRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesGetSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesGetResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesGetSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesPdfRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesPdfSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesPdfResponse]
-      def post_v1sales_invoices_pdf(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesPdfSalesResponse]
+      def invoices_pdf(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/pdf",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesPdfRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesPdfSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesPdfResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesPdfSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesSendRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesSendSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesSendResponse]
-      def post_v1sales_invoices_send(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesSendSalesResponse]
+      def invoices_send(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/send",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesSendRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesSendSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesSendResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesSendSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesPeppolXMLRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesPeppolXMLSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesPeppolXMLResponse]
-      def post_v1sales_invoices_peppol_xml(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesPeppolXMLSalesResponse]
+      def invoices_peppol_xml(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/peppol-xml",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesPeppolXMLRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesPeppolXMLSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesPeppolXMLResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesPeppolXMLSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesPeppolSendRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesPeppolSendSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesPeppolSendResponse]
-      def post_v1sales_invoices_peppol_send(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesPeppolSendSalesResponse]
+      def invoices_peppol_send(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/peppol-send",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesPeppolSendRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesPeppolSendSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesPeppolSendResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesPeppolSendSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -206,21 +206,21 @@ module Nordlet
       # (PL) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceXMLRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesEinvoiceXMLSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceXMLResponse]
-      def post_v1sales_invoices_einvoice_xml(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesEinvoiceXMLSalesResponse]
+      def invoices_einvoice_xml(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/einvoice-xml",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceXMLRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesEinvoiceXMLSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -230,7 +230,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceXMLResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesEinvoiceXMLSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -244,21 +244,21 @@ module Nordlet
       # accredited intermediary or connector) instead.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesEinvoiceSendSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendResponse]
-      def post_v1sales_invoices_einvoice_send(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesEinvoiceSendSalesResponse]
+      def invoices_einvoice_send(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/einvoice-send",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesEinvoiceSendSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -268,7 +268,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesEinvoiceSendSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -280,21 +280,21 @@ module Nordlet
       # national number and any rejection reason reach the invoice.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesEinvoiceStatusSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusResponse]
-      def post_v1sales_invoices_einvoice_status(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesEinvoiceStatusSalesResponse]
+      def invoices_einvoice_status(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/einvoice-status",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesEinvoiceStatusSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -304,7 +304,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesEinvoiceStatusSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -312,21 +312,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesUpdateRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesUpdateSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesUpdateResponse]
-      def post_v1sales_invoices_update(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesUpdateSalesResponse]
+      def invoices_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/update",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesUpdateRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesUpdateSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -336,7 +336,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesUpdateResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesUpdateSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -344,21 +344,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesDeleteRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesDeleteSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesDeleteResponse]
-      def post_v1sales_invoices_delete(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesDeleteSalesResponse]
+      def invoices_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/delete",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesDeleteRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesDeleteSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -368,7 +368,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesDeleteResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesDeleteSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -376,21 +376,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesIssueRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesIssueSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesIssueResponse]
-      def post_v1sales_invoices_issue(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesIssueSalesResponse]
+      def invoices_issue(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/issue",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesIssueRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesIssueSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -400,7 +400,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesIssueResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesIssueSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -408,21 +408,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesLockRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesLockSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesLockResponse]
-      def post_v1sales_invoices_lock(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesLockSalesResponse]
+      def invoices_lock(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/lock",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesLockRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesLockSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -432,7 +432,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesLockResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesLockSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -440,21 +440,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesUnlockRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesUnlockSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesUnlockResponse]
-      def post_v1sales_invoices_unlock(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesUnlockSalesResponse]
+      def invoices_unlock(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/unlock",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesUnlockRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesUnlockSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -464,7 +464,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesUnlockResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesUnlockSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -472,21 +472,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesPaymentLinkRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesPaymentLinkSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesPaymentLinkResponse]
-      def post_v1sales_invoices_payment_link(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesPaymentLinkSalesResponse]
+      def invoices_payment_link(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/payment-link",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesPaymentLinkRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesPaymentLinkSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -496,7 +496,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesPaymentLinkResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesPaymentLinkSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -504,21 +504,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsGetRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesPaymentSettingsGetSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsGetResponse]
-      def post_v1sales_invoices_payment_settings_get(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesPaymentSettingsGetSalesResponse]
+      def invoices_payment_settings_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/payment-settings/get",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsGetRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesPaymentSettingsGetSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -528,7 +528,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsGetResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesPaymentSettingsGetSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -536,21 +536,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsUpdateRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesPaymentSettingsUpdateSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsUpdateResponse]
-      def post_v1sales_invoices_payment_settings_update(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesPaymentSettingsUpdateSalesResponse]
+      def invoices_payment_settings_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/payment-settings/update",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsUpdateRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesPaymentSettingsUpdateSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -560,7 +560,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsUpdateResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesPaymentSettingsUpdateSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -568,21 +568,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListRequest]
+      # @param params [Nordlet::Sales::Types::RecognitionSchedulesListSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListResponse]
-      def post_v1sales_recognition_schedules_list(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::RecognitionSchedulesListSalesResponse]
+      def recognition_schedules_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/recognition-schedules/list",
-          body: Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::RecognitionSchedulesListSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -592,7 +592,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListResponse.load(response.body)
+          Nordlet::Sales::Types::RecognitionSchedulesListSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -600,21 +600,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesApplyAdvanceRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesApplyAdvanceSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesApplyAdvanceResponse]
-      def post_v1sales_invoices_apply_advance(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesApplyAdvanceSalesResponse]
+      def invoices_apply_advance(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/apply-advance",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesApplyAdvanceRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesApplyAdvanceSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -624,7 +624,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesApplyAdvanceResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesApplyAdvanceSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -632,21 +632,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesInvoicesListRequest]
+      # @param params [Nordlet::Sales::Types::InvoicesListSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesInvoicesListResponse]
-      def post_v1sales_invoices_list(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::InvoicesListSalesResponse]
+      def invoices_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/invoices/list",
-          body: Nordlet::Sales::Types::PostV1SalesInvoicesListRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::InvoicesListSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -656,7 +656,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesInvoicesListResponse.load(response.body)
+          Nordlet::Sales::Types::InvoicesListSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -664,21 +664,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesActsCreateRequest]
+      # @param params [Nordlet::Sales::Types::ActsCreateSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesActsCreateResponse]
-      def post_v1sales_acts_create(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::ActsCreateSalesResponse]
+      def acts_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/acts/create",
-          body: Nordlet::Sales::Types::PostV1SalesActsCreateRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::ActsCreateSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -688,7 +688,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesActsCreateResponse.load(response.body)
+          Nordlet::Sales::Types::ActsCreateSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -696,21 +696,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesActsUpdateRequest]
+      # @param params [Nordlet::Sales::Types::ActsUpdateSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesActsUpdateResponse]
-      def post_v1sales_acts_update(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::ActsUpdateSalesResponse]
+      def acts_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/acts/update",
-          body: Nordlet::Sales::Types::PostV1SalesActsUpdateRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::ActsUpdateSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -720,7 +720,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesActsUpdateResponse.load(response.body)
+          Nordlet::Sales::Types::ActsUpdateSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -728,21 +728,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesActsIssueRequest]
+      # @param params [Nordlet::Sales::Types::ActsIssueSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesActsIssueResponse]
-      def post_v1sales_acts_issue(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::ActsIssueSalesResponse]
+      def acts_issue(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/acts/issue",
-          body: Nordlet::Sales::Types::PostV1SalesActsIssueRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::ActsIssueSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -752,7 +752,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesActsIssueResponse.load(response.body)
+          Nordlet::Sales::Types::ActsIssueSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -760,21 +760,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesActsCancelRequest]
+      # @param params [Nordlet::Sales::Types::ActsCancelSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesActsCancelResponse]
-      def post_v1sales_acts_cancel(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::ActsCancelSalesResponse]
+      def acts_cancel(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/acts/cancel",
-          body: Nordlet::Sales::Types::PostV1SalesActsCancelRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::ActsCancelSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -784,7 +784,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesActsCancelResponse.load(response.body)
+          Nordlet::Sales::Types::ActsCancelSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -792,21 +792,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesActsGetRequest]
+      # @param params [Nordlet::Sales::Types::ActsGetSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesActsGetResponse]
-      def post_v1sales_acts_get(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::ActsGetSalesResponse]
+      def acts_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/acts/get",
-          body: Nordlet::Sales::Types::PostV1SalesActsGetRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::ActsGetSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -816,7 +816,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesActsGetResponse.load(response.body)
+          Nordlet::Sales::Types::ActsGetSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -824,21 +824,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesActsListRequest]
+      # @param params [Nordlet::Sales::Types::ActsListSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesActsListResponse]
-      def post_v1sales_acts_list(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::ActsListSalesResponse]
+      def acts_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/acts/list",
-          body: Nordlet::Sales::Types::PostV1SalesActsListRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::ActsListSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -848,7 +848,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesActsListResponse.load(response.body)
+          Nordlet::Sales::Types::ActsListSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -856,21 +856,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesActsPdfRequest]
+      # @param params [Nordlet::Sales::Types::ActsPdfSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesActsPdfResponse]
-      def post_v1sales_acts_pdf(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::ActsPdfSalesResponse]
+      def acts_pdf(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/acts/pdf",
-          body: Nordlet::Sales::Types::PostV1SalesActsPdfRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::ActsPdfSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -880,7 +880,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesActsPdfResponse.load(response.body)
+          Nordlet::Sales::Types::ActsPdfSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -888,341 +888,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1OperationTypesCreateRequest]
+      # @param params [Nordlet::Sales::Types::RecognitionComputeSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1OperationTypesCreateResponse]
-      def post_v1operation_types_create(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/operation-types/create",
-          body: Nordlet::Sales::Types::PostV1OperationTypesCreateRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1OperationTypesCreateResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1OperationTypesUpdateRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1OperationTypesUpdateResponse]
-      def post_v1operation_types_update(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/operation-types/update",
-          body: Nordlet::Sales::Types::PostV1OperationTypesUpdateRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1OperationTypesUpdateResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1OperationTypesGetRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1OperationTypesGetResponse]
-      def post_v1operation_types_get(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/operation-types/get",
-          body: Nordlet::Sales::Types::PostV1OperationTypesGetRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1OperationTypesGetResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1OperationTypesDeleteRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1OperationTypesDeleteResponse]
-      def post_v1operation_types_delete(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/operation-types/delete",
-          body: Nordlet::Sales::Types::PostV1OperationTypesDeleteRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1OperationTypesDeleteResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1OperationTypesListRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1OperationTypesListResponse]
-      def post_v1operation_types_list(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/operation-types/list",
-          body: Nordlet::Sales::Types::PostV1OperationTypesListRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1OperationTypesListResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1DocumentSeriesCreateRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1DocumentSeriesCreateResponse]
-      def post_v1document_series_create(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/document-series/create",
-          body: Nordlet::Sales::Types::PostV1DocumentSeriesCreateRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1DocumentSeriesCreateResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1DocumentSeriesUpdateRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1DocumentSeriesUpdateResponse]
-      def post_v1document_series_update(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/document-series/update",
-          body: Nordlet::Sales::Types::PostV1DocumentSeriesUpdateRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1DocumentSeriesUpdateResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1DocumentSeriesGetRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1DocumentSeriesGetResponse]
-      def post_v1document_series_get(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/document-series/get",
-          body: Nordlet::Sales::Types::PostV1DocumentSeriesGetRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1DocumentSeriesGetResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1DocumentSeriesDeleteRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1DocumentSeriesDeleteResponse]
-      def post_v1document_series_delete(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/document-series/delete",
-          body: Nordlet::Sales::Types::PostV1DocumentSeriesDeleteRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1DocumentSeriesDeleteResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1DocumentSeriesListRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1DocumentSeriesListResponse]
-      def post_v1document_series_list(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/document-series/list",
-          body: Nordlet::Sales::Types::PostV1DocumentSeriesListRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1DocumentSeriesListResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesRecognitionComputeRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Sales::Types::PostV1SalesRecognitionComputeResponse]
-      def post_v1sales_recognition_compute(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::RecognitionComputeSalesResponse]
+      def recognition_compute(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/recognition/compute",
-          body: Nordlet::Sales::Types::PostV1SalesRecognitionComputeRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::RecognitionComputeSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1232,7 +912,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesRecognitionComputeResponse.load(response.body)
+          Nordlet::Sales::Types::RecognitionComputeSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1240,21 +920,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesRecognitionRunRequest]
+      # @param params [Nordlet::Sales::Types::RecognitionRunSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesRecognitionRunResponse]
-      def post_v1sales_recognition_run(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::RecognitionRunSalesResponse]
+      def recognition_run(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/recognition/run",
-          body: Nordlet::Sales::Types::PostV1SalesRecognitionRunRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::RecognitionRunSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1264,7 +944,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesRecognitionRunResponse.load(response.body)
+          Nordlet::Sales::Types::RecognitionRunSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1272,21 +952,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesRecognitionProgressRequest]
+      # @param params [Nordlet::Sales::Types::RecognitionProgressSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesRecognitionProgressResponse]
-      def post_v1sales_recognition_progress(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::RecognitionProgressSalesResponse]
+      def recognition_progress(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/recognition/progress",
-          body: Nordlet::Sales::Types::PostV1SalesRecognitionProgressRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::RecognitionProgressSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1296,7 +976,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesRecognitionProgressResponse.load(response.body)
+          Nordlet::Sales::Types::RecognitionProgressSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1308,21 +988,21 @@ module Nordlet
       # if the new terms applied from the start and post the difference immediately.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesRecognitionModifyRequest]
+      # @param params [Nordlet::Sales::Types::RecognitionModifySalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesRecognitionModifyResponse]
-      def post_v1sales_recognition_modify(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::RecognitionModifySalesResponse]
+      def recognition_modify(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/recognition/modify",
-          body: Nordlet::Sales::Types::PostV1SalesRecognitionModifyRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::RecognitionModifySalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1332,7 +1012,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesRecognitionModifyResponse.load(response.body)
+          Nordlet::Sales::Types::RecognitionModifySalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1340,21 +1020,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesRecognitionRunsListRequest]
+      # @param params [Nordlet::Sales::Types::RecognitionRunsListSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesRecognitionRunsListResponse]
-      def post_v1sales_recognition_runs_list(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::RecognitionRunsListSalesResponse]
+      def recognition_runs_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/recognition/runs/list",
-          body: Nordlet::Sales::Types::PostV1SalesRecognitionRunsListRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::RecognitionRunsListSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1364,7 +1044,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesRecognitionRunsListResponse.load(response.body)
+          Nordlet::Sales::Types::RecognitionRunsListSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1372,21 +1052,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesRecognitionSummaryRequest]
+      # @param params [Nordlet::Sales::Types::RecognitionSummarySalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesRecognitionSummaryResponse]
-      def post_v1sales_recognition_summary(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::RecognitionSummarySalesResponse]
+      def recognition_summary(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/recognition/summary",
-          body: Nordlet::Sales::Types::PostV1SalesRecognitionSummaryRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::RecognitionSummarySalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1396,7 +1076,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesRecognitionSummaryResponse.load(response.body)
+          Nordlet::Sales::Types::RecognitionSummarySalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1404,21 +1084,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesRefundLiabilityListRequest]
+      # @param params [Nordlet::Sales::Types::RefundLiabilityListSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesRefundLiabilityListResponse]
-      def post_v1sales_refund_liability_list(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::RefundLiabilityListSalesResponse]
+      def refund_liability_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/refund-liability/list",
-          body: Nordlet::Sales::Types::PostV1SalesRefundLiabilityListRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::RefundLiabilityListSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1428,7 +1108,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesRefundLiabilityListResponse.load(response.body)
+          Nordlet::Sales::Types::RefundLiabilityListSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1436,21 +1116,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Sales::Types::PostV1SalesRefundLiabilityTrueUpRequest]
+      # @param params [Nordlet::Sales::Types::RefundLiabilityTrueUpSalesRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Sales::Types::PostV1SalesRefundLiabilityTrueUpResponse]
-      def post_v1sales_refund_liability_true_up(request_options: {}, **params)
+      # @return [Nordlet::Sales::Types::RefundLiabilityTrueUpSalesResponse]
+      def refund_liability_true_up(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/sales/refund-liability/true-up",
-          body: Nordlet::Sales::Types::PostV1SalesRefundLiabilityTrueUpRequest.new(params).to_h,
+          body: Nordlet::Sales::Types::RefundLiabilityTrueUpSalesRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1460,7 +1140,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Sales::Types::PostV1SalesRefundLiabilityTrueUpResponse.load(response.body)
+          Nordlet::Sales::Types::RefundLiabilityTrueUpSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

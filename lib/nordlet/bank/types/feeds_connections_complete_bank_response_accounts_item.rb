@@ -1,0 +1,33 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Bank
+    module Types
+      class FeedsConnectionsCompleteBankResponseAccountsItem < Internal::Types::Model
+        field :id, -> { String }, optional: false, nullable: false
+
+        field :connection_id, -> { String }, optional: false, nullable: false, api_name: "connectionId"
+
+        field :bank_account_id, -> { String }, optional: false, nullable: true, api_name: "bankAccountId"
+
+        field :import_template_id, -> { String }, optional: false, nullable: true, api_name: "importTemplateId"
+
+        field :sync_schedule, -> { Nordlet::Bank::Types::FeedsConnectionsCompleteBankResponseAccountsItemSyncSchedule }, optional: false, nullable: false, api_name: "syncSchedule"
+
+        field :external_id, -> { String }, optional: false, nullable: false, api_name: "externalId"
+
+        field :iban, -> { String }, optional: false, nullable: true
+
+        field :currency, -> { String }, optional: false, nullable: false
+
+        field :name, -> { String }, optional: false, nullable: true
+
+        field :product, -> { String }, optional: false, nullable: true
+
+        field :sync_from, -> { String }, optional: false, nullable: true, api_name: "syncFrom"
+
+        field :last_synced_at, -> { String }, optional: false, nullable: true, api_name: "lastSyncedAt"
+      end
+    end
+  end
+end

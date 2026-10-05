@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Fleet::Types::PostV1FleetVehiclesCreateRequest]
+      # @param params [Nordlet::Fleet::Types::VehiclesCreateFleetRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Fleet::Types::PostV1FleetVehiclesCreateResponse]
-      def post_v1fleet_vehicles_create(request_options: {}, **params)
+      # @return [Nordlet::Fleet::Types::VehiclesCreateFleetResponse]
+      def vehicles_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/fleet/vehicles/create",
-          body: Nordlet::Fleet::Types::PostV1FleetVehiclesCreateRequest.new(params).to_h,
+          body: Nordlet::Fleet::Types::VehiclesCreateFleetRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Fleet::Types::PostV1FleetVehiclesCreateResponse.load(response.body)
+          Nordlet::Fleet::Types::VehiclesCreateFleetResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Fleet::Types::PostV1FleetVehiclesUpdateRequest]
+      # @param params [Nordlet::Fleet::Types::VehiclesUpdateFleetRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Fleet::Types::PostV1FleetVehiclesUpdateResponse]
-      def post_v1fleet_vehicles_update(request_options: {}, **params)
+      # @return [Nordlet::Fleet::Types::VehiclesUpdateFleetResponse]
+      def vehicles_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/fleet/vehicles/update",
-          body: Nordlet::Fleet::Types::PostV1FleetVehiclesUpdateRequest.new(params).to_h,
+          body: Nordlet::Fleet::Types::VehiclesUpdateFleetRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Fleet::Types::PostV1FleetVehiclesUpdateResponse.load(response.body)
+          Nordlet::Fleet::Types::VehiclesUpdateFleetResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Fleet::Types::PostV1FleetVehiclesGetRequest]
+      # @param params [Nordlet::Fleet::Types::VehiclesGetFleetRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Fleet::Types::PostV1FleetVehiclesGetResponse]
-      def post_v1fleet_vehicles_get(request_options: {}, **params)
+      # @return [Nordlet::Fleet::Types::VehiclesGetFleetResponse]
+      def vehicles_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/fleet/vehicles/get",
-          body: Nordlet::Fleet::Types::PostV1FleetVehiclesGetRequest.new(params).to_h,
+          body: Nordlet::Fleet::Types::VehiclesGetFleetRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Fleet::Types::PostV1FleetVehiclesGetResponse.load(response.body)
+          Nordlet::Fleet::Types::VehiclesGetFleetResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Fleet::Types::PostV1FleetVehiclesListRequest]
+      # @param params [Nordlet::Fleet::Types::VehiclesListFleetRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Fleet::Types::PostV1FleetVehiclesListResponse]
-      def post_v1fleet_vehicles_list(request_options: {}, **params)
+      # @return [Nordlet::Fleet::Types::VehiclesListFleetResponse]
+      def vehicles_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/fleet/vehicles/list",
-          body: Nordlet::Fleet::Types::PostV1FleetVehiclesListRequest.new(params).to_h,
+          body: Nordlet::Fleet::Types::VehiclesListFleetRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Fleet::Types::PostV1FleetVehiclesListResponse.load(response.body)
+          Nordlet::Fleet::Types::VehiclesListFleetResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Fleet::Types::PostV1FleetAssignmentsCreateRequest]
+      # @param params [Nordlet::Fleet::Types::AssignmentsCreateFleetRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Fleet::Types::PostV1FleetAssignmentsCreateResponse]
-      def post_v1fleet_assignments_create(request_options: {}, **params)
+      # @return [Nordlet::Fleet::Types::AssignmentsCreateFleetResponse]
+      def assignments_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/fleet/assignments/create",
-          body: Nordlet::Fleet::Types::PostV1FleetAssignmentsCreateRequest.new(params).to_h,
+          body: Nordlet::Fleet::Types::AssignmentsCreateFleetRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Fleet::Types::PostV1FleetAssignmentsCreateResponse.load(response.body)
+          Nordlet::Fleet::Types::AssignmentsCreateFleetResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Fleet::Types::PostV1FleetAssignmentsEndRequest]
+      # @param params [Nordlet::Fleet::Types::AssignmentsEndFleetRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Fleet::Types::PostV1FleetAssignmentsEndResponse]
-      def post_v1fleet_assignments_end(request_options: {}, **params)
+      # @return [Nordlet::Fleet::Types::AssignmentsEndFleetResponse]
+      def assignments_end(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/fleet/assignments/end",
-          body: Nordlet::Fleet::Types::PostV1FleetAssignmentsEndRequest.new(params).to_h,
+          body: Nordlet::Fleet::Types::AssignmentsEndFleetRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Fleet::Types::PostV1FleetAssignmentsEndResponse.load(response.body)
+          Nordlet::Fleet::Types::AssignmentsEndFleetResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -203,21 +203,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Fleet::Types::PostV1FleetAssignmentsListRequest]
+      # @param params [Nordlet::Fleet::Types::AssignmentsListFleetRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Fleet::Types::PostV1FleetAssignmentsListResponse]
-      def post_v1fleet_assignments_list(request_options: {}, **params)
+      # @return [Nordlet::Fleet::Types::AssignmentsListFleetResponse]
+      def assignments_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/fleet/assignments/list",
-          body: Nordlet::Fleet::Types::PostV1FleetAssignmentsListRequest.new(params).to_h,
+          body: Nordlet::Fleet::Types::AssignmentsListFleetRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -227,7 +227,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Fleet::Types::PostV1FleetAssignmentsListResponse.load(response.body)
+          Nordlet::Fleet::Types::AssignmentsListFleetResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -235,21 +235,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Fleet::Types::PostV1FleetNaturaPreviewRequest]
+      # @param params [Nordlet::Fleet::Types::NaturaPreviewFleetRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Fleet::Types::PostV1FleetNaturaPreviewResponse]
-      def post_v1fleet_natura_preview(request_options: {}, **params)
+      # @return [Nordlet::Fleet::Types::NaturaPreviewFleetResponse]
+      def natura_preview(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/fleet/natura/preview",
-          body: Nordlet::Fleet::Types::PostV1FleetNaturaPreviewRequest.new(params).to_h,
+          body: Nordlet::Fleet::Types::NaturaPreviewFleetRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -259,7 +259,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Fleet::Types::PostV1FleetNaturaPreviewResponse.load(response.body)
+          Nordlet::Fleet::Types::NaturaPreviewFleetResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

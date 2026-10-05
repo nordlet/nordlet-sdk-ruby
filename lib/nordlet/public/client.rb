@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Public::Types::PostV1PublicIntegrationRequestsRequest]
+      # @param params [Nordlet::Public::Types::IntegrationRequestsPublicRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Public::Types::PostV1PublicIntegrationRequestsResponse]
-      def post_v1public_integration_requests(request_options: {}, **params)
+      # @return [Nordlet::Public::Types::IntegrationRequestsPublicResponse]
+      def integration_requests(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/public/integration-requests",
-          body: Nordlet::Public::Types::PostV1PublicIntegrationRequestsRequest.new(params).to_h,
+          body: Nordlet::Public::Types::IntegrationRequestsPublicRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Public::Types::PostV1PublicIntegrationRequestsResponse.load(response.body)
+          Nordlet::Public::Types::IntegrationRequestsPublicResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -52,7 +52,7 @@ module Nordlet
       # @option params [String] :token
       #
       # @return [untyped]
-      def get_v1public_pay_token(request_options: {}, **params)
+      def pay(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],

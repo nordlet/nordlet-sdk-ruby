@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Cash::Types::PostV1CashOrdersCreateRequest]
+      # @param params [Nordlet::Cash::Types::OrdersCreateCashRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Cash::Types::PostV1CashOrdersCreateResponse]
-      def post_v1cash_orders_create(request_options: {}, **params)
+      # @return [Nordlet::Cash::Types::OrdersCreateCashResponse]
+      def orders_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/cash/orders/create",
-          body: Nordlet::Cash::Types::PostV1CashOrdersCreateRequest.new(params).to_h,
+          body: Nordlet::Cash::Types::OrdersCreateCashRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Cash::Types::PostV1CashOrdersCreateResponse.load(response.body)
+          Nordlet::Cash::Types::OrdersCreateCashResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Cash::Types::PostV1CashOrdersGetRequest]
+      # @param params [Nordlet::Cash::Types::OrdersGetCashRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Cash::Types::PostV1CashOrdersGetResponse]
-      def post_v1cash_orders_get(request_options: {}, **params)
+      # @return [Nordlet::Cash::Types::OrdersGetCashResponse]
+      def orders_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/cash/orders/get",
-          body: Nordlet::Cash::Types::PostV1CashOrdersGetRequest.new(params).to_h,
+          body: Nordlet::Cash::Types::OrdersGetCashRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Cash::Types::PostV1CashOrdersGetResponse.load(response.body)
+          Nordlet::Cash::Types::OrdersGetCashResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Cash::Types::PostV1CashOrdersListRequest]
+      # @param params [Nordlet::Cash::Types::OrdersListCashRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Cash::Types::PostV1CashOrdersListResponse]
-      def post_v1cash_orders_list(request_options: {}, **params)
+      # @return [Nordlet::Cash::Types::OrdersListCashResponse]
+      def orders_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/cash/orders/list",
-          body: Nordlet::Cash::Types::PostV1CashOrdersListRequest.new(params).to_h,
+          body: Nordlet::Cash::Types::OrdersListCashRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Cash::Types::PostV1CashOrdersListResponse.load(response.body)
+          Nordlet::Cash::Types::OrdersListCashResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Cash::Types::PostV1CashBalanceRequest]
+      # @param params [Nordlet::Cash::Types::BalanceCashRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Cash::Types::PostV1CashBalanceResponse]
-      def post_v1cash_balance(request_options: {}, **params)
+      # @return [Nordlet::Cash::Types::BalanceCashResponse]
+      def balance(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/cash/balance",
-          body: Nordlet::Cash::Types::PostV1CashBalanceRequest.new(params).to_h,
+          body: Nordlet::Cash::Types::BalanceCashRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Cash::Types::PostV1CashBalanceResponse.load(response.body)
+          Nordlet::Cash::Types::BalanceCashResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Cash::Types::PostV1CashAdvanceHoldersBalancesRequest]
+      # @param params [Nordlet::Cash::Types::AdvanceHoldersBalancesCashRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Cash::Types::PostV1CashAdvanceHoldersBalancesResponse]
-      def post_v1cash_advance_holders_balances(request_options: {}, **params)
+      # @return [Nordlet::Cash::Types::AdvanceHoldersBalancesCashResponse]
+      def advance_holders_balances(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/cash/advance-holders/balances",
-          body: Nordlet::Cash::Types::PostV1CashAdvanceHoldersBalancesRequest.new(params).to_h,
+          body: Nordlet::Cash::Types::AdvanceHoldersBalancesCashRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Cash::Types::PostV1CashAdvanceHoldersBalancesResponse.load(response.body)
+          Nordlet::Cash::Types::AdvanceHoldersBalancesCashResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

@@ -14,21 +14,21 @@ module Nordlet
       # same summary and warnings, then rolls everything back. Nothing is stored.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Migration::Types::PostV1MigrationBooksValidateRequest]
+      # @param params [Nordlet::Migration::Types::BooksValidateMigrationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Migration::Types::PostV1MigrationBooksValidateResponse]
-      def check_a_historical_books_package_without_writing_anything(request_options: {}, **params)
+      # @return [Nordlet::Migration::Types::BooksValidateMigrationResponse]
+      def books_validate(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/migration/books/validate",
-          body: Nordlet::Migration::Types::PostV1MigrationBooksValidateRequest.new(params).to_h,
+          body: Nordlet::Migration::Types::BooksValidateMigrationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -38,7 +38,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Migration::Types::PostV1MigrationBooksValidateResponse.load(response.body)
+          Nordlet::Migration::Types::BooksValidateMigrationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -51,21 +51,21 @@ module Nordlet
       # nothing is stored.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Migration::Types::PostV1MigrationBooksImportRequest]
+      # @param params [Nordlet::Migration::Types::BooksImportMigrationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Migration::Types::PostV1MigrationBooksImportResponse]
-      def import_historical_books_from_a_previous_accounting_system(request_options: {}, **params)
+      # @return [Nordlet::Migration::Types::BooksImportMigrationResponse]
+      def books_import(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/migration/books/import",
-          body: Nordlet::Migration::Types::PostV1MigrationBooksImportRequest.new(params).to_h,
+          body: Nordlet::Migration::Types::BooksImportMigrationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -75,7 +75,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Migration::Types::PostV1MigrationBooksImportResponse.load(response.body)
+          Nordlet::Migration::Types::BooksImportMigrationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

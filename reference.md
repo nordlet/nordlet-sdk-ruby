@@ -1,6 +1,6 @@
 # Reference
-## Reference
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_exchange_rates_sync</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceExchangeRatesSyncResponse</code></summary>
+## reference
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">exchange_rates_sync</a>(request) -> Nordlet::Reference::Types::ExchangeRatesSyncReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -13,7 +13,7 @@
 <dd>
 
 ```ruby
-client.reference.post_v1reference_exchange_rates_sync
+client.reference.exchange_rates_sync
 ```
 </dd>
 </dl>
@@ -48,7 +48,7 @@ client.reference.post_v1reference_exchange_rates_sync
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_exchange_rates_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceExchangeRatesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">exchange_rates_list</a>(request) -> Nordlet::Reference::Types::ExchangeRatesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -61,7 +61,7 @@ client.reference.post_v1reference_exchange_rates_sync
 <dd>
 
 ```ruby
-client.reference.post_v1reference_exchange_rates_list
+client.reference.exchange_rates_list
 ```
 </dd>
 </dl>
@@ -92,7 +92,7 @@ client.reference.post_v1reference_exchange_rates_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceExchangeRatesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Reference::Types::ExchangeRatesListReferenceRequestSortItem]` 
     
 </dd>
 </dl>
@@ -100,7 +100,7 @@ client.reference.post_v1reference_exchange_rates_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceExchangeRatesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Reference::Types::ExchangeRatesListReferenceRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -128,7 +128,7 @@ client.reference.post_v1reference_exchange_rates_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_exchange_rates_set</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceExchangeRatesSetResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">exchange_rates_set</a>(request) -> Nordlet::Reference::Types::ExchangeRatesSetReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -141,10 +141,10 @@ client.reference.post_v1reference_exchange_rates_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_exchange_rates_set(
+client.reference.exchange_rates_set(
   currency: "currency",
-  date: "date",
-  rate: "rate"
+  date: "2026-07-01",
+  rate: "121.00000000"
 )
 ```
 </dd>
@@ -196,7 +196,7 @@ client.reference.post_v1reference_exchange_rates_set(
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_exchange_rates_overrides_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceExchangeRatesOverridesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">exchange_rates_overrides_list</a>(request) -> Nordlet::Reference::Types::ExchangeRatesOverridesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -209,7 +209,7 @@ client.reference.post_v1reference_exchange_rates_set(
 <dd>
 
 ```ruby
-client.reference.post_v1reference_exchange_rates_overrides_list
+client.reference.exchange_rates_overrides_list
 ```
 </dd>
 </dl>
@@ -240,7 +240,7 @@ client.reference.post_v1reference_exchange_rates_overrides_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceExchangeRatesOverridesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Reference::Types::ExchangeRatesOverridesListReferenceRequestSortItem]` 
     
 </dd>
 </dl>
@@ -248,7 +248,7 @@ client.reference.post_v1reference_exchange_rates_overrides_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceExchangeRatesOverridesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Reference::Types::ExchangeRatesOverridesListReferenceRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -276,7 +276,7 @@ client.reference.post_v1reference_exchange_rates_overrides_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_exchange_rates_overrides_delete</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceExchangeRatesOverridesDeleteResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">exchange_rates_overrides_delete</a>(request) -> Nordlet::Reference::Types::ExchangeRatesOverridesDeleteReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -289,9 +289,9 @@ client.reference.post_v1reference_exchange_rates_overrides_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_exchange_rates_overrides_delete(
+client.reference.exchange_rates_overrides_delete(
   currency: "currency",
-  date: "date"
+  date: "2026-07-01"
 )
 ```
 </dd>
@@ -335,7 +335,7 @@ client.reference.post_v1reference_exchange_rates_overrides_delete(
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_countries_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceCountriesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">countries_list</a>(request) -> Nordlet::Reference::Types::CountriesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -348,7 +348,7 @@ client.reference.post_v1reference_exchange_rates_overrides_delete(
 <dd>
 
 ```ruby
-client.reference.post_v1reference_countries_list
+client.reference.countries_list
 ```
 </dd>
 </dl>
@@ -375,7 +375,7 @@ client.reference.post_v1reference_countries_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_lt_counties_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceLtCountiesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">lt_counties_list</a>(request) -> Nordlet::Reference::Types::LtCountiesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -388,7 +388,7 @@ client.reference.post_v1reference_countries_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_lt_counties_list
+client.reference.lt_counties_list
 ```
 </dd>
 </dl>
@@ -415,7 +415,7 @@ client.reference.post_v1reference_lt_counties_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_lt_municipalities_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceLtMunicipalitiesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">lt_municipalities_list</a>(request) -> Nordlet::Reference::Types::LtMunicipalitiesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -428,7 +428,7 @@ client.reference.post_v1reference_lt_counties_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_lt_municipalities_list
+client.reference.lt_municipalities_list
 ```
 </dd>
 </dl>
@@ -463,7 +463,7 @@ client.reference.post_v1reference_lt_municipalities_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_lt_cities_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceLtCitiesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">lt_cities_list</a>(request) -> Nordlet::Reference::Types::LtCitiesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -476,7 +476,7 @@ client.reference.post_v1reference_lt_municipalities_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_lt_cities_list
+client.reference.lt_cities_list
 ```
 </dd>
 </dl>
@@ -519,7 +519,7 @@ client.reference.post_v1reference_lt_cities_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_banks_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceBanksListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">banks_list</a>(request) -> Nordlet::Reference::Types::BanksListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -532,7 +532,7 @@ client.reference.post_v1reference_lt_cities_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_banks_list
+client.reference.banks_list
 ```
 </dd>
 </dl>
@@ -563,7 +563,7 @@ client.reference.post_v1reference_banks_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceBanksListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Reference::Types::BanksListReferenceRequestSortItem]` 
     
 </dd>
 </dl>
@@ -571,7 +571,7 @@ client.reference.post_v1reference_banks_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceBanksListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Reference::Types::BanksListReferenceRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -599,7 +599,7 @@ client.reference.post_v1reference_banks_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_banks_upsert</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceBanksUpsertResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">banks_upsert</a>(request) -> Nordlet::Reference::Types::BanksUpsertReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -612,7 +612,7 @@ client.reference.post_v1reference_banks_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_banks_upsert(
+client.reference.banks_upsert(
   country_code: "countryCode",
   name: "name",
   bic: "bic"
@@ -683,7 +683,7 @@ client.reference.post_v1reference_banks_upsert(
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_lt_regions_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceLtRegionsListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">lt_regions_list</a>(request) -> Nordlet::Reference::Types::LtRegionsListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -696,7 +696,7 @@ client.reference.post_v1reference_banks_upsert(
 <dd>
 
 ```ruby
-client.reference.post_v1reference_lt_regions_list
+client.reference.lt_regions_list
 ```
 </dd>
 </dl>
@@ -723,7 +723,7 @@ client.reference.post_v1reference_lt_regions_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_currencies_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceCurrenciesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">currencies_list</a>(request) -> Nordlet::Reference::Types::CurrenciesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -736,87 +736,7 @@ client.reference.post_v1reference_lt_regions_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_currencies_list
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**page:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**page_size:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**sort:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceCurrenciesListRequestSortItem]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceCurrenciesListRequestFilterItem]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Reference::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_vat_classifiers_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceVatClassifiersListResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.reference.post_v1reference_vat_classifiers_list
+client.reference.currencies_list
 ```
 </dd>
 </dl>
@@ -847,7 +767,7 @@ client.reference.post_v1reference_vat_classifiers_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceVatClassifiersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Reference::Types::CurrenciesListReferenceRequestSortItem]` 
     
 </dd>
 </dl>
@@ -855,7 +775,7 @@ client.reference.post_v1reference_vat_classifiers_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceVatClassifiersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Reference::Types::CurrenciesListReferenceRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -883,7 +803,7 @@ client.reference.post_v1reference_vat_classifiers_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_vat_classifiers_upsert</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceVatClassifiersUpsertResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">vat_classifiers_list</a>(request) -> Nordlet::Reference::Types::VatClassifiersListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -896,7 +816,87 @@ client.reference.post_v1reference_vat_classifiers_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_vat_classifiers_upsert(rows: [{
+client.reference.vat_classifiers_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Reference::Types::VatClassifiersListReferenceRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Reference::Types::VatClassifiersListReferenceRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Reference::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">vat_classifiers_upsert</a>(request) -> Nordlet::Reference::Types::VatClassifiersUpsertReferenceResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.reference.vat_classifiers_upsert(rows: [{
   code: "code",
   name: "name"
 }])
@@ -914,7 +914,7 @@ client.reference.post_v1reference_vat_classifiers_upsert(rows: [{
 <dl>
 <dd>
 
-**rows:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceVatClassifiersUpsertRequestRowsItem]` 
+**rows:** `Internal::Types::Array[Nordlet::Reference::Types::VatClassifiersUpsertReferenceRequestRowsItem]` 
     
 </dd>
 </dl>
@@ -934,7 +934,7 @@ client.reference.post_v1reference_vat_classifiers_upsert(rows: [{
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_eu_vat_rates_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceEuVatRatesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">eu_vat_rates_list</a>(request) -> Nordlet::Reference::Types::EuVatRatesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -961,7 +961,7 @@ Effective EU VAT rate mapping for this company: EC TEDB defaults, replaced per c
 <dd>
 
 ```ruby
-client.reference.post_v1reference_eu_vat_rates_list
+client.reference.eu_vat_rates_list
 ```
 </dd>
 </dl>
@@ -1004,7 +1004,7 @@ client.reference.post_v1reference_eu_vat_rates_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_eu_vat_rates_set_overrides</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSetOverridesResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">eu_vat_rates_set_overrides</a>(request) -> Nordlet::Reference::Types::EuVatRatesSetOverridesReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1031,11 +1031,11 @@ Replace the VAT rate mapping this company uses for one EU country. Pass an empty
 <dd>
 
 ```ruby
-client.reference.post_v1reference_eu_vat_rates_set_overrides(
+client.reference.eu_vat_rates_set_overrides(
   country_code: "countryCode",
   rates: [{
     category: "standard",
-    rate_percent: "ratePercent"
+    rate_percent: "121.00"
   }]
 )
 ```
@@ -1060,7 +1060,7 @@ client.reference.post_v1reference_eu_vat_rates_set_overrides(
 <dl>
 <dd>
 
-**rates:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceEuVatRatesSetOverridesRequestRatesItem]` 
+**rates:** `Internal::Types::Array[Nordlet::Reference::Types::EuVatRatesSetOverridesReferenceRequestRatesItem]` 
     
 </dd>
 </dl>
@@ -1080,7 +1080,7 @@ client.reference.post_v1reference_eu_vat_rates_set_overrides(
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_vat_resolve</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceVatResolveResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">vat_resolve</a>(request) -> Nordlet::Reference::Types::VatResolveReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1093,7 +1093,7 @@ client.reference.post_v1reference_eu_vat_rates_set_overrides(
 <dd>
 
 ```ruby
-client.reference.post_v1reference_vat_resolve
+client.reference.vat_resolve
 ```
 </dd>
 </dl>
@@ -1132,7 +1132,7 @@ client.reference.post_v1reference_vat_resolve
 <dl>
 <dd>
 
-**supply_type:** `Nordlet::Reference::Types::PostV1ReferenceVatResolveRequestSupplyType` 
+**supply_type:** `Nordlet::Reference::Types::VatResolveReferenceRequestSupplyType` 
     
 </dd>
 </dl>
@@ -1200,7 +1200,7 @@ client.reference.post_v1reference_vat_resolve
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_cn_codes_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceCnCodesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">cn_codes_list</a>(request) -> Nordlet::Reference::Types::CnCodesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1213,7 +1213,7 @@ client.reference.post_v1reference_vat_resolve
 <dd>
 
 ```ruby
-client.reference.post_v1reference_cn_codes_list
+client.reference.cn_codes_list
 ```
 </dd>
 </dl>
@@ -1244,7 +1244,7 @@ client.reference.post_v1reference_cn_codes_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceCnCodesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Reference::Types::CnCodesListReferenceRequestSortItem]` 
     
 </dd>
 </dl>
@@ -1252,7 +1252,7 @@ client.reference.post_v1reference_cn_codes_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceCnCodesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Reference::Types::CnCodesListReferenceRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -1280,7 +1280,7 @@ client.reference.post_v1reference_cn_codes_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_cn_codes_upsert</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceCnCodesUpsertResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">cn_codes_upsert</a>(request) -> Nordlet::Reference::Types::CnCodesUpsertReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1293,7 +1293,7 @@ client.reference.post_v1reference_cn_codes_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_cn_codes_upsert(rows: [{
+client.reference.cn_codes_upsert(rows: [{
   code: "code",
   name: "name"
 }])
@@ -1311,7 +1311,7 @@ client.reference.post_v1reference_cn_codes_upsert(rows: [{
 <dl>
 <dd>
 
-**rows:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceCnCodesUpsertRequestRowsItem]` 
+**rows:** `Internal::Types::Array[Nordlet::Reference::Types::CnCodesUpsertReferenceRequestRowsItem]` 
     
 </dd>
 </dl>
@@ -1331,7 +1331,7 @@ client.reference.post_v1reference_cn_codes_upsert(rows: [{
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_compliance_versions_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceComplianceVersionsListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">compliance_versions_list</a>(request) -> Nordlet::Reference::Types::ComplianceVersionsListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1344,7 +1344,7 @@ client.reference.post_v1reference_cn_codes_upsert(rows: [{
 <dd>
 
 ```ruby
-client.reference.post_v1reference_compliance_versions_list
+client.reference.compliance_versions_list
 ```
 </dd>
 </dl>
@@ -1379,7 +1379,7 @@ client.reference.post_v1reference_compliance_versions_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_intrastat_thresholds_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceIntrastatThresholdsListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">intrastat_thresholds_list</a>(request) -> Nordlet::Reference::Types::IntrastatThresholdsListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1392,7 +1392,7 @@ client.reference.post_v1reference_compliance_versions_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_intrastat_thresholds_list
+client.reference.intrastat_thresholds_list
 ```
 </dd>
 </dl>
@@ -1419,7 +1419,7 @@ client.reference.post_v1reference_intrastat_thresholds_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_units_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceUnitsListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">units_list</a>(request) -> Nordlet::Reference::Types::UnitsListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1432,7 +1432,7 @@ client.reference.post_v1reference_intrastat_thresholds_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_units_list
+client.reference.units_list
 ```
 </dd>
 </dl>
@@ -1463,7 +1463,7 @@ client.reference.post_v1reference_units_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceUnitsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Reference::Types::UnitsListReferenceRequestSortItem]` 
     
 </dd>
 </dl>
@@ -1471,7 +1471,7 @@ client.reference.post_v1reference_units_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceUnitsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Reference::Types::UnitsListReferenceRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -1499,7 +1499,7 @@ client.reference.post_v1reference_units_list
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_series_create</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceSeriesCreateResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">series_create</a>(request) -> Nordlet::Reference::Types::SeriesCreateReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1512,7 +1512,7 @@ client.reference.post_v1reference_units_list
 <dd>
 
 ```ruby
-client.reference.post_v1reference_series_create(
+client.reference.series_create(
   document_type: "documentType",
   year: 1000000
 )
@@ -1574,7 +1574,7 @@ client.reference.post_v1reference_series_create(
 </dl>
 </details>
 
-<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">post_v1reference_series_list</a>(request) -> Nordlet::Reference::Types::PostV1ReferenceSeriesListResponse</code></summary>
+<details><summary><code>client.reference.<a href="/lib/nordlet/reference/client.rb">series_list</a>(request) -> Nordlet::Reference::Types::SeriesListReferenceResponse</code></summary>
 <dl>
 <dd>
 
@@ -1587,7 +1587,7 @@ client.reference.post_v1reference_series_create(
 <dd>
 
 ```ruby
-client.reference.post_v1reference_series_list
+client.reference.series_list
 ```
 </dd>
 </dl>
@@ -1618,7 +1618,7 @@ client.reference.post_v1reference_series_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceSeriesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Reference::Types::SeriesListReferenceRequestSortItem]` 
     
 </dd>
 </dl>
@@ -1626,7 +1626,7 @@ client.reference.post_v1reference_series_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Reference::Types::PostV1ReferenceSeriesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Reference::Types::SeriesListReferenceRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -1654,8 +1654,8 @@ client.reference.post_v1reference_series_list
 </dl>
 </details>
 
-## Partners
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_addresses_create</a>(request) -> Nordlet::Partners::Types::PostV1PartnersAddressesCreateResponse</code></summary>
+## partners
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">addresses_create</a>(request) -> Nordlet::Partners::Types::AddressesCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1668,7 +1668,7 @@ client.reference.post_v1reference_series_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_addresses_create(partner_id: "partnerId")
+client.partners.addresses_create(partner_id: "partnerId")
 ```
 </dd>
 </dl>
@@ -1683,7 +1683,7 @@ client.partners.post_v1partners_addresses_create(partner_id: "partnerId")
 <dl>
 <dd>
 
-**type:** `Nordlet::Partners::Types::PostV1PartnersAddressesCreateRequestType` 
+**type:** `Nordlet::Partners::Types::AddressesCreatePartnersRequestType` 
     
 </dd>
 </dl>
@@ -1751,7 +1751,7 @@ client.partners.post_v1partners_addresses_create(partner_id: "partnerId")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_addresses_update</a>(request) -> Nordlet::Partners::Types::PostV1PartnersAddressesUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">addresses_update</a>(request) -> Nordlet::Partners::Types::AddressesUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1764,7 +1764,7 @@ client.partners.post_v1partners_addresses_create(partner_id: "partnerId")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_addresses_update(id: "id")
+client.partners.addresses_update(id: "id")
 ```
 </dd>
 </dl>
@@ -1779,7 +1779,7 @@ client.partners.post_v1partners_addresses_update(id: "id")
 <dl>
 <dd>
 
-**type:** `Nordlet::Partners::Types::PostV1PartnersAddressesUpdateRequestType` 
+**type:** `Nordlet::Partners::Types::AddressesUpdatePartnersRequestType` 
     
 </dd>
 </dl>
@@ -1847,7 +1847,7 @@ client.partners.post_v1partners_addresses_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_addresses_delete</a>(request) -> Nordlet::Partners::Types::PostV1PartnersAddressesDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">addresses_delete</a>(request) -> Nordlet::Partners::Types::AddressesDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1860,7 +1860,7 @@ client.partners.post_v1partners_addresses_update(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_addresses_delete(id: "id")
+client.partners.addresses_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -1895,7 +1895,7 @@ client.partners.post_v1partners_addresses_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_addresses_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersAddressesListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">addresses_list</a>(request) -> Nordlet::Partners::Types::AddressesListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1908,7 +1908,7 @@ client.partners.post_v1partners_addresses_delete(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_addresses_list
+client.partners.addresses_list
 ```
 </dd>
 </dl>
@@ -1939,7 +1939,7 @@ client.partners.post_v1partners_addresses_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersAddressesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Partners::Types::AddressesListPartnersRequestSortItem]` 
     
 </dd>
 </dl>
@@ -1947,7 +1947,7 @@ client.partners.post_v1partners_addresses_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersAddressesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Partners::Types::AddressesListPartnersRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -1975,7 +1975,7 @@ client.partners.post_v1partners_addresses_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_contacts_create</a>(request) -> Nordlet::Partners::Types::PostV1PartnersContactsCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">contacts_create</a>(request) -> Nordlet::Partners::Types::ContactsCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -1988,7 +1988,7 @@ client.partners.post_v1partners_addresses_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_contacts_create(
+client.partners.contacts_create(
   name: "name",
   partner_id: "partnerId"
 )
@@ -2066,7 +2066,7 @@ client.partners.post_v1partners_contacts_create(
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_contacts_update</a>(request) -> Nordlet::Partners::Types::PostV1PartnersContactsUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">contacts_update</a>(request) -> Nordlet::Partners::Types::ContactsUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2079,7 +2079,7 @@ client.partners.post_v1partners_contacts_create(
 <dd>
 
 ```ruby
-client.partners.post_v1partners_contacts_update(id: "id")
+client.partners.contacts_update(id: "id")
 ```
 </dd>
 </dl>
@@ -2154,7 +2154,7 @@ client.partners.post_v1partners_contacts_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_contacts_delete</a>(request) -> Nordlet::Partners::Types::PostV1PartnersContactsDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">contacts_delete</a>(request) -> Nordlet::Partners::Types::ContactsDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2167,7 +2167,7 @@ client.partners.post_v1partners_contacts_update(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_contacts_delete(id: "id")
+client.partners.contacts_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -2202,7 +2202,7 @@ client.partners.post_v1partners_contacts_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_contacts_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersContactsListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">contacts_list</a>(request) -> Nordlet::Partners::Types::ContactsListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2215,7 +2215,7 @@ client.partners.post_v1partners_contacts_delete(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_contacts_list
+client.partners.contacts_list
 ```
 </dd>
 </dl>
@@ -2246,7 +2246,7 @@ client.partners.post_v1partners_contacts_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersContactsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Partners::Types::ContactsListPartnersRequestSortItem]` 
     
 </dd>
 </dl>
@@ -2254,7 +2254,7 @@ client.partners.post_v1partners_contacts_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersContactsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Partners::Types::ContactsListPartnersRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -2282,7 +2282,7 @@ client.partners.post_v1partners_contacts_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_bank_accounts_create</a>(request) -> Nordlet::Partners::Types::PostV1PartnersBankAccountsCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">bank_accounts_create</a>(request) -> Nordlet::Partners::Types::BankAccountsCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2295,7 +2295,7 @@ client.partners.post_v1partners_contacts_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_bank_accounts_create(
+client.partners.bank_accounts_create(
   iban: "iban",
   partner_id: "partnerId"
 )
@@ -2373,7 +2373,7 @@ client.partners.post_v1partners_bank_accounts_create(
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_bank_accounts_update</a>(request) -> Nordlet::Partners::Types::PostV1PartnersBankAccountsUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">bank_accounts_update</a>(request) -> Nordlet::Partners::Types::BankAccountsUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2386,7 +2386,7 @@ client.partners.post_v1partners_bank_accounts_create(
 <dd>
 
 ```ruby
-client.partners.post_v1partners_bank_accounts_update(id: "id")
+client.partners.bank_accounts_update(id: "id")
 ```
 </dd>
 </dl>
@@ -2461,7 +2461,7 @@ client.partners.post_v1partners_bank_accounts_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_bank_accounts_delete</a>(request) -> Nordlet::Partners::Types::PostV1PartnersBankAccountsDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">bank_accounts_delete</a>(request) -> Nordlet::Partners::Types::BankAccountsDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2474,7 +2474,7 @@ client.partners.post_v1partners_bank_accounts_update(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_bank_accounts_delete(id: "id")
+client.partners.bank_accounts_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -2509,7 +2509,7 @@ client.partners.post_v1partners_bank_accounts_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_bank_accounts_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersBankAccountsListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">bank_accounts_list</a>(request) -> Nordlet::Partners::Types::BankAccountsListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2522,7 +2522,7 @@ client.partners.post_v1partners_bank_accounts_delete(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_bank_accounts_list
+client.partners.bank_accounts_list
 ```
 </dd>
 </dl>
@@ -2553,7 +2553,7 @@ client.partners.post_v1partners_bank_accounts_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersBankAccountsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Partners::Types::BankAccountsListPartnersRequestSortItem]` 
     
 </dd>
 </dl>
@@ -2561,7 +2561,7 @@ client.partners.post_v1partners_bank_accounts_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersBankAccountsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Partners::Types::BankAccountsListPartnersRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -2589,7 +2589,7 @@ client.partners.post_v1partners_bank_accounts_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_files_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersFilesListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">files_list</a>(request) -> Nordlet::Partners::Types::FilesListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2602,7 +2602,7 @@ client.partners.post_v1partners_bank_accounts_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_files_list(partner_id: "partnerId")
+client.partners.files_list(partner_id: "partnerId")
 ```
 </dd>
 </dl>
@@ -2637,7 +2637,7 @@ client.partners.post_v1partners_files_list(partner_id: "partnerId")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">reminders_the_overnight_debt_reminder_job_would_send_today_for_this_company</a>(request) -> Nordlet::Partners::Types::PostV1PartnersDebtRemindersPreviewResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">debt_reminders_preview</a>(request) -> Nordlet::Partners::Types::DebtRemindersPreviewPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2650,7 +2650,7 @@ client.partners.post_v1partners_files_list(partner_id: "partnerId")
 <dd>
 
 ```ruby
-client.partners.reminders_the_overnight_debt_reminder_job_would_send_today_for_this_company
+client.partners.debt_reminders_preview
 ```
 </dd>
 </dl>
@@ -2677,7 +2677,7 @@ client.partners.reminders_the_overnight_debt_reminder_job_would_send_today_for_t
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_debt_reminders_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersDebtRemindersListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">debt_reminders_list</a>(request) -> Nordlet::Partners::Types::DebtRemindersListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2690,7 +2690,7 @@ client.partners.reminders_the_overnight_debt_reminder_job_would_send_today_for_t
 <dd>
 
 ```ruby
-client.partners.post_v1partners_debt_reminders_list
+client.partners.debt_reminders_list
 ```
 </dd>
 </dl>
@@ -2721,7 +2721,7 @@ client.partners.post_v1partners_debt_reminders_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersDebtRemindersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Partners::Types::DebtRemindersListPartnersRequestSortItem]` 
     
 </dd>
 </dl>
@@ -2729,7 +2729,7 @@ client.partners.post_v1partners_debt_reminders_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersDebtRemindersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Partners::Types::DebtRemindersListPartnersRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -2757,7 +2757,7 @@ client.partners.post_v1partners_debt_reminders_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_validate_vat</a>(request) -> Nordlet::Partners::Types::PostV1PartnersValidateVatResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">validate_vat</a>(request) -> Nordlet::Partners::Types::ValidateVatPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2770,7 +2770,7 @@ client.partners.post_v1partners_debt_reminders_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_validate_vat
+client.partners.validate_vat
 ```
 </dd>
 </dl>
@@ -2813,7 +2813,7 @@ client.partners.post_v1partners_validate_vat
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_vat_reviews_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersVatReviewsListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">vat_reviews_list</a>(request) -> Nordlet::Partners::Types::VatReviewsListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2826,7 +2826,7 @@ client.partners.post_v1partners_validate_vat
 <dd>
 
 ```ruby
-client.partners.post_v1partners_vat_reviews_list
+client.partners.vat_reviews_list
 ```
 </dd>
 </dl>
@@ -2857,7 +2857,7 @@ client.partners.post_v1partners_vat_reviews_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersVatReviewsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Partners::Types::VatReviewsListPartnersRequestSortItem]` 
     
 </dd>
 </dl>
@@ -2865,7 +2865,7 @@ client.partners.post_v1partners_vat_reviews_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersVatReviewsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Partners::Types::VatReviewsListPartnersRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -2893,7 +2893,7 @@ client.partners.post_v1partners_vat_reviews_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_vat_reviews_resolve</a>(request) -> Nordlet::Partners::Types::PostV1PartnersVatReviewsResolveResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">vat_reviews_resolve</a>(request) -> Nordlet::Partners::Types::VatReviewsResolvePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2906,7 +2906,7 @@ client.partners.post_v1partners_vat_reviews_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_vat_reviews_resolve(
+client.partners.vat_reviews_resolve(
   id: "id",
   resolution: "confirmed_valid"
 )
@@ -2932,7 +2932,7 @@ client.partners.post_v1partners_vat_reviews_resolve(
 <dl>
 <dd>
 
-**resolution:** `Nordlet::Partners::Types::PostV1PartnersVatReviewsResolveRequestResolution` 
+**resolution:** `Nordlet::Partners::Types::VatReviewsResolvePartnersRequestResolution` 
     
 </dd>
 </dl>
@@ -2960,7 +2960,7 @@ client.partners.post_v1partners_vat_reviews_resolve(
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_create</a>(request) -> Nordlet::Partners::Types::PostV1PartnersCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">create</a>(request) -> Nordlet::Partners::Types::CreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -2973,7 +2973,7 @@ client.partners.post_v1partners_vat_reviews_resolve(
 <dd>
 
 ```ruby
-client.partners.post_v1partners_create(name: "name")
+client.partners.create(name: "name")
 ```
 </dd>
 </dl>
@@ -2988,7 +2988,7 @@ client.partners.post_v1partners_create(name: "name")
 <dl>
 <dd>
 
-**type:** `Nordlet::Partners::Types::PostV1PartnersCreateRequestType` 
+**type:** `Nordlet::Partners::Types::CreatePartnersRequestType` 
     
 </dd>
 </dl>
@@ -3116,7 +3116,7 @@ client.partners.post_v1partners_create(name: "name")
 <dl>
 <dd>
 
-**address:** `Nordlet::Partners::Types::PostV1PartnersCreateRequestAddress` 
+**address:** `Nordlet::Partners::Types::CreatePartnersRequestAddress` 
     
 </dd>
 </dl>
@@ -3124,7 +3124,7 @@ client.partners.post_v1partners_create(name: "name")
 <dl>
 <dd>
 
-**correspondence_address:** `Nordlet::Partners::Types::PostV1PartnersCreateRequestCorrespondenceAddress` 
+**correspondence_address:** `Nordlet::Partners::Types::CreatePartnersRequestCorrespondenceAddress` 
     
 </dd>
 </dl>
@@ -3268,7 +3268,7 @@ client.partners.post_v1partners_create(name: "name")
 <dl>
 <dd>
 
-**legal_country_class:** `Nordlet::Partners::Types::PostV1PartnersCreateRequestLegalCountryClass` 
+**legal_country_class:** `Nordlet::Partners::Types::CreatePartnersRequestLegalCountryClass` 
     
 </dd>
 </dl>
@@ -3288,7 +3288,7 @@ client.partners.post_v1partners_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_find_or_create</a>(request) -> Nordlet::Partners::Types::PostV1PartnersFindOrCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">find_or_create</a>(request) -> Nordlet::Partners::Types::FindOrCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3301,7 +3301,7 @@ client.partners.post_v1partners_create(name: "name")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_find_or_create(name: "name")
+client.partners.find_or_create(name: "name")
 ```
 </dd>
 </dl>
@@ -3316,7 +3316,7 @@ client.partners.post_v1partners_find_or_create(name: "name")
 <dl>
 <dd>
 
-**type:** `Nordlet::Partners::Types::PostV1PartnersFindOrCreateRequestType` 
+**type:** `Nordlet::Partners::Types::FindOrCreatePartnersRequestType` 
     
 </dd>
 </dl>
@@ -3444,7 +3444,7 @@ client.partners.post_v1partners_find_or_create(name: "name")
 <dl>
 <dd>
 
-**address:** `Nordlet::Partners::Types::PostV1PartnersFindOrCreateRequestAddress` 
+**address:** `Nordlet::Partners::Types::FindOrCreatePartnersRequestAddress` 
     
 </dd>
 </dl>
@@ -3452,7 +3452,7 @@ client.partners.post_v1partners_find_or_create(name: "name")
 <dl>
 <dd>
 
-**correspondence_address:** `Nordlet::Partners::Types::PostV1PartnersFindOrCreateRequestCorrespondenceAddress` 
+**correspondence_address:** `Nordlet::Partners::Types::FindOrCreatePartnersRequestCorrespondenceAddress` 
     
 </dd>
 </dl>
@@ -3596,7 +3596,7 @@ client.partners.post_v1partners_find_or_create(name: "name")
 <dl>
 <dd>
 
-**legal_country_class:** `Nordlet::Partners::Types::PostV1PartnersFindOrCreateRequestLegalCountryClass` 
+**legal_country_class:** `Nordlet::Partners::Types::FindOrCreatePartnersRequestLegalCountryClass` 
     
 </dd>
 </dl>
@@ -3616,7 +3616,7 @@ client.partners.post_v1partners_find_or_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_get</a>(request) -> Nordlet::Partners::Types::PostV1PartnersGetResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">get</a>(request) -> Nordlet::Partners::Types::GetPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3629,7 +3629,7 @@ client.partners.post_v1partners_find_or_create(name: "name")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_get(id: "id")
+client.partners.get(id: "id")
 ```
 </dd>
 </dl>
@@ -3664,7 +3664,7 @@ client.partners.post_v1partners_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_update</a>(request) -> Nordlet::Partners::Types::PostV1PartnersUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">update</a>(request) -> Nordlet::Partners::Types::UpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -3677,7 +3677,7 @@ client.partners.post_v1partners_get(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_update(id: "id")
+client.partners.update(id: "id")
 ```
 </dd>
 </dl>
@@ -3700,7 +3700,7 @@ client.partners.post_v1partners_update(id: "id")
 <dl>
 <dd>
 
-**type:** `Nordlet::Partners::Types::PostV1PartnersUpdateRequestType` 
+**type:** `Nordlet::Partners::Types::UpdatePartnersRequestType` 
     
 </dd>
 </dl>
@@ -3828,7 +3828,7 @@ client.partners.post_v1partners_update(id: "id")
 <dl>
 <dd>
 
-**address:** `Nordlet::Partners::Types::PostV1PartnersUpdateRequestAddress` 
+**address:** `Nordlet::Partners::Types::UpdatePartnersRequestAddress` 
     
 </dd>
 </dl>
@@ -3836,7 +3836,7 @@ client.partners.post_v1partners_update(id: "id")
 <dl>
 <dd>
 
-**correspondence_address:** `Nordlet::Partners::Types::PostV1PartnersUpdateRequestCorrespondenceAddress` 
+**correspondence_address:** `Nordlet::Partners::Types::UpdatePartnersRequestCorrespondenceAddress` 
     
 </dd>
 </dl>
@@ -3980,7 +3980,7 @@ client.partners.post_v1partners_update(id: "id")
 <dl>
 <dd>
 
-**legal_country_class:** `Nordlet::Partners::Types::PostV1PartnersUpdateRequestLegalCountryClass` 
+**legal_country_class:** `Nordlet::Partners::Types::UpdatePartnersRequestLegalCountryClass` 
     
 </dd>
 </dl>
@@ -4000,7 +4000,7 @@ client.partners.post_v1partners_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_delete</a>(request) -> Nordlet::Partners::Types::PostV1PartnersDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">delete</a>(request) -> Nordlet::Partners::Types::DeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4013,7 +4013,7 @@ client.partners.post_v1partners_update(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_delete(id: "id")
+client.partners.delete(id: "id")
 ```
 </dd>
 </dl>
@@ -4048,7 +4048,7 @@ client.partners.post_v1partners_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">blank_a_partners_personal_data_and_hide_the_record</a>(request) -> Nordlet::Partners::Types::PostV1PartnersAnonymizeResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">anonymize</a>(request) -> Nordlet::Partners::Types::AnonymizePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4075,7 +4075,7 @@ Removes birth date, self-employment certificate number, email, phone, address, n
 <dd>
 
 ```ruby
-client.partners.blank_a_partners_personal_data_and_hide_the_record(id: "id")
+client.partners.anonymize(id: "id")
 ```
 </dd>
 </dl>
@@ -4110,7 +4110,7 @@ client.partners.blank_a_partners_personal_data_and_hide_the_record(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">list</a>(request) -> Nordlet::Partners::Types::ListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4123,7 +4123,7 @@ client.partners.blank_a_partners_personal_data_and_hide_the_record(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_list
+client.partners.list
 ```
 </dd>
 </dl>
@@ -4154,7 +4154,7 @@ client.partners.post_v1partners_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Partners::Types::ListPartnersRequestSortItem]` 
     
 </dd>
 </dl>
@@ -4162,7 +4162,7 @@ client.partners.post_v1partners_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Partners::Types::ListPartnersRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -4190,7 +4190,7 @@ client.partners.post_v1partners_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_groups_create</a>(request) -> Nordlet::Partners::Types::PostV1PartnersGroupsCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">groups_create</a>(request) -> Nordlet::Partners::Types::GroupsCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4203,7 +4203,7 @@ client.partners.post_v1partners_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_groups_create(
+client.partners.groups_create(
   code: "code",
   name: "name"
 )
@@ -4249,7 +4249,7 @@ client.partners.post_v1partners_groups_create(
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_groups_update</a>(request) -> Nordlet::Partners::Types::PostV1PartnersGroupsUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">groups_update</a>(request) -> Nordlet::Partners::Types::GroupsUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4262,7 +4262,7 @@ client.partners.post_v1partners_groups_create(
 <dd>
 
 ```ruby
-client.partners.post_v1partners_groups_update(id: "id")
+client.partners.groups_update(id: "id")
 ```
 </dd>
 </dl>
@@ -4313,7 +4313,7 @@ client.partners.post_v1partners_groups_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_groups_delete</a>(request) -> Nordlet::Partners::Types::PostV1PartnersGroupsDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">groups_delete</a>(request) -> Nordlet::Partners::Types::GroupsDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4326,7 +4326,7 @@ client.partners.post_v1partners_groups_update(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_groups_delete(id: "id")
+client.partners.groups_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -4361,7 +4361,7 @@ client.partners.post_v1partners_groups_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_groups_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersGroupsListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">groups_list</a>(request) -> Nordlet::Partners::Types::GroupsListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4374,7 +4374,7 @@ client.partners.post_v1partners_groups_delete(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_groups_list
+client.partners.groups_list
 ```
 </dd>
 </dl>
@@ -4401,7 +4401,7 @@ client.partners.post_v1partners_groups_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_statuses_create</a>(request) -> Nordlet::Partners::Types::PostV1PartnersStatusesCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">statuses_create</a>(request) -> Nordlet::Partners::Types::StatusesCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4414,7 +4414,7 @@ client.partners.post_v1partners_groups_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_statuses_create(
+client.partners.statuses_create(
   code: "code",
   name: "name"
 )
@@ -4468,7 +4468,7 @@ client.partners.post_v1partners_statuses_create(
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_statuses_update</a>(request) -> Nordlet::Partners::Types::PostV1PartnersStatusesUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">statuses_update</a>(request) -> Nordlet::Partners::Types::StatusesUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4481,7 +4481,7 @@ client.partners.post_v1partners_statuses_create(
 <dd>
 
 ```ruby
-client.partners.post_v1partners_statuses_update(id: "id")
+client.partners.statuses_update(id: "id")
 ```
 </dd>
 </dl>
@@ -4540,7 +4540,7 @@ client.partners.post_v1partners_statuses_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_statuses_delete</a>(request) -> Nordlet::Partners::Types::PostV1PartnersStatusesDeleteResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">statuses_delete</a>(request) -> Nordlet::Partners::Types::StatusesDeletePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4553,7 +4553,7 @@ client.partners.post_v1partners_statuses_update(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_statuses_delete(id: "id")
+client.partners.statuses_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -4588,7 +4588,7 @@ client.partners.post_v1partners_statuses_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_statuses_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersStatusesListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">statuses_list</a>(request) -> Nordlet::Partners::Types::StatusesListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4601,7 +4601,7 @@ client.partners.post_v1partners_statuses_delete(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_statuses_list
+client.partners.statuses_list
 ```
 </dd>
 </dl>
@@ -4628,7 +4628,7 @@ client.partners.post_v1partners_statuses_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_inquiries_create</a>(request) -> Nordlet::Partners::Types::PostV1PartnersInquiriesCreateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">inquiries_create</a>(request) -> Nordlet::Partners::Types::InquiriesCreatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4641,7 +4641,7 @@ client.partners.post_v1partners_statuses_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_inquiries_create(subject: "subject")
+client.partners.inquiries_create(subject: "subject")
 ```
 </dd>
 </dl>
@@ -4740,7 +4740,7 @@ client.partners.post_v1partners_inquiries_create(subject: "subject")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_inquiries_update</a>(request) -> Nordlet::Partners::Types::PostV1PartnersInquiriesUpdateResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">inquiries_update</a>(request) -> Nordlet::Partners::Types::InquiriesUpdatePartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4753,7 +4753,7 @@ client.partners.post_v1partners_inquiries_create(subject: "subject")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_inquiries_update(id: "id")
+client.partners.inquiries_update(id: "id")
 ```
 </dd>
 </dl>
@@ -4808,7 +4808,7 @@ client.partners.post_v1partners_inquiries_update(id: "id")
 <dl>
 <dd>
 
-**status:** `Nordlet::Partners::Types::PostV1PartnersInquiriesUpdateRequestStatus` 
+**status:** `Nordlet::Partners::Types::InquiriesUpdatePartnersRequestStatus` 
     
 </dd>
 </dl>
@@ -4844,7 +4844,7 @@ client.partners.post_v1partners_inquiries_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_inquiries_get</a>(request) -> Nordlet::Partners::Types::PostV1PartnersInquiriesGetResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">inquiries_get</a>(request) -> Nordlet::Partners::Types::InquiriesGetPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4857,7 +4857,7 @@ client.partners.post_v1partners_inquiries_update(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_inquiries_get(id: "id")
+client.partners.inquiries_get(id: "id")
 ```
 </dd>
 </dl>
@@ -4892,7 +4892,7 @@ client.partners.post_v1partners_inquiries_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_inquiries_list</a>(request) -> Nordlet::Partners::Types::PostV1PartnersInquiriesListResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">inquiries_list</a>(request) -> Nordlet::Partners::Types::InquiriesListPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4905,7 +4905,7 @@ client.partners.post_v1partners_inquiries_get(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1partners_inquiries_list
+client.partners.inquiries_list
 ```
 </dd>
 </dl>
@@ -4936,7 +4936,7 @@ client.partners.post_v1partners_inquiries_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersInquiriesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Partners::Types::InquiriesListPartnersRequestSortItem]` 
     
 </dd>
 </dl>
@@ -4944,7 +4944,7 @@ client.partners.post_v1partners_inquiries_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1PartnersInquiriesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Partners::Types::InquiriesListPartnersRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -4972,7 +4972,7 @@ client.partners.post_v1partners_inquiries_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1partners_credit_check</a>(request) -> Nordlet::Partners::Types::PostV1PartnersCreditCheckResponse</code></summary>
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">credit_check</a>(request) -> Nordlet::Partners::Types::CreditCheckPartnersResponse</code></summary>
 <dl>
 <dd>
 
@@ -4985,7 +4985,7 @@ client.partners.post_v1partners_inquiries_list
 <dd>
 
 ```ruby
-client.partners.post_v1partners_credit_check(partner_id: "partnerId")
+client.partners.credit_check(partner_id: "partnerId")
 ```
 </dd>
 </dl>
@@ -5028,7 +5028,8 @@ client.partners.post_v1partners_credit_check(partner_id: "partnerId")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_create</a>(request) -> Nordlet::Partners::Types::PostV1LeadsCreateResponse</code></summary>
+## Leads
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">create</a>(request) -> Nordlet::Leads::Types::CreateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5041,7 +5042,7 @@ client.partners.post_v1partners_credit_check(partner_id: "partnerId")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_create(name: "name")
+client.leads.create(name: "name")
 ```
 </dd>
 </dl>
@@ -5112,7 +5113,7 @@ client.partners.post_v1leads_create(name: "name")
 <dl>
 <dd>
 
-**status:** `Nordlet::Partners::Types::PostV1LeadsCreateRequestStatus` 
+**status:** `Nordlet::Leads::Types::CreateLeadsRequestStatus` 
     
 </dd>
 </dl>
@@ -5152,7 +5153,7 @@ client.partners.post_v1leads_create(name: "name")
 <dl>
 <dd>
 
-**documents:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1LeadsCreateRequestDocumentsItem]` 
+**documents:** `Internal::Types::Array[Nordlet::Leads::Types::CreateLeadsRequestDocumentsItem]` 
     
 </dd>
 </dl>
@@ -5168,7 +5169,7 @@ client.partners.post_v1leads_create(name: "name")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5180,7 +5181,7 @@ client.partners.post_v1leads_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_get</a>(request) -> Nordlet::Partners::Types::PostV1LeadsGetResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">get</a>(request) -> Nordlet::Leads::Types::GetLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5193,7 +5194,7 @@ client.partners.post_v1leads_create(name: "name")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_get(id: "id")
+client.leads.get(id: "id")
 ```
 </dd>
 </dl>
@@ -5216,7 +5217,7 @@ client.partners.post_v1leads_get(id: "id")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5228,7 +5229,7 @@ client.partners.post_v1leads_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_update</a>(request) -> Nordlet::Partners::Types::PostV1LeadsUpdateResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">update</a>(request) -> Nordlet::Leads::Types::UpdateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5241,7 +5242,7 @@ client.partners.post_v1leads_get(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_update(id: "id")
+client.leads.update(id: "id")
 ```
 </dd>
 </dl>
@@ -5320,7 +5321,7 @@ client.partners.post_v1leads_update(id: "id")
 <dl>
 <dd>
 
-**status:** `Nordlet::Partners::Types::PostV1LeadsUpdateRequestStatus` 
+**status:** `Nordlet::Leads::Types::UpdateLeadsRequestStatus` 
     
 </dd>
 </dl>
@@ -5360,7 +5361,7 @@ client.partners.post_v1leads_update(id: "id")
 <dl>
 <dd>
 
-**documents:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1LeadsUpdateRequestDocumentsItem]` 
+**documents:** `Internal::Types::Array[Nordlet::Leads::Types::UpdateLeadsRequestDocumentsItem]` 
     
 </dd>
 </dl>
@@ -5368,7 +5369,7 @@ client.partners.post_v1leads_update(id: "id")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5380,7 +5381,7 @@ client.partners.post_v1leads_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_delete</a>(request) -> Nordlet::Partners::Types::PostV1LeadsDeleteResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">delete</a>(request) -> Nordlet::Leads::Types::DeleteLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5393,7 +5394,7 @@ client.partners.post_v1leads_update(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_delete(id: "id")
+client.leads.delete(id: "id")
 ```
 </dd>
 </dl>
@@ -5416,7 +5417,7 @@ client.partners.post_v1leads_delete(id: "id")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5428,7 +5429,7 @@ client.partners.post_v1leads_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_list</a>(request) -> Nordlet::Partners::Types::PostV1LeadsListResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">list</a>(request) -> Nordlet::Leads::Types::ListLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5441,7 +5442,7 @@ client.partners.post_v1leads_delete(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_list
+client.leads.list
 ```
 </dd>
 </dl>
@@ -5472,7 +5473,7 @@ client.partners.post_v1leads_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1LeadsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Leads::Types::ListLeadsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -5480,7 +5481,7 @@ client.partners.post_v1leads_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Partners::Types::PostV1LeadsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Leads::Types::ListLeadsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -5496,7 +5497,7 @@ client.partners.post_v1leads_list
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5508,7 +5509,7 @@ client.partners.post_v1leads_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_notes_create</a>(request) -> Nordlet::Partners::Types::PostV1LeadsNotesCreateResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">notes_create</a>(request) -> Nordlet::Leads::Types::NotesCreateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5521,7 +5522,7 @@ client.partners.post_v1leads_list
 <dd>
 
 ```ruby
-client.partners.post_v1leads_notes_create(
+client.leads.notes_create(
   lead_id: "leadId",
   body: "body"
 )
@@ -5555,7 +5556,7 @@ client.partners.post_v1leads_notes_create(
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5567,7 +5568,7 @@ client.partners.post_v1leads_notes_create(
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_notes_delete</a>(request) -> Nordlet::Partners::Types::PostV1LeadsNotesDeleteResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">notes_delete</a>(request) -> Nordlet::Leads::Types::NotesDeleteLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5580,7 +5581,7 @@ client.partners.post_v1leads_notes_create(
 <dd>
 
 ```ruby
-client.partners.post_v1leads_notes_delete(id: "id")
+client.leads.notes_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -5603,7 +5604,7 @@ client.partners.post_v1leads_notes_delete(id: "id")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5615,7 +5616,7 @@ client.partners.post_v1leads_notes_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_notes_list</a>(request) -> Nordlet::Partners::Types::PostV1LeadsNotesListResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">notes_list</a>(request) -> Nordlet::Leads::Types::NotesListLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5628,7 +5629,7 @@ client.partners.post_v1leads_notes_delete(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_notes_list(lead_id: "leadId")
+client.leads.notes_list(lead_id: "leadId")
 ```
 </dd>
 </dl>
@@ -5651,7 +5652,7 @@ client.partners.post_v1leads_notes_list(lead_id: "leadId")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5663,7 +5664,7 @@ client.partners.post_v1leads_notes_list(lead_id: "leadId")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_files_list</a>(request) -> Nordlet::Partners::Types::PostV1LeadsFilesListResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">files_list</a>(request) -> Nordlet::Leads::Types::FilesListLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5676,7 +5677,7 @@ client.partners.post_v1leads_notes_list(lead_id: "leadId")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_files_list(lead_id: "leadId")
+client.leads.files_list(lead_id: "leadId")
 ```
 </dd>
 </dl>
@@ -5699,7 +5700,7 @@ client.partners.post_v1leads_files_list(lead_id: "leadId")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5711,7 +5712,7 @@ client.partners.post_v1leads_files_list(lead_id: "leadId")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_create</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesCreateResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">sources_create</a>(request) -> Nordlet::Leads::Types::SourcesCreateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5724,7 +5725,7 @@ client.partners.post_v1leads_files_list(lead_id: "leadId")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_sources_create(name: "name")
+client.leads.sources_create(name: "name")
 ```
 </dd>
 </dl>
@@ -5755,7 +5756,7 @@ client.partners.post_v1leads_sources_create(name: "name")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5767,7 +5768,7 @@ client.partners.post_v1leads_sources_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_update</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesUpdateResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">sources_update</a>(request) -> Nordlet::Leads::Types::SourcesUpdateLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5780,7 +5781,7 @@ client.partners.post_v1leads_sources_create(name: "name")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_sources_update(id: "id")
+client.leads.sources_update(id: "id")
 ```
 </dd>
 </dl>
@@ -5819,7 +5820,7 @@ client.partners.post_v1leads_sources_update(id: "id")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5831,7 +5832,7 @@ client.partners.post_v1leads_sources_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_delete</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesDeleteResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">sources_delete</a>(request) -> Nordlet::Leads::Types::SourcesDeleteLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5844,7 +5845,7 @@ client.partners.post_v1leads_sources_update(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_sources_delete(id: "id")
+client.leads.sources_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -5867,7 +5868,7 @@ client.partners.post_v1leads_sources_delete(id: "id")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5879,7 +5880,7 @@ client.partners.post_v1leads_sources_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_list</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesListResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">sources_list</a>(request) -> Nordlet::Leads::Types::SourcesListLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5892,7 +5893,7 @@ client.partners.post_v1leads_sources_delete(id: "id")
 <dd>
 
 ```ruby
-client.partners.post_v1leads_sources_list
+client.leads.sources_list
 ```
 </dd>
 </dl>
@@ -5907,7 +5908,7 @@ client.partners.post_v1leads_sources_list
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5919,7 +5920,7 @@ client.partners.post_v1leads_sources_list
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_sources_options</a>(request) -> Nordlet::Partners::Types::PostV1LeadsSourcesOptionsResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">sources_options</a>(request) -> Nordlet::Leads::Types::SourcesOptionsLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5932,7 +5933,7 @@ client.partners.post_v1leads_sources_list
 <dd>
 
 ```ruby
-client.partners.post_v1leads_sources_options
+client.leads.sources_options
 ```
 </dd>
 </dl>
@@ -5947,7 +5948,7 @@ client.partners.post_v1leads_sources_options
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -5959,7 +5960,7 @@ client.partners.post_v1leads_sources_options
 </dl>
 </details>
 
-<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">post_v1leads_convert</a>(request) -> Nordlet::Partners::Types::PostV1LeadsConvertResponse</code></summary>
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">convert</a>(request) -> Nordlet::Leads::Types::ConvertLeadsResponse</code></summary>
 <dl>
 <dd>
 
@@ -5986,7 +5987,7 @@ Create a customer partner from the lead, move the lead files to the partner, cop
 <dd>
 
 ```ruby
-client.partners.post_v1leads_convert(id: "id")
+client.leads.convert(id: "id")
 ```
 </dd>
 </dl>
@@ -6009,7 +6010,7 @@ client.partners.post_v1leads_convert(id: "id")
 <dl>
 <dd>
 
-**partner_type:** `Nordlet::Partners::Types::PostV1LeadsConvertRequestPartnerType` 
+**partner_type:** `Nordlet::Leads::Types::ConvertLeadsRequestPartnerType` 
     
 </dd>
 </dl>
@@ -6033,7 +6034,7 @@ client.partners.post_v1leads_convert(id: "id")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Partners::RequestOptions` 
+**request_options:** `Nordlet::Leads::RequestOptions` 
     
 </dd>
 </dl>
@@ -6045,8 +6046,8 @@ client.partners.post_v1leads_convert(id: "id")
 </dl>
 </details>
 
-## Catalog
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_create</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsCreateResponse</code></summary>
+## catalog
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_create</a>(request) -> Nordlet::Catalog::Types::ItemsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -6059,7 +6060,7 @@ client.partners.post_v1leads_convert(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_create(name: "name")
+client.catalog.items_create(name: "name")
 ```
 </dd>
 </dl>
@@ -6074,7 +6075,7 @@ client.catalog.post_v1catalog_items_create(name: "name")
 <dl>
 <dd>
 
-**type:** `Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestType` 
+**type:** `Nordlet::Catalog::Types::ItemsCreateCatalogRequestType` 
     
 </dd>
 </dl>
@@ -6082,7 +6083,7 @@ client.catalog.post_v1catalog_items_create(name: "name")
 <dl>
 <dd>
 
-**tracking:** `Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestTracking` 
+**tracking:** `Nordlet::Catalog::Types::ItemsCreateCatalogRequestTracking` 
     
 </dd>
 </dl>
@@ -6226,7 +6227,7 @@ client.catalog.post_v1catalog_items_create(name: "name")
 <dl>
 <dd>
 
-**translations:** `Internal::Types::Hash[String, Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestTranslationsValue]` 
+**translations:** `Internal::Types::Hash[String, Nordlet::Catalog::Types::ItemsCreateCatalogRequestTranslationsValue]` 
     
 </dd>
 </dl>
@@ -6234,7 +6235,7 @@ client.catalog.post_v1catalog_items_create(name: "name")
 <dl>
 <dd>
 
-**components:** `Internal::Types::Array[Nordlet::Catalog::Types::PostV1CatalogItemsCreateRequestComponentsItem]` 
+**components:** `Internal::Types::Array[Nordlet::Catalog::Types::ItemsCreateCatalogRequestComponentsItem]` 
     
 </dd>
 </dl>
@@ -6470,7 +6471,7 @@ client.catalog.post_v1catalog_items_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_get</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsGetResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_get</a>(request) -> Nordlet::Catalog::Types::ItemsGetCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -6483,7 +6484,7 @@ client.catalog.post_v1catalog_items_create(name: "name")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_get(id: "id")
+client.catalog.items_get(id: "id")
 ```
 </dd>
 </dl>
@@ -6518,7 +6519,7 @@ client.catalog.post_v1catalog_items_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_update</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_update</a>(request) -> Nordlet::Catalog::Types::ItemsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -6531,7 +6532,7 @@ client.catalog.post_v1catalog_items_get(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_update(id: "id")
+client.catalog.items_update(id: "id")
 ```
 </dd>
 </dl>
@@ -6554,7 +6555,7 @@ client.catalog.post_v1catalog_items_update(id: "id")
 <dl>
 <dd>
 
-**type:** `Nordlet::Catalog::Types::PostV1CatalogItemsUpdateRequestType` 
+**type:** `Nordlet::Catalog::Types::ItemsUpdateCatalogRequestType` 
     
 </dd>
 </dl>
@@ -6562,7 +6563,7 @@ client.catalog.post_v1catalog_items_update(id: "id")
 <dl>
 <dd>
 
-**tracking:** `Nordlet::Catalog::Types::PostV1CatalogItemsUpdateRequestTracking` 
+**tracking:** `Nordlet::Catalog::Types::ItemsUpdateCatalogRequestTracking` 
     
 </dd>
 </dl>
@@ -6706,7 +6707,7 @@ client.catalog.post_v1catalog_items_update(id: "id")
 <dl>
 <dd>
 
-**translations:** `Internal::Types::Hash[String, Nordlet::Catalog::Types::PostV1CatalogItemsUpdateRequestTranslationsValue]` 
+**translations:** `Internal::Types::Hash[String, Nordlet::Catalog::Types::ItemsUpdateCatalogRequestTranslationsValue]` 
     
 </dd>
 </dl>
@@ -6714,7 +6715,7 @@ client.catalog.post_v1catalog_items_update(id: "id")
 <dl>
 <dd>
 
-**components:** `Internal::Types::Array[Nordlet::Catalog::Types::PostV1CatalogItemsUpdateRequestComponentsItem]` 
+**components:** `Internal::Types::Array[Nordlet::Catalog::Types::ItemsUpdateCatalogRequestComponentsItem]` 
     
 </dd>
 </dl>
@@ -6950,7 +6951,7 @@ client.catalog.post_v1catalog_items_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_delete</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_delete</a>(request) -> Nordlet::Catalog::Types::ItemsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -6963,7 +6964,7 @@ client.catalog.post_v1catalog_items_update(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_delete(id: "id")
+client.catalog.items_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -6998,7 +6999,7 @@ client.catalog.post_v1catalog_items_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_list</a>(request) -> Nordlet::Catalog::Types::ItemsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7011,7 +7012,7 @@ client.catalog.post_v1catalog_items_delete(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_list
+client.catalog.items_list
 ```
 </dd>
 </dl>
@@ -7042,7 +7043,7 @@ client.catalog.post_v1catalog_items_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Catalog::Types::PostV1CatalogItemsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Catalog::Types::ItemsListCatalogRequestSortItem]` 
     
 </dd>
 </dl>
@@ -7050,7 +7051,7 @@ client.catalog.post_v1catalog_items_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Catalog::Types::PostV1CatalogItemsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Catalog::Types::ItemsListCatalogRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -7078,7 +7079,7 @@ client.catalog.post_v1catalog_items_list
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_files_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsFilesListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_files_list</a>(request) -> Nordlet::Catalog::Types::ItemsFilesListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7091,7 +7092,7 @@ client.catalog.post_v1catalog_items_list
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_files_list(item_id: "itemId")
+client.catalog.items_files_list(item_id: "itemId")
 ```
 </dd>
 </dl>
@@ -7126,7 +7127,7 @@ client.catalog.post_v1catalog_items_files_list(item_id: "itemId")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_kinds_create</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsKindsCreateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_kinds_create</a>(request) -> Nordlet::Catalog::Types::ItemsKindsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7139,7 +7140,7 @@ client.catalog.post_v1catalog_items_files_list(item_id: "itemId")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_kinds_create(
+client.catalog.items_kinds_create(
   code: "code",
   name: "name"
 )
@@ -7173,7 +7174,7 @@ client.catalog.post_v1catalog_items_kinds_create(
 <dl>
 <dd>
 
-**saft_type:** `Nordlet::Catalog::Types::PostV1CatalogItemsKindsCreateRequestSaftType` 
+**saft_type:** `Nordlet::Catalog::Types::ItemsKindsCreateCatalogRequestSaftType` 
     
 </dd>
 </dl>
@@ -7209,7 +7210,7 @@ client.catalog.post_v1catalog_items_kinds_create(
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_kinds_update</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsKindsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_kinds_update</a>(request) -> Nordlet::Catalog::Types::ItemsKindsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7222,7 +7223,7 @@ client.catalog.post_v1catalog_items_kinds_create(
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_kinds_update(id: "id")
+client.catalog.items_kinds_update(id: "id")
 ```
 </dd>
 </dl>
@@ -7261,7 +7262,7 @@ client.catalog.post_v1catalog_items_kinds_update(id: "id")
 <dl>
 <dd>
 
-**saft_type:** `Nordlet::Catalog::Types::PostV1CatalogItemsKindsUpdateRequestSaftType` 
+**saft_type:** `Nordlet::Catalog::Types::ItemsKindsUpdateCatalogRequestSaftType` 
     
 </dd>
 </dl>
@@ -7297,7 +7298,7 @@ client.catalog.post_v1catalog_items_kinds_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_kinds_delete</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsKindsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_kinds_delete</a>(request) -> Nordlet::Catalog::Types::ItemsKindsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7310,7 +7311,7 @@ client.catalog.post_v1catalog_items_kinds_update(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_kinds_delete(id: "id")
+client.catalog.items_kinds_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -7345,7 +7346,7 @@ client.catalog.post_v1catalog_items_kinds_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_kinds_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsKindsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_kinds_list</a>(request) -> Nordlet::Catalog::Types::ItemsKindsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7358,7 +7359,7 @@ client.catalog.post_v1catalog_items_kinds_delete(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_kinds_list
+client.catalog.items_kinds_list
 ```
 </dd>
 </dl>
@@ -7385,7 +7386,7 @@ client.catalog.post_v1catalog_items_kinds_list
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_create</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsCreateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">units_create</a>(request) -> Nordlet::Catalog::Types::UnitsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7398,7 +7399,7 @@ client.catalog.post_v1catalog_items_kinds_list
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_units_create(
+client.catalog.units_create(
   code: "code",
   name: "name"
 )
@@ -7452,7 +7453,7 @@ client.catalog.post_v1catalog_units_create(
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_update</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">units_update</a>(request) -> Nordlet::Catalog::Types::UnitsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7465,7 +7466,7 @@ client.catalog.post_v1catalog_units_create(
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_units_update(id: "id")
+client.catalog.units_update(id: "id")
 ```
 </dd>
 </dl>
@@ -7524,7 +7525,7 @@ client.catalog.post_v1catalog_units_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_delete</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">units_delete</a>(request) -> Nordlet::Catalog::Types::UnitsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7537,7 +7538,7 @@ client.catalog.post_v1catalog_units_update(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_units_delete(id: "id")
+client.catalog.units_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -7572,7 +7573,7 @@ client.catalog.post_v1catalog_units_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">units_list</a>(request) -> Nordlet::Catalog::Types::UnitsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7585,7 +7586,7 @@ client.catalog.post_v1catalog_units_delete(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_units_list
+client.catalog.units_list
 ```
 </dd>
 </dl>
@@ -7612,7 +7613,7 @@ client.catalog.post_v1catalog_units_list
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_units_options</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogUnitsOptionsResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">units_options</a>(request) -> Nordlet::Catalog::Types::UnitsOptionsCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7625,7 +7626,7 @@ client.catalog.post_v1catalog_units_list
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_units_options
+client.catalog.units_options
 ```
 </dd>
 </dl>
@@ -7640,7 +7641,7 @@ client.catalog.post_v1catalog_units_options
 <dl>
 <dd>
 
-**locale:** `Nordlet::Catalog::Types::PostV1CatalogUnitsOptionsRequestLocale` 
+**locale:** `Nordlet::Catalog::Types::UnitsOptionsCatalogRequestLocale` 
     
 </dd>
 </dl>
@@ -7660,7 +7661,7 @@ client.catalog.post_v1catalog_units_options
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_item_groups_create</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemGroupsCreateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">item_groups_create</a>(request) -> Nordlet::Catalog::Types::ItemGroupsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7673,7 +7674,7 @@ client.catalog.post_v1catalog_units_options
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_item_groups_create(
+client.catalog.item_groups_create(
   code: "code",
   name: "name"
 )
@@ -7727,7 +7728,7 @@ client.catalog.post_v1catalog_item_groups_create(
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_item_groups_update</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemGroupsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">item_groups_update</a>(request) -> Nordlet::Catalog::Types::ItemGroupsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7740,7 +7741,7 @@ client.catalog.post_v1catalog_item_groups_create(
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_item_groups_update(id: "id")
+client.catalog.item_groups_update(id: "id")
 ```
 </dd>
 </dl>
@@ -7799,7 +7800,7 @@ client.catalog.post_v1catalog_item_groups_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_item_groups_delete</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemGroupsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">item_groups_delete</a>(request) -> Nordlet::Catalog::Types::ItemGroupsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7812,7 +7813,7 @@ client.catalog.post_v1catalog_item_groups_update(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_item_groups_delete(id: "id")
+client.catalog.item_groups_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -7847,7 +7848,7 @@ client.catalog.post_v1catalog_item_groups_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_item_groups_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemGroupsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">item_groups_list</a>(request) -> Nordlet::Catalog::Types::ItemGroupsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7860,7 +7861,7 @@ client.catalog.post_v1catalog_item_groups_delete(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_item_groups_list
+client.catalog.item_groups_list
 ```
 </dd>
 </dl>
@@ -7887,7 +7888,7 @@ client.catalog.post_v1catalog_item_groups_list
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_suppliers_upsert</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsSuppliersUpsertResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_suppliers_upsert</a>(request) -> Nordlet::Catalog::Types::ItemsSuppliersUpsertCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7900,7 +7901,7 @@ client.catalog.post_v1catalog_item_groups_list
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_suppliers_upsert(
+client.catalog.items_suppliers_upsert(
   item_id: "itemId",
   partner_id: "partnerId"
 )
@@ -7978,7 +7979,7 @@ client.catalog.post_v1catalog_items_suppliers_upsert(
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_suppliers_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsSuppliersListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_suppliers_list</a>(request) -> Nordlet::Catalog::Types::ItemsSuppliersListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -7991,7 +7992,7 @@ client.catalog.post_v1catalog_items_suppliers_upsert(
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_suppliers_list
+client.catalog.items_suppliers_list
 ```
 </dd>
 </dl>
@@ -8034,7 +8035,7 @@ client.catalog.post_v1catalog_items_suppliers_list
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_items_suppliers_delete</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogItemsSuppliersDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">items_suppliers_delete</a>(request) -> Nordlet::Catalog::Types::ItemsSuppliersDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -8047,7 +8048,7 @@ client.catalog.post_v1catalog_items_suppliers_list
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_items_suppliers_delete(id: "id")
+client.catalog.items_suppliers_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -8082,7 +8083,7 @@ client.catalog.post_v1catalog_items_suppliers_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_price_lists_create</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogPriceListsCreateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">price_lists_create</a>(request) -> Nordlet::Catalog::Types::PriceListsCreateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -8095,7 +8096,7 @@ client.catalog.post_v1catalog_items_suppliers_delete(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_price_lists_create(
+client.catalog.price_lists_create(
   code: "code",
   name: "name"
 )
@@ -8157,7 +8158,7 @@ client.catalog.post_v1catalog_price_lists_create(
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_price_lists_update</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogPriceListsUpdateResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">price_lists_update</a>(request) -> Nordlet::Catalog::Types::PriceListsUpdateCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -8170,7 +8171,7 @@ client.catalog.post_v1catalog_price_lists_create(
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_price_lists_update(id: "id")
+client.catalog.price_lists_update(id: "id")
 ```
 </dd>
 </dl>
@@ -8237,7 +8238,7 @@ client.catalog.post_v1catalog_price_lists_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_price_lists_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogPriceListsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">price_lists_list</a>(request) -> Nordlet::Catalog::Types::PriceListsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -8250,7 +8251,7 @@ client.catalog.post_v1catalog_price_lists_update(id: "id")
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_price_lists_list
+client.catalog.price_lists_list
 ```
 </dd>
 </dl>
@@ -8277,7 +8278,7 @@ client.catalog.post_v1catalog_price_lists_list
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_price_lists_items_set</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogPriceListsItemsSetResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">price_lists_items_set</a>(request) -> Nordlet::Catalog::Types::PriceListsItemsSetCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -8290,11 +8291,11 @@ client.catalog.post_v1catalog_price_lists_list
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_price_lists_items_set(
+client.catalog.price_lists_items_set(
   price_list_id: "priceListId",
   items: [{
     item_id: "itemId",
-    unit_price_excl_vat: "unitPriceExclVat"
+    unit_price_excl_vat: "121.0000"
   }]
 )
 ```
@@ -8319,7 +8320,7 @@ client.catalog.post_v1catalog_price_lists_items_set(
 <dl>
 <dd>
 
-**items:** `Internal::Types::Array[Nordlet::Catalog::Types::PostV1CatalogPriceListsItemsSetRequestItemsItem]` 
+**items:** `Internal::Types::Array[Nordlet::Catalog::Types::PriceListsItemsSetCatalogRequestItemsItem]` 
     
 </dd>
 </dl>
@@ -8339,7 +8340,7 @@ client.catalog.post_v1catalog_price_lists_items_set(
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_price_lists_items_list</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogPriceListsItemsListResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">price_lists_items_list</a>(request) -> Nordlet::Catalog::Types::PriceListsItemsListCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -8352,7 +8353,7 @@ client.catalog.post_v1catalog_price_lists_items_set(
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_price_lists_items_list(price_list_id: "priceListId")
+client.catalog.price_lists_items_list(price_list_id: "priceListId")
 ```
 </dd>
 </dl>
@@ -8387,7 +8388,7 @@ client.catalog.post_v1catalog_price_lists_items_list(price_list_id: "priceListId
 </dl>
 </details>
 
-<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">post_v1catalog_price_lists_items_delete</a>(request) -> Nordlet::Catalog::Types::PostV1CatalogPriceListsItemsDeleteResponse</code></summary>
+<details><summary><code>client.catalog.<a href="/lib/nordlet/catalog/client.rb">price_lists_items_delete</a>(request) -> Nordlet::Catalog::Types::PriceListsItemsDeleteCatalogResponse</code></summary>
 <dl>
 <dd>
 
@@ -8400,7 +8401,7 @@ client.catalog.post_v1catalog_price_lists_items_list(price_list_id: "priceListId
 <dd>
 
 ```ruby
-client.catalog.post_v1catalog_price_lists_items_delete(
+client.catalog.price_lists_items_delete(
   price_list_id: "priceListId",
   item_id: "itemId"
 )
@@ -8446,8 +8447,8 @@ client.catalog.post_v1catalog_price_lists_items_delete(
 </dl>
 </details>
 
-## Sales
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_create</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesCreateResponse</code></summary>
+## sales
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_create</a>(request) -> Nordlet::Sales::Types::InvoicesCreateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8460,7 +8461,7 @@ client.catalog.post_v1catalog_price_lists_items_delete(
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_create(
+client.sales.invoices_create(
   partner_id: "partnerId",
   lines: [{}]
 )
@@ -8486,7 +8487,7 @@ client.sales.post_v1sales_invoices_create(
 <dl>
 <dd>
 
-**type:** `Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequestType` 
+**type:** `Nordlet::Sales::Types::InvoicesCreateSalesRequestType` 
     
 </dd>
 </dl>
@@ -8526,6 +8527,22 @@ client.sales.post_v1sales_invoices_create(
 <dl>
 <dd>
 
+**credited_invoice_reference:** `String` — Number of an original invoice issued outside Nordlet; give it with creditedInvoiceDate
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**credited_invoice_date:** `String` — Issue date of the original invoice issued outside Nordlet
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **agreement_id:** `String` 
     
 </dd>
@@ -8534,7 +8551,7 @@ client.sales.post_v1sales_invoices_create(
 <dl>
 <dd>
 
-**vat_scheme:** `Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequestVatScheme` 
+**vat_scheme:** `Nordlet::Sales::Types::InvoicesCreateSalesRequestVatScheme` 
     
 </dd>
 </dl>
@@ -8678,7 +8695,7 @@ client.sales.post_v1sales_invoices_create(
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesCreateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Sales::Types::InvoicesCreateSalesRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -8698,7 +8715,7 @@ client.sales.post_v1sales_invoices_create(
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_get</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesGetResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_get</a>(request) -> Nordlet::Sales::Types::InvoicesGetSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8711,7 +8728,7 @@ client.sales.post_v1sales_invoices_create(
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_get(id: "id")
+client.sales.invoices_get(id: "id")
 ```
 </dd>
 </dl>
@@ -8746,7 +8763,7 @@ client.sales.post_v1sales_invoices_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_pdf</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesPdfResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_pdf</a>(request) -> Nordlet::Sales::Types::InvoicesPdfSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8759,7 +8776,7 @@ client.sales.post_v1sales_invoices_get(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_pdf(id: "id")
+client.sales.invoices_pdf(id: "id")
 ```
 </dd>
 </dl>
@@ -8782,7 +8799,7 @@ client.sales.post_v1sales_invoices_pdf(id: "id")
 <dl>
 <dd>
 
-**locale:** `Nordlet::Sales::Types::PostV1SalesInvoicesPdfRequestLocale` 
+**locale:** `Nordlet::Sales::Types::InvoicesPdfSalesRequestLocale` 
     
 </dd>
 </dl>
@@ -8802,7 +8819,7 @@ client.sales.post_v1sales_invoices_pdf(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_send</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesSendResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_send</a>(request) -> Nordlet::Sales::Types::InvoicesSendSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8815,7 +8832,7 @@ client.sales.post_v1sales_invoices_pdf(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_send(id: "id")
+client.sales.invoices_send(id: "id")
 ```
 </dd>
 </dl>
@@ -8846,7 +8863,7 @@ client.sales.post_v1sales_invoices_send(id: "id")
 <dl>
 <dd>
 
-**locale:** `Nordlet::Sales::Types::PostV1SalesInvoicesSendRequestLocale` 
+**locale:** `Nordlet::Sales::Types::InvoicesSendSalesRequestLocale` 
     
 </dd>
 </dl>
@@ -8866,7 +8883,7 @@ client.sales.post_v1sales_invoices_send(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_peppol_xml</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesPeppolXMLResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_peppol_xml</a>(request) -> Nordlet::Sales::Types::InvoicesPeppolXMLSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8879,7 +8896,7 @@ client.sales.post_v1sales_invoices_send(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_peppol_xml(id: "id")
+client.sales.invoices_peppol_xml(id: "id")
 ```
 </dd>
 </dl>
@@ -8914,7 +8931,7 @@ client.sales.post_v1sales_invoices_peppol_xml(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_peppol_send</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesPeppolSendResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_peppol_send</a>(request) -> Nordlet::Sales::Types::InvoicesPeppolSendSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8927,7 +8944,7 @@ client.sales.post_v1sales_invoices_peppol_xml(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_peppol_send(id: "id")
+client.sales.invoices_peppol_send(id: "id")
 ```
 </dd>
 </dl>
@@ -8962,7 +8979,7 @@ client.sales.post_v1sales_invoices_peppol_send(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_einvoice_xml</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceXMLResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_einvoice_xml</a>(request) -> Nordlet::Sales::Types::InvoicesEinvoiceXMLSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -8989,7 +9006,7 @@ Render an issued invoice as the national e-invoicing payload for the company cou
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_einvoice_xml(id: "id")
+client.sales.invoices_einvoice_xml(id: "id")
 ```
 </dd>
 </dl>
@@ -9024,7 +9041,7 @@ client.sales.post_v1sales_invoices_einvoice_xml(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_einvoice_send</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceSendResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_einvoice_send</a>(request) -> Nordlet::Sales::Types::InvoicesEinvoiceSendSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9051,7 +9068,7 @@ Build the national e-invoicing payload and deliver it over the transport configu
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_einvoice_send(id: "id")
+client.sales.invoices_einvoice_send(id: "id")
 ```
 </dd>
 </dl>
@@ -9086,7 +9103,7 @@ client.sales.post_v1sales_invoices_einvoice_send(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_einvoice_status</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesEinvoiceStatusResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_einvoice_status</a>(request) -> Nordlet::Sales::Types::InvoicesEinvoiceStatusSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9113,7 +9130,7 @@ Ask the national e-invoicing channel what happened to an invoice that was alread
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_einvoice_status(id: "id")
+client.sales.invoices_einvoice_status(id: "id")
 ```
 </dd>
 </dl>
@@ -9148,7 +9165,7 @@ client.sales.post_v1sales_invoices_einvoice_status(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_update</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesUpdateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_update</a>(request) -> Nordlet::Sales::Types::InvoicesUpdateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9161,7 +9178,7 @@ client.sales.post_v1sales_invoices_einvoice_status(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_update(id: "id")
+client.sales.invoices_update(id: "id")
 ```
 </dd>
 </dl>
@@ -9224,7 +9241,7 @@ client.sales.post_v1sales_invoices_update(id: "id")
 <dl>
 <dd>
 
-**vat_scheme:** `Nordlet::Sales::Types::PostV1SalesInvoicesUpdateRequestVatScheme` 
+**vat_scheme:** `Nordlet::Sales::Types::InvoicesUpdateSalesRequestVatScheme` 
     
 </dd>
 </dl>
@@ -9360,7 +9377,7 @@ client.sales.post_v1sales_invoices_update(id: "id")
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesUpdateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Sales::Types::InvoicesUpdateSalesRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -9380,7 +9397,7 @@ client.sales.post_v1sales_invoices_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_delete</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesDeleteResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_delete</a>(request) -> Nordlet::Sales::Types::InvoicesDeleteSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9393,7 +9410,7 @@ client.sales.post_v1sales_invoices_update(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_delete(id: "id")
+client.sales.invoices_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -9428,7 +9445,7 @@ client.sales.post_v1sales_invoices_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_issue</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesIssueResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_issue</a>(request) -> Nordlet::Sales::Types::InvoicesIssueSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9441,7 +9458,7 @@ client.sales.post_v1sales_invoices_delete(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_issue(id: "id")
+client.sales.invoices_issue(id: "id")
 ```
 </dd>
 </dl>
@@ -9500,7 +9517,7 @@ client.sales.post_v1sales_invoices_issue(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_lock</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesLockResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_lock</a>(request) -> Nordlet::Sales::Types::InvoicesLockSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9513,7 +9530,7 @@ client.sales.post_v1sales_invoices_issue(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_lock(id: "id")
+client.sales.invoices_lock(id: "id")
 ```
 </dd>
 </dl>
@@ -9548,7 +9565,7 @@ client.sales.post_v1sales_invoices_lock(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_unlock</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesUnlockResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_unlock</a>(request) -> Nordlet::Sales::Types::InvoicesUnlockSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9561,7 +9578,7 @@ client.sales.post_v1sales_invoices_lock(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_unlock(id: "id")
+client.sales.invoices_unlock(id: "id")
 ```
 </dd>
 </dl>
@@ -9596,7 +9613,7 @@ client.sales.post_v1sales_invoices_unlock(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_payment_link</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesPaymentLinkResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_payment_link</a>(request) -> Nordlet::Sales::Types::InvoicesPaymentLinkSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9609,7 +9626,7 @@ client.sales.post_v1sales_invoices_unlock(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_payment_link(id: "id")
+client.sales.invoices_payment_link(id: "id")
 ```
 </dd>
 </dl>
@@ -9644,7 +9661,7 @@ client.sales.post_v1sales_invoices_payment_link(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_payment_settings_get</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsGetResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_payment_settings_get</a>(request) -> Nordlet::Sales::Types::InvoicesPaymentSettingsGetSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9657,7 +9674,7 @@ client.sales.post_v1sales_invoices_payment_link(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_payment_settings_get
+client.sales.invoices_payment_settings_get
 ```
 </dd>
 </dl>
@@ -9684,7 +9701,7 @@ client.sales.post_v1sales_invoices_payment_settings_get
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_payment_settings_update</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesPaymentSettingsUpdateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_payment_settings_update</a>(request) -> Nordlet::Sales::Types::InvoicesPaymentSettingsUpdateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9697,7 +9714,7 @@ client.sales.post_v1sales_invoices_payment_settings_get
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_payment_settings_update
+client.sales.invoices_payment_settings_update
 ```
 </dd>
 </dl>
@@ -9732,7 +9749,7 @@ client.sales.post_v1sales_invoices_payment_settings_update
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_schedules_list</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">recognition_schedules_list</a>(request) -> Nordlet::Sales::Types::RecognitionSchedulesListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9745,7 +9762,7 @@ client.sales.post_v1sales_invoices_payment_settings_update
 <dd>
 
 ```ruby
-client.sales.post_v1sales_recognition_schedules_list
+client.sales.recognition_schedules_list
 ```
 </dd>
 </dl>
@@ -9776,7 +9793,7 @@ client.sales.post_v1sales_recognition_schedules_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::RecognitionSchedulesListSalesRequestSortItem]` 
     
 </dd>
 </dl>
@@ -9784,7 +9801,7 @@ client.sales.post_v1sales_recognition_schedules_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionSchedulesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::RecognitionSchedulesListSalesRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -9812,7 +9829,7 @@ client.sales.post_v1sales_recognition_schedules_list
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_apply_advance</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesApplyAdvanceResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_apply_advance</a>(request) -> Nordlet::Sales::Types::InvoicesApplyAdvanceSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9825,7 +9842,7 @@ client.sales.post_v1sales_recognition_schedules_list
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_apply_advance(
+client.sales.invoices_apply_advance(
   advance_id: "advanceId",
   invoice_id: "invoiceId"
 )
@@ -9879,7 +9896,7 @@ client.sales.post_v1sales_invoices_apply_advance(
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_invoices_list</a>(request) -> Nordlet::Sales::Types::PostV1SalesInvoicesListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_list</a>(request) -> Nordlet::Sales::Types::InvoicesListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9892,7 +9909,7 @@ client.sales.post_v1sales_invoices_apply_advance(
 <dd>
 
 ```ruby
-client.sales.post_v1sales_invoices_list
+client.sales.invoices_list
 ```
 </dd>
 </dl>
@@ -9923,7 +9940,7 @@ client.sales.post_v1sales_invoices_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::InvoicesListSalesRequestSortItem]` 
     
 </dd>
 </dl>
@@ -9931,7 +9948,7 @@ client.sales.post_v1sales_invoices_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesInvoicesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::InvoicesListSalesRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -9959,7 +9976,7 @@ client.sales.post_v1sales_invoices_list
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_acts_create</a>(request) -> Nordlet::Sales::Types::PostV1SalesActsCreateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">acts_create</a>(request) -> Nordlet::Sales::Types::ActsCreateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -9972,7 +9989,7 @@ client.sales.post_v1sales_invoices_list
 <dd>
 
 ```ruby
-client.sales.post_v1sales_acts_create(partner_id: "partnerId")
+client.sales.acts_create(partner_id: "partnerId")
 ```
 </dd>
 </dl>
@@ -9995,7 +10012,7 @@ client.sales.post_v1sales_acts_create(partner_id: "partnerId")
 <dl>
 <dd>
 
-**type:** `Nordlet::Sales::Types::PostV1SalesActsCreateRequestType` 
+**type:** `Nordlet::Sales::Types::ActsCreateSalesRequestType` 
     
 </dd>
 </dl>
@@ -10067,7 +10084,7 @@ client.sales.post_v1sales_acts_create(partner_id: "partnerId")
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesActsCreateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Sales::Types::ActsCreateSalesRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -10087,7 +10104,7 @@ client.sales.post_v1sales_acts_create(partner_id: "partnerId")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_acts_update</a>(request) -> Nordlet::Sales::Types::PostV1SalesActsUpdateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">acts_update</a>(request) -> Nordlet::Sales::Types::ActsUpdateSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -10100,7 +10117,7 @@ client.sales.post_v1sales_acts_create(partner_id: "partnerId")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_acts_update(id: "id")
+client.sales.acts_update(id: "id")
 ```
 </dd>
 </dl>
@@ -10123,7 +10140,7 @@ client.sales.post_v1sales_acts_update(id: "id")
 <dl>
 <dd>
 
-**type:** `Nordlet::Sales::Types::PostV1SalesActsUpdateRequestType` 
+**type:** `Nordlet::Sales::Types::ActsUpdateSalesRequestType` 
     
 </dd>
 </dl>
@@ -10195,7 +10212,7 @@ client.sales.post_v1sales_acts_update(id: "id")
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesActsUpdateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Sales::Types::ActsUpdateSalesRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -10223,7 +10240,7 @@ client.sales.post_v1sales_acts_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_acts_issue</a>(request) -> Nordlet::Sales::Types::PostV1SalesActsIssueResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">acts_issue</a>(request) -> Nordlet::Sales::Types::ActsIssueSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -10236,7 +10253,7 @@ client.sales.post_v1sales_acts_update(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_acts_issue(id: "id")
+client.sales.acts_issue(id: "id")
 ```
 </dd>
 </dl>
@@ -10271,7 +10288,7 @@ client.sales.post_v1sales_acts_issue(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_acts_cancel</a>(request) -> Nordlet::Sales::Types::PostV1SalesActsCancelResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">acts_cancel</a>(request) -> Nordlet::Sales::Types::ActsCancelSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -10284,7 +10301,7 @@ client.sales.post_v1sales_acts_issue(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_acts_cancel(id: "id")
+client.sales.acts_cancel(id: "id")
 ```
 </dd>
 </dl>
@@ -10319,7 +10336,7 @@ client.sales.post_v1sales_acts_cancel(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_acts_get</a>(request) -> Nordlet::Sales::Types::PostV1SalesActsGetResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">acts_get</a>(request) -> Nordlet::Sales::Types::ActsGetSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -10332,7 +10349,7 @@ client.sales.post_v1sales_acts_cancel(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_acts_get(id: "id")
+client.sales.acts_get(id: "id")
 ```
 </dd>
 </dl>
@@ -10367,7 +10384,7 @@ client.sales.post_v1sales_acts_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_acts_list</a>(request) -> Nordlet::Sales::Types::PostV1SalesActsListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">acts_list</a>(request) -> Nordlet::Sales::Types::ActsListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -10380,7 +10397,7 @@ client.sales.post_v1sales_acts_get(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1sales_acts_list
+client.sales.acts_list
 ```
 </dd>
 </dl>
@@ -10411,7 +10428,7 @@ client.sales.post_v1sales_acts_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesActsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::ActsListSalesRequestSortItem]` 
     
 </dd>
 </dl>
@@ -10419,7 +10436,7 @@ client.sales.post_v1sales_acts_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesActsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::ActsListSalesRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -10447,7 +10464,7 @@ client.sales.post_v1sales_acts_list
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_acts_pdf</a>(request) -> Nordlet::Sales::Types::PostV1SalesActsPdfResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">acts_pdf</a>(request) -> Nordlet::Sales::Types::ActsPdfSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -10460,7 +10477,7 @@ client.sales.post_v1sales_acts_list
 <dd>
 
 ```ruby
-client.sales.post_v1sales_acts_pdf(id: "id")
+client.sales.acts_pdf(id: "id")
 ```
 </dd>
 </dl>
@@ -10483,7 +10500,7 @@ client.sales.post_v1sales_acts_pdf(id: "id")
 <dl>
 <dd>
 
-**locale:** `Nordlet::Sales::Types::PostV1SalesActsPdfRequestLocale` 
+**locale:** `Nordlet::Sales::Types::ActsPdfSalesRequestLocale` 
     
 </dd>
 </dl>
@@ -10503,7 +10520,7 @@ client.sales.post_v1sales_acts_pdf(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_create</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesCreateResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">recognition_compute</a>(request) -> Nordlet::Sales::Types::RecognitionComputeSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -10516,1146 +10533,7 @@ client.sales.post_v1sales_acts_pdf(id: "id")
 <dd>
 
 ```ruby
-client.sales.post_v1operation_types_create(
-  code: "code",
-  name: "name"
-)
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**invoice_type:** `Nordlet::Sales::Types::PostV1OperationTypesCreateRequestInvoiceType` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**payer_partner_id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**debit_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**credit_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vat_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**expense_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**advance_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**income_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_purchase:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_sale:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_write_off:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_internal_movement:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_purchase_return:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_sales_return:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_consignment:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_production:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_asset_in:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_asset_out:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_cash_register_sale:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_in_vat_register:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_in_saft:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_active:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**sort_order:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_update</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesUpdateResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1operation_types_update(id: "id")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**invoice_type:** `Nordlet::Sales::Types::PostV1OperationTypesUpdateRequestInvoiceType` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**payer_partner_id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**debit_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**credit_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vat_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**expense_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**advance_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**income_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_purchase:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_sale:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_write_off:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_internal_movement:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_purchase_return:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_sales_return:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_consignment:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_production:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_asset_in:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_asset_out:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_cash_register_sale:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_in_vat_register:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_in_saft:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_active:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**sort_order:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_get</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesGetResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1operation_types_get(id: "id")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_delete</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesDeleteResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1operation_types_delete(id: "id")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1operation_types_list</a>(request) -> Nordlet::Sales::Types::PostV1OperationTypesListResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1operation_types_list
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**page:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**page_size:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1OperationTypesListRequestSortItem]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1OperationTypesListRequestFilterItem]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_create</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesCreateResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1document_series_create(prefix: "prefix")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**document_type:** `Nordlet::Sales::Types::PostV1DocumentSeriesCreateRequestDocumentType` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**prefix:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**label:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**operation_type_id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**number_length:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**next_number:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**allocated_from:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**allocated_to:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**warehouse_id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**print_series:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_default:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_active:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_update</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesUpdateResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1document_series_update(id: "id")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**document_type:** `Nordlet::Sales::Types::PostV1DocumentSeriesUpdateRequestDocumentType` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**prefix:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**label:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**operation_type_id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**number_length:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**next_number:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**allocated_from:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**allocated_to:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**warehouse_id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**print_series:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_default:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_active:** `Internal::Types::Boolean` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_get</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesGetResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1document_series_get(id: "id")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_delete</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesDeleteResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1document_series_delete(id: "id")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1document_series_list</a>(request) -> Nordlet::Sales::Types::PostV1DocumentSeriesListResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1document_series_list
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**page:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**page_size:** `Integer` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1DocumentSeriesListRequestSortItem]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1DocumentSeriesListRequestFilterItem]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Sales::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_compute</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionComputeResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.sales.post_v1sales_recognition_compute
+client.sales.recognition_compute
 ```
 </dd>
 </dl>
@@ -11690,7 +10568,7 @@ client.sales.post_v1sales_recognition_compute
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_run</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionRunResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">recognition_run</a>(request) -> Nordlet::Sales::Types::RecognitionRunSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -11703,7 +10581,7 @@ client.sales.post_v1sales_recognition_compute
 <dd>
 
 ```ruby
-client.sales.post_v1sales_recognition_run
+client.sales.recognition_run
 ```
 </dd>
 </dl>
@@ -11754,7 +10632,7 @@ client.sales.post_v1sales_recognition_run
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_progress</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionProgressResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">recognition_progress</a>(request) -> Nordlet::Sales::Types::RecognitionProgressSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -11767,9 +10645,9 @@ client.sales.post_v1sales_recognition_run
 <dd>
 
 ```ruby
-client.sales.post_v1sales_recognition_progress(
+client.sales.recognition_progress(
   invoice_line_id: "invoiceLineId",
-  percent_complete: "percentComplete"
+  percent_complete: "121.00"
 )
 ```
 </dd>
@@ -11821,7 +10699,7 @@ client.sales.post_v1sales_recognition_progress(
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_modify</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionModifyResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">recognition_modify</a>(request) -> Nordlet::Sales::Types::RecognitionModifySalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -11848,7 +10726,7 @@ Apply an IFRS 15 contract modification to a deferred invoice line. Prospective: 
 <dd>
 
 ```ruby
-client.sales.post_v1sales_recognition_modify(
+client.sales.recognition_modify(
   invoice_line_id: "invoiceLineId",
   approach: "prospective"
 )
@@ -11874,7 +10752,7 @@ client.sales.post_v1sales_recognition_modify(
 <dl>
 <dd>
 
-**approach:** `Nordlet::Sales::Types::PostV1SalesRecognitionModifyRequestApproach` 
+**approach:** `Nordlet::Sales::Types::RecognitionModifySalesRequestApproach` 
     
 </dd>
 </dl>
@@ -11898,7 +10776,7 @@ client.sales.post_v1sales_recognition_modify(
 <dl>
 <dd>
 
-**new_milestones:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionModifyRequestNewMilestonesItem]` 
+**new_milestones:** `Internal::Types::Array[Nordlet::Sales::Types::RecognitionModifySalesRequestNewMilestonesItem]` 
     
 </dd>
 </dl>
@@ -11918,7 +10796,7 @@ client.sales.post_v1sales_recognition_modify(
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_runs_list</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionRunsListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">recognition_runs_list</a>(request) -> Nordlet::Sales::Types::RecognitionRunsListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -11931,7 +10809,7 @@ client.sales.post_v1sales_recognition_modify(
 <dd>
 
 ```ruby
-client.sales.post_v1sales_recognition_runs_list
+client.sales.recognition_runs_list
 ```
 </dd>
 </dl>
@@ -11962,7 +10840,7 @@ client.sales.post_v1sales_recognition_runs_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionRunsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::RecognitionRunsListSalesRequestSortItem]` 
     
 </dd>
 </dl>
@@ -11970,7 +10848,7 @@ client.sales.post_v1sales_recognition_runs_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRecognitionRunsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::RecognitionRunsListSalesRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -11998,7 +10876,7 @@ client.sales.post_v1sales_recognition_runs_list
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_recognition_summary</a>(request) -> Nordlet::Sales::Types::PostV1SalesRecognitionSummaryResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">recognition_summary</a>(request) -> Nordlet::Sales::Types::RecognitionSummarySalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12011,7 +10889,7 @@ client.sales.post_v1sales_recognition_runs_list
 <dd>
 
 ```ruby
-client.sales.post_v1sales_recognition_summary
+client.sales.recognition_summary
 ```
 </dd>
 </dl>
@@ -12046,7 +10924,7 @@ client.sales.post_v1sales_recognition_summary
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_refund_liability_list</a>(request) -> Nordlet::Sales::Types::PostV1SalesRefundLiabilityListResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">refund_liability_list</a>(request) -> Nordlet::Sales::Types::RefundLiabilityListSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12059,7 +10937,7 @@ client.sales.post_v1sales_recognition_summary
 <dd>
 
 ```ruby
-client.sales.post_v1sales_refund_liability_list
+client.sales.refund_liability_list
 ```
 </dd>
 </dl>
@@ -12090,7 +10968,7 @@ client.sales.post_v1sales_refund_liability_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRefundLiabilityListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::RefundLiabilityListSalesRequestSortItem]` 
     
 </dd>
 </dl>
@@ -12098,7 +10976,7 @@ client.sales.post_v1sales_refund_liability_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Sales::Types::PostV1SalesRefundLiabilityListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::RefundLiabilityListSalesRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -12126,7 +11004,7 @@ client.sales.post_v1sales_refund_liability_list
 </dl>
 </details>
 
-<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">post_v1sales_refund_liability_true_up</a>(request) -> Nordlet::Sales::Types::PostV1SalesRefundLiabilityTrueUpResponse</code></summary>
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">refund_liability_true_up</a>(request) -> Nordlet::Sales::Types::RefundLiabilityTrueUpSalesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12139,9 +11017,9 @@ client.sales.post_v1sales_refund_liability_list
 <dd>
 
 ```ruby
-client.sales.post_v1sales_refund_liability_true_up(
+client.sales.refund_liability_true_up(
   invoice_id: "invoiceId",
-  estimated_total: "estimatedTotal"
+  estimated_total: "121.0000"
 )
 ```
 </dd>
@@ -12193,8 +11071,8 @@ client.sales.post_v1sales_refund_liability_true_up(
 </dl>
 </details>
 
-## Purchases
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_invoices_create</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesInvoicesCreateResponse</code></summary>
+## OperationTypes
+<details><summary><code>client.operation_types.<a href="/lib/nordlet/operation_types/client.rb">create</a>(request) -> Nordlet::OperationTypes::Types::CreateOperationTypesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12207,10 +11085,1151 @@ client.sales.post_v1sales_refund_liability_true_up(
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_invoices_create(
+client.operation_types.create(
+  code: "code",
+  name: "name"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_type:** `Nordlet::OperationTypes::Types::CreateOperationTypesRequestInvoiceType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payer_partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**debit_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**credit_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**expense_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**advance_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**income_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_purchase:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_sale:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_write_off:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_internal_movement:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_purchase_return:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_sales_return:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_consignment:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_production:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_asset_in:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_asset_out:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_cash_register_sale:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_in_vat_register:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_in_saft:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort_order:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::OperationTypes::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.operation_types.<a href="/lib/nordlet/operation_types/client.rb">update</a>(request) -> Nordlet::OperationTypes::Types::UpdateOperationTypesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.operation_types.update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_type:** `Nordlet::OperationTypes::Types::UpdateOperationTypesRequestInvoiceType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payer_partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**debit_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**credit_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**expense_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**advance_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**income_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_purchase:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_sale:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_write_off:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_internal_movement:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_purchase_return:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_sales_return:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_consignment:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_production:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_asset_in:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_asset_out:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_cash_register_sale:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_in_vat_register:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_in_saft:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort_order:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::OperationTypes::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.operation_types.<a href="/lib/nordlet/operation_types/client.rb">get</a>(request) -> Nordlet::OperationTypes::Types::GetOperationTypesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.operation_types.get(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::OperationTypes::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.operation_types.<a href="/lib/nordlet/operation_types/client.rb">delete</a>(request) -> Nordlet::OperationTypes::Types::DeleteOperationTypesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.operation_types.delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::OperationTypes::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.operation_types.<a href="/lib/nordlet/operation_types/client.rb">list</a>(request) -> Nordlet::OperationTypes::Types::ListOperationTypesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.operation_types.list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::OperationTypes::Types::ListOperationTypesRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::OperationTypes::Types::ListOperationTypesRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::OperationTypes::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## DocumentSeries
+<details><summary><code>client.document_series.<a href="/lib/nordlet/document_series/client.rb">create</a>(request) -> Nordlet::DocumentSeries::Types::CreateDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.document_series.create(prefix: "prefix")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**document_type:** `Nordlet::DocumentSeries::Types::CreateDocumentSeriesRequestDocumentType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**prefix:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**number_length:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_number:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**allocated_from:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**allocated_to:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warehouse_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**print_series:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_default:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::DocumentSeries::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.document_series.<a href="/lib/nordlet/document_series/client.rb">update</a>(request) -> Nordlet::DocumentSeries::Types::UpdateDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.document_series.update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_type:** `Nordlet::DocumentSeries::Types::UpdateDocumentSeriesRequestDocumentType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**prefix:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**number_length:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_number:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**allocated_from:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**allocated_to:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warehouse_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**print_series:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_default:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::DocumentSeries::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.document_series.<a href="/lib/nordlet/document_series/client.rb">get</a>(request) -> Nordlet::DocumentSeries::Types::GetDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.document_series.get(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::DocumentSeries::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.document_series.<a href="/lib/nordlet/document_series/client.rb">delete</a>(request) -> Nordlet::DocumentSeries::Types::DeleteDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.document_series.delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::DocumentSeries::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.document_series.<a href="/lib/nordlet/document_series/client.rb">list</a>(request) -> Nordlet::DocumentSeries::Types::ListDocumentSeriesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.document_series.list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::DocumentSeries::Types::ListDocumentSeriesRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::DocumentSeries::Types::ListDocumentSeriesRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::DocumentSeries::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## purchases
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">invoices_create</a>(request) -> Nordlet::Purchases::Types::InvoicesCreatePurchasesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.purchases.invoices_create(
   partner_id: "partnerId",
   document_number: "documentNumber",
-  document_date: "documentDate",
+  document_date: "2026-07-01",
   lines: [{}]
 )
 ```
@@ -12235,7 +12254,7 @@ client.purchases.post_v1purchases_invoices_create(
 <dl>
 <dd>
 
-**type:** `Nordlet::Purchases::Types::PostV1PurchasesInvoicesCreateRequestType` 
+**type:** `Nordlet::Purchases::Types::InvoicesCreatePurchasesRequestType` 
     
 </dd>
 </dl>
@@ -12355,7 +12374,7 @@ client.purchases.post_v1purchases_invoices_create(
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesCreateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::InvoicesCreatePurchasesRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -12375,7 +12394,7 @@ client.purchases.post_v1purchases_invoices_create(
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_invoices_get</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesInvoicesGetResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">invoices_get</a>(request) -> Nordlet::Purchases::Types::InvoicesGetPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12388,7 +12407,7 @@ client.purchases.post_v1purchases_invoices_create(
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_invoices_get(id: "id")
+client.purchases.invoices_get(id: "id")
 ```
 </dd>
 </dl>
@@ -12423,7 +12442,7 @@ client.purchases.post_v1purchases_invoices_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_invoices_update</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesInvoicesUpdateResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">invoices_update</a>(request) -> Nordlet::Purchases::Types::InvoicesUpdatePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12436,7 +12455,7 @@ client.purchases.post_v1purchases_invoices_get(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_invoices_update(id: "id")
+client.purchases.invoices_update(id: "id")
 ```
 </dd>
 </dl>
@@ -12563,7 +12582,7 @@ client.purchases.post_v1purchases_invoices_update(id: "id")
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesUpdateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::InvoicesUpdatePurchasesRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -12583,7 +12602,7 @@ client.purchases.post_v1purchases_invoices_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_invoices_delete</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesInvoicesDeleteResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">invoices_delete</a>(request) -> Nordlet::Purchases::Types::InvoicesDeletePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12596,7 +12615,7 @@ client.purchases.post_v1purchases_invoices_update(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_invoices_delete(id: "id")
+client.purchases.invoices_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -12631,7 +12650,7 @@ client.purchases.post_v1purchases_invoices_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_invoices_register</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesInvoicesRegisterResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">invoices_register</a>(request) -> Nordlet::Purchases::Types::InvoicesRegisterPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12644,7 +12663,7 @@ client.purchases.post_v1purchases_invoices_delete(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_invoices_register(id: "id")
+client.purchases.invoices_register(id: "id")
 ```
 </dd>
 </dl>
@@ -12695,7 +12714,7 @@ client.purchases.post_v1purchases_invoices_register(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_invoices_list</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesInvoicesListResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">invoices_list</a>(request) -> Nordlet::Purchases::Types::InvoicesListPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12708,7 +12727,7 @@ client.purchases.post_v1purchases_invoices_register(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_invoices_list
+client.purchases.invoices_list
 ```
 </dd>
 </dl>
@@ -12739,7 +12758,7 @@ client.purchases.post_v1purchases_invoices_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Purchases::Types::InvoicesListPurchasesRequestSortItem]` 
     
 </dd>
 </dl>
@@ -12747,7 +12766,7 @@ client.purchases.post_v1purchases_invoices_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesInvoicesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Purchases::Types::InvoicesListPurchasesRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -12775,7 +12794,7 @@ client.purchases.post_v1purchases_invoices_list
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_create</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersCreateResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_create</a>(request) -> Nordlet::Purchases::Types::OrdersCreatePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12788,9 +12807,9 @@ client.purchases.post_v1purchases_invoices_list
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_create(
+client.purchases.orders_create(
   partner_id: "partnerId",
-  order_date: "orderDate",
+  order_date: "2026-07-01",
   lines: [{}]
 )
 ```
@@ -12871,7 +12890,7 @@ client.purchases.post_v1purchases_orders_create(
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesOrdersCreateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::OrdersCreatePurchasesRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -12891,7 +12910,7 @@ client.purchases.post_v1purchases_orders_create(
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_update</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersUpdateResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_update</a>(request) -> Nordlet::Purchases::Types::OrdersUpdatePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -12904,7 +12923,7 @@ client.purchases.post_v1purchases_orders_create(
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_update(id: "id")
+client.purchases.orders_update(id: "id")
 ```
 </dd>
 </dl>
@@ -12975,7 +12994,7 @@ client.purchases.post_v1purchases_orders_update(id: "id")
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesOrdersUpdateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::OrdersUpdatePurchasesRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -12995,7 +13014,7 @@ client.purchases.post_v1purchases_orders_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_get</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersGetResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_get</a>(request) -> Nordlet::Purchases::Types::OrdersGetPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13008,7 +13027,7 @@ client.purchases.post_v1purchases_orders_update(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_get(id: "id")
+client.purchases.orders_get(id: "id")
 ```
 </dd>
 </dl>
@@ -13043,7 +13062,7 @@ client.purchases.post_v1purchases_orders_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_list</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersListResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_list</a>(request) -> Nordlet::Purchases::Types::OrdersListPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13056,7 +13075,7 @@ client.purchases.post_v1purchases_orders_get(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_list
+client.purchases.orders_list
 ```
 </dd>
 </dl>
@@ -13087,7 +13106,7 @@ client.purchases.post_v1purchases_orders_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesOrdersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Purchases::Types::OrdersListPurchasesRequestSortItem]` 
     
 </dd>
 </dl>
@@ -13095,7 +13114,7 @@ client.purchases.post_v1purchases_orders_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesOrdersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Purchases::Types::OrdersListPurchasesRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -13123,7 +13142,7 @@ client.purchases.post_v1purchases_orders_list
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_submit</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersSubmitResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_submit</a>(request) -> Nordlet::Purchases::Types::OrdersSubmitPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13136,7 +13155,7 @@ client.purchases.post_v1purchases_orders_list
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_submit(id: "id")
+client.purchases.orders_submit(id: "id")
 ```
 </dd>
 </dl>
@@ -13179,7 +13198,7 @@ client.purchases.post_v1purchases_orders_submit(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_approve</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersApproveResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_approve</a>(request) -> Nordlet::Purchases::Types::OrdersApprovePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13192,7 +13211,7 @@ client.purchases.post_v1purchases_orders_submit(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_approve(id: "id")
+client.purchases.orders_approve(id: "id")
 ```
 </dd>
 </dl>
@@ -13235,7 +13254,7 @@ client.purchases.post_v1purchases_orders_approve(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_reject</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersRejectResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_reject</a>(request) -> Nordlet::Purchases::Types::OrdersRejectPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13248,7 +13267,7 @@ client.purchases.post_v1purchases_orders_approve(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_reject(id: "id")
+client.purchases.orders_reject(id: "id")
 ```
 </dd>
 </dl>
@@ -13291,7 +13310,7 @@ client.purchases.post_v1purchases_orders_reject(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_cancel</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersCancelResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_cancel</a>(request) -> Nordlet::Purchases::Types::OrdersCancelPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13304,7 +13323,7 @@ client.purchases.post_v1purchases_orders_reject(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_cancel(id: "id")
+client.purchases.orders_cancel(id: "id")
 ```
 </dd>
 </dl>
@@ -13347,7 +13366,7 @@ client.purchases.post_v1purchases_orders_cancel(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_close</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersCloseResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_close</a>(request) -> Nordlet::Purchases::Types::OrdersClosePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13360,7 +13379,7 @@ client.purchases.post_v1purchases_orders_cancel(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_close(id: "id")
+client.purchases.orders_close(id: "id")
 ```
 </dd>
 </dl>
@@ -13403,7 +13422,7 @@ client.purchases.post_v1purchases_orders_close(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_orders_delete</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesOrdersDeleteResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">orders_delete</a>(request) -> Nordlet::Purchases::Types::OrdersDeletePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13416,7 +13435,7 @@ client.purchases.post_v1purchases_orders_close(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_orders_delete(id: "id")
+client.purchases.orders_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -13451,7 +13470,7 @@ client.purchases.post_v1purchases_orders_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_receipts_create</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesReceiptsCreateResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">receipts_create</a>(request) -> Nordlet::Purchases::Types::ReceiptsCreatePurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13464,12 +13483,12 @@ client.purchases.post_v1purchases_orders_delete(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_receipts_create(
+client.purchases.receipts_create(
   order_id: "orderId",
-  receipt_date: "receiptDate",
+  receipt_date: "2026-07-01",
   lines: [{
     order_line_id: "orderLineId",
-    quantity: "quantity"
+    quantity: "121.0000"
   }]
 )
 ```
@@ -13518,7 +13537,7 @@ client.purchases.post_v1purchases_receipts_create(
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesReceiptsCreateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Purchases::Types::ReceiptsCreatePurchasesRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -13538,7 +13557,7 @@ client.purchases.post_v1purchases_receipts_create(
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_receipts_get</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesReceiptsGetResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">receipts_get</a>(request) -> Nordlet::Purchases::Types::ReceiptsGetPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13551,7 +13570,7 @@ client.purchases.post_v1purchases_receipts_create(
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_receipts_get(id: "id")
+client.purchases.receipts_get(id: "id")
 ```
 </dd>
 </dl>
@@ -13586,7 +13605,7 @@ client.purchases.post_v1purchases_receipts_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_receipts_list</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesReceiptsListResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">receipts_list</a>(request) -> Nordlet::Purchases::Types::ReceiptsListPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13599,7 +13618,7 @@ client.purchases.post_v1purchases_receipts_get(id: "id")
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_receipts_list
+client.purchases.receipts_list
 ```
 </dd>
 </dl>
@@ -13630,7 +13649,7 @@ client.purchases.post_v1purchases_receipts_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesReceiptsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Purchases::Types::ReceiptsListPurchasesRequestSortItem]` 
     
 </dd>
 </dl>
@@ -13638,7 +13657,7 @@ client.purchases.post_v1purchases_receipts_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Purchases::Types::PostV1PurchasesReceiptsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Purchases::Types::ReceiptsListPurchasesRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -13666,7 +13685,7 @@ client.purchases.post_v1purchases_receipts_list
 </dl>
 </details>
 
-<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">post_v1purchases_invoices_match</a>(request) -> Nordlet::Purchases::Types::PostV1PurchasesInvoicesMatchResponse</code></summary>
+<details><summary><code>client.purchases.<a href="/lib/nordlet/purchases/client.rb">invoices_match</a>(request) -> Nordlet::Purchases::Types::InvoicesMatchPurchasesResponse</code></summary>
 <dl>
 <dd>
 
@@ -13679,7 +13698,7 @@ client.purchases.post_v1purchases_receipts_list
 <dd>
 
 ```ruby
-client.purchases.post_v1purchases_invoices_match(invoice_id: "invoiceId")
+client.purchases.invoices_match(invoice_id: "invoiceId")
 ```
 </dd>
 </dl>
@@ -13722,8 +13741,8 @@ client.purchases.post_v1purchases_invoices_match(invoice_id: "invoiceId")
 </dl>
 </details>
 
-## Capture
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">post_v1capture_settings_get</a>(request) -> Nordlet::Capture::Types::PostV1CaptureSettingsGetResponse</code></summary>
+## capture
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">settings_get</a>(request) -> Nordlet::Capture::Types::SettingsGetCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -13736,7 +13755,7 @@ client.purchases.post_v1purchases_invoices_match(invoice_id: "invoiceId")
 <dd>
 
 ```ruby
-client.capture.post_v1capture_settings_get
+client.capture.settings_get
 ```
 </dd>
 </dl>
@@ -13763,7 +13782,7 @@ client.capture.post_v1capture_settings_get
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">post_v1capture_settings_update</a>(request) -> Nordlet::Capture::Types::PostV1CaptureSettingsUpdateResponse</code></summary>
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">settings_update</a>(request) -> Nordlet::Capture::Types::SettingsUpdateCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -13776,7 +13795,7 @@ client.capture.post_v1capture_settings_get
 <dd>
 
 ```ruby
-client.capture.post_v1capture_settings_update
+client.capture.settings_update
 ```
 </dd>
 </dl>
@@ -13819,7 +13838,7 @@ client.capture.post_v1capture_settings_update
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">post_v1capture_settings_regenerate_intake</a>(request) -> Nordlet::Capture::Types::PostV1CaptureSettingsRegenerateIntakeResponse</code></summary>
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">settings_regenerate_intake</a>(request) -> Nordlet::Capture::Types::SettingsRegenerateIntakeCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -13832,7 +13851,7 @@ client.capture.post_v1capture_settings_update
 <dd>
 
 ```ruby
-client.capture.post_v1capture_settings_regenerate_intake
+client.capture.settings_regenerate_intake
 ```
 </dd>
 </dl>
@@ -13859,7 +13878,7 @@ client.capture.post_v1capture_settings_regenerate_intake
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">receive_an_inbound_email_with_supplier_documents_attached_postmark_style_or_generic_json</a>(request) -> Nordlet::Capture::Types::PostV1CaptureInboundEmailResponse</code></summary>
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">inbound_email</a>(request) -> Nordlet::Capture::Types::InboundEmailCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -13872,7 +13891,7 @@ client.capture.post_v1capture_settings_regenerate_intake
 <dd>
 
 ```ruby
-client.capture.receive_an_inbound_email_with_supplier_documents_attached_postmark_style_or_generic_json
+client.capture.inbound_email
 ```
 </dd>
 </dl>
@@ -13895,7 +13914,7 @@ client.capture.receive_an_inbound_email_with_supplier_documents_attached_postmar
 <dl>
 <dd>
 
-**to_full:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureInboundEmailRequestToFullItem]` 
+**to_full:** `Internal::Types::Array[Nordlet::Capture::Types::InboundEmailCaptureRequestToFullItem]` 
     
 </dd>
 </dl>
@@ -13919,7 +13938,7 @@ client.capture.receive_an_inbound_email_with_supplier_documents_attached_postmar
 <dl>
 <dd>
 
-**postmark_attachments:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureInboundEmailRequestAttachmentsItem]` 
+**postmark_attachments:** `Internal::Types::Array[Nordlet::Capture::Types::InboundEmailCaptureRequestAttachmentsItem]` 
     
 </dd>
 </dl>
@@ -13927,7 +13946,7 @@ client.capture.receive_an_inbound_email_with_supplier_documents_attached_postmar
 <dl>
 <dd>
 
-**to:** `Nordlet::Capture::Types::PostV1CaptureInboundEmailRequestTo` 
+**to:** `Nordlet::Capture::Types::InboundEmailCaptureRequestTo` 
     
 </dd>
 </dl>
@@ -13951,7 +13970,7 @@ client.capture.receive_an_inbound_email_with_supplier_documents_attached_postmar
 <dl>
 <dd>
 
-**attachments:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureInboundEmailRequestAttachmentsItem]` 
+**attachments:** `Internal::Types::Array[Nordlet::Capture::Types::InboundEmailCaptureRequestAttachmentsItem]` 
     
 </dd>
 </dl>
@@ -13971,7 +13990,7 @@ client.capture.receive_an_inbound_email_with_supplier_documents_attached_postmar
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">read_a_vendor_bill_or_receipt_and_return_an_editable_purchase_invoice_draft</a>(request) -> Nordlet::Capture::Types::PostV1CaptureDocumentsUploadResponse</code></summary>
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">documents_upload</a>(request) -> Nordlet::Capture::Types::DocumentsUploadCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -13984,7 +14003,7 @@ client.capture.receive_an_inbound_email_with_supplier_documents_attached_postmar
 <dd>
 
 ```ruby
-client.capture.read_a_vendor_bill_or_receipt_and_return_an_editable_purchase_invoice_draft(
+client.capture.documents_upload(
   file_name: "fileName",
   mime_type: "mimeType",
   content: "content"
@@ -14039,7 +14058,7 @@ client.capture.read_a_vendor_bill_or_receipt_and_return_an_editable_purchase_inv
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">re_read_a_stored_capture_replacing_the_previous_draft</a>(request) -> Nordlet::Capture::Types::PostV1CaptureDocumentsExtractResponse</code></summary>
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">documents_extract</a>(request) -> Nordlet::Capture::Types::DocumentsExtractCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -14052,7 +14071,7 @@ client.capture.read_a_vendor_bill_or_receipt_and_return_an_editable_purchase_inv
 <dd>
 
 ```ruby
-client.capture.re_read_a_stored_capture_replacing_the_previous_draft(id: "id")
+client.capture.documents_extract(id: "id")
 ```
 </dd>
 </dl>
@@ -14087,7 +14106,7 @@ client.capture.re_read_a_stored_capture_replacing_the_previous_draft(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">post_v1capture_documents_get</a>(request) -> Nordlet::Capture::Types::PostV1CaptureDocumentsGetResponse</code></summary>
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">documents_get</a>(request) -> Nordlet::Capture::Types::DocumentsGetCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -14100,7 +14119,7 @@ client.capture.re_read_a_stored_capture_replacing_the_previous_draft(id: "id")
 <dd>
 
 ```ruby
-client.capture.post_v1capture_documents_get(id: "id")
+client.capture.documents_get(id: "id")
 ```
 </dd>
 </dl>
@@ -14135,7 +14154,7 @@ client.capture.post_v1capture_documents_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">post_v1capture_documents_list</a>(request) -> Nordlet::Capture::Types::PostV1CaptureDocumentsListResponse</code></summary>
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">documents_list</a>(request) -> Nordlet::Capture::Types::DocumentsListCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -14148,7 +14167,7 @@ client.capture.post_v1capture_documents_get(id: "id")
 <dd>
 
 ```ruby
-client.capture.post_v1capture_documents_list
+client.capture.documents_list
 ```
 </dd>
 </dl>
@@ -14179,7 +14198,7 @@ client.capture.post_v1capture_documents_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureDocumentsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Capture::Types::DocumentsListCaptureRequestSortItem]` 
     
 </dd>
 </dl>
@@ -14187,7 +14206,7 @@ client.capture.post_v1capture_documents_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureDocumentsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Capture::Types::DocumentsListCaptureRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -14215,7 +14234,7 @@ client.capture.post_v1capture_documents_list
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">post_v1capture_documents_delete</a>(request) -> Nordlet::Capture::Types::PostV1CaptureDocumentsDeleteResponse</code></summary>
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">documents_delete</a>(request) -> Nordlet::Capture::Types::DocumentsDeleteCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -14228,7 +14247,7 @@ client.capture.post_v1capture_documents_list
 <dd>
 
 ```ruby
-client.capture.post_v1capture_documents_delete(id: "id")
+client.capture.documents_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -14263,7 +14282,7 @@ client.capture.post_v1capture_documents_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">save_the_reviewed_draft_as_a_purchase_invoice_and_attach_the_original_document</a>(request) -> Nordlet::Capture::Types::PostV1CaptureDocumentsConfirmResponse</code></summary>
+<details><summary><code>client.capture.<a href="/lib/nordlet/capture/client.rb">documents_confirm</a>(request) -> Nordlet::Capture::Types::DocumentsConfirmCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -14276,10 +14295,10 @@ client.capture.post_v1capture_documents_delete(id: "id")
 <dd>
 
 ```ruby
-client.capture.save_the_reviewed_draft_as_a_purchase_invoice_and_attach_the_original_document(
+client.capture.documents_confirm(
   id: "id",
   document_number: "documentNumber",
-  document_date: "documentDate",
+  document_date: "2026-07-01",
   lines: [{}]
 )
 ```
@@ -14312,7 +14331,7 @@ client.capture.save_the_reviewed_draft_as_a_purchase_invoice_and_attach_the_orig
 <dl>
 <dd>
 
-**new_supplier:** `Nordlet::Capture::Types::PostV1CaptureDocumentsConfirmRequestNewSupplier` 
+**new_supplier:** `Nordlet::Capture::Types::DocumentsConfirmCaptureRequestNewSupplier` 
     
 </dd>
 </dl>
@@ -14360,7 +14379,7 @@ client.capture.save_the_reviewed_draft_as_a_purchase_invoice_and_attach_the_orig
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Capture::Types::PostV1CaptureDocumentsConfirmRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Capture::Types::DocumentsConfirmCaptureRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -14380,8 +14399,8 @@ client.capture.save_the_reviewed_draft_as_a_purchase_invoice_and_attach_the_orig
 </dl>
 </details>
 
-## Declarations
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_intrastat_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtIntrastatComputeResponse</code></summary>
+## declarations
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_intrastat_compute</a>(request) -> Nordlet::Declarations::Types::LtIntrastatComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14394,7 +14413,7 @@ client.capture.save_the_reviewed_draft_as_a_purchase_invoice_and_attach_the_orig
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_intrastat_compute(
+client.declarations.lt_intrastat_compute(
   year: 1000000,
   month: 1000000,
   flow: "arrivals"
@@ -14429,7 +14448,7 @@ client.declarations.post_v1declarations_lt_intrastat_compute(
 <dl>
 <dd>
 
-**flow:** `Nordlet::Declarations::Types::PostV1DeclarationsLtIntrastatComputeRequestFlow` 
+**flow:** `Nordlet::Declarations::Types::LtIntrastatComputeDeclarationsRequestFlow` 
     
 </dd>
 </dl>
@@ -14453,7 +14472,7 @@ client.declarations.post_v1declarations_lt_intrastat_compute(
 <dl>
 <dd>
 
-**transport_mode:** `Nordlet::Declarations::Types::PostV1DeclarationsLtIntrastatComputeRequestTransportMode` 
+**transport_mode:** `Nordlet::Declarations::Types::LtIntrastatComputeDeclarationsRequestTransportMode` 
     
 </dd>
 </dl>
@@ -14513,7 +14532,7 @@ client.declarations.post_v1declarations_lt_intrastat_compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_ivaz_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtIvazGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_ivaz_generate</a>(request) -> Nordlet::Declarations::Types::LtIvazGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14526,7 +14545,7 @@ client.declarations.post_v1declarations_lt_intrastat_compute(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_ivaz_generate(waybill_ids: ["waybillIds"])
+client.declarations.lt_ivaz_generate(waybill_ids: ["waybillIds"])
 ```
 </dd>
 </dl>
@@ -14569,7 +14588,7 @@ client.declarations.post_v1declarations_lt_ivaz_generate(waybill_ids: ["waybillI
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_intrastat_obligation</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtIntrastatObligationResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_intrastat_obligation</a>(request) -> Nordlet::Declarations::Types::LtIntrastatObligationDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14582,7 +14601,7 @@ client.declarations.post_v1declarations_lt_ivaz_generate(waybill_ids: ["waybillI
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_intrastat_obligation(year: 1000000)
+client.declarations.lt_intrastat_obligation(year: 1000000)
 ```
 </dd>
 </dl>
@@ -14617,7 +14636,7 @@ client.declarations.post_v1declarations_lt_intrastat_obligation(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_isaf_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtIsafGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_isaf_generate</a>(request) -> Nordlet::Declarations::Types::LtIsafGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14630,7 +14649,7 @@ client.declarations.post_v1declarations_lt_intrastat_obligation(year: 1000000)
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_isaf_generate(
+client.declarations.lt_isaf_generate(
   year: 1000000,
   month: 1000000
 )
@@ -14664,7 +14683,7 @@ client.declarations.post_v1declarations_lt_isaf_generate(
 <dl>
 <dd>
 
-**data_type:** `Nordlet::Declarations::Types::PostV1DeclarationsLtIsafGenerateRequestDataType` 
+**data_type:** `Nordlet::Declarations::Types::LtIsafGenerateDeclarationsRequestDataType` 
     
 </dd>
 </dl>
@@ -14684,7 +14703,7 @@ client.declarations.post_v1declarations_lt_isaf_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_fr0600compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtFr0600ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_fr0600compute</a>(request) -> Nordlet::Declarations::Types::LtFr0600ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14697,7 +14716,7 @@ client.declarations.post_v1declarations_lt_isaf_generate(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_fr0600compute(
+client.declarations.lt_fr0600compute(
   year: 1000000,
   month: 1000000
 )
@@ -14759,7 +14778,7 @@ client.declarations.post_v1declarations_lt_fr0600compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_gpm313compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtGpm313ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_gpm313compute</a>(request) -> Nordlet::Declarations::Types::LtGpm313ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14772,7 +14791,7 @@ client.declarations.post_v1declarations_lt_fr0600compute(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_gpm313compute(
+client.declarations.lt_gpm313compute(
   year: 1000000,
   month: 1000000
 )
@@ -14806,7 +14825,7 @@ client.declarations.post_v1declarations_lt_gpm313compute(
 <dl>
 <dd>
 
-**payout_timing:** `Nordlet::Declarations::Types::PostV1DeclarationsLtGpm313ComputeRequestPayoutTiming` 
+**payout_timing:** `Nordlet::Declarations::Types::LtGpm313ComputeDeclarationsRequestPayoutTiming` 
     
 </dd>
 </dl>
@@ -14834,7 +14853,7 @@ client.declarations.post_v1declarations_lt_gpm313compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_sam_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtSamComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_sam_compute</a>(request) -> Nordlet::Declarations::Types::LtSamComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14847,7 +14866,7 @@ client.declarations.post_v1declarations_lt_gpm313compute(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_sam_compute(
+client.declarations.lt_sam_compute(
   year: 1000000,
   month: 1000000
 )
@@ -14893,7 +14912,7 @@ client.declarations.post_v1declarations_lt_sam_compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_sd_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtSdGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_sd_generate</a>(request) -> Nordlet::Declarations::Types::LtSdGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14906,10 +14925,10 @@ client.declarations.post_v1declarations_lt_sam_compute(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_sd_generate(
+client.declarations.lt_sd_generate(
   type: "1-SD",
-  from_date: "fromDate",
-  to_date: "toDate"
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -14925,7 +14944,7 @@ client.declarations.post_v1declarations_lt_sd_generate(
 <dl>
 <dd>
 
-**type:** `Nordlet::Declarations::Types::PostV1DeclarationsLtSdGenerateRequestType` 
+**type:** `Nordlet::Declarations::Types::LtSdGenerateDeclarationsRequestType` 
     
 </dd>
 </dl>
@@ -14961,7 +14980,7 @@ client.declarations.post_v1declarations_lt_sd_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_saft_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtSaftGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_saft_generate</a>(request) -> Nordlet::Declarations::Types::LtSaftGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -14974,9 +14993,9 @@ client.declarations.post_v1declarations_lt_sd_generate(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_saft_generate(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.declarations.lt_saft_generate(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -15008,7 +15027,7 @@ client.declarations.post_v1declarations_lt_saft_generate(
 <dl>
 <dd>
 
-**data_type:** `Nordlet::Declarations::Types::PostV1DeclarationsLtSaftGenerateRequestDataType` 
+**data_type:** `Nordlet::Declarations::Types::LtSaftGenerateDeclarationsRequestDataType` 
     
 </dd>
 </dl>
@@ -15036,7 +15055,7 @@ client.declarations.post_v1declarations_lt_saft_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_ivaz_amend</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtIvazAmendResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_ivaz_amend</a>(request) -> Nordlet::Declarations::Types::LtIvazAmendDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15049,7 +15068,7 @@ client.declarations.post_v1declarations_lt_saft_generate(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_ivaz_amend(waybill_ids: ["waybillIds"])
+client.declarations.lt_ivaz_amend(waybill_ids: ["waybillIds"])
 ```
 </dd>
 </dl>
@@ -15092,7 +15111,7 @@ client.declarations.post_v1declarations_lt_ivaz_amend(waybill_ids: ["waybillIds"
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_ivaz_cancel</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtIvazCancelResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_ivaz_cancel</a>(request) -> Nordlet::Declarations::Types::LtIvazCancelDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15105,7 +15124,7 @@ client.declarations.post_v1declarations_lt_ivaz_amend(waybill_ids: ["waybillIds"
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_ivaz_cancel(entries: [{
+client.declarations.lt_ivaz_cancel(entries: [{
   waybill_id: "waybillId",
   reason: "1"
 }])
@@ -15123,7 +15142,7 @@ client.declarations.post_v1declarations_lt_ivaz_cancel(entries: [{
 <dl>
 <dd>
 
-**entries:** `Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsLtIvazCancelRequestEntriesItem]` 
+**entries:** `Internal::Types::Array[Nordlet::Declarations::Types::LtIvazCancelDeclarationsRequestEntriesItem]` 
     
 </dd>
 </dl>
@@ -15151,7 +15170,7 @@ client.declarations.post_v1declarations_lt_ivaz_cancel(entries: [{
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_fr0564compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtFr0564ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_fr0564compute</a>(request) -> Nordlet::Declarations::Types::LtFr0564ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15164,7 +15183,7 @@ client.declarations.post_v1declarations_lt_ivaz_cancel(entries: [{
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_fr0564compute(
+client.declarations.lt_fr0564compute(
   year: 1000000,
   month: 1000000
 )
@@ -15210,7 +15229,7 @@ client.declarations.post_v1declarations_lt_fr0564compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_gpm312compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtGpm312ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_gpm312compute</a>(request) -> Nordlet::Declarations::Types::LtGpm312ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15223,7 +15242,7 @@ client.declarations.post_v1declarations_lt_fr0564compute(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_gpm312compute(year: 1000000)
+client.declarations.lt_gpm312compute(year: 1000000)
 ```
 </dd>
 </dl>
@@ -15246,7 +15265,7 @@ client.declarations.post_v1declarations_lt_gpm312compute(year: 1000000)
 <dl>
 <dd>
 
-**payout_timing:** `Nordlet::Declarations::Types::PostV1DeclarationsLtGpm312ComputeRequestPayoutTiming` 
+**payout_timing:** `Nordlet::Declarations::Types::LtGpm312ComputeDeclarationsRequestPayoutTiming` 
     
 </dd>
 </dl>
@@ -15266,7 +15285,7 @@ client.declarations.post_v1declarations_lt_gpm312compute(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_pln204compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtPln204ComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_pln204compute</a>(request) -> Nordlet::Declarations::Types::LtPln204ComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15279,7 +15298,7 @@ client.declarations.post_v1declarations_lt_gpm312compute(year: 1000000)
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_pln204compute(year: 1000000)
+client.declarations.lt_pln204compute(year: 1000000)
 ```
 </dd>
 </dl>
@@ -15314,7 +15333,7 @@ client.declarations.post_v1declarations_lt_pln204compute(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_oss_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuOssComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_oss_compute</a>(request) -> Nordlet::Declarations::Types::EuOssComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15327,7 +15346,7 @@ client.declarations.post_v1declarations_lt_pln204compute(year: 1000000)
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_eu_oss_compute(
+client.declarations.eu_oss_compute(
   year: 1000000,
   quarter: 1000000
 )
@@ -15373,7 +15392,7 @@ client.declarations.post_v1declarations_eu_oss_compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_ioss_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuIossComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_ioss_compute</a>(request) -> Nordlet::Declarations::Types::EuIossComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15386,7 +15405,7 @@ client.declarations.post_v1declarations_eu_oss_compute(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_eu_ioss_compute(
+client.declarations.eu_ioss_compute(
   year: 1000000,
   month: 1000000
 )
@@ -15432,7 +15451,7 @@ client.declarations.post_v1declarations_eu_ioss_compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_distance_sales_threshold_get</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuDistanceSalesThresholdGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_distance_sales_threshold_get</a>(request) -> Nordlet::Declarations::Types::EuDistanceSalesThresholdGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15445,7 +15464,7 @@ client.declarations.post_v1declarations_eu_ioss_compute(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_eu_distance_sales_threshold_get
+client.declarations.eu_distance_sales_threshold_get
 ```
 </dd>
 </dl>
@@ -15480,7 +15499,7 @@ client.declarations.post_v1declarations_eu_distance_sales_threshold_get
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_union_turnover_get</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuUnionTurnoverGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_union_turnover_get</a>(request) -> Nordlet::Declarations::Types::EuUnionTurnoverGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15493,7 +15512,7 @@ client.declarations.post_v1declarations_eu_distance_sales_threshold_get
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_eu_union_turnover_get
+client.declarations.eu_union_turnover_get
 ```
 </dd>
 </dl>
@@ -15528,7 +15547,7 @@ client.declarations.post_v1declarations_eu_union_turnover_get
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_sme_cross_border_report_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuSmeCrossBorderReportComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_sme_cross_border_report_compute</a>(request) -> Nordlet::Declarations::Types::EuSmeCrossBorderReportComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15541,7 +15560,7 @@ client.declarations.post_v1declarations_eu_union_turnover_get
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_eu_sme_cross_border_report_compute(
+client.declarations.eu_sme_cross_border_report_compute(
   year: 1000000,
   quarter: 1000000
 )
@@ -15587,7 +15606,7 @@ client.declarations.post_v1declarations_eu_sme_cross_border_report_compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_sme_thresholds_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuSmeThresholdsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_sme_thresholds_list</a>(request) -> Nordlet::Declarations::Types::EuSmeThresholdsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15600,7 +15619,7 @@ client.declarations.post_v1declarations_eu_sme_cross_border_report_compute(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_eu_sme_thresholds_list
+client.declarations.eu_sme_thresholds_list
 ```
 </dd>
 </dl>
@@ -15627,7 +15646,7 @@ client.declarations.post_v1declarations_eu_sme_thresholds_list
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_sme_threshold_get</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuSmeThresholdGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_sme_threshold_get</a>(request) -> Nordlet::Declarations::Types::EuSmeThresholdGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15640,7 +15659,7 @@ client.declarations.post_v1declarations_eu_sme_thresholds_list
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_eu_sme_threshold_get
+client.declarations.eu_sme_threshold_get
 ```
 </dd>
 </dl>
@@ -15675,7 +15694,7 @@ client.declarations.post_v1declarations_eu_sme_threshold_get
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_vat_return_packs_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuVatReturnPacksListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_vat_return_packs_list</a>(request) -> Nordlet::Declarations::Types::EuVatReturnPacksListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15688,7 +15707,7 @@ client.declarations.post_v1declarations_eu_sme_threshold_get
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_eu_vat_return_packs_list
+client.declarations.eu_vat_return_packs_list
 ```
 </dd>
 </dl>
@@ -15715,7 +15734,7 @@ client.declarations.post_v1declarations_eu_vat_return_packs_list
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_eu_vat_return_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEuVatReturnComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_vat_return_compute</a>(request) -> Nordlet::Declarations::Types::EuVatReturnComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15728,7 +15747,7 @@ client.declarations.post_v1declarations_eu_vat_return_packs_list
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_eu_vat_return_compute(
+client.declarations.eu_vat_return_compute(
   country_code: "countryCode",
   year: 1000000,
   month: 1000000
@@ -15791,7 +15810,7 @@ client.declarations.post_v1declarations_eu_vat_return_compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_jpk_v7m_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlJpkV7MGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_jpk_v7m_generate</a>(request) -> Nordlet::Declarations::Types::PlJpkV7MGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15818,7 +15837,7 @@ Generate the Polish JPK_V7M(3) file (VAT declaration with evidence) for a month,
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_jpk_v7m_generate(
+client.declarations.pl_jpk_v7m_generate(
   year: 1000000,
   month: 1000000,
   kod_urzedu: "kodUrzedu",
@@ -15890,7 +15909,7 @@ client.declarations.post_v1declarations_pl_jpk_v7m_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_vat_ue_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlVatUeGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_vat_ue_generate</a>(request) -> Nordlet::Declarations::Types::PlVatUeGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15917,7 +15936,7 @@ Build the rows of the Polish recapitulative statement VAT-UE for a month: sectio
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_vat_ue_generate(
+client.declarations.pl_vat_ue_generate(
   year: 1000000,
   month: 1000000
 )
@@ -15963,7 +15982,7 @@ client.declarations.post_v1declarations_pl_vat_ue_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_intrastat_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlIntrastatGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_intrastat_generate</a>(request) -> Nordlet::Declarations::Types::PlIntrastatGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -15990,7 +16009,7 @@ Build the rows of the Polish INTRASTAT declaration for a month, arrivals or disp
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_intrastat_generate(
+client.declarations.pl_intrastat_generate(
   year: 1000000,
   month: 1000000,
   flow: "arrivals"
@@ -16025,7 +16044,7 @@ client.declarations.post_v1declarations_pl_intrastat_generate(
 <dl>
 <dd>
 
-**flow:** `Nordlet::Declarations::Types::PostV1DeclarationsPlIntrastatGenerateRequestFlow` 
+**flow:** `Nordlet::Declarations::Types::PlIntrastatGenerateDeclarationsRequestFlow` 
     
 </dd>
 </dl>
@@ -16053,7 +16072,7 @@ client.declarations.post_v1declarations_pl_intrastat_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_ksef_received_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlKsefReceivedListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_ksef_received_list</a>(request) -> Nordlet::Declarations::Types::PlKsefReceivedListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16080,7 +16099,7 @@ List the invoices KSeF holds for this company as the buyer, for a window of acqu
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_ksef_received_list(
+client.declarations.pl_ksef_received_list(
   from: "2024-01-15T09:30:00Z",
   to: "2024-01-15T09:30:00Z"
 )
@@ -16142,7 +16161,7 @@ client.declarations.post_v1declarations_pl_ksef_received_list(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_ksef_received_fetch</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlKsefReceivedFetchResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_ksef_received_fetch</a>(request) -> Nordlet::Declarations::Types::PlKsefReceivedFetchDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16169,7 +16188,7 @@ Read one invoice out of KSeF by its national number. With a purchase invoice giv
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_ksef_received_fetch(ksef_number: "ksefNumber")
+client.declarations.pl_ksef_received_fetch(ksef_number: "ksefNumber")
 ```
 </dd>
 </dl>
@@ -16212,7 +16231,7 @@ client.declarations.post_v1declarations_pl_ksef_received_fetch(ksef_number: "kse
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_ksef_receipt</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlKsefReceiptResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_ksef_receipt</a>(request) -> Nordlet::Declarations::Types::PlKsefReceiptDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16239,7 +16258,7 @@ The UPO for a KSeF session. KSeF issues one receipt per session rather than per 
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_ksef_receipt
+client.declarations.pl_ksef_receipt
 ```
 </dd>
 </dl>
@@ -16274,7 +16293,7 @@ client.declarations.post_v1declarations_pl_ksef_receipt
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_adjustments_recorded_for_a_tax_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_adjustments_list</a>(request) -> Nordlet::Declarations::Types::TaxAdjustmentsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16301,7 +16320,7 @@ The differences between the accounting result and the taxable profit: non-deduct
 <dd>
 
 ```ruby
-client.declarations.tax_adjustments_recorded_for_a_tax_year(year: 1000000)
+client.declarations.tax_adjustments_list(year: 1000000)
 ```
 </dd>
 </dl>
@@ -16336,7 +16355,7 @@ client.declarations.tax_adjustments_recorded_for_a_tax_year(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_a_tax_adjustment_for_a_tax_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_adjustments_create</a>(request) -> Nordlet::Declarations::Types::TaxAdjustmentsCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16349,10 +16368,10 @@ client.declarations.tax_adjustments_recorded_for_a_tax_year(year: 1000000)
 <dd>
 
 ```ruby
-client.declarations.record_a_tax_adjustment_for_a_tax_year(
+client.declarations.tax_adjustments_create(
   year: 1000000,
   kind: "non_deductible",
-  amount: "amount",
+  amount: "121.00",
   description: "description"
 )
 ```
@@ -16377,7 +16396,7 @@ client.declarations.record_a_tax_adjustment_for_a_tax_year(
 <dl>
 <dd>
 
-**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsCreateRequestKind` 
+**kind:** `Nordlet::Declarations::Types::TaxAdjustmentsCreateDeclarationsRequestKind` 
     
 </dd>
 </dl>
@@ -16421,7 +16440,7 @@ client.declarations.record_a_tax_adjustment_for_a_tax_year(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">change_a_recorded_tax_adjustment</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_adjustments_update</a>(request) -> Nordlet::Declarations::Types::TaxAdjustmentsUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16434,7 +16453,7 @@ client.declarations.record_a_tax_adjustment_for_a_tax_year(
 <dd>
 
 ```ruby
-client.declarations.change_a_recorded_tax_adjustment(id: "id")
+client.declarations.tax_adjustments_update(id: "id")
 ```
 </dd>
 </dl>
@@ -16457,7 +16476,7 @@ client.declarations.change_a_recorded_tax_adjustment(id: "id")
 <dl>
 <dd>
 
-**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsUpdateRequestKind` 
+**kind:** `Nordlet::Declarations::Types::TaxAdjustmentsUpdateDeclarationsRequestKind` 
     
 </dd>
 </dl>
@@ -16501,7 +16520,7 @@ client.declarations.change_a_recorded_tax_adjustment(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_recorded_tax_adjustment</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxAdjustmentsDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_adjustments_delete</a>(request) -> Nordlet::Declarations::Types::TaxAdjustmentsDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16514,7 +16533,7 @@ client.declarations.change_a_recorded_tax_adjustment(id: "id")
 <dd>
 
 ```ruby
-client.declarations.remove_a_recorded_tax_adjustment(id: "id")
+client.declarations.tax_adjustments_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -16549,7 +16568,7 @@ client.declarations.remove_a_recorded_tax_adjustment(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">payments_already_made_towards_a_tax_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_payments_list</a>(request) -> Nordlet::Declarations::Types::TaxPaymentsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16576,7 +16595,7 @@ What the company has paid the administration towards a tax before the return is 
 <dd>
 
 ```ruby
-client.declarations.payments_already_made_towards_a_tax_of_a_year(
+client.declarations.tax_payments_list(
   tax: "corporate_income_tax",
   year: 1000000
 )
@@ -16594,7 +16613,7 @@ client.declarations.payments_already_made_towards_a_tax_of_a_year(
 <dl>
 <dd>
 
-**tax:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsListRequestTax` 
+**tax:** `Nordlet::Declarations::Types::TaxPaymentsListDeclarationsRequestTax` 
     
 </dd>
 </dl>
@@ -16630,7 +16649,7 @@ client.declarations.payments_already_made_towards_a_tax_of_a_year(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_a_payment_made_towards_a_tax</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_payments_create</a>(request) -> Nordlet::Declarations::Types::TaxPaymentsCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16643,12 +16662,12 @@ client.declarations.payments_already_made_towards_a_tax_of_a_year(
 <dd>
 
 ```ruby
-client.declarations.record_a_payment_made_towards_a_tax(
+client.declarations.tax_payments_create(
   tax: "corporate_income_tax",
   year: 1000000,
   kind: "advance",
-  amount: "amount",
-  paid_on: "paidOn",
+  amount: "121.00",
+  paid_on: "2026-07-01",
   description: "description"
 )
 ```
@@ -16665,7 +16684,7 @@ client.declarations.record_a_payment_made_towards_a_tax(
 <dl>
 <dd>
 
-**tax:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsCreateRequestTax` 
+**tax:** `Nordlet::Declarations::Types::TaxPaymentsCreateDeclarationsRequestTax` 
     
 </dd>
 </dl>
@@ -16689,7 +16708,7 @@ client.declarations.record_a_payment_made_towards_a_tax(
 <dl>
 <dd>
 
-**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsCreateRequestKind` 
+**kind:** `Nordlet::Declarations::Types::TaxPaymentsCreateDeclarationsRequestKind` 
     
 </dd>
 </dl>
@@ -16741,7 +16760,7 @@ client.declarations.record_a_payment_made_towards_a_tax(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">change_a_recorded_tax_payment</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_payments_update</a>(request) -> Nordlet::Declarations::Types::TaxPaymentsUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16754,7 +16773,7 @@ client.declarations.record_a_payment_made_towards_a_tax(
 <dd>
 
 ```ruby
-client.declarations.change_a_recorded_tax_payment(id: "id")
+client.declarations.tax_payments_update(id: "id")
 ```
 </dd>
 </dl>
@@ -16777,7 +16796,7 @@ client.declarations.change_a_recorded_tax_payment(id: "id")
 <dl>
 <dd>
 
-**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsUpdateRequestKind` 
+**kind:** `Nordlet::Declarations::Types::TaxPaymentsUpdateDeclarationsRequestKind` 
     
 </dd>
 </dl>
@@ -16829,7 +16848,7 @@ client.declarations.change_a_recorded_tax_payment(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_recorded_tax_payment</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsTaxPaymentsDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">tax_payments_delete</a>(request) -> Nordlet::Declarations::Types::TaxPaymentsDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16842,7 +16861,7 @@ client.declarations.change_a_recorded_tax_payment(id: "id")
 <dd>
 
 ```ruby
-client.declarations.remove_a_recorded_tax_payment(id: "id")
+client.declarations.tax_payments_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -16877,7 +16896,7 @@ client.declarations.remove_a_recorded_tax_payment(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">adoption_and_signing_facts_of_the_annual_accounts_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_get</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16904,7 +16923,7 @@ Whether the general meeting adopted the annual accounts and on which date, the d
 <dd>
 
 ```ruby
-client.declarations.adoption_and_signing_facts_of_the_annual_accounts_of_a_year(year: 1000000)
+client.declarations.annual_accounts_get(year: 1000000)
 ```
 </dd>
 </dl>
@@ -16939,7 +16958,7 @@ client.declarations.adoption_and_signing_facts_of_the_annual_accounts_of_a_year(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_the_adoption_and_preparation_of_the_annual_accounts_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_set</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsSetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -16952,10 +16971,10 @@ client.declarations.adoption_and_signing_facts_of_the_annual_accounts_of_a_year(
 <dd>
 
 ```ruby
-client.declarations.record_the_adoption_and_preparation_of_the_annual_accounts_of_a_year(
+client.declarations.annual_accounts_set(
   year: 1000000,
   adopted: true,
-  date_of_preparation: "dateOfPreparation"
+  date_of_preparation: "2026-07-01"
 )
 ```
 </dd>
@@ -17095,7 +17114,7 @@ client.declarations.record_the_adoption_and_preparation_of_the_annual_accounts_o
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_whether_a_director_signed_the_annual_accounts_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_signatures_create</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsSignaturesCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17108,7 +17127,7 @@ client.declarations.record_the_adoption_and_preparation_of_the_annual_accounts_o
 <dd>
 
 ```ruby
-client.declarations.record_whether_a_director_signed_the_annual_accounts_of_a_year(
+client.declarations.annual_accounts_signatures_create(
   year: 1000000,
   director_name: "directorName",
   director_type: "managing_current",
@@ -17144,7 +17163,7 @@ client.declarations.record_whether_a_director_signed_the_annual_accounts_of_a_ye
 <dl>
 <dd>
 
-**director_type:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesCreateRequestDirectorType` 
+**director_type:** `Nordlet::Declarations::Types::AnnualAccountsSignaturesCreateDeclarationsRequestDirectorType` 
     
 </dd>
 </dl>
@@ -17196,7 +17215,7 @@ client.declarations.record_whether_a_director_signed_the_annual_accounts_of_a_ye
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">change_a_recorded_director_signature</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_signatures_update</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsSignaturesUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17209,7 +17228,7 @@ client.declarations.record_whether_a_director_signed_the_annual_accounts_of_a_ye
 <dd>
 
 ```ruby
-client.declarations.change_a_recorded_director_signature(
+client.declarations.annual_accounts_signatures_update(
   id: "id",
   director_name: "directorName",
   director_type: "managing_current",
@@ -17245,7 +17264,7 @@ client.declarations.change_a_recorded_director_signature(
 <dl>
 <dd>
 
-**director_type:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesUpdateRequestDirectorType` 
+**director_type:** `Nordlet::Declarations::Types::AnnualAccountsSignaturesUpdateDeclarationsRequestDirectorType` 
     
 </dd>
 </dl>
@@ -17297,7 +17316,7 @@ client.declarations.change_a_recorded_director_signature(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_recorded_director_signature</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsSignaturesDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_signatures_delete</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsSignaturesDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17310,7 +17329,7 @@ client.declarations.change_a_recorded_director_signature(
 <dd>
 
 ```ruby
-client.declarations.remove_a_recorded_director_signature(id: "id")
+client.declarations.annual_accounts_signatures_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -17345,7 +17364,7 @@ client.declarations.remove_a_recorded_director_signature(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">record_a_decision_to_distribute_profit_a_dividend_an_interim_dividend_or_a_payment_treated_as_one</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_distributions_create</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsDistributionsCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17358,11 +17377,11 @@ client.declarations.remove_a_recorded_director_signature(id: "id")
 <dd>
 
 ```ruby
-client.declarations.record_a_decision_to_distribute_profit_a_dividend_an_interim_dividend_or_a_payment_treated_as_one(
+client.declarations.annual_accounts_distributions_create(
   year: 1000000,
-  decided_on: "decidedOn",
+  decided_on: "2026-07-01",
   kind: "dividend",
-  amount: "amount"
+  amount: "121.00"
 )
 ```
 </dd>
@@ -17394,7 +17413,7 @@ client.declarations.record_a_decision_to_distribute_profit_a_dividend_an_interim
 <dl>
 <dd>
 
-**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsCreateRequestKind` 
+**kind:** `Nordlet::Declarations::Types::AnnualAccountsDistributionsCreateDeclarationsRequestKind` 
     
 </dd>
 </dl>
@@ -17430,7 +17449,7 @@ client.declarations.record_a_decision_to_distribute_profit_a_dividend_an_interim
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">change_a_recorded_profit_distribution</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_distributions_update</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsDistributionsUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17443,11 +17462,11 @@ client.declarations.record_a_decision_to_distribute_profit_a_dividend_an_interim
 <dd>
 
 ```ruby
-client.declarations.change_a_recorded_profit_distribution(
+client.declarations.annual_accounts_distributions_update(
   id: "id",
-  decided_on: "decidedOn",
+  decided_on: "2026-07-01",
   kind: "dividend",
-  amount: "amount"
+  amount: "121.00"
 )
 ```
 </dd>
@@ -17479,7 +17498,7 @@ client.declarations.change_a_recorded_profit_distribution(
 <dl>
 <dd>
 
-**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsUpdateRequestKind` 
+**kind:** `Nordlet::Declarations::Types::AnnualAccountsDistributionsUpdateDeclarationsRequestKind` 
     
 </dd>
 </dl>
@@ -17515,7 +17534,7 @@ client.declarations.change_a_recorded_profit_distribution(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_recorded_profit_distribution</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsDistributionsDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_distributions_delete</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsDistributionsDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17528,7 +17547,7 @@ client.declarations.change_a_recorded_profit_distribution(
 <dd>
 
 ```ruby
-client.declarations.remove_a_recorded_profit_distribution(id: "id")
+client.declarations.annual_accounts_distributions_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -17563,7 +17582,7 @@ client.declarations.remove_a_recorded_profit_distribution(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">attach_an_uploaded_document_to_the_annual_accounts_of_a_year</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsAttachmentsAddResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_attachments_add</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsAttachmentsAddDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17590,7 +17609,7 @@ Links a file uploaded through files/upload (its storageKey) to the annual accoun
 <dd>
 
 ```ruby
-client.declarations.attach_an_uploaded_document_to_the_annual_accounts_of_a_year(
+client.declarations.annual_accounts_attachments_add(
   year: 1000000,
   kind: "full_report",
   ref: "ref"
@@ -17617,7 +17636,7 @@ client.declarations.attach_an_uploaded_document_to_the_annual_accounts_of_a_year
 <dl>
 <dd>
 
-**kind:** `Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsAttachmentsAddRequestKind` 
+**kind:** `Nordlet::Declarations::Types::AnnualAccountsAttachmentsAddDeclarationsRequestKind` 
     
 </dd>
 </dl>
@@ -17653,7 +17672,7 @@ client.declarations.attach_an_uploaded_document_to_the_annual_accounts_of_a_year
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">remove_a_document_attached_to_the_annual_accounts_and_delete_its_file</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAnnualAccountsAttachmentsDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_attachments_delete</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsAttachmentsDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17666,7 +17685,7 @@ client.declarations.attach_an_uploaded_document_to_the_annual_accounts_of_a_year
 <dd>
 
 ```ruby
-client.declarations.remove_a_document_attached_to_the_annual_accounts_and_delete_its_file(id: "id")
+client.declarations.annual_accounts_attachments_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -17701,7 +17720,7 @@ client.declarations.remove_a_document_attached_to_the_annual_accounts_and_delete
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_cy_td4generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCyTd4GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">cy_td4generate</a>(request) -> Nordlet::Declarations::Types::CyTd4GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17728,7 +17747,7 @@ Compute the company income tax return TD4 of a tax year from the ledger and the 
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_cy_td4generate(year: 1000000)
+client.declarations.cy_td4generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -17763,7 +17782,7 @@ client.declarations.post_v1declarations_cy_td4generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_cy_he32generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCyHe32GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">cy_he32generate</a>(request) -> Nordlet::Declarations::Types::CyHe32GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17790,7 +17809,7 @@ Build the annual return HE32 of a year: the figures the Registrar’s e-filing s
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_cy_he32generate(year: 1000000)
+client.declarations.cy_he32generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -17825,7 +17844,7 @@ client.declarations.post_v1declarations_cy_he32generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_returns_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeReturnsGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">de_returns_generate</a>(request) -> Nordlet::Declarations::Types::DeReturnsGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17852,7 +17871,7 @@ Build one of the German returns that ELSTER accepts only through a licensed ERiC
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_de_returns_generate(
+client.declarations.de_returns_generate(
   rule_key: "de-e-bilanz",
   period: "period"
 )
@@ -17870,7 +17889,7 @@ client.declarations.post_v1declarations_de_returns_generate(
 <dl>
 <dd>
 
-**rule_key:** `Nordlet::Declarations::Types::PostV1DeclarationsDeReturnsGenerateRequestRuleKey` 
+**rule_key:** `Nordlet::Declarations::Types::DeReturnsGenerateDeclarationsRequestRuleKey` 
     
 </dd>
 </dl>
@@ -17898,7 +17917,7 @@ client.declarations.post_v1declarations_de_returns_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_return_facts_get</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeReturnFactsGetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">de_return_facts_get</a>(request) -> Nordlet::Declarations::Types::DeReturnFactsGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17925,7 +17944,7 @@ The facts of one year that the German annual returns (Körperschaftsteuer, Gewer
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_de_return_facts_get(year: 1000000)
+client.declarations.de_return_facts_get(year: 1000000)
 ```
 </dd>
 </dl>
@@ -17960,7 +17979,7 @@ client.declarations.post_v1declarations_de_return_facts_get(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_return_facts_set</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeReturnFactsSetResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">de_return_facts_set</a>(request) -> Nordlet::Declarations::Types::DeReturnFactsSetDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -17987,7 +18006,7 @@ Replace the facts of one year for the German annual returns. The returns built a
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_de_return_facts_set(
+client.declarations.de_return_facts_set(
   year: 1000000,
   facts: {}
 )
@@ -18013,7 +18032,7 @@ client.declarations.post_v1declarations_de_return_facts_set(
 <dl>
 <dd>
 
-**facts:** `Nordlet::Declarations::Types::PostV1DeclarationsDeReturnFactsSetRequestFacts` 
+**facts:** `Nordlet::Declarations::Types::DeReturnFactsSetDeclarationsRequestFacts` 
     
 </dd>
 </dl>
@@ -18033,7 +18052,7 @@ client.declarations.post_v1declarations_de_return_facts_set(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_deuev_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeDeuevGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">de_deuev_generate</a>(request) -> Nordlet::Declarations::Types::DeDeuevGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18060,7 +18079,7 @@ Build the DEÜV notifications of a month (Anmeldung for every start, Abmeldung f
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_de_deuev_generate(
+client.declarations.de_deuev_generate(
   year: 1000000,
   month: 1000000
 )
@@ -18106,7 +18125,7 @@ client.declarations.post_v1declarations_de_deuev_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_de_beitragsnachweis_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDeBeitragsnachweisGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">de_beitragsnachweis_generate</a>(request) -> Nordlet::Declarations::Types::DeBeitragsnachweisGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18133,7 +18152,7 @@ Build the monthly contribution statement to the health insurers (Beitragsnachwei
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_de_beitragsnachweis_generate(
+client.declarations.de_beitragsnachweis_generate(
   year: 1000000,
   month: 1000000
 )
@@ -18179,7 +18198,7 @@ client.declarations.post_v1declarations_de_beitragsnachweis_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_dk_selskabsskat_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsDkSelskabsskatGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">dk_selskabsskat_generate</a>(request) -> Nordlet::Declarations::Types::DkSelskabsskatGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18206,7 +18225,7 @@ Compute the oplysningsskema for selskaber (selskabsselvangivelsen) of an income 
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_dk_selskabsskat_generate(year: 1000000)
+client.declarations.dk_selskabsskat_generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -18241,7 +18260,7 @@ client.declarations.post_v1declarations_dk_selskabsskat_generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ee_employment_register_send</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEeEmploymentRegisterSendResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">ee_employment_register_send</a>(request) -> Nordlet::Declarations::Types::EeEmploymentRegisterSendDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18268,7 +18287,7 @@ Send one employment register (töötamise register) entry for an employment cont
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_ee_employment_register_send(
+client.declarations.ee_employment_register_send(
   contract_id: "contractId",
   event: "start"
 )
@@ -18294,7 +18313,7 @@ client.declarations.post_v1declarations_ee_employment_register_send(
 <dl>
 <dd>
 
-**event:** `Nordlet::Declarations::Types::PostV1DeclarationsEeEmploymentRegisterSendRequestEvent` 
+**event:** `Nordlet::Declarations::Types::EeEmploymentRegisterSendDeclarationsRequestEvent` 
     
 </dd>
 </dl>
@@ -18314,7 +18333,7 @@ client.declarations.post_v1declarations_ee_employment_register_send(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_es_verifactu_declaracion_responsable</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsEsVerifactuDeclaracionResponsableResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">es_verifactu_declaracion_responsable</a>(request) -> Nordlet::Declarations::Types::EsVerifactuDeclaracionResponsableDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18341,7 +18360,7 @@ Nordlet's declaración responsable for its VERI*FACTU invoicing system (Orden HA
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_es_verifactu_declaracion_responsable
+client.declarations.es_verifactu_declaracion_responsable
 ```
 </dd>
 </dl>
@@ -18368,7 +18387,7 @@ client.declarations.post_v1declarations_es_verifactu_declaracion_responsable
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ie_ct1generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsIeCt1GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">ie_ct1generate</a>(request) -> Nordlet::Declarations::Types::IeCt1GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18395,7 +18414,7 @@ Build the Form CT1 of an accounting year as the ROS version 26 XML and the accom
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_ie_ct1generate(year: 1000000)
+client.declarations.ie_ct1generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -18430,7 +18449,7 @@ client.declarations.post_v1declarations_ie_ct1generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ie_b1generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsIeB1GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">ie_b1generate</a>(request) -> Nordlet::Declarations::Types::IeB1GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18457,7 +18476,7 @@ Build the working paper for the Form B1 annual return of a financial year — co
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_ie_b1generate(year: 1000000)
+client.declarations.ie_b1generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -18492,7 +18511,7 @@ client.declarations.post_v1declarations_ie_b1generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_it_sdi_purchase_send</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsItSdiPurchaseSendResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">it_sdi_purchase_send</a>(request) -> Nordlet::Declarations::Types::ItSdiPurchaseSendDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18519,7 +18538,7 @@ Build the TD16-TD19 integration document for a registered purchase invoice and s
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_it_sdi_purchase_send(purchase_invoice_id: "purchaseInvoiceId")
+client.declarations.it_sdi_purchase_send(purchase_invoice_id: "purchaseInvoiceId")
 ```
 </dd>
 </dl>
@@ -18550,7 +18569,7 @@ client.declarations.post_v1declarations_it_sdi_purchase_send(purchase_invoice_id
 <dl>
 <dd>
 
-**tipo_documento:** `Nordlet::Declarations::Types::PostV1DeclarationsItSdiPurchaseSendRequestTipoDocumento` 
+**tipo_documento:** `Nordlet::Declarations::Types::ItSdiPurchaseSendDeclarationsRequestTipoDocumento` 
     
 </dd>
 </dl>
@@ -18570,7 +18589,7 @@ client.declarations.post_v1declarations_it_sdi_purchase_send(purchase_invoice_id
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_it_sdi_purchase_preview</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsItSdiPurchasePreviewResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">it_sdi_purchase_preview</a>(request) -> Nordlet::Declarations::Types::ItSdiPurchasePreviewDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18597,7 +18616,7 @@ Render the TD16-TD19 integration document for a registered purchase invoice with
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_it_sdi_purchase_preview(purchase_invoice_id: "purchaseInvoiceId")
+client.declarations.it_sdi_purchase_preview(purchase_invoice_id: "purchaseInvoiceId")
 ```
 </dd>
 </dl>
@@ -18628,7 +18647,7 @@ client.declarations.post_v1declarations_it_sdi_purchase_preview(purchase_invoice
 <dl>
 <dd>
 
-**tipo_documento:** `Nordlet::Declarations::Types::PostV1DeclarationsItSdiPurchasePreviewRequestTipoDocumento` 
+**tipo_documento:** `Nordlet::Declarations::Types::ItSdiPurchasePreviewDeclarationsRequestTipoDocumento` 
     
 </dd>
 </dl>
@@ -18648,7 +18667,7 @@ client.declarations.post_v1declarations_it_sdi_purchase_preview(purchase_invoice
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_saft_send</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtSaftSendResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_saft_send</a>(request) -> Nordlet::Declarations::Types::LtSaftSendDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18660,7 +18679,7 @@ client.declarations.post_v1declarations_it_sdi_purchase_preview(purchase_invoice
 <dl>
 <dd>
 
-Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected.
+Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and start its processing. The file, the case reference and the status are kept as a declaration submission (submissionId), whose outcome Nordlet then checks with i.SAF-T. The submission itself is confirmed separately, because after confirmation the file can no longer be corrected. A range and data type already sent is sent again only with amend: true.
 </dd>
 </dl>
 </dd>
@@ -18675,9 +18694,9 @@ Upload the SAF-T file to i.SAF-T over the iSAFTUploaderService web service and s
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_saft_send(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.declarations.lt_saft_send(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -18709,7 +18728,7 @@ client.declarations.post_v1declarations_lt_saft_send(
 <dl>
 <dd>
 
-**data_type:** `Nordlet::Declarations::Types::PostV1DeclarationsLtSaftSendRequestDataType` 
+**data_type:** `Nordlet::Declarations::Types::LtSaftSendDeclarationsRequestDataType` 
     
 </dd>
 </dl>
@@ -18718,6 +18737,14 @@ client.declarations.post_v1declarations_lt_saft_send(
 <dd>
 
 **confirm:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amend:** `Internal::Types::Boolean` 
     
 </dd>
 </dl>
@@ -18737,7 +18764,7 @@ client.declarations.post_v1declarations_lt_saft_send(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_sd_ffdata</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtSdFfdataResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_sd_ffdata</a>(request) -> Nordlet::Declarations::Types::LtSdFfdataDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18764,10 +18791,10 @@ Render the Sodra 1-SD or 2-SD notice for the contracts starting or ending in the
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_sd_ffdata(
+client.declarations.lt_sd_ffdata(
   type: "1-SD",
-  from_date: "fromDate",
-  to_date: "toDate"
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -18783,7 +18810,7 @@ client.declarations.post_v1declarations_lt_sd_ffdata(
 <dl>
 <dd>
 
-**type:** `Nordlet::Declarations::Types::PostV1DeclarationsLtSdFfdataRequestType` 
+**type:** `Nordlet::Declarations::Types::LtSdFfdataDeclarationsRequestType` 
     
 </dd>
 </dl>
@@ -18835,7 +18862,7 @@ client.declarations.post_v1declarations_lt_sd_ffdata(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_lt_pln204ffdata</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLtPln204FfdataResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">lt_pln204ffdata</a>(request) -> Nordlet::Declarations::Types::LtPln204FfdataDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18862,7 +18889,7 @@ Render the annual corporate income tax return PLN204 as an .ffdata document, inc
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_lt_pln204ffdata(year: 1000000)
+client.declarations.lt_pln204ffdata(year: 1000000)
 ```
 </dd>
 </dl>
@@ -18897,7 +18924,7 @@ client.declarations.post_v1declarations_lt_pln204ffdata(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_mt_company_tax_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsMtCompanyTaxGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">mt_company_tax_generate</a>(request) -> Nordlet::Declarations::Types::MtCompanyTaxGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18924,7 +18951,7 @@ Compute the company income tax return and self-assessment of a year of assessmen
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_mt_company_tax_generate(year: 1000000)
+client.declarations.mt_company_tax_generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -18959,7 +18986,7 @@ client.declarations.post_v1declarations_mt_company_tax_generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_mt_annual_return_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsMtAnnualReturnGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">mt_annual_return_generate</a>(request) -> Nordlet::Declarations::Types::MtAnnualReturnGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -18986,7 +19013,7 @@ Build the annual return of a year: the company number, registered office and mad
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_mt_annual_return_generate(year: 1000000)
+client.declarations.mt_annual_return_generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -19021,7 +19048,7 @@ client.declarations.post_v1declarations_mt_annual_return_generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_jpk_fa_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlJpkFaGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_jpk_fa_generate</a>(request) -> Nordlet::Declarations::Types::PlJpkFaGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19048,9 +19075,9 @@ Generate JPK_FA(4), the on-demand structure with every sales invoice issued in a
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_jpk_fa_generate(
-  date_from: "dateFrom",
-  date_to: "dateTo"
+client.declarations.pl_jpk_fa_generate(
+  date_from: "2026-07-01",
+  date_to: "2026-07-01"
 )
 ```
 </dd>
@@ -19094,7 +19121,7 @@ client.declarations.post_v1declarations_pl_jpk_fa_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_jpk_kr_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlJpkKrGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_jpk_kr_generate</a>(request) -> Nordlet::Declarations::Types::PlJpkKrGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19121,9 +19148,9 @@ Generate JPK_KR(1), the on-demand structure with the chart of accounts and its o
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_jpk_kr_generate(
-  date_from: "dateFrom",
-  date_to: "dateTo"
+client.declarations.pl_jpk_kr_generate(
+  date_from: "2026-07-01",
+  date_to: "2026-07-01"
 )
 ```
 </dd>
@@ -19167,7 +19194,7 @@ client.declarations.post_v1declarations_pl_jpk_kr_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_jpk_mag_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlJpkMagGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_jpk_mag_generate</a>(request) -> Nordlet::Declarations::Types::PlJpkMagGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19194,9 +19221,9 @@ Generate JPK_MAG(2), the on-demand structure with the warehouse documents of one
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_jpk_mag_generate(
-  date_from: "dateFrom",
-  date_to: "dateTo"
+client.declarations.pl_jpk_mag_generate(
+  date_from: "2026-07-01",
+  date_to: "2026-07-01"
 )
 ```
 </dd>
@@ -19248,7 +19275,7 @@ client.declarations.post_v1declarations_pl_jpk_mag_generate(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_pit11generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlPit11GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_pit11generate</a>(request) -> Nordlet::Declarations::Types::PlPit11GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19275,7 +19302,7 @@ Generate PIT-11(29) for every person on the payroll of one year: the pay, the de
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_pit11generate(year: 1000000)
+client.declarations.pl_pit11generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -19310,7 +19337,7 @@ client.declarations.post_v1declarations_pl_pit11generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_cit8generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlCit8GenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_cit8generate</a>(request) -> Nordlet::Declarations::Types::PlCit8GenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19337,7 +19364,7 @@ Generate CIT-8(34), the annual corporate income tax return, from the ledger of t
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_cit8generate(year: 1000000)
+client.declarations.pl_cit8generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -19372,7 +19399,7 @@ client.declarations.post_v1declarations_pl_cit8generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_zus_dra_compute</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlZusDraComputeResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_zus_dra_compute</a>(request) -> Nordlet::Declarations::Types::PlZusDraComputeDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19399,7 +19426,7 @@ Compute the monthly ZUS DRA settlement from the payroll run of one month: the pe
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_zus_dra_compute(
+client.declarations.pl_zus_dra_compute(
   year: 1000000,
   month: 1000000
 )
@@ -19445,7 +19472,7 @@ client.declarations.post_v1declarations_pl_zus_dra_compute(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_zus_dra_kedu</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlZusDraKeduResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_zus_dra_kedu</a>(request) -> Nordlet::Declarations::Types::PlZusDraKeduDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19472,7 +19499,7 @@ Build the KEDU file for one month: the ZUS DRA settlement and one ZUS RCA report
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_zus_dra_kedu(
+client.declarations.pl_zus_dra_kedu(
   year: 1000000,
   month: 1000000
 )
@@ -19518,7 +19545,7 @@ client.declarations.post_v1declarations_pl_zus_dra_kedu(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_pl_zus_dra_pdf</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsPlZusDraPdfResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">pl_zus_dra_pdf</a>(request) -> Nordlet::Declarations::Types::PlZusDraPdfDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19545,7 +19572,7 @@ Fill the published ZUS DRA form for one month and return it as a PDF. The amount
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_pl_zus_dra_pdf(
+client.declarations.pl_zus_dra_pdf(
   year: 1000000,
   month: 1000000
 )
@@ -19591,7 +19618,7 @@ client.declarations.post_v1declarations_pl_zus_dra_pdf(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ro_etransport_build</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsRoEtransportBuildResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">ro_etransport_build</a>(request) -> Nordlet::Declarations::Types::RoEtransportBuildDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19618,7 +19645,7 @@ Build the RO e-Transport declaration for an issued waybill: goods with their tar
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_ro_etransport_build(waybill_id: "waybillId")
+client.declarations.ro_etransport_build(waybill_id: "waybillId")
 ```
 </dd>
 </dl>
@@ -19653,7 +19680,7 @@ client.declarations.post_v1declarations_ro_etransport_build(waybill_id: "waybill
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ro_etransport_submit</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsRoEtransportSubmitResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">ro_etransport_submit</a>(request) -> Nordlet::Declarations::Types::RoEtransportSubmitDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19680,7 +19707,7 @@ Hand the RO e-Transport declaration for an issued waybill to ANAF under the SPV 
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_ro_etransport_submit(waybill_id: "waybillId")
+client.declarations.ro_etransport_submit(waybill_id: "waybillId")
 ```
 </dd>
 </dl>
@@ -19715,7 +19742,7 @@ client.declarations.post_v1declarations_ro_etransport_submit(waybill_id: "waybil
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_ro_etransport_status</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsRoEtransportStatusResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">ro_etransport_status</a>(request) -> Nordlet::Declarations::Types::RoEtransportStatusDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19742,7 +19769,7 @@ Read the outcome of an e-Transport declaration from ANAF by its upload index, un
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_ro_etransport_status(reference: "reference")
+client.declarations.ro_etransport_status(reference: "reference")
 ```
 </dd>
 </dl>
@@ -19777,7 +19804,7 @@ client.declarations.post_v1declarations_ro_etransport_status(reference: "referen
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_li_lohndeklaration_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLiLohndeklarationGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">li_lohndeklaration_generate</a>(request) -> Nordlet::Declarations::Types::LiLohndeklarationGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19804,7 +19831,7 @@ Build the annual wage declaration (Lohndeklaration) to the AHV-IV-FAK from the a
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_li_lohndeklaration_generate(year: 1000000)
+client.declarations.li_lohndeklaration_generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -19839,7 +19866,7 @@ client.declarations.post_v1declarations_li_lohndeklaration_generate(year: 100000
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_li_lohnlisten_generate</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsLiLohnlistenGenerateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">li_lohnlisten_generate</a>(request) -> Nordlet::Declarations::Types::LiLohnlistenGenerateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19866,7 +19893,7 @@ Build the annual wage list (Lohnliste) of a Liechtenstein employer from the appr
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_li_lohnlisten_generate(year: 1000000)
+client.declarations.li_lohnlisten_generate(year: 1000000)
 ```
 </dd>
 </dl>
@@ -19901,7 +19928,7 @@ client.declarations.post_v1declarations_li_lohnlisten_generate(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_configs_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsConfigsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">configs_list</a>(request) -> Nordlet::Declarations::Types::ConfigsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19914,7 +19941,7 @@ client.declarations.post_v1declarations_li_lohnlisten_generate(year: 1000000)
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_configs_list
+client.declarations.configs_list
 ```
 </dd>
 </dl>
@@ -19941,7 +19968,7 @@ client.declarations.post_v1declarations_configs_list
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_configs_update</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsConfigsUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">configs_update</a>(request) -> Nordlet::Declarations::Types::ConfigsUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -19954,7 +19981,7 @@ client.declarations.post_v1declarations_configs_list
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_configs_update(
+client.declarations.configs_update(
   system: "system",
   config: {
     key: "value"
@@ -20002,7 +20029,7 @@ client.declarations.post_v1declarations_configs_update(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">store_the_certificate_or_private_key_a_filing_system_authenticates_with</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCertificatesUploadResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">certificates_upload</a>(request) -> Nordlet::Declarations::Types::CertificatesUploadDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -20015,7 +20042,7 @@ client.declarations.post_v1declarations_configs_update(
 <dd>
 
 ```ruby
-client.declarations.store_the_certificate_or_private_key_a_filing_system_authenticates_with(
+client.declarations.certificates_upload(
   system: "system",
   file_name: "fileName",
   content: "content"
@@ -20078,7 +20105,7 @@ client.declarations.store_the_certificate_or_private_key_a_filing_system_authent
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_certificates_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCertificatesListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">certificates_list</a>(request) -> Nordlet::Declarations::Types::CertificatesListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -20091,7 +20118,7 @@ client.declarations.store_the_certificate_or_private_key_a_filing_system_authent
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_certificates_list
+client.declarations.certificates_list
 ```
 </dd>
 </dl>
@@ -20118,7 +20145,7 @@ client.declarations.post_v1declarations_certificates_list
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_certificates_delete</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsCertificatesDeleteResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">certificates_delete</a>(request) -> Nordlet::Declarations::Types::CertificatesDeleteDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -20131,7 +20158,7 @@ client.declarations.post_v1declarations_certificates_list
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_certificates_delete(
+client.declarations.certificates_delete(
   system: "system",
   field_key: "certificate"
 )
@@ -20157,7 +20184,7 @@ client.declarations.post_v1declarations_certificates_delete(
 <dl>
 <dd>
 
-**field_key:** `Nordlet::Declarations::Types::PostV1DeclarationsCertificatesDeleteRequestFieldKey` 
+**field_key:** `Nordlet::Declarations::Types::CertificatesDeleteDeclarationsRequestFieldKey` 
     
 </dd>
 </dl>
@@ -20177,7 +20204,7 @@ client.declarations.post_v1declarations_certificates_delete(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">which_deadlines_nordlet_can_file_by_itself_for_this_company_and_which_are_switched_on</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAutomationListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">automation_list</a>(request) -> Nordlet::Declarations::Types::AutomationListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -20190,7 +20217,7 @@ client.declarations.post_v1declarations_certificates_delete(
 <dd>
 
 ```ruby
-client.declarations.which_deadlines_nordlet_can_file_by_itself_for_this_company_and_which_are_switched_on
+client.declarations.automation_list
 ```
 </dd>
 </dl>
@@ -20217,7 +20244,7 @@ client.declarations.which_deadlines_nordlet_can_file_by_itself_for_this_company_
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_automation_update</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsAutomationUpdateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">automation_update</a>(request) -> Nordlet::Declarations::Types::AutomationUpdateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -20230,7 +20257,7 @@ client.declarations.which_deadlines_nordlet_can_file_by_itself_for_this_company_
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_automation_update(
+client.declarations.automation_update(
   rule_key: "ruleKey",
   enabled: true
 )
@@ -20276,7 +20303,7 @@ client.declarations.post_v1declarations_automation_update(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">send_a_filing_whose_delivery_failed_once_more_with_the_bytes_that_were_generated</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsRetryResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">submissions_retry</a>(request) -> Nordlet::Declarations::Types::SubmissionsRetryDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -20289,7 +20316,7 @@ client.declarations.post_v1declarations_automation_update(
 <dd>
 
 ```ruby
-client.declarations.send_a_filing_whose_delivery_failed_once_more_with_the_bytes_that_were_generated(id: "id")
+client.declarations.submissions_retry(id: "id")
 ```
 </dd>
 </dl>
@@ -20324,7 +20351,7 @@ client.declarations.send_a_filing_whose_delivery_failed_once_more_with_the_bytes
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_submissions_create</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsCreateResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">submissions_create</a>(request) -> Nordlet::Declarations::Types::SubmissionsCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -20337,7 +20364,7 @@ client.declarations.send_a_filing_whose_delivery_failed_once_more_with_the_bytes
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_submissions_create(
+client.declarations.submissions_create(
   obligation: "lt-isaf",
   year: 1000000,
   month: 1000000
@@ -20356,7 +20383,7 @@ client.declarations.post_v1declarations_submissions_create(
 <dl>
 <dd>
 
-**obligation:** `Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsCreateRequestObligation` 
+**obligation:** `Nordlet::Declarations::Types::SubmissionsCreateDeclarationsRequestObligation` 
     
 </dd>
 </dl>
@@ -20380,7 +20407,7 @@ client.declarations.post_v1declarations_submissions_create(
 <dl>
 <dd>
 
-**data_type:** `Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsCreateRequestDataType` 
+**data_type:** `Nordlet::Declarations::Types::SubmissionsCreateDeclarationsRequestDataType` 
     
 </dd>
 </dl>
@@ -20400,7 +20427,7 @@ client.declarations.post_v1declarations_submissions_create(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_submissions_mark</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsMarkResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">submissions_mark</a>(request) -> Nordlet::Declarations::Types::SubmissionsMarkDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -20413,7 +20440,7 @@ client.declarations.post_v1declarations_submissions_create(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_submissions_mark(
+client.declarations.submissions_mark(
   id: "id",
   status: "submitted"
 )
@@ -20439,7 +20466,7 @@ client.declarations.post_v1declarations_submissions_mark(
 <dl>
 <dd>
 
-**status:** `Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsMarkRequestStatus` 
+**status:** `Nordlet::Declarations::Types::SubmissionsMarkDeclarationsRequestStatus` 
     
 </dd>
 </dl>
@@ -20475,7 +20502,7 @@ client.declarations.post_v1declarations_submissions_mark(
 </dl>
 </details>
 
-<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">post_v1declarations_submissions_list</a>(request) -> Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsListResponse</code></summary>
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">submissions_list</a>(request) -> Nordlet::Declarations::Types::SubmissionsListDeclarationsResponse</code></summary>
 <dl>
 <dd>
 
@@ -20488,7 +20515,7 @@ client.declarations.post_v1declarations_submissions_mark(
 <dd>
 
 ```ruby
-client.declarations.post_v1declarations_submissions_list
+client.declarations.submissions_list
 ```
 </dd>
 </dl>
@@ -20519,7 +20546,7 @@ client.declarations.post_v1declarations_submissions_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Declarations::Types::SubmissionsListDeclarationsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -20527,7 +20554,7 @@ client.declarations.post_v1declarations_submissions_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Declarations::Types::PostV1DeclarationsSubmissionsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Declarations::Types::SubmissionsListDeclarationsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -20555,8 +20582,8 @@ client.declarations.post_v1declarations_submissions_list
 </dl>
 </details>
 
-## Ledger
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_accounts_list</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerAccountsListResponse</code></summary>
+## ledger
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">accounts_list</a>(request) -> Nordlet::Ledger::Types::AccountsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -20569,7 +20596,7 @@ client.declarations.post_v1declarations_submissions_list
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_accounts_list
+client.ledger.accounts_list
 ```
 </dd>
 </dl>
@@ -20600,7 +20627,7 @@ client.ledger.post_v1ledger_accounts_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerAccountsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::AccountsListLedgerRequestSortItem]` 
     
 </dd>
 </dl>
@@ -20608,7 +20635,7 @@ client.ledger.post_v1ledger_accounts_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerAccountsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::AccountsListLedgerRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -20636,7 +20663,7 @@ client.ledger.post_v1ledger_accounts_list
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_accounts_create</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerAccountsCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">accounts_create</a>(request) -> Nordlet::Ledger::Types::AccountsCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -20649,7 +20676,7 @@ client.ledger.post_v1ledger_accounts_list
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_accounts_create(
+client.ledger.accounts_create(
   code: "code",
   name: "name",
   type: "asset"
@@ -20684,7 +20711,7 @@ client.ledger.post_v1ledger_accounts_create(
 <dl>
 <dd>
 
-**translations:** `Internal::Types::Hash[String, Nordlet::Ledger::Types::PostV1LedgerAccountsCreateRequestTranslationsValue]` 
+**translations:** `Internal::Types::Hash[String, Nordlet::Ledger::Types::AccountsCreateLedgerRequestTranslationsValue]` 
     
 </dd>
 </dl>
@@ -20692,7 +20719,7 @@ client.ledger.post_v1ledger_accounts_create(
 <dl>
 <dd>
 
-**type:** `Nordlet::Ledger::Types::PostV1LedgerAccountsCreateRequestType` 
+**type:** `Nordlet::Ledger::Types::AccountsCreateLedgerRequestType` 
     
 </dd>
 </dl>
@@ -20728,7 +20755,7 @@ client.ledger.post_v1ledger_accounts_create(
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_accounts_update</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerAccountsUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">accounts_update</a>(request) -> Nordlet::Ledger::Types::AccountsUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -20741,7 +20768,7 @@ client.ledger.post_v1ledger_accounts_create(
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_accounts_update(id: "id")
+client.ledger.accounts_update(id: "id")
 ```
 </dd>
 </dl>
@@ -20772,7 +20799,7 @@ client.ledger.post_v1ledger_accounts_update(id: "id")
 <dl>
 <dd>
 
-**translations:** `Internal::Types::Hash[String, Nordlet::Ledger::Types::PostV1LedgerAccountsUpdateRequestTranslationsValue]` 
+**translations:** `Internal::Types::Hash[String, Nordlet::Ledger::Types::AccountsUpdateLedgerRequestTranslationsValue]` 
     
 </dd>
 </dl>
@@ -20808,7 +20835,7 @@ client.ledger.post_v1ledger_accounts_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_accounts_apply_template</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerAccountsApplyTemplateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">accounts_apply_template</a>(request) -> Nordlet::Ledger::Types::AccountsApplyTemplateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -20821,7 +20848,7 @@ client.ledger.post_v1ledger_accounts_update(id: "id")
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_accounts_apply_template
+client.ledger.accounts_apply_template
 ```
 </dd>
 </dl>
@@ -20848,7 +20875,7 @@ client.ledger.post_v1ledger_accounts_apply_template
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">move_a_company_that_has_posted_nothing_yet_to_the_chart_of_accounts_of_its_country</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerAccountsSwitchChartResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">accounts_switch_chart</a>(request) -> Nordlet::Ledger::Types::AccountsSwitchChartLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -20875,7 +20902,7 @@ Replaces the seeded chart with the chart template of the company country (the Ro
 <dd>
 
 ```ruby
-client.ledger.move_a_company_that_has_posted_nothing_yet_to_the_chart_of_accounts_of_its_country
+client.ledger.accounts_switch_chart
 ```
 </dd>
 </dl>
@@ -20902,7 +20929,7 @@ client.ledger.move_a_company_that_has_posted_nothing_yet_to_the_chart_of_account
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_periods_list</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerPeriodsListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">periods_list</a>(request) -> Nordlet::Ledger::Types::PeriodsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -20915,7 +20942,7 @@ client.ledger.move_a_company_that_has_posted_nothing_yet_to_the_chart_of_account
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_periods_list
+client.ledger.periods_list
 ```
 </dd>
 </dl>
@@ -20946,7 +20973,7 @@ client.ledger.post_v1ledger_periods_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerPeriodsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::PeriodsListLedgerRequestSortItem]` 
     
 </dd>
 </dl>
@@ -20954,7 +20981,7 @@ client.ledger.post_v1ledger_periods_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerPeriodsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PeriodsListLedgerRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -20982,7 +21009,7 @@ client.ledger.post_v1ledger_periods_list
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_periods_lock</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerPeriodsLockResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">periods_lock</a>(request) -> Nordlet::Ledger::Types::PeriodsLockLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -20995,7 +21022,7 @@ client.ledger.post_v1ledger_periods_list
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_periods_lock(
+client.ledger.periods_lock(
   year: 1000000,
   month: 1000000
 )
@@ -21041,7 +21068,7 @@ client.ledger.post_v1ledger_periods_lock(
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_periods_unlock</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerPeriodsUnlockResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">periods_unlock</a>(request) -> Nordlet::Ledger::Types::PeriodsUnlockLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21054,7 +21081,7 @@ client.ledger.post_v1ledger_periods_lock(
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_periods_unlock(
+client.ledger.periods_unlock(
   year: 1000000,
   month: 1000000
 )
@@ -21100,7 +21127,7 @@ client.ledger.post_v1ledger_periods_unlock(
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_journal_transactions_list</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">journal_transactions_list</a>(request) -> Nordlet::Ledger::Types::JournalTransactionsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21113,7 +21140,7 @@ client.ledger.post_v1ledger_periods_unlock(
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_journal_transactions_list
+client.ledger.journal_transactions_list
 ```
 </dd>
 </dl>
@@ -21144,7 +21171,7 @@ client.ledger.post_v1ledger_journal_transactions_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::JournalTransactionsListLedgerRequestSortItem]` 
     
 </dd>
 </dl>
@@ -21152,7 +21179,7 @@ client.ledger.post_v1ledger_journal_transactions_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::JournalTransactionsListLedgerRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -21180,7 +21207,7 @@ client.ledger.post_v1ledger_journal_transactions_list
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_cost_centers_create</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerCostCentersCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">cost_centers_create</a>(request) -> Nordlet::Ledger::Types::CostCentersCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21193,7 +21220,7 @@ client.ledger.post_v1ledger_journal_transactions_list
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_cost_centers_create(
+client.ledger.cost_centers_create(
   code: "code",
   name: "name"
 )
@@ -21247,7 +21274,7 @@ client.ledger.post_v1ledger_cost_centers_create(
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_cost_centers_update</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerCostCentersUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">cost_centers_update</a>(request) -> Nordlet::Ledger::Types::CostCentersUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21260,7 +21287,7 @@ client.ledger.post_v1ledger_cost_centers_create(
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_cost_centers_update(id: "id")
+client.ledger.cost_centers_update(id: "id")
 ```
 </dd>
 </dl>
@@ -21319,7 +21346,7 @@ client.ledger.post_v1ledger_cost_centers_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_cost_centers_list</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerCostCentersListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">cost_centers_list</a>(request) -> Nordlet::Ledger::Types::CostCentersListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21332,7 +21359,7 @@ client.ledger.post_v1ledger_cost_centers_update(id: "id")
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_cost_centers_list
+client.ledger.cost_centers_list
 ```
 </dd>
 </dl>
@@ -21363,7 +21390,7 @@ client.ledger.post_v1ledger_cost_centers_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerCostCentersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::CostCentersListLedgerRequestSortItem]` 
     
 </dd>
 </dl>
@@ -21371,7 +21398,7 @@ client.ledger.post_v1ledger_cost_centers_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerCostCentersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::CostCentersListLedgerRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -21399,7 +21426,7 @@ client.ledger.post_v1ledger_cost_centers_list
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_cost_center_groups_create</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerCostCenterGroupsCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">cost_center_groups_create</a>(request) -> Nordlet::Ledger::Types::CostCenterGroupsCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21412,7 +21439,7 @@ client.ledger.post_v1ledger_cost_centers_list
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_cost_center_groups_create(
+client.ledger.cost_center_groups_create(
   code: "code",
   name: "name"
 )
@@ -21458,7 +21485,7 @@ client.ledger.post_v1ledger_cost_center_groups_create(
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_cost_center_groups_update</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerCostCenterGroupsUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">cost_center_groups_update</a>(request) -> Nordlet::Ledger::Types::CostCenterGroupsUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21471,7 +21498,7 @@ client.ledger.post_v1ledger_cost_center_groups_create(
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_cost_center_groups_update(id: "id")
+client.ledger.cost_center_groups_update(id: "id")
 ```
 </dd>
 </dl>
@@ -21522,7 +21549,7 @@ client.ledger.post_v1ledger_cost_center_groups_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_cost_center_groups_delete</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerCostCenterGroupsDeleteResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">cost_center_groups_delete</a>(request) -> Nordlet::Ledger::Types::CostCenterGroupsDeleteLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21535,7 +21562,7 @@ client.ledger.post_v1ledger_cost_center_groups_update(id: "id")
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_cost_center_groups_delete(id: "id")
+client.ledger.cost_center_groups_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -21570,7 +21597,7 @@ client.ledger.post_v1ledger_cost_center_groups_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_cost_center_groups_list</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerCostCenterGroupsListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">cost_center_groups_list</a>(request) -> Nordlet::Ledger::Types::CostCenterGroupsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21583,7 +21610,7 @@ client.ledger.post_v1ledger_cost_center_groups_delete(id: "id")
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_cost_center_groups_list
+client.ledger.cost_center_groups_list
 ```
 </dd>
 </dl>
@@ -21614,7 +21641,7 @@ client.ledger.post_v1ledger_cost_center_groups_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerCostCenterGroupsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::CostCenterGroupsListLedgerRequestSortItem]` 
     
 </dd>
 </dl>
@@ -21622,7 +21649,7 @@ client.ledger.post_v1ledger_cost_center_groups_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerCostCenterGroupsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::CostCenterGroupsListLedgerRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -21650,7 +21677,7 @@ client.ledger.post_v1ledger_cost_center_groups_list
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_posting_rules_list</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerPostingRulesListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">posting_rules_list</a>(request) -> Nordlet::Ledger::Types::PostingRulesListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21663,7 +21690,7 @@ client.ledger.post_v1ledger_cost_center_groups_list
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_posting_rules_list
+client.ledger.posting_rules_list
 ```
 </dd>
 </dl>
@@ -21690,7 +21717,7 @@ client.ledger.post_v1ledger_posting_rules_list
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_posting_rules_update</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerPostingRulesUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">posting_rules_update</a>(request) -> Nordlet::Ledger::Types::PostingRulesUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21703,7 +21730,7 @@ client.ledger.post_v1ledger_posting_rules_list
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_posting_rules_update(rules: [{
+client.ledger.posting_rules_update(rules: [{
   key: "sales.receivable"
 }])
 ```
@@ -21720,7 +21747,7 @@ client.ledger.post_v1ledger_posting_rules_update(rules: [{
 <dl>
 <dd>
 
-**rules:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerPostingRulesUpdateRequestRulesItem]` 
+**rules:** `Internal::Types::Array[Nordlet::Ledger::Types::PostingRulesUpdateLedgerRequestRulesItem]` 
     
 </dd>
 </dl>
@@ -21740,7 +21767,7 @@ client.ledger.post_v1ledger_posting_rules_update(rules: [{
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_owners_create</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerOwnersCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">owners_create</a>(request) -> Nordlet::Ledger::Types::OwnersCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21753,7 +21780,7 @@ client.ledger.post_v1ledger_posting_rules_update(rules: [{
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_owners_create(name: "name")
+client.ledger.owners_create(name: "name")
 ```
 </dd>
 </dl>
@@ -21808,7 +21835,7 @@ client.ledger.post_v1ledger_owners_create(name: "name")
 <dl>
 <dd>
 
-**shares_type:** `Nordlet::Ledger::Types::PostV1LedgerOwnersCreateRequestSharesType` 
+**shares_type:** `Nordlet::Ledger::Types::OwnersCreateLedgerRequestSharesType` 
     
 </dd>
 </dl>
@@ -21832,7 +21859,7 @@ client.ledger.post_v1ledger_owners_create(name: "name")
 <dl>
 <dd>
 
-**partner_liability:** `Nordlet::Ledger::Types::PostV1LedgerOwnersCreateRequestPartnerLiability` 
+**partner_liability:** `Nordlet::Ledger::Types::OwnersCreateLedgerRequestPartnerLiability` 
     
 </dd>
 </dl>
@@ -21856,7 +21883,7 @@ client.ledger.post_v1ledger_owners_create(name: "name")
 <dl>
 <dd>
 
-**address:** `Nordlet::Ledger::Types::PostV1LedgerOwnersCreateRequestAddress` 
+**address:** `Nordlet::Ledger::Types::OwnersCreateLedgerRequestAddress` 
     
 </dd>
 </dl>
@@ -21876,7 +21903,7 @@ client.ledger.post_v1ledger_owners_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_owners_update</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerOwnersUpdateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">owners_update</a>(request) -> Nordlet::Ledger::Types::OwnersUpdateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -21889,7 +21916,7 @@ client.ledger.post_v1ledger_owners_create(name: "name")
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_owners_update(id: "id")
+client.ledger.owners_update(id: "id")
 ```
 </dd>
 </dl>
@@ -21952,7 +21979,7 @@ client.ledger.post_v1ledger_owners_update(id: "id")
 <dl>
 <dd>
 
-**shares_type:** `Nordlet::Ledger::Types::PostV1LedgerOwnersUpdateRequestSharesType` 
+**shares_type:** `Nordlet::Ledger::Types::OwnersUpdateLedgerRequestSharesType` 
     
 </dd>
 </dl>
@@ -21976,7 +22003,7 @@ client.ledger.post_v1ledger_owners_update(id: "id")
 <dl>
 <dd>
 
-**partner_liability:** `Nordlet::Ledger::Types::PostV1LedgerOwnersUpdateRequestPartnerLiability` 
+**partner_liability:** `Nordlet::Ledger::Types::OwnersUpdateLedgerRequestPartnerLiability` 
     
 </dd>
 </dl>
@@ -22000,7 +22027,7 @@ client.ledger.post_v1ledger_owners_update(id: "id")
 <dl>
 <dd>
 
-**address:** `Nordlet::Ledger::Types::PostV1LedgerOwnersUpdateRequestAddress` 
+**address:** `Nordlet::Ledger::Types::OwnersUpdateLedgerRequestAddress` 
     
 </dd>
 </dl>
@@ -22020,7 +22047,7 @@ client.ledger.post_v1ledger_owners_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_owners_delete</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerOwnersDeleteResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">owners_delete</a>(request) -> Nordlet::Ledger::Types::OwnersDeleteLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -22033,7 +22060,7 @@ client.ledger.post_v1ledger_owners_update(id: "id")
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_owners_delete(id: "id")
+client.ledger.owners_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -22068,7 +22095,7 @@ client.ledger.post_v1ledger_owners_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_owners_list</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerOwnersListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">owners_list</a>(request) -> Nordlet::Ledger::Types::OwnersListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -22081,7 +22108,7 @@ client.ledger.post_v1ledger_owners_delete(id: "id")
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_owners_list
+client.ledger.owners_list
 ```
 </dd>
 </dl>
@@ -22112,7 +22139,7 @@ client.ledger.post_v1ledger_owners_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerOwnersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Ledger::Types::OwnersListLedgerRequestSortItem]` 
     
 </dd>
 </dl>
@@ -22120,7 +22147,7 @@ client.ledger.post_v1ledger_owners_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerOwnersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Ledger::Types::OwnersListLedgerRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -22148,7 +22175,7 @@ client.ledger.post_v1ledger_owners_list
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_journal_transactions_get</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsGetResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">journal_transactions_get</a>(request) -> Nordlet::Ledger::Types::JournalTransactionsGetLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -22161,7 +22188,7 @@ client.ledger.post_v1ledger_owners_list
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_journal_transactions_get(id: "id")
+client.ledger.journal_transactions_get(id: "id")
 ```
 </dd>
 </dl>
@@ -22196,7 +22223,7 @@ client.ledger.post_v1ledger_journal_transactions_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">post_v1ledger_journal_transactions_create</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsCreateResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">journal_transactions_create</a>(request) -> Nordlet::Ledger::Types::JournalTransactionsCreateLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -22209,8 +22236,8 @@ client.ledger.post_v1ledger_journal_transactions_get(id: "id")
 <dd>
 
 ```ruby
-client.ledger.post_v1ledger_journal_transactions_create(
-  date: "date",
+client.ledger.journal_transactions_create(
+  date: "2026-07-01",
   entries: [{
     account_code: "accountCode"
   }]
@@ -22245,7 +22272,7 @@ client.ledger.post_v1ledger_journal_transactions_create(
 <dl>
 <dd>
 
-**entries:** `Internal::Types::Array[Nordlet::Ledger::Types::PostV1LedgerJournalTransactionsCreateRequestEntriesItem]` 
+**entries:** `Internal::Types::Array[Nordlet::Ledger::Types::JournalTransactionsCreateLedgerRequestEntriesItem]` 
     
 </dd>
 </dl>
@@ -22265,7 +22292,7 @@ client.ledger.post_v1ledger_journal_transactions_create(
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">national_statement_layouts_available_to_the_company</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerStatementRowsSchemesResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">statement_rows_schemes</a>(request) -> Nordlet::Ledger::Types::StatementRowsSchemesLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -22292,7 +22319,7 @@ The rows or codes of each return or registry deposit of the company country that
 <dd>
 
 ```ruby
-client.ledger.national_statement_layouts_available_to_the_company
+client.ledger.statement_rows_schemes
 ```
 </dd>
 </dl>
@@ -22319,7 +22346,7 @@ client.ledger.national_statement_layouts_available_to_the_company
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">accounts_placed_on_the_rows_of_a_statement_layout_with_the_row_totals_of_a_period</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerStatementRowsListResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">statement_rows_list</a>(request) -> Nordlet::Ledger::Types::StatementRowsListLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -22332,7 +22359,7 @@ client.ledger.national_statement_layouts_available_to_the_company
 <dd>
 
 ```ruby
-client.ledger.accounts_placed_on_the_rows_of_a_statement_layout_with_the_row_totals_of_a_period(scheme: "scheme")
+client.ledger.statement_rows_list(scheme: "scheme")
 ```
 </dd>
 </dl>
@@ -22383,7 +22410,7 @@ client.ledger.accounts_placed_on_the_rows_of_a_statement_layout_with_the_row_tot
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">map_an_account_or_an_account_code_prefix_to_a_row_of_a_statement_layout</a>(request) -> Nordlet::Ledger::Types::PostV1LedgerStatementRowsSetResponse</code></summary>
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">statement_rows_set</a>(request) -> Nordlet::Ledger::Types::StatementRowsSetLedgerResponse</code></summary>
 <dl>
 <dd>
 
@@ -22410,7 +22437,7 @@ A mapping on a code prefix covers every account whose code starts with it; the l
 <dd>
 
 ```ruby
-client.ledger.map_an_account_or_an_account_code_prefix_to_a_row_of_a_statement_layout(
+client.ledger.statement_rows_set(
   scheme: "scheme",
   account_code: "accountCode"
 )
@@ -22464,7 +22491,8 @@ client.ledger.map_an_account_or_an_account_code_prefix_to_a_row_of_a_statement_l
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">officers_of_the_company</a>(request) -> Nordlet::Ledger::Types::PostV1OfficersListResponse</code></summary>
+## Officers
+<details><summary><code>client.officers.<a href="/lib/nordlet/officers/client.rb">list</a>(request) -> Nordlet::Officers::Types::ListOfficersResponse</code></summary>
 <dl>
 <dd>
 
@@ -22491,7 +22519,7 @@ Directors, board members, the company secretary, representatives and liquidators
 <dd>
 
 ```ruby
-client.ledger.officers_of_the_company
+client.officers.list
 ```
 </dd>
 </dl>
@@ -22506,7 +22534,7 @@ client.ledger.officers_of_the_company
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Ledger::RequestOptions` 
+**request_options:** `Nordlet::Officers::RequestOptions` 
     
 </dd>
 </dl>
@@ -22518,7 +22546,7 @@ client.ledger.officers_of_the_company
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">record_an_officer_of_the_company</a>(request) -> Nordlet::Ledger::Types::PostV1OfficersCreateResponse</code></summary>
+<details><summary><code>client.officers.<a href="/lib/nordlet/officers/client.rb">create</a>(request) -> Nordlet::Officers::Types::CreateOfficersResponse</code></summary>
 <dl>
 <dd>
 
@@ -22531,7 +22559,7 @@ client.ledger.officers_of_the_company
 <dd>
 
 ```ruby
-client.ledger.record_an_officer_of_the_company(
+client.officers.create(
   name: "name",
   role: "director"
 )
@@ -22557,7 +22585,7 @@ client.ledger.record_an_officer_of_the_company(
 <dl>
 <dd>
 
-**role:** `Nordlet::Ledger::Types::PostV1OfficersCreateRequestRole` 
+**role:** `Nordlet::Officers::Types::CreateOfficersRequestRole` 
     
 </dd>
 </dl>
@@ -22613,7 +22641,7 @@ client.ledger.record_an_officer_of_the_company(
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Ledger::RequestOptions` 
+**request_options:** `Nordlet::Officers::RequestOptions` 
     
 </dd>
 </dl>
@@ -22625,7 +22653,7 @@ client.ledger.record_an_officer_of_the_company(
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">change_a_recorded_officer</a>(request) -> Nordlet::Ledger::Types::PostV1OfficersUpdateResponse</code></summary>
+<details><summary><code>client.officers.<a href="/lib/nordlet/officers/client.rb">update</a>(request) -> Nordlet::Officers::Types::UpdateOfficersResponse</code></summary>
 <dl>
 <dd>
 
@@ -22638,7 +22666,7 @@ client.ledger.record_an_officer_of_the_company(
 <dd>
 
 ```ruby
-client.ledger.change_a_recorded_officer(
+client.officers.update(
   id: "id",
   name: "name",
   role: "director"
@@ -22673,7 +22701,7 @@ client.ledger.change_a_recorded_officer(
 <dl>
 <dd>
 
-**role:** `Nordlet::Ledger::Types::PostV1OfficersUpdateRequestRole` 
+**role:** `Nordlet::Officers::Types::UpdateOfficersRequestRole` 
     
 </dd>
 </dl>
@@ -22729,7 +22757,7 @@ client.ledger.change_a_recorded_officer(
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Ledger::RequestOptions` 
+**request_options:** `Nordlet::Officers::RequestOptions` 
     
 </dd>
 </dl>
@@ -22741,7 +22769,7 @@ client.ledger.change_a_recorded_officer(
 </dl>
 </details>
 
-<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">remove_a_recorded_officer</a>(request) -> Nordlet::Ledger::Types::PostV1OfficersDeleteResponse</code></summary>
+<details><summary><code>client.officers.<a href="/lib/nordlet/officers/client.rb">delete</a>(request) -> Nordlet::Officers::Types::DeleteOfficersResponse</code></summary>
 <dl>
 <dd>
 
@@ -22754,7 +22782,7 @@ client.ledger.change_a_recorded_officer(
 <dd>
 
 ```ruby
-client.ledger.remove_a_recorded_officer(id: "id")
+client.officers.delete(id: "id")
 ```
 </dd>
 </dl>
@@ -22777,7 +22805,7 @@ client.ledger.remove_a_recorded_officer(id: "id")
 <dl>
 <dd>
 
-**request_options:** `Nordlet::Ledger::RequestOptions` 
+**request_options:** `Nordlet::Officers::RequestOptions` 
     
 </dd>
 </dl>
@@ -22789,8 +22817,8 @@ client.ledger.remove_a_recorded_officer(id: "id")
 </dl>
 </details>
 
-## Migration
-<details><summary><code>client.migration.<a href="/lib/nordlet/migration/client.rb">check_a_historical_books_package_without_writing_anything</a>(request) -> Nordlet::Migration::Types::PostV1MigrationBooksValidateResponse</code></summary>
+## migration
+<details><summary><code>client.migration.<a href="/lib/nordlet/migration/client.rb">books_validate</a>(request) -> Nordlet::Migration::Types::BooksValidateMigrationResponse</code></summary>
 <dl>
 <dd>
 
@@ -22817,7 +22845,7 @@ Runs every check the import runs (accounts, partners, balances, open invoices, a
 <dd>
 
 ```ruby
-client.migration.check_a_historical_books_package_without_writing_anything(cutover_date: "cutoverDate")
+client.migration.books_validate(cutover_date: "2026-07-01")
 ```
 </dd>
 </dl>
@@ -22848,7 +22876,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**accounts:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestAccountsItem]` 
+**accounts:** `Internal::Types::Array[Nordlet::Migration::Types::BooksValidateMigrationRequestAccountsItem]` 
     
 </dd>
 </dl>
@@ -22856,7 +22884,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**partners:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestPartnersItem]` 
+**partners:** `Internal::Types::Array[Nordlet::Migration::Types::BooksValidateMigrationRequestPartnersItem]` 
     
 </dd>
 </dl>
@@ -22864,7 +22892,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**items:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestItemsItem]` 
+**items:** `Internal::Types::Array[Nordlet::Migration::Types::BooksValidateMigrationRequestItemsItem]` 
     
 </dd>
 </dl>
@@ -22872,7 +22900,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**opening_balances:** `Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestOpeningBalances` 
+**opening_balances:** `Nordlet::Migration::Types::BooksValidateMigrationRequestOpeningBalances` 
     
 </dd>
 </dl>
@@ -22880,7 +22908,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**journal:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestJournalItem]` 
+**journal:** `Internal::Types::Array[Nordlet::Migration::Types::BooksValidateMigrationRequestJournalItem]` 
     
 </dd>
 </dl>
@@ -22888,7 +22916,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**open_receivables:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestOpenReceivablesItem]` 
+**open_receivables:** `Internal::Types::Array[Nordlet::Migration::Types::BooksValidateMigrationRequestOpenReceivablesItem]` 
     
 </dd>
 </dl>
@@ -22896,7 +22924,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**open_payables:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestOpenPayablesItem]` 
+**open_payables:** `Internal::Types::Array[Nordlet::Migration::Types::BooksValidateMigrationRequestOpenPayablesItem]` 
     
 </dd>
 </dl>
@@ -22904,7 +22932,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**asset_groups:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestAssetGroupsItem]` 
+**asset_groups:** `Internal::Types::Array[Nordlet::Migration::Types::BooksValidateMigrationRequestAssetGroupsItem]` 
     
 </dd>
 </dl>
@@ -22912,7 +22940,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**fixed_assets:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestFixedAssetsItem]` 
+**fixed_assets:** `Internal::Types::Array[Nordlet::Migration::Types::BooksValidateMigrationRequestFixedAssetsItem]` 
     
 </dd>
 </dl>
@@ -22920,7 +22948,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 <dl>
 <dd>
 
-**stock:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksValidateRequestStockItem]` 
+**stock:** `Internal::Types::Array[Nordlet::Migration::Types::BooksValidateMigrationRequestStockItem]` 
     
 </dd>
 </dl>
@@ -22940,7 +22968,7 @@ client.migration.check_a_historical_books_package_without_writing_anything(cutov
 </dl>
 </details>
 
-<details><summary><code>client.migration.<a href="/lib/nordlet/migration/client.rb">import_historical_books_from_a_previous_accounting_system</a>(request) -> Nordlet::Migration::Types::PostV1MigrationBooksImportResponse</code></summary>
+<details><summary><code>client.migration.<a href="/lib/nordlet/migration/client.rb">books_import</a>(request) -> Nordlet::Migration::Types::BooksImportMigrationResponse</code></summary>
 <dl>
 <dd>
 
@@ -22967,7 +22995,7 @@ Brings a company over from another system in one call: chart of accounts, partne
 <dd>
 
 ```ruby
-client.migration.import_historical_books_from_a_previous_accounting_system(cutover_date: "cutoverDate")
+client.migration.books_import(cutover_date: "2026-07-01")
 ```
 </dd>
 </dl>
@@ -22998,7 +23026,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**accounts:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestAccountsItem]` 
+**accounts:** `Internal::Types::Array[Nordlet::Migration::Types::BooksImportMigrationRequestAccountsItem]` 
     
 </dd>
 </dl>
@@ -23006,7 +23034,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**partners:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestPartnersItem]` 
+**partners:** `Internal::Types::Array[Nordlet::Migration::Types::BooksImportMigrationRequestPartnersItem]` 
     
 </dd>
 </dl>
@@ -23014,7 +23042,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**items:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestItemsItem]` 
+**items:** `Internal::Types::Array[Nordlet::Migration::Types::BooksImportMigrationRequestItemsItem]` 
     
 </dd>
 </dl>
@@ -23022,7 +23050,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**opening_balances:** `Nordlet::Migration::Types::PostV1MigrationBooksImportRequestOpeningBalances` 
+**opening_balances:** `Nordlet::Migration::Types::BooksImportMigrationRequestOpeningBalances` 
     
 </dd>
 </dl>
@@ -23030,7 +23058,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**journal:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestJournalItem]` 
+**journal:** `Internal::Types::Array[Nordlet::Migration::Types::BooksImportMigrationRequestJournalItem]` 
     
 </dd>
 </dl>
@@ -23038,7 +23066,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**open_receivables:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestOpenReceivablesItem]` 
+**open_receivables:** `Internal::Types::Array[Nordlet::Migration::Types::BooksImportMigrationRequestOpenReceivablesItem]` 
     
 </dd>
 </dl>
@@ -23046,7 +23074,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**open_payables:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestOpenPayablesItem]` 
+**open_payables:** `Internal::Types::Array[Nordlet::Migration::Types::BooksImportMigrationRequestOpenPayablesItem]` 
     
 </dd>
 </dl>
@@ -23054,7 +23082,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**asset_groups:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestAssetGroupsItem]` 
+**asset_groups:** `Internal::Types::Array[Nordlet::Migration::Types::BooksImportMigrationRequestAssetGroupsItem]` 
     
 </dd>
 </dl>
@@ -23062,7 +23090,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**fixed_assets:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestFixedAssetsItem]` 
+**fixed_assets:** `Internal::Types::Array[Nordlet::Migration::Types::BooksImportMigrationRequestFixedAssetsItem]` 
     
 </dd>
 </dl>
@@ -23070,7 +23098,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dl>
 <dd>
 
-**stock:** `Internal::Types::Array[Nordlet::Migration::Types::PostV1MigrationBooksImportRequestStockItem]` 
+**stock:** `Internal::Types::Array[Nordlet::Migration::Types::BooksImportMigrationRequestStockItem]` 
     
 </dd>
 </dl>
@@ -23090,8 +23118,8 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 </dl>
 </details>
 
-## Assets
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_groups_create</a>(request) -> Nordlet::Assets::Types::PostV1AssetsGroupsCreateResponse</code></summary>
+## assets
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">groups_create</a>(request) -> Nordlet::Assets::Types::GroupsCreateAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23104,7 +23132,7 @@ client.migration.import_historical_books_from_a_previous_accounting_system(cutov
 <dd>
 
 ```ruby
-client.assets.post_v1assets_groups_create(
+client.assets.groups_create(
   code: "code",
   name: "name",
   asset_account_code: "assetAccountCode",
@@ -23184,7 +23212,7 @@ client.assets.post_v1assets_groups_create(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_groups_list</a>(request) -> Nordlet::Assets::Types::PostV1AssetsGroupsListResponse</code></summary>
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">groups_list</a>(request) -> Nordlet::Assets::Types::GroupsListAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23197,7 +23225,7 @@ client.assets.post_v1assets_groups_create(
 <dd>
 
 ```ruby
-client.assets.post_v1assets_groups_list
+client.assets.groups_list
 ```
 </dd>
 </dl>
@@ -23228,7 +23256,7 @@ client.assets.post_v1assets_groups_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsGroupsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Assets::Types::GroupsListAssetsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -23236,7 +23264,7 @@ client.assets.post_v1assets_groups_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsGroupsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Assets::Types::GroupsListAssetsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -23264,7 +23292,7 @@ client.assets.post_v1assets_groups_list
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_assets_create</a>(request) -> Nordlet::Assets::Types::PostV1AssetsAssetsCreateResponse</code></summary>
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">assets_create</a>(request) -> Nordlet::Assets::Types::AssetsCreateAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23277,12 +23305,12 @@ client.assets.post_v1assets_groups_list
 <dd>
 
 ```ruby
-client.assets.post_v1assets_assets_create(
+client.assets.assets_create(
   group_id: "groupId",
   code: "code",
   name: "name",
-  acquisition_date: "acquisitionDate",
-  acquisition_cost: "acquisitionCost"
+  acquisition_date: "2026-07-01",
+  acquisition_cost: "121.0000"
 )
 ```
 </dd>
@@ -23370,7 +23398,7 @@ client.assets.post_v1assets_assets_create(
 <dl>
 <dd>
 
-**documents:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsCreateRequestDocumentsItem]` 
+**documents:** `Internal::Types::Array[Nordlet::Assets::Types::AssetsCreateAssetsRequestDocumentsItem]` 
     
 </dd>
 </dl>
@@ -23390,7 +23418,7 @@ client.assets.post_v1assets_assets_create(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_assets_update</a>(request) -> Nordlet::Assets::Types::PostV1AssetsAssetsUpdateResponse</code></summary>
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">assets_update</a>(request) -> Nordlet::Assets::Types::AssetsUpdateAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23403,7 +23431,7 @@ client.assets.post_v1assets_assets_create(
 <dd>
 
 ```ruby
-client.assets.post_v1assets_assets_update(id: "id")
+client.assets.assets_update(id: "id")
 ```
 </dd>
 </dl>
@@ -23490,7 +23518,7 @@ client.assets.post_v1assets_assets_update(id: "id")
 <dl>
 <dd>
 
-**documents:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsUpdateRequestDocumentsItem]` 
+**documents:** `Internal::Types::Array[Nordlet::Assets::Types::AssetsUpdateAssetsRequestDocumentsItem]` 
     
 </dd>
 </dl>
@@ -23518,7 +23546,7 @@ client.assets.post_v1assets_assets_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_assets_input_vat</a>(request) -> Nordlet::Assets::Types::PostV1AssetsAssetsInputVatResponse</code></summary>
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">assets_input_vat</a>(request) -> Nordlet::Assets::Types::AssetsInputVatAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23545,12 +23573,12 @@ Record the input VAT facts of a capital good that the annual VAT return needs fo
 <dd>
 
 ```ruby
-client.assets.post_v1assets_assets_input_vat(
+client.assets.assets_input_vat(
   id: "id",
   input_vat_real_estate: true,
   input_vat_use_changes: [{
     year: 1000000,
-    percent: "percent",
+    percent: "121.00",
     reason: "use_change"
   }]
 )
@@ -23608,7 +23636,7 @@ client.assets.post_v1assets_assets_input_vat(
 <dl>
 <dd>
 
-**input_vat_use_changes:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsInputVatRequestInputVatUseChangesItem]` 
+**input_vat_use_changes:** `Internal::Types::Array[Nordlet::Assets::Types::AssetsInputVatAssetsRequestInputVatUseChangesItem]` 
     
 </dd>
 </dl>
@@ -23628,7 +23656,7 @@ client.assets.post_v1assets_assets_input_vat(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_assets_get</a>(request) -> Nordlet::Assets::Types::PostV1AssetsAssetsGetResponse</code></summary>
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">assets_get</a>(request) -> Nordlet::Assets::Types::AssetsGetAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23641,7 +23669,7 @@ client.assets.post_v1assets_assets_input_vat(
 <dd>
 
 ```ruby
-client.assets.post_v1assets_assets_get(id: "id")
+client.assets.assets_get(id: "id")
 ```
 </dd>
 </dl>
@@ -23676,7 +23704,7 @@ client.assets.post_v1assets_assets_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_assets_list</a>(request) -> Nordlet::Assets::Types::PostV1AssetsAssetsListResponse</code></summary>
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">assets_list</a>(request) -> Nordlet::Assets::Types::AssetsListAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23689,7 +23717,7 @@ client.assets.post_v1assets_assets_get(id: "id")
 <dd>
 
 ```ruby
-client.assets.post_v1assets_assets_list
+client.assets.assets_list
 ```
 </dd>
 </dl>
@@ -23720,7 +23748,7 @@ client.assets.post_v1assets_assets_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Assets::Types::AssetsListAssetsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -23728,7 +23756,7 @@ client.assets.post_v1assets_assets_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Assets::Types::PostV1AssetsAssetsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Assets::Types::AssetsListAssetsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -23756,7 +23784,7 @@ client.assets.post_v1assets_assets_list
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_assets_modernize</a>(request) -> Nordlet::Assets::Types::PostV1AssetsAssetsModernizeResponse</code></summary>
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">assets_modernize</a>(request) -> Nordlet::Assets::Types::AssetsModernizeAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23769,10 +23797,10 @@ client.assets.post_v1assets_assets_list
 <dd>
 
 ```ruby
-client.assets.post_v1assets_assets_modernize(
+client.assets.assets_modernize(
   id: "id",
-  date: "date",
-  amount: "amount"
+  date: "2026-07-01",
+  amount: "121.0000"
 )
 ```
 </dd>
@@ -23840,7 +23868,105 @@ client.assets.post_v1assets_assets_modernize(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_depreciation_preview</a>(request) -> Nordlet::Assets::Types::PostV1AssetsDepreciationPreviewResponse</code></summary>
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">assets_dispose</a>(request) -> Nordlet::Assets::Types::AssetsDisposeAssetsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Dispose of a fixed asset (sold, scrapped or written off). Removes its cost and accumulated depreciation, books the net book value as a disposal loss and the proceeds as a disposal gain (posting rules assets.disposalLoss, assets.disposalGain, assets.disposalProceeds), and stops its depreciation. Depreciation must be posted for every month before the disposal month.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.assets.assets_dispose(
+  id: "id",
+  date: "2026-07-01",
+  reason: "sold"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reason:** `Nordlet::Assets::Types::AssetsDisposeAssetsRequestReason` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**proceeds:** `String` — Sale price excluding VAT; 0 when scrapped or written off
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Assets::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">depreciation_preview</a>(request) -> Nordlet::Assets::Types::DepreciationPreviewAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23853,7 +23979,7 @@ client.assets.post_v1assets_assets_modernize(
 <dd>
 
 ```ruby
-client.assets.post_v1assets_depreciation_preview(
+client.assets.depreciation_preview(
   year: 1000000,
   month: 1000000
 )
@@ -23899,7 +24025,7 @@ client.assets.post_v1assets_depreciation_preview(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">post_v1assets_depreciation_post</a>(request) -> Nordlet::Assets::Types::PostV1AssetsDepreciationPostResponse</code></summary>
+<details><summary><code>client.assets.<a href="/lib/nordlet/assets/client.rb">depreciation_post</a>(request) -> Nordlet::Assets::Types::DepreciationPostAssetsResponse</code></summary>
 <dl>
 <dd>
 
@@ -23912,7 +24038,7 @@ client.assets.post_v1assets_depreciation_preview(
 <dd>
 
 ```ruby
-client.assets.post_v1assets_depreciation_post(
+client.assets.depreciation_post(
   year: 1000000,
   month: 1000000
 )
@@ -23958,8 +24084,8 @@ client.assets.post_v1assets_depreciation_post(
 </dl>
 </details>
 
-## Hr
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_positions_create</a>(request) -> Nordlet::Hr::Types::PostV1HrPositionsCreateResponse</code></summary>
+## hr
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">positions_create</a>(request) -> Nordlet::Hr::Types::PositionsCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -23972,7 +24098,7 @@ client.assets.post_v1assets_depreciation_post(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_positions_create(name: "name")
+client.hr.positions_create(name: "name")
 ```
 </dd>
 </dl>
@@ -24003,7 +24129,7 @@ client.hr.post_v1hr_positions_create(name: "name")
 <dl>
 <dd>
 
-**translations:** `Internal::Types::Hash[String, Nordlet::Hr::Types::PostV1HrPositionsCreateRequestTranslationsValue]` 
+**translations:** `Internal::Types::Hash[String, Nordlet::Hr::Types::PositionsCreateHrRequestTranslationsValue]` 
     
 </dd>
 </dl>
@@ -24023,7 +24149,7 @@ client.hr.post_v1hr_positions_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_positions_update</a>(request) -> Nordlet::Hr::Types::PostV1HrPositionsUpdateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">positions_update</a>(request) -> Nordlet::Hr::Types::PositionsUpdateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24036,7 +24162,7 @@ client.hr.post_v1hr_positions_create(name: "name")
 <dd>
 
 ```ruby
-client.hr.post_v1hr_positions_update(id: "id")
+client.hr.positions_update(id: "id")
 ```
 </dd>
 </dl>
@@ -24075,7 +24201,7 @@ client.hr.post_v1hr_positions_update(id: "id")
 <dl>
 <dd>
 
-**translations:** `Internal::Types::Hash[String, Nordlet::Hr::Types::PostV1HrPositionsUpdateRequestTranslationsValue]` 
+**translations:** `Internal::Types::Hash[String, Nordlet::Hr::Types::PositionsUpdateHrRequestTranslationsValue]` 
     
 </dd>
 </dl>
@@ -24095,7 +24221,7 @@ client.hr.post_v1hr_positions_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_positions_list</a>(request) -> Nordlet::Hr::Types::PostV1HrPositionsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">positions_list</a>(request) -> Nordlet::Hr::Types::PositionsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24108,7 +24234,7 @@ client.hr.post_v1hr_positions_update(id: "id")
 <dd>
 
 ```ruby
-client.hr.post_v1hr_positions_list
+client.hr.positions_list
 ```
 </dd>
 </dl>
@@ -24139,7 +24265,7 @@ client.hr.post_v1hr_positions_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrPositionsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Hr::Types::PositionsListHrRequestSortItem]` 
     
 </dd>
 </dl>
@@ -24147,7 +24273,7 @@ client.hr.post_v1hr_positions_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrPositionsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Hr::Types::PositionsListHrRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -24175,7 +24301,7 @@ client.hr.post_v1hr_positions_list
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_create</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesCreateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_create</a>(request) -> Nordlet::Hr::Types::EmployeesCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24188,7 +24314,7 @@ client.hr.post_v1hr_positions_list
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_create(
+client.hr.employees_create(
   first_name: "firstName",
   last_name: "lastName"
 )
@@ -24262,7 +24388,7 @@ client.hr.post_v1hr_employees_create(
 <dl>
 <dd>
 
-**address:** `Nordlet::Hr::Types::PostV1HrEmployeesCreateRequestAddress` 
+**address:** `Nordlet::Hr::Types::EmployeesCreateHrRequestAddress` 
     
 </dd>
 </dl>
@@ -24342,7 +24468,7 @@ client.hr.post_v1hr_employees_create(
 <dl>
 <dd>
 
-**attributes:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesCreateRequestAttributesItem]` 
+**attributes:** `Internal::Types::Array[Nordlet::Hr::Types::EmployeesCreateHrRequestAttributesItem]` 
     
 </dd>
 </dl>
@@ -24362,7 +24488,7 @@ client.hr.post_v1hr_employees_create(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_update</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesUpdateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_update</a>(request) -> Nordlet::Hr::Types::EmployeesUpdateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24375,7 +24501,7 @@ client.hr.post_v1hr_employees_create(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_update(id: "id")
+client.hr.employees_update(id: "id")
 ```
 </dd>
 </dl>
@@ -24446,7 +24572,7 @@ client.hr.post_v1hr_employees_update(id: "id")
 <dl>
 <dd>
 
-**address:** `Nordlet::Hr::Types::PostV1HrEmployeesUpdateRequestAddress` 
+**address:** `Nordlet::Hr::Types::EmployeesUpdateHrRequestAddress` 
     
 </dd>
 </dl>
@@ -24526,7 +24652,7 @@ client.hr.post_v1hr_employees_update(id: "id")
 <dl>
 <dd>
 
-**attributes:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesUpdateRequestAttributesItem]` 
+**attributes:** `Internal::Types::Array[Nordlet::Hr::Types::EmployeesUpdateHrRequestAttributesItem]` 
     
 </dd>
 </dl>
@@ -24550,7 +24676,7 @@ client.hr.post_v1hr_employees_update(id: "id")
 <dl>
 <dd>
 
-**status:** `Nordlet::Hr::Types::PostV1HrEmployeesUpdateRequestStatus` 
+**status:** `Nordlet::Hr::Types::EmployeesUpdateHrRequestStatus` 
     
 </dd>
 </dl>
@@ -24570,7 +24696,7 @@ client.hr.post_v1hr_employees_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_get</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesGetResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_get</a>(request) -> Nordlet::Hr::Types::EmployeesGetHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24583,7 +24709,7 @@ client.hr.post_v1hr_employees_update(id: "id")
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_get(id: "id")
+client.hr.employees_get(id: "id")
 ```
 </dd>
 </dl>
@@ -24618,7 +24744,7 @@ client.hr.post_v1hr_employees_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">extra_employee_details_the_country_of_the_company_asks_for</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesFieldsResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_fields</a>(request) -> Nordlet::Hr::Types::EmployeesFieldsHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24645,7 +24771,7 @@ Attributes a filing of the company country needs about a person that the shared 
 <dd>
 
 ```ruby
-client.hr.extra_employee_details_the_country_of_the_company_asks_for
+client.hr.employees_fields
 ```
 </dd>
 </dl>
@@ -24672,7 +24798,7 @@ client.hr.extra_employee_details_the_country_of_the_company_asks_for
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_list</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_list</a>(request) -> Nordlet::Hr::Types::EmployeesListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24685,7 +24811,7 @@ client.hr.extra_employee_details_the_country_of_the_company_asks_for
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_list
+client.hr.employees_list
 ```
 </dd>
 </dl>
@@ -24716,7 +24842,7 @@ client.hr.post_v1hr_employees_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Hr::Types::EmployeesListHrRequestSortItem]` 
     
 </dd>
 </dl>
@@ -24724,7 +24850,7 @@ client.hr.post_v1hr_employees_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Hr::Types::EmployeesListHrRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -24752,7 +24878,7 @@ client.hr.post_v1hr_employees_list
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_delete</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesDeleteResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_delete</a>(request) -> Nordlet::Hr::Types::EmployeesDeleteHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24765,7 +24891,7 @@ client.hr.post_v1hr_employees_list
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_delete(id: "id")
+client.hr.employees_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -24800,7 +24926,7 @@ client.hr.post_v1hr_employees_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">blank_an_employees_personal_data_and_hide_the_record</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesAnonymizeResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_anonymize</a>(request) -> Nordlet::Hr::Types::EmployeesAnonymizeHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24827,7 +24953,7 @@ Replaces the name with a placeholder and removes personal code, birth date, cont
 <dd>
 
 ```ruby
-client.hr.blank_an_employees_personal_data_and_hide_the_record(id: "id")
+client.hr.employees_anonymize(id: "id")
 ```
 </dd>
 </dl>
@@ -24862,7 +24988,7 @@ client.hr.blank_an_employees_personal_data_and_hide_the_record(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_contracts_create</a>(request) -> Nordlet::Hr::Types::PostV1HrContractsCreateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">contracts_create</a>(request) -> Nordlet::Hr::Types::ContractsCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -24875,10 +25001,10 @@ client.hr.blank_an_employees_personal_data_and_hide_the_record(id: "id")
 <dd>
 
 ```ruby
-client.hr.post_v1hr_contracts_create(
+client.hr.contracts_create(
   employee_id: "employeeId",
-  start_date: "startDate",
-  base_salary: "baseSalary"
+  start_date: "2026-07-01",
+  base_salary: "121.0000"
 )
 ```
 </dd>
@@ -24942,7 +25068,7 @@ client.hr.post_v1hr_contracts_create(
 <dl>
 <dd>
 
-**type:** `Nordlet::Hr::Types::PostV1HrContractsCreateRequestType` 
+**type:** `Nordlet::Hr::Types::ContractsCreateHrRequestType` 
     
 </dd>
 </dl>
@@ -24974,7 +25100,7 @@ client.hr.post_v1hr_contracts_create(
 <dl>
 <dd>
 
-**salary_type:** `Nordlet::Hr::Types::PostV1HrContractsCreateRequestSalaryType` 
+**salary_type:** `Nordlet::Hr::Types::ContractsCreateHrRequestSalaryType` 
     
 </dd>
 </dl>
@@ -25010,7 +25136,7 @@ client.hr.post_v1hr_contracts_create(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_contracts_end</a>(request) -> Nordlet::Hr::Types::PostV1HrContractsEndResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">contracts_end</a>(request) -> Nordlet::Hr::Types::ContractsEndHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25023,9 +25149,9 @@ client.hr.post_v1hr_contracts_create(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_contracts_end(
+client.hr.contracts_end(
   id: "id",
-  end_date: "endDate"
+  end_date: "2026-07-01"
 )
 ```
 </dd>
@@ -25077,7 +25203,7 @@ client.hr.post_v1hr_contracts_end(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_contracts_list</a>(request) -> Nordlet::Hr::Types::PostV1HrContractsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">contracts_list</a>(request) -> Nordlet::Hr::Types::ContractsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25090,7 +25216,7 @@ client.hr.post_v1hr_contracts_end(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_contracts_list
+client.hr.contracts_list
 ```
 </dd>
 </dl>
@@ -25121,7 +25247,7 @@ client.hr.post_v1hr_contracts_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrContractsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Hr::Types::ContractsListHrRequestSortItem]` 
     
 </dd>
 </dl>
@@ -25129,7 +25255,7 @@ client.hr.post_v1hr_contracts_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrContractsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Hr::Types::ContractsListHrRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -25157,7 +25283,7 @@ client.hr.post_v1hr_contracts_list
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_leave_balances_set</a>(request) -> Nordlet::Hr::Types::PostV1HrLeaveBalancesSetResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">leave_balances_set</a>(request) -> Nordlet::Hr::Types::LeaveBalancesSetHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25170,10 +25296,10 @@ client.hr.post_v1hr_contracts_list
 <dd>
 
 ```ruby
-client.hr.post_v1hr_leave_balances_set(
+client.hr.leave_balances_set(
   employee_id: "employeeId",
   year: 1000000,
-  entitled_days: "entitledDays"
+  entitled_days: "121.00"
 )
 ```
 </dd>
@@ -25233,7 +25359,7 @@ client.hr.post_v1hr_leave_balances_set(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_leave_balances_list</a>(request) -> Nordlet::Hr::Types::PostV1HrLeaveBalancesListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">leave_balances_list</a>(request) -> Nordlet::Hr::Types::LeaveBalancesListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25246,7 +25372,7 @@ client.hr.post_v1hr_leave_balances_set(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_leave_balances_list
+client.hr.leave_balances_list
 ```
 </dd>
 </dl>
@@ -25289,7 +25415,7 @@ client.hr.post_v1hr_leave_balances_list
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_incapacity_certificates_create</a>(request) -> Nordlet::Hr::Types::PostV1HrIncapacityCertificatesCreateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">incapacity_certificates_create</a>(request) -> Nordlet::Hr::Types::IncapacityCertificatesCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25302,11 +25428,11 @@ client.hr.post_v1hr_leave_balances_list
 <dd>
 
 ```ruby
-client.hr.post_v1hr_incapacity_certificates_create(
+client.hr.incapacity_certificates_create(
   employee_id: "employeeId",
   number: "number",
-  from_date: "fromDate",
-  to_date: "toDate"
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -25390,7 +25516,7 @@ client.hr.post_v1hr_incapacity_certificates_create(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_incapacity_certificates_list</a>(request) -> Nordlet::Hr::Types::PostV1HrIncapacityCertificatesListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">incapacity_certificates_list</a>(request) -> Nordlet::Hr::Types::IncapacityCertificatesListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25403,7 +25529,7 @@ client.hr.post_v1hr_incapacity_certificates_create(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_incapacity_certificates_list
+client.hr.incapacity_certificates_list
 ```
 </dd>
 </dl>
@@ -25434,7 +25560,7 @@ client.hr.post_v1hr_incapacity_certificates_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrIncapacityCertificatesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Hr::Types::IncapacityCertificatesListHrRequestSortItem]` 
     
 </dd>
 </dl>
@@ -25442,7 +25568,7 @@ client.hr.post_v1hr_incapacity_certificates_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrIncapacityCertificatesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Hr::Types::IncapacityCertificatesListHrRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -25470,7 +25596,7 @@ client.hr.post_v1hr_incapacity_certificates_list
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_records_create</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesRecordsCreateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_records_create</a>(request) -> Nordlet::Hr::Types::EmployeesRecordsCreateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25483,7 +25609,7 @@ client.hr.post_v1hr_incapacity_certificates_list
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_records_create(
+client.hr.employees_records_create(
   employee_id: "employeeId",
   type: "education",
   title: "title"
@@ -25510,7 +25636,7 @@ client.hr.post_v1hr_employees_records_create(
 <dl>
 <dd>
 
-**type:** `Nordlet::Hr::Types::PostV1HrEmployeesRecordsCreateRequestType` 
+**type:** `Nordlet::Hr::Types::EmployeesRecordsCreateHrRequestType` 
     
 </dd>
 </dl>
@@ -25578,7 +25704,7 @@ client.hr.post_v1hr_employees_records_create(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_records_update</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesRecordsUpdateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_records_update</a>(request) -> Nordlet::Hr::Types::EmployeesRecordsUpdateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25591,7 +25717,7 @@ client.hr.post_v1hr_employees_records_create(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_records_update(id: "id")
+client.hr.employees_records_update(id: "id")
 ```
 </dd>
 </dl>
@@ -25614,7 +25740,7 @@ client.hr.post_v1hr_employees_records_update(id: "id")
 <dl>
 <dd>
 
-**type:** `Nordlet::Hr::Types::PostV1HrEmployeesRecordsUpdateRequestType` 
+**type:** `Nordlet::Hr::Types::EmployeesRecordsUpdateHrRequestType` 
     
 </dd>
 </dl>
@@ -25682,7 +25808,7 @@ client.hr.post_v1hr_employees_records_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_records_delete</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesRecordsDeleteResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_records_delete</a>(request) -> Nordlet::Hr::Types::EmployeesRecordsDeleteHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25695,7 +25821,7 @@ client.hr.post_v1hr_employees_records_update(id: "id")
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_records_delete(id: "id")
+client.hr.employees_records_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -25730,7 +25856,7 @@ client.hr.post_v1hr_employees_records_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_records_list</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesRecordsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_records_list</a>(request) -> Nordlet::Hr::Types::EmployeesRecordsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25743,7 +25869,7 @@ client.hr.post_v1hr_employees_records_delete(id: "id")
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_records_list
+client.hr.employees_records_list
 ```
 </dd>
 </dl>
@@ -25774,7 +25900,7 @@ client.hr.post_v1hr_employees_records_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesRecordsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Hr::Types::EmployeesRecordsListHrRequestSortItem]` 
     
 </dd>
 </dl>
@@ -25782,7 +25908,7 @@ client.hr.post_v1hr_employees_records_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrEmployeesRecordsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Hr::Types::EmployeesRecordsListHrRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -25810,7 +25936,7 @@ client.hr.post_v1hr_employees_records_list
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_employees_attachments_list</a>(request) -> Nordlet::Hr::Types::PostV1HrEmployeesAttachmentsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">employees_attachments_list</a>(request) -> Nordlet::Hr::Types::EmployeesAttachmentsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25823,7 +25949,7 @@ client.hr.post_v1hr_employees_records_list
 <dd>
 
 ```ruby
-client.hr.post_v1hr_employees_attachments_list(employee_id: "employeeId")
+client.hr.employees_attachments_list(employee_id: "employeeId")
 ```
 </dd>
 </dl>
@@ -25858,7 +25984,7 @@ client.hr.post_v1hr_employees_attachments_list(employee_id: "employeeId")
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_timesheets_generate</a>(request) -> Nordlet::Hr::Types::PostV1HrTimesheetsGenerateResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">timesheets_generate</a>(request) -> Nordlet::Hr::Types::TimesheetsGenerateHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25871,7 +25997,7 @@ client.hr.post_v1hr_employees_attachments_list(employee_id: "employeeId")
 <dd>
 
 ```ruby
-client.hr.post_v1hr_timesheets_generate(
+client.hr.timesheets_generate(
   year: 1000000,
   month: 1000000
 )
@@ -25925,7 +26051,7 @@ client.hr.post_v1hr_timesheets_generate(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_timesheets_upsert</a>(request) -> Nordlet::Hr::Types::PostV1HrTimesheetsUpsertResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">timesheets_upsert</a>(request) -> Nordlet::Hr::Types::TimesheetsUpsertHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -25938,13 +26064,13 @@ client.hr.post_v1hr_timesheets_generate(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_timesheets_upsert(
+client.hr.timesheets_upsert(
   employee_id: "employeeId",
   year: 1000000,
   month: 1000000,
   days: [{
     day: 1000000,
-    hours: "hours",
+    hours: "121.00",
     type: "work"
   }]
 )
@@ -25986,7 +26112,7 @@ client.hr.post_v1hr_timesheets_upsert(
 <dl>
 <dd>
 
-**days:** `Internal::Types::Array[Nordlet::Hr::Types::PostV1HrTimesheetsUpsertRequestDaysItem]` 
+**days:** `Internal::Types::Array[Nordlet::Hr::Types::TimesheetsUpsertHrRequestDaysItem]` 
     
 </dd>
 </dl>
@@ -26006,7 +26132,7 @@ client.hr.post_v1hr_timesheets_upsert(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_timesheets_get</a>(request) -> Nordlet::Hr::Types::PostV1HrTimesheetsGetResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">timesheets_get</a>(request) -> Nordlet::Hr::Types::TimesheetsGetHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -26019,7 +26145,7 @@ client.hr.post_v1hr_timesheets_upsert(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_timesheets_get(
+client.hr.timesheets_get(
   employee_id: "employeeId",
   year: 1000000,
   month: 1000000
@@ -26074,7 +26200,7 @@ client.hr.post_v1hr_timesheets_get(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_timesheets_list</a>(request) -> Nordlet::Hr::Types::PostV1HrTimesheetsListResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">timesheets_list</a>(request) -> Nordlet::Hr::Types::TimesheetsListHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -26087,7 +26213,7 @@ client.hr.post_v1hr_timesheets_get(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_timesheets_list(
+client.hr.timesheets_list(
   year: 1000000,
   month: 1000000
 )
@@ -26133,7 +26259,7 @@ client.hr.post_v1hr_timesheets_list(
 </dl>
 </details>
 
-<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">post_v1hr_timesheets_delete</a>(request) -> Nordlet::Hr::Types::PostV1HrTimesheetsDeleteResponse</code></summary>
+<details><summary><code>client.hr.<a href="/lib/nordlet/hr/client.rb">timesheets_delete</a>(request) -> Nordlet::Hr::Types::TimesheetsDeleteHrResponse</code></summary>
 <dl>
 <dd>
 
@@ -26146,7 +26272,7 @@ client.hr.post_v1hr_timesheets_list(
 <dd>
 
 ```ruby
-client.hr.post_v1hr_timesheets_delete(id: "id")
+client.hr.timesheets_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -26181,8 +26307,8 @@ client.hr.post_v1hr_timesheets_delete(id: "id")
 </dl>
 </details>
 
-## Fleet
-<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">post_v1fleet_vehicles_create</a>(request) -> Nordlet::Fleet::Types::PostV1FleetVehiclesCreateResponse</code></summary>
+## fleet
+<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">vehicles_create</a>(request) -> Nordlet::Fleet::Types::VehiclesCreateFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -26195,7 +26321,7 @@ client.hr.post_v1hr_timesheets_delete(id: "id")
 <dd>
 
 ```ruby
-client.fleet.post_v1fleet_vehicles_create(
+client.fleet.vehicles_create(
   plate_number: "plateNumber",
   make: "make",
   model: "model"
@@ -26254,7 +26380,7 @@ client.fleet.post_v1fleet_vehicles_create(
 <dl>
 <dd>
 
-**fuel_type:** `Nordlet::Fleet::Types::PostV1FleetVehiclesCreateRequestFuelType` 
+**fuel_type:** `Nordlet::Fleet::Types::VehiclesCreateFleetRequestFuelType` 
     
 </dd>
 </dl>
@@ -26310,7 +26436,7 @@ client.fleet.post_v1fleet_vehicles_create(
 <dl>
 <dd>
 
-**documents:** `Internal::Types::Array[Nordlet::Fleet::Types::PostV1FleetVehiclesCreateRequestDocumentsItem]` 
+**documents:** `Internal::Types::Array[Nordlet::Fleet::Types::VehiclesCreateFleetRequestDocumentsItem]` 
     
 </dd>
 </dl>
@@ -26330,7 +26456,7 @@ client.fleet.post_v1fleet_vehicles_create(
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">post_v1fleet_vehicles_update</a>(request) -> Nordlet::Fleet::Types::PostV1FleetVehiclesUpdateResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">vehicles_update</a>(request) -> Nordlet::Fleet::Types::VehiclesUpdateFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -26343,7 +26469,7 @@ client.fleet.post_v1fleet_vehicles_create(
 <dd>
 
 ```ruby
-client.fleet.post_v1fleet_vehicles_update(id: "id")
+client.fleet.vehicles_update(id: "id")
 ```
 </dd>
 </dl>
@@ -26406,7 +26532,7 @@ client.fleet.post_v1fleet_vehicles_update(id: "id")
 <dl>
 <dd>
 
-**fuel_type:** `Nordlet::Fleet::Types::PostV1FleetVehiclesUpdateRequestFuelType` 
+**fuel_type:** `Nordlet::Fleet::Types::VehiclesUpdateFleetRequestFuelType` 
     
 </dd>
 </dl>
@@ -26454,7 +26580,7 @@ client.fleet.post_v1fleet_vehicles_update(id: "id")
 <dl>
 <dd>
 
-**status:** `Nordlet::Fleet::Types::PostV1FleetVehiclesUpdateRequestStatus` 
+**status:** `Nordlet::Fleet::Types::VehiclesUpdateFleetRequestStatus` 
     
 </dd>
 </dl>
@@ -26482,7 +26608,7 @@ client.fleet.post_v1fleet_vehicles_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">post_v1fleet_vehicles_get</a>(request) -> Nordlet::Fleet::Types::PostV1FleetVehiclesGetResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">vehicles_get</a>(request) -> Nordlet::Fleet::Types::VehiclesGetFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -26495,7 +26621,7 @@ client.fleet.post_v1fleet_vehicles_update(id: "id")
 <dd>
 
 ```ruby
-client.fleet.post_v1fleet_vehicles_get(id: "id")
+client.fleet.vehicles_get(id: "id")
 ```
 </dd>
 </dl>
@@ -26530,7 +26656,7 @@ client.fleet.post_v1fleet_vehicles_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">post_v1fleet_vehicles_list</a>(request) -> Nordlet::Fleet::Types::PostV1FleetVehiclesListResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">vehicles_list</a>(request) -> Nordlet::Fleet::Types::VehiclesListFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -26543,7 +26669,7 @@ client.fleet.post_v1fleet_vehicles_get(id: "id")
 <dd>
 
 ```ruby
-client.fleet.post_v1fleet_vehicles_list
+client.fleet.vehicles_list
 ```
 </dd>
 </dl>
@@ -26574,7 +26700,7 @@ client.fleet.post_v1fleet_vehicles_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Fleet::Types::PostV1FleetVehiclesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Fleet::Types::VehiclesListFleetRequestSortItem]` 
     
 </dd>
 </dl>
@@ -26582,7 +26708,7 @@ client.fleet.post_v1fleet_vehicles_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Fleet::Types::PostV1FleetVehiclesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Fleet::Types::VehiclesListFleetRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -26610,7 +26736,7 @@ client.fleet.post_v1fleet_vehicles_list
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">post_v1fleet_assignments_create</a>(request) -> Nordlet::Fleet::Types::PostV1FleetAssignmentsCreateResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">assignments_create</a>(request) -> Nordlet::Fleet::Types::AssignmentsCreateFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -26623,10 +26749,10 @@ client.fleet.post_v1fleet_vehicles_list
 <dd>
 
 ```ruby
-client.fleet.post_v1fleet_assignments_create(
+client.fleet.assignments_create(
   vehicle_id: "vehicleId",
   employee_id: "employeeId",
-  from_date: "fromDate"
+  from_date: "2026-07-01"
 )
 ```
 </dd>
@@ -26710,7 +26836,7 @@ client.fleet.post_v1fleet_assignments_create(
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">post_v1fleet_assignments_end</a>(request) -> Nordlet::Fleet::Types::PostV1FleetAssignmentsEndResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">assignments_end</a>(request) -> Nordlet::Fleet::Types::AssignmentsEndFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -26723,9 +26849,9 @@ client.fleet.post_v1fleet_assignments_create(
 <dd>
 
 ```ruby
-client.fleet.post_v1fleet_assignments_end(
+client.fleet.assignments_end(
   id: "id",
-  to_date: "toDate"
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -26769,7 +26895,7 @@ client.fleet.post_v1fleet_assignments_end(
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">post_v1fleet_assignments_list</a>(request) -> Nordlet::Fleet::Types::PostV1FleetAssignmentsListResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">assignments_list</a>(request) -> Nordlet::Fleet::Types::AssignmentsListFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -26782,7 +26908,7 @@ client.fleet.post_v1fleet_assignments_end(
 <dd>
 
 ```ruby
-client.fleet.post_v1fleet_assignments_list
+client.fleet.assignments_list
 ```
 </dd>
 </dl>
@@ -26813,7 +26939,7 @@ client.fleet.post_v1fleet_assignments_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Fleet::Types::PostV1FleetAssignmentsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Fleet::Types::AssignmentsListFleetRequestSortItem]` 
     
 </dd>
 </dl>
@@ -26821,7 +26947,7 @@ client.fleet.post_v1fleet_assignments_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Fleet::Types::PostV1FleetAssignmentsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Fleet::Types::AssignmentsListFleetRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -26849,7 +26975,7 @@ client.fleet.post_v1fleet_assignments_list
 </dl>
 </details>
 
-<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">post_v1fleet_natura_preview</a>(request) -> Nordlet::Fleet::Types::PostV1FleetNaturaPreviewResponse</code></summary>
+<details><summary><code>client.fleet.<a href="/lib/nordlet/fleet/client.rb">natura_preview</a>(request) -> Nordlet::Fleet::Types::NaturaPreviewFleetResponse</code></summary>
 <dl>
 <dd>
 
@@ -26862,7 +26988,7 @@ client.fleet.post_v1fleet_assignments_list
 <dd>
 
 ```ruby
-client.fleet.post_v1fleet_natura_preview(
+client.fleet.natura_preview(
   year: 1000000,
   month: 1000000
 )
@@ -26908,8 +27034,8 @@ client.fleet.post_v1fleet_natura_preview(
 </dl>
 </details>
 
-## Payroll
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_departments_create</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollDepartmentsCreateResponse</code></summary>
+## payroll
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">departments_create</a>(request) -> Nordlet::Payroll::Types::DepartmentsCreatePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -26922,7 +27048,7 @@ client.fleet.post_v1fleet_natura_preview(
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_departments_create(
+client.payroll.departments_create(
   code: "code",
   name: "name"
 )
@@ -26968,7 +27094,7 @@ client.payroll.post_v1payroll_departments_create(
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_departments_list</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollDepartmentsListResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">departments_list</a>(request) -> Nordlet::Payroll::Types::DepartmentsListPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -26981,7 +27107,7 @@ client.payroll.post_v1payroll_departments_create(
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_departments_list
+client.payroll.departments_list
 ```
 </dd>
 </dl>
@@ -27008,7 +27134,7 @@ client.payroll.post_v1payroll_departments_list
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_schedules_create</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollSchedulesCreateResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">schedules_create</a>(request) -> Nordlet::Payroll::Types::SchedulesCreatePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27021,7 +27147,7 @@ client.payroll.post_v1payroll_departments_list
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_schedules_create(
+client.payroll.schedules_create(
   code: "code",
   name: "name"
 )
@@ -27075,7 +27201,7 @@ client.payroll.post_v1payroll_schedules_create(
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_schedules_list</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollSchedulesListResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">schedules_list</a>(request) -> Nordlet::Payroll::Types::SchedulesListPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27088,7 +27214,7 @@ client.payroll.post_v1payroll_schedules_create(
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_schedules_list
+client.payroll.schedules_list
 ```
 </dd>
 </dl>
@@ -27115,7 +27241,7 @@ client.payroll.post_v1payroll_schedules_list
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">calculate_one_employee_payment_under_the_rules_of_the_company_country</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollCalcResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">calc</a>(request) -> Nordlet::Payroll::Types::CalcPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27128,9 +27254,9 @@ client.payroll.post_v1payroll_schedules_list
 <dd>
 
 ```ruby
-client.payroll.calculate_one_employee_payment_under_the_rules_of_the_company_country(
-  taxable_base: "taxableBase",
-  date: "date"
+client.payroll.calc(
+  taxable_base: "121.00",
+  date: "2026-07-01"
 )
 ```
 </dd>
@@ -27222,7 +27348,7 @@ client.payroll.calculate_one_employee_payment_under_the_rules_of_the_company_cou
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_runs_create</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollRunsCreateResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">runs_create</a>(request) -> Nordlet::Payroll::Types::RunsCreatePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27235,7 +27361,7 @@ client.payroll.calculate_one_employee_payment_under_the_rules_of_the_company_cou
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_runs_create(
+client.payroll.runs_create(
   year: 1000000,
   month: 1000000
 )
@@ -27277,7 +27403,7 @@ client.payroll.post_v1payroll_runs_create(
 <dl>
 <dd>
 
-**gross_overrides:** `Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsCreateRequestGrossOverridesItem]` 
+**gross_overrides:** `Internal::Types::Array[Nordlet::Payroll::Types::RunsCreatePayrollRequestGrossOverridesItem]` 
     
 </dd>
 </dl>
@@ -27285,7 +27411,7 @@ client.payroll.post_v1payroll_runs_create(
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsCreateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Payroll::Types::RunsCreatePayrollRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -27313,7 +27439,7 @@ client.payroll.post_v1payroll_runs_create(
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_runs_get</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollRunsGetResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">runs_get</a>(request) -> Nordlet::Payroll::Types::RunsGetPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27326,7 +27452,7 @@ client.payroll.post_v1payroll_runs_create(
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_runs_get(id: "id")
+client.payroll.runs_get(id: "id")
 ```
 </dd>
 </dl>
@@ -27361,7 +27487,7 @@ client.payroll.post_v1payroll_runs_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_runs_list</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollRunsListResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">runs_list</a>(request) -> Nordlet::Payroll::Types::RunsListPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27374,7 +27500,7 @@ client.payroll.post_v1payroll_runs_get(id: "id")
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_runs_list
+client.payroll.runs_list
 ```
 </dd>
 </dl>
@@ -27405,7 +27531,7 @@ client.payroll.post_v1payroll_runs_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Payroll::Types::RunsListPayrollRequestSortItem]` 
     
 </dd>
 </dl>
@@ -27413,7 +27539,7 @@ client.payroll.post_v1payroll_runs_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Payroll::Types::PostV1PayrollRunsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Payroll::Types::RunsListPayrollRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -27441,7 +27567,7 @@ client.payroll.post_v1payroll_runs_list
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">record_the_time_a_person_worked_in_a_payroll_line</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollLinesAttendanceResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">lines_attendance</a>(request) -> Nordlet::Payroll::Types::LinesAttendancePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27468,7 +27594,7 @@ The days and hours worked, the days on the register and the average hourly earni
 <dd>
 
 ```ruby
-client.payroll.record_the_time_a_person_worked_in_a_payroll_line(id: "id")
+client.payroll.lines_attendance(id: "id")
 ```
 </dd>
 </dl>
@@ -27535,7 +27661,7 @@ client.payroll.record_the_time_a_person_worked_in_a_payroll_line(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_runs_approve</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollRunsApproveResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">runs_approve</a>(request) -> Nordlet::Payroll::Types::RunsApprovePayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27548,7 +27674,7 @@ client.payroll.record_the_time_a_person_worked_in_a_payroll_line(id: "id")
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_runs_approve(id: "id")
+client.payroll.runs_approve(id: "id")
 ```
 </dd>
 </dl>
@@ -27639,7 +27765,7 @@ client.payroll.post_v1payroll_runs_approve(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_runs_cancel</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollRunsCancelResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">runs_cancel</a>(request) -> Nordlet::Payroll::Types::RunsCancelPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27652,7 +27778,7 @@ client.payroll.post_v1payroll_runs_approve(id: "id")
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_runs_cancel(id: "id")
+client.payroll.runs_cancel(id: "id")
 ```
 </dd>
 </dl>
@@ -27687,7 +27813,7 @@ client.payroll.post_v1payroll_runs_cancel(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">post_v1payroll_payments_export</a>(request) -> Nordlet::Payroll::Types::PostV1PayrollPaymentsExportResponse</code></summary>
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">payments_export</a>(request) -> Nordlet::Payroll::Types::PaymentsExportPayrollResponse</code></summary>
 <dl>
 <dd>
 
@@ -27700,7 +27826,7 @@ client.payroll.post_v1payroll_runs_cancel(id: "id")
 <dd>
 
 ```ruby
-client.payroll.post_v1payroll_payments_export(
+client.payroll.payments_export(
   run_id: "runId",
   bank_account_id: "bankAccountId"
 )
@@ -27742,6 +27868,14 @@ client.payroll.post_v1payroll_payments_export(
 <dl>
 <dd>
 
+**locale:** `Nordlet::Payroll::Types::PaymentsExportPayrollRequestLocale` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Payroll::RequestOptions` 
     
 </dd>
@@ -27754,8 +27888,8 @@ client.payroll.post_v1payroll_payments_export(
 </dl>
 </details>
 
-## Agreements
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_types_create</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsTypesCreateResponse</code></summary>
+## agreements
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">types_create</a>(request) -> Nordlet::Agreements::Types::TypesCreateAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -27768,7 +27902,7 @@ client.payroll.post_v1payroll_payments_export(
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_types_create(
+client.agreements.types_create(
   code: "code",
   name: "name"
 )
@@ -27814,7 +27948,7 @@ client.agreements.post_v1agreements_types_create(
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_types_list</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsTypesListResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">types_list</a>(request) -> Nordlet::Agreements::Types::TypesListAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -27827,7 +27961,7 @@ client.agreements.post_v1agreements_types_create(
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_types_list
+client.agreements.types_list
 ```
 </dd>
 </dl>
@@ -27858,7 +27992,7 @@ client.agreements.post_v1agreements_types_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsTypesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Agreements::Types::TypesListAgreementsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -27866,7 +28000,7 @@ client.agreements.post_v1agreements_types_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsTypesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Agreements::Types::TypesListAgreementsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -27894,7 +28028,7 @@ client.agreements.post_v1agreements_types_list
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_agreements_create</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">agreements_create</a>(request) -> Nordlet::Agreements::Types::AgreementsCreateAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -27907,9 +28041,9 @@ client.agreements.post_v1agreements_types_list
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_agreements_create(
+client.agreements.agreements_create(
   number: "number",
-  start_date: "startDate"
+  start_date: "2026-07-01"
 )
 ```
 </dd>
@@ -27933,7 +28067,7 @@ client.agreements.post_v1agreements_agreements_create(
 <dl>
 <dd>
 
-**kind:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateRequestKind` 
+**kind:** `Nordlet::Agreements::Types::AgreementsCreateAgreementsRequestKind` 
     
 </dd>
 </dl>
@@ -28013,7 +28147,7 @@ client.agreements.post_v1agreements_agreements_create(
 <dl>
 <dd>
 
-**billing_period:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateRequestBillingPeriod` 
+**billing_period:** `Nordlet::Agreements::Types::AgreementsCreateAgreementsRequestBillingPeriod` 
     
 </dd>
 </dl>
@@ -28029,7 +28163,7 @@ client.agreements.post_v1agreements_agreements_create(
 <dl>
 <dd>
 
-**status:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateRequestStatus` 
+**status:** `Nordlet::Agreements::Types::AgreementsCreateAgreementsRequestStatus` 
     
 </dd>
 </dl>
@@ -28053,7 +28187,7 @@ client.agreements.post_v1agreements_agreements_create(
 <dl>
 <dd>
 
-**items:** `Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsAgreementsCreateRequestItemsItem]` 
+**items:** `Internal::Types::Array[Nordlet::Agreements::Types::AgreementsCreateAgreementsRequestItemsItem]` 
     
 </dd>
 </dl>
@@ -28073,7 +28207,7 @@ client.agreements.post_v1agreements_agreements_create(
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_agreements_get</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsAgreementsGetResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">agreements_get</a>(request) -> Nordlet::Agreements::Types::AgreementsGetAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -28086,7 +28220,7 @@ client.agreements.post_v1agreements_agreements_create(
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_agreements_get(id: "id")
+client.agreements.agreements_get(id: "id")
 ```
 </dd>
 </dl>
@@ -28121,7 +28255,7 @@ client.agreements.post_v1agreements_agreements_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_agreements_update</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsAgreementsUpdateResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">agreements_update</a>(request) -> Nordlet::Agreements::Types::AgreementsUpdateAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -28134,7 +28268,7 @@ client.agreements.post_v1agreements_agreements_get(id: "id")
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_agreements_update(id: "id")
+client.agreements.agreements_update(id: "id")
 ```
 </dd>
 </dl>
@@ -28165,7 +28299,7 @@ client.agreements.post_v1agreements_agreements_update(id: "id")
 <dl>
 <dd>
 
-**kind:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsUpdateRequestKind` 
+**kind:** `Nordlet::Agreements::Types::AgreementsUpdateAgreementsRequestKind` 
     
 </dd>
 </dl>
@@ -28205,7 +28339,7 @@ client.agreements.post_v1agreements_agreements_update(id: "id")
 <dl>
 <dd>
 
-**billing_period:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsUpdateRequestBillingPeriod` 
+**billing_period:** `Nordlet::Agreements::Types::AgreementsUpdateAgreementsRequestBillingPeriod` 
     
 </dd>
 </dl>
@@ -28213,7 +28347,7 @@ client.agreements.post_v1agreements_agreements_update(id: "id")
 <dl>
 <dd>
 
-**status:** `Nordlet::Agreements::Types::PostV1AgreementsAgreementsUpdateRequestStatus` 
+**status:** `Nordlet::Agreements::Types::AgreementsUpdateAgreementsRequestStatus` 
     
 </dd>
 </dl>
@@ -28249,7 +28383,7 @@ client.agreements.post_v1agreements_agreements_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_agreements_delete</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsAgreementsDeleteResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">agreements_delete</a>(request) -> Nordlet::Agreements::Types::AgreementsDeleteAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -28262,7 +28396,7 @@ client.agreements.post_v1agreements_agreements_update(id: "id")
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_agreements_delete(id: "id")
+client.agreements.agreements_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -28297,7 +28431,7 @@ client.agreements.post_v1agreements_agreements_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_agreements_list</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsAgreementsListResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">agreements_list</a>(request) -> Nordlet::Agreements::Types::AgreementsListAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -28310,7 +28444,7 @@ client.agreements.post_v1agreements_agreements_delete(id: "id")
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_agreements_list
+client.agreements.agreements_list
 ```
 </dd>
 </dl>
@@ -28341,7 +28475,7 @@ client.agreements.post_v1agreements_agreements_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsAgreementsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Agreements::Types::AgreementsListAgreementsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -28349,7 +28483,7 @@ client.agreements.post_v1agreements_agreements_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsAgreementsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Agreements::Types::AgreementsListAgreementsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -28377,7 +28511,7 @@ client.agreements.post_v1agreements_agreements_list
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_agreements_generate_invoice</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsAgreementsGenerateInvoiceResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">agreements_generate_invoice</a>(request) -> Nordlet::Agreements::Types::AgreementsGenerateInvoiceAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -28390,7 +28524,7 @@ client.agreements.post_v1agreements_agreements_list
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_agreements_generate_invoice(id: "id")
+client.agreements.agreements_generate_invoice(id: "id")
 ```
 </dd>
 </dl>
@@ -28433,7 +28567,7 @@ client.agreements.post_v1agreements_agreements_generate_invoice(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_agreements_billing_run</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsAgreementsBillingRunResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">agreements_billing_run</a>(request) -> Nordlet::Agreements::Types::AgreementsBillingRunAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -28446,7 +28580,7 @@ client.agreements.post_v1agreements_agreements_generate_invoice(id: "id")
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_agreements_billing_run
+client.agreements.agreements_billing_run
 ```
 </dd>
 </dl>
@@ -28481,7 +28615,7 @@ client.agreements.post_v1agreements_agreements_billing_run
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_insurance_policies_create</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsInsurancePoliciesCreateResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">insurance_policies_create</a>(request) -> Nordlet::Agreements::Types::InsurancePoliciesCreateAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -28494,11 +28628,11 @@ client.agreements.post_v1agreements_agreements_billing_run
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_insurance_policies_create(
+client.agreements.insurance_policies_create(
   policy_number: "policyNumber",
   insured_object: "insuredObject",
-  from_date: "fromDate",
-  to_date: "toDate"
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -28590,7 +28724,7 @@ client.agreements.post_v1agreements_insurance_policies_create(
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_insurance_policies_list</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsInsurancePoliciesListResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">insurance_policies_list</a>(request) -> Nordlet::Agreements::Types::InsurancePoliciesListAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -28603,7 +28737,7 @@ client.agreements.post_v1agreements_insurance_policies_create(
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_insurance_policies_list
+client.agreements.insurance_policies_list
 ```
 </dd>
 </dl>
@@ -28634,7 +28768,7 @@ client.agreements.post_v1agreements_insurance_policies_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsInsurancePoliciesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Agreements::Types::InsurancePoliciesListAgreementsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -28642,7 +28776,7 @@ client.agreements.post_v1agreements_insurance_policies_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Agreements::Types::PostV1AgreementsInsurancePoliciesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Agreements::Types::InsurancePoliciesListAgreementsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -28670,7 +28804,7 @@ client.agreements.post_v1agreements_insurance_policies_list
 </dl>
 </details>
 
-<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">post_v1agreements_insurance_policies_delete</a>(request) -> Nordlet::Agreements::Types::PostV1AgreementsInsurancePoliciesDeleteResponse</code></summary>
+<details><summary><code>client.agreements.<a href="/lib/nordlet/agreements/client.rb">insurance_policies_delete</a>(request) -> Nordlet::Agreements::Types::InsurancePoliciesDeleteAgreementsResponse</code></summary>
 <dl>
 <dd>
 
@@ -28683,7 +28817,7 @@ client.agreements.post_v1agreements_insurance_policies_list
 <dd>
 
 ```ruby
-client.agreements.post_v1agreements_insurance_policies_delete(id: "id")
+client.agreements.insurance_policies_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -28718,8 +28852,8 @@ client.agreements.post_v1agreements_insurance_policies_delete(id: "id")
 </dl>
 </details>
 
-## Inventory
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_settings_get</a>(request) -> Nordlet::Inventory::Types::PostV1InventorySettingsGetResponse</code></summary>
+## inventory
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">settings_get</a>(request) -> Nordlet::Inventory::Types::SettingsGetInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -28732,7 +28866,7 @@ client.agreements.post_v1agreements_insurance_policies_delete(id: "id")
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_settings_get
+client.inventory.settings_get
 ```
 </dd>
 </dl>
@@ -28759,7 +28893,7 @@ client.inventory.post_v1inventory_settings_get
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_settings_update</a>(request) -> Nordlet::Inventory::Types::PostV1InventorySettingsUpdateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">settings_update</a>(request) -> Nordlet::Inventory::Types::SettingsUpdateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -28772,7 +28906,7 @@ client.inventory.post_v1inventory_settings_get
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_settings_update(negative_stock_policy: "reject")
+client.inventory.settings_update(negative_stock_policy: "reject")
 ```
 </dd>
 </dl>
@@ -28787,7 +28921,7 @@ client.inventory.post_v1inventory_settings_update(negative_stock_policy: "reject
 <dl>
 <dd>
 
-**negative_stock_policy:** `Nordlet::Inventory::Types::PostV1InventorySettingsUpdateRequestNegativeStockPolicy` 
+**negative_stock_policy:** `Nordlet::Inventory::Types::SettingsUpdateInventoryRequestNegativeStockPolicy` 
     
 </dd>
 </dl>
@@ -28807,7 +28941,7 @@ client.inventory.post_v1inventory_settings_update(negative_stock_policy: "reject
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_warehouses_create</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryWarehousesCreateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">warehouses_create</a>(request) -> Nordlet::Inventory::Types::WarehousesCreateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -28820,7 +28954,7 @@ client.inventory.post_v1inventory_settings_update(negative_stock_policy: "reject
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_warehouses_create(
+client.inventory.warehouses_create(
   code: "code",
   name: "name"
 )
@@ -28874,7 +29008,7 @@ client.inventory.post_v1inventory_warehouses_create(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_warehouses_list</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryWarehousesListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">warehouses_list</a>(request) -> Nordlet::Inventory::Types::WarehousesListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -28887,7 +29021,7 @@ client.inventory.post_v1inventory_warehouses_create(
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_warehouses_list
+client.inventory.warehouses_list
 ```
 </dd>
 </dl>
@@ -28918,7 +29052,7 @@ client.inventory.post_v1inventory_warehouses_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryWarehousesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::WarehousesListInventoryRequestSortItem]` 
     
 </dd>
 </dl>
@@ -28926,7 +29060,7 @@ client.inventory.post_v1inventory_warehouses_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryWarehousesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::WarehousesListInventoryRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -28954,7 +29088,7 @@ client.inventory.post_v1inventory_warehouses_list
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_stock_receive</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryStockReceiveResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">stock_receive</a>(request) -> Nordlet::Inventory::Types::StockReceiveInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -28967,12 +29101,12 @@ client.inventory.post_v1inventory_warehouses_list
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_stock_receive(
+client.inventory.stock_receive(
   warehouse_id: "warehouseId",
   item_id: "itemId",
-  date: "date",
-  quantity: "quantity",
-  unit_cost: "unitCost"
+  date: "2026-07-01",
+  quantity: "121.0000",
+  unit_cost: "121.000000"
 )
 ```
 </dd>
@@ -29064,7 +29198,7 @@ client.inventory.post_v1inventory_stock_receive(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_stock_write_off</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryStockWriteOffResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">stock_write_off</a>(request) -> Nordlet::Inventory::Types::StockWriteOffInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29077,11 +29211,11 @@ client.inventory.post_v1inventory_stock_receive(
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_stock_write_off(
+client.inventory.stock_write_off(
   warehouse_id: "warehouseId",
   item_id: "itemId",
-  date: "date",
-  quantity: "quantity"
+  date: "2026-07-01",
+  quantity: "121.0000"
 )
 ```
 </dd>
@@ -29173,7 +29307,7 @@ client.inventory.post_v1inventory_stock_write_off(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_stock_transfer</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryStockTransferResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">stock_transfer</a>(request) -> Nordlet::Inventory::Types::StockTransferInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29186,12 +29320,12 @@ client.inventory.post_v1inventory_stock_write_off(
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_stock_transfer(
+client.inventory.stock_transfer(
   from_warehouse_id: "fromWarehouseId",
   to_warehouse_id: "toWarehouseId",
   item_id: "itemId",
-  date: "date",
-  quantity: "quantity"
+  date: "2026-07-01",
+  quantity: "121.0000"
 )
 ```
 </dd>
@@ -29275,7 +29409,7 @@ client.inventory.post_v1inventory_stock_transfer(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_stock_take</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryStockTakeResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">stock_take</a>(request) -> Nordlet::Inventory::Types::StockTakeInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29288,11 +29422,11 @@ client.inventory.post_v1inventory_stock_transfer(
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_stock_take(
+client.inventory.stock_take(
   warehouse_id: "warehouseId",
-  date: "date",
+  date: "2026-07-01",
   lines: [{
-    counted_qty: "countedQty"
+    counted_qty: "121.0000"
   }]
 )
 ```
@@ -29341,7 +29475,7 @@ client.inventory.post_v1inventory_stock_take(
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryStockTakeRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Inventory::Types::StockTakeInventoryRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -29361,7 +29495,7 @@ client.inventory.post_v1inventory_stock_take(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_stock_levels</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryStockLevelsResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">stock_levels</a>(request) -> Nordlet::Inventory::Types::StockLevelsInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29374,7 +29508,7 @@ client.inventory.post_v1inventory_stock_take(
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_stock_levels
+client.inventory.stock_levels
 ```
 </dd>
 </dl>
@@ -29417,7 +29551,7 @@ client.inventory.post_v1inventory_stock_levels
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_stock_movements_list</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryStockMovementsListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">stock_movements_list</a>(request) -> Nordlet::Inventory::Types::StockMovementsListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29430,7 +29564,7 @@ client.inventory.post_v1inventory_stock_levels
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_stock_movements_list
+client.inventory.stock_movements_list
 ```
 </dd>
 </dl>
@@ -29461,7 +29595,7 @@ client.inventory.post_v1inventory_stock_movements_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryStockMovementsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::StockMovementsListInventoryRequestSortItem]` 
     
 </dd>
 </dl>
@@ -29469,7 +29603,7 @@ client.inventory.post_v1inventory_stock_movements_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryStockMovementsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::StockMovementsListInventoryRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -29497,7 +29631,7 @@ client.inventory.post_v1inventory_stock_movements_list
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_lots_list</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryLotsListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">lots_list</a>(request) -> Nordlet::Inventory::Types::LotsListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29510,7 +29644,7 @@ client.inventory.post_v1inventory_stock_movements_list
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_lots_list
+client.inventory.lots_list
 ```
 </dd>
 </dl>
@@ -29541,7 +29675,7 @@ client.inventory.post_v1inventory_lots_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryLotsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::LotsListInventoryRequestSortItem]` 
     
 </dd>
 </dl>
@@ -29549,7 +29683,7 @@ client.inventory.post_v1inventory_lots_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryLotsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::LotsListInventoryRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -29577,7 +29711,7 @@ client.inventory.post_v1inventory_lots_list
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_lots_get</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryLotsGetResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">lots_get</a>(request) -> Nordlet::Inventory::Types::LotsGetInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29590,7 +29724,7 @@ client.inventory.post_v1inventory_lots_list
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_lots_get(id: "id")
+client.inventory.lots_get(id: "id")
 ```
 </dd>
 </dl>
@@ -29625,7 +29759,7 @@ client.inventory.post_v1inventory_lots_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_lots_update</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryLotsUpdateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">lots_update</a>(request) -> Nordlet::Inventory::Types::LotsUpdateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29638,7 +29772,7 @@ client.inventory.post_v1inventory_lots_get(id: "id")
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_lots_update(id: "id")
+client.inventory.lots_update(id: "id")
 ```
 </dd>
 </dl>
@@ -29689,7 +29823,7 @@ client.inventory.post_v1inventory_lots_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_landed_costs_create</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryLandedCostsCreateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">landed_costs_create</a>(request) -> Nordlet::Inventory::Types::LandedCostsCreateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29702,9 +29836,9 @@ client.inventory.post_v1inventory_lots_update(id: "id")
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_landed_costs_create(
-  date: "date",
-  amount: "amount"
+client.inventory.landed_costs_create(
+  date: "2026-07-01",
+  amount: "121.000000"
 )
 ```
 </dd>
@@ -29736,7 +29870,7 @@ client.inventory.post_v1inventory_landed_costs_create(
 <dl>
 <dd>
 
-**method_:** `Nordlet::Inventory::Types::PostV1InventoryLandedCostsCreateRequestMethod` 
+**method_:** `Nordlet::Inventory::Types::LandedCostsCreateInventoryRequestMethod` 
     
 </dd>
 </dl>
@@ -29788,7 +29922,7 @@ client.inventory.post_v1inventory_landed_costs_create(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_landed_costs_get</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryLandedCostsGetResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">landed_costs_get</a>(request) -> Nordlet::Inventory::Types::LandedCostsGetInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29801,7 +29935,7 @@ client.inventory.post_v1inventory_landed_costs_create(
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_landed_costs_get(id: "id")
+client.inventory.landed_costs_get(id: "id")
 ```
 </dd>
 </dl>
@@ -29836,7 +29970,7 @@ client.inventory.post_v1inventory_landed_costs_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_landed_costs_list</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryLandedCostsListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">landed_costs_list</a>(request) -> Nordlet::Inventory::Types::LandedCostsListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29849,7 +29983,7 @@ client.inventory.post_v1inventory_landed_costs_get(id: "id")
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_landed_costs_list
+client.inventory.landed_costs_list
 ```
 </dd>
 </dl>
@@ -29880,7 +30014,7 @@ client.inventory.post_v1inventory_landed_costs_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryLandedCostsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::LandedCostsListInventoryRequestSortItem]` 
     
 </dd>
 </dl>
@@ -29888,7 +30022,7 @@ client.inventory.post_v1inventory_landed_costs_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryLandedCostsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::LandedCostsListInventoryRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -29916,7 +30050,7 @@ client.inventory.post_v1inventory_landed_costs_list
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_reorder_rules_create</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryReorderRulesCreateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">reorder_rules_create</a>(request) -> Nordlet::Inventory::Types::ReorderRulesCreateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -29929,9 +30063,9 @@ client.inventory.post_v1inventory_landed_costs_list
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_reorder_rules_create(
+client.inventory.reorder_rules_create(
   item_id: "itemId",
-  min_qty: "minQty"
+  min_qty: "121.0000"
 )
 ```
 </dd>
@@ -30007,7 +30141,7 @@ client.inventory.post_v1inventory_reorder_rules_create(
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_reorder_rules_update</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryReorderRulesUpdateResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">reorder_rules_update</a>(request) -> Nordlet::Inventory::Types::ReorderRulesUpdateInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -30020,7 +30154,7 @@ client.inventory.post_v1inventory_reorder_rules_create(
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_reorder_rules_update(id: "id")
+client.inventory.reorder_rules_update(id: "id")
 ```
 </dd>
 </dl>
@@ -30087,7 +30221,7 @@ client.inventory.post_v1inventory_reorder_rules_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_reorder_rules_delete</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryReorderRulesDeleteResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">reorder_rules_delete</a>(request) -> Nordlet::Inventory::Types::ReorderRulesDeleteInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -30100,7 +30234,7 @@ client.inventory.post_v1inventory_reorder_rules_update(id: "id")
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_reorder_rules_delete(id: "id")
+client.inventory.reorder_rules_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -30135,7 +30269,7 @@ client.inventory.post_v1inventory_reorder_rules_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_reorder_rules_list</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryReorderRulesListResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">reorder_rules_list</a>(request) -> Nordlet::Inventory::Types::ReorderRulesListInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -30148,7 +30282,7 @@ client.inventory.post_v1inventory_reorder_rules_delete(id: "id")
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_reorder_rules_list
+client.inventory.reorder_rules_list
 ```
 </dd>
 </dl>
@@ -30179,7 +30313,7 @@ client.inventory.post_v1inventory_reorder_rules_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryReorderRulesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Inventory::Types::ReorderRulesListInventoryRequestSortItem]` 
     
 </dd>
 </dl>
@@ -30187,7 +30321,7 @@ client.inventory.post_v1inventory_reorder_rules_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::PostV1InventoryReorderRulesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Inventory::Types::ReorderRulesListInventoryRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -30215,7 +30349,7 @@ client.inventory.post_v1inventory_reorder_rules_list
 </dl>
 </details>
 
-<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">post_v1inventory_reorder_rules_check</a>(request) -> Nordlet::Inventory::Types::PostV1InventoryReorderRulesCheckResponse</code></summary>
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">reorder_rules_check</a>(request) -> Nordlet::Inventory::Types::ReorderRulesCheckInventoryResponse</code></summary>
 <dl>
 <dd>
 
@@ -30228,7 +30362,7 @@ client.inventory.post_v1inventory_reorder_rules_list
 <dd>
 
 ```ruby
-client.inventory.post_v1inventory_reorder_rules_check
+client.inventory.reorder_rules_check
 ```
 </dd>
 </dl>
@@ -30255,8 +30389,8 @@ client.inventory.post_v1inventory_reorder_rules_check
 </dl>
 </details>
 
-## Production
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_work_centers_create</a>(request) -> Nordlet::Production::Types::PostV1ProductionWorkCentersCreateResponse</code></summary>
+## production
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">work_centers_create</a>(request) -> Nordlet::Production::Types::WorkCentersCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30269,7 +30403,7 @@ client.inventory.post_v1inventory_reorder_rules_check
 <dd>
 
 ```ruby
-client.production.post_v1production_work_centers_create(
+client.production.work_centers_create(
   code: "code",
   name: "name"
 )
@@ -30347,7 +30481,7 @@ client.production.post_v1production_work_centers_create(
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_work_centers_update</a>(request) -> Nordlet::Production::Types::PostV1ProductionWorkCentersUpdateResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">work_centers_update</a>(request) -> Nordlet::Production::Types::WorkCentersUpdateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30360,7 +30494,7 @@ client.production.post_v1production_work_centers_create(
 <dd>
 
 ```ruby
-client.production.post_v1production_work_centers_update(id: "id")
+client.production.work_centers_update(id: "id")
 ```
 </dd>
 </dl>
@@ -30451,7 +30585,7 @@ client.production.post_v1production_work_centers_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_work_centers_list</a>(request) -> Nordlet::Production::Types::PostV1ProductionWorkCentersListResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">work_centers_list</a>(request) -> Nordlet::Production::Types::WorkCentersListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30464,7 +30598,7 @@ client.production.post_v1production_work_centers_update(id: "id")
 <dd>
 
 ```ruby
-client.production.post_v1production_work_centers_list
+client.production.work_centers_list
 ```
 </dd>
 </dl>
@@ -30495,7 +30629,7 @@ client.production.post_v1production_work_centers_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionWorkCentersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Production::Types::WorkCentersListProductionRequestSortItem]` 
     
 </dd>
 </dl>
@@ -30503,7 +30637,7 @@ client.production.post_v1production_work_centers_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionWorkCentersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Production::Types::WorkCentersListProductionRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -30531,7 +30665,7 @@ client.production.post_v1production_work_centers_list
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_routings_create</a>(request) -> Nordlet::Production::Types::PostV1ProductionRoutingsCreateResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">routings_create</a>(request) -> Nordlet::Production::Types::RoutingsCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30544,7 +30678,7 @@ client.production.post_v1production_work_centers_list
 <dd>
 
 ```ruby
-client.production.post_v1production_routings_create(
+client.production.routings_create(
   code: "code",
   name: "name",
   operations: [{
@@ -30591,7 +30725,7 @@ client.production.post_v1production_routings_create(
 <dl>
 <dd>
 
-**operations:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionRoutingsCreateRequestOperationsItem]` 
+**operations:** `Internal::Types::Array[Nordlet::Production::Types::RoutingsCreateProductionRequestOperationsItem]` 
     
 </dd>
 </dl>
@@ -30611,7 +30745,7 @@ client.production.post_v1production_routings_create(
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_routings_get</a>(request) -> Nordlet::Production::Types::PostV1ProductionRoutingsGetResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">routings_get</a>(request) -> Nordlet::Production::Types::RoutingsGetProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30624,7 +30758,7 @@ client.production.post_v1production_routings_create(
 <dd>
 
 ```ruby
-client.production.post_v1production_routings_get(id: "id")
+client.production.routings_get(id: "id")
 ```
 </dd>
 </dl>
@@ -30659,7 +30793,7 @@ client.production.post_v1production_routings_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_routings_list</a>(request) -> Nordlet::Production::Types::PostV1ProductionRoutingsListResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">routings_list</a>(request) -> Nordlet::Production::Types::RoutingsListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30672,7 +30806,7 @@ client.production.post_v1production_routings_get(id: "id")
 <dd>
 
 ```ruby
-client.production.post_v1production_routings_list
+client.production.routings_list
 ```
 </dd>
 </dl>
@@ -30703,7 +30837,7 @@ client.production.post_v1production_routings_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionRoutingsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Production::Types::RoutingsListProductionRequestSortItem]` 
     
 </dd>
 </dl>
@@ -30711,7 +30845,7 @@ client.production.post_v1production_routings_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionRoutingsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Production::Types::RoutingsListProductionRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -30739,7 +30873,7 @@ client.production.post_v1production_routings_list
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_maintenance_create</a>(request) -> Nordlet::Production::Types::PostV1ProductionMaintenanceCreateResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">maintenance_create</a>(request) -> Nordlet::Production::Types::MaintenanceCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30752,10 +30886,10 @@ client.production.post_v1production_routings_list
 <dd>
 
 ```ruby
-client.production.post_v1production_maintenance_create(
+client.production.maintenance_create(
   work_center_id: "workCenterId",
   type: "preventive",
-  planned_date: "plannedDate"
+  planned_date: "2026-07-01"
 )
 ```
 </dd>
@@ -30779,7 +30913,7 @@ client.production.post_v1production_maintenance_create(
 <dl>
 <dd>
 
-**type:** `Nordlet::Production::Types::PostV1ProductionMaintenanceCreateRequestType` 
+**type:** `Nordlet::Production::Types::MaintenanceCreateProductionRequestType` 
     
 </dd>
 </dl>
@@ -30823,7 +30957,7 @@ client.production.post_v1production_maintenance_create(
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_maintenance_complete</a>(request) -> Nordlet::Production::Types::PostV1ProductionMaintenanceCompleteResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">maintenance_complete</a>(request) -> Nordlet::Production::Types::MaintenanceCompleteProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30836,9 +30970,9 @@ client.production.post_v1production_maintenance_create(
 <dd>
 
 ```ruby
-client.production.post_v1production_maintenance_complete(
+client.production.maintenance_complete(
   id: "id",
-  completed_date: "completedDate"
+  completed_date: "2026-07-01"
 )
 ```
 </dd>
@@ -30906,7 +31040,7 @@ client.production.post_v1production_maintenance_complete(
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_maintenance_cancel</a>(request) -> Nordlet::Production::Types::PostV1ProductionMaintenanceCancelResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">maintenance_cancel</a>(request) -> Nordlet::Production::Types::MaintenanceCancelProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30919,7 +31053,7 @@ client.production.post_v1production_maintenance_complete(
 <dd>
 
 ```ruby
-client.production.post_v1production_maintenance_cancel(id: "id")
+client.production.maintenance_cancel(id: "id")
 ```
 </dd>
 </dl>
@@ -30954,7 +31088,7 @@ client.production.post_v1production_maintenance_cancel(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_maintenance_list</a>(request) -> Nordlet::Production::Types::PostV1ProductionMaintenanceListResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">maintenance_list</a>(request) -> Nordlet::Production::Types::MaintenanceListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -30967,7 +31101,7 @@ client.production.post_v1production_maintenance_cancel(id: "id")
 <dd>
 
 ```ruby
-client.production.post_v1production_maintenance_list
+client.production.maintenance_list
 ```
 </dd>
 </dl>
@@ -30998,7 +31132,7 @@ client.production.post_v1production_maintenance_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionMaintenanceListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Production::Types::MaintenanceListProductionRequestSortItem]` 
     
 </dd>
 </dl>
@@ -31006,7 +31140,7 @@ client.production.post_v1production_maintenance_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionMaintenanceListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Production::Types::MaintenanceListProductionRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -31034,7 +31168,7 @@ client.production.post_v1production_maintenance_list
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_boms_create</a>(request) -> Nordlet::Production::Types::PostV1ProductionBomsCreateResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">boms_create</a>(request) -> Nordlet::Production::Types::BomsCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31047,13 +31181,13 @@ client.production.post_v1production_maintenance_list
 <dd>
 
 ```ruby
-client.production.post_v1production_boms_create(
+client.production.boms_create(
   code: "code",
   name: "name",
   finished_item_id: "finishedItemId",
   lines: [{
     component_item_id: "componentItemId",
-    quantity: "quantity"
+    quantity: "121.0000"
   }]
 )
 ```
@@ -31110,7 +31244,7 @@ client.production.post_v1production_boms_create(
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionBomsCreateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Production::Types::BomsCreateProductionRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -31130,7 +31264,7 @@ client.production.post_v1production_boms_create(
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_boms_get</a>(request) -> Nordlet::Production::Types::PostV1ProductionBomsGetResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">boms_get</a>(request) -> Nordlet::Production::Types::BomsGetProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31143,7 +31277,7 @@ client.production.post_v1production_boms_create(
 <dd>
 
 ```ruby
-client.production.post_v1production_boms_get(id: "id")
+client.production.boms_get(id: "id")
 ```
 </dd>
 </dl>
@@ -31178,7 +31312,7 @@ client.production.post_v1production_boms_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_boms_list</a>(request) -> Nordlet::Production::Types::PostV1ProductionBomsListResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">boms_list</a>(request) -> Nordlet::Production::Types::BomsListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31191,7 +31325,7 @@ client.production.post_v1production_boms_get(id: "id")
 <dd>
 
 ```ruby
-client.production.post_v1production_boms_list
+client.production.boms_list
 ```
 </dd>
 </dl>
@@ -31222,7 +31356,7 @@ client.production.post_v1production_boms_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionBomsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Production::Types::BomsListProductionRequestSortItem]` 
     
 </dd>
 </dl>
@@ -31230,7 +31364,7 @@ client.production.post_v1production_boms_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionBomsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Production::Types::BomsListProductionRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -31258,7 +31392,7 @@ client.production.post_v1production_boms_list
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_orders_create</a>(request) -> Nordlet::Production::Types::PostV1ProductionOrdersCreateResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">orders_create</a>(request) -> Nordlet::Production::Types::OrdersCreateProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31271,11 +31405,11 @@ client.production.post_v1production_boms_list
 <dd>
 
 ```ruby
-client.production.post_v1production_orders_create(
+client.production.orders_create(
   bom_id: "bomId",
   warehouse_id: "warehouseId",
-  quantity: "quantity",
-  date: "date"
+  quantity: "121.0000",
+  date: "2026-07-01"
 )
 ```
 </dd>
@@ -31291,7 +31425,7 @@ client.production.post_v1production_orders_create(
 <dl>
 <dd>
 
-**type:** `Nordlet::Production::Types::PostV1ProductionOrdersCreateRequestType` 
+**type:** `Nordlet::Production::Types::OrdersCreateProductionRequestType` 
     
 </dd>
 </dl>
@@ -31359,7 +31493,7 @@ client.production.post_v1production_orders_create(
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_orders_record_operation</a>(request) -> Nordlet::Production::Types::PostV1ProductionOrdersRecordOperationResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">orders_record_operation</a>(request) -> Nordlet::Production::Types::OrdersRecordOperationProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31372,9 +31506,9 @@ client.production.post_v1production_orders_create(
 <dd>
 
 ```ruby
-client.production.post_v1production_orders_record_operation(
+client.production.orders_record_operation(
   id: "id",
-  actual_minutes: "actualMinutes"
+  actual_minutes: "121.00"
 )
 ```
 </dd>
@@ -31418,7 +31552,7 @@ client.production.post_v1production_orders_record_operation(
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_quality_checks_add</a>(request) -> Nordlet::Production::Types::PostV1ProductionQualityChecksAddResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">quality_checks_add</a>(request) -> Nordlet::Production::Types::QualityChecksAddProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31431,7 +31565,7 @@ client.production.post_v1production_orders_record_operation(
 <dd>
 
 ```ruby
-client.production.post_v1production_quality_checks_add(
+client.production.quality_checks_add(
   order_id: "orderId",
   name: "name"
 )
@@ -31485,7 +31619,7 @@ client.production.post_v1production_quality_checks_add(
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_quality_checks_record</a>(request) -> Nordlet::Production::Types::PostV1ProductionQualityChecksRecordResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">quality_checks_record</a>(request) -> Nordlet::Production::Types::QualityChecksRecordProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31498,7 +31632,7 @@ client.production.post_v1production_quality_checks_add(
 <dd>
 
 ```ruby
-client.production.post_v1production_quality_checks_record(
+client.production.quality_checks_record(
   id: "id",
   result: "passed"
 )
@@ -31524,7 +31658,7 @@ client.production.post_v1production_quality_checks_record(
 <dl>
 <dd>
 
-**result:** `Nordlet::Production::Types::PostV1ProductionQualityChecksRecordRequestResult` 
+**result:** `Nordlet::Production::Types::QualityChecksRecordProductionRequestResult` 
     
 </dd>
 </dl>
@@ -31552,7 +31686,7 @@ client.production.post_v1production_quality_checks_record(
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_quality_checks_list</a>(request) -> Nordlet::Production::Types::PostV1ProductionQualityChecksListResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">quality_checks_list</a>(request) -> Nordlet::Production::Types::QualityChecksListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31565,7 +31699,7 @@ client.production.post_v1production_quality_checks_record(
 <dd>
 
 ```ruby
-client.production.post_v1production_quality_checks_list
+client.production.quality_checks_list
 ```
 </dd>
 </dl>
@@ -31596,7 +31730,7 @@ client.production.post_v1production_quality_checks_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionQualityChecksListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Production::Types::QualityChecksListProductionRequestSortItem]` 
     
 </dd>
 </dl>
@@ -31604,7 +31738,7 @@ client.production.post_v1production_quality_checks_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionQualityChecksListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Production::Types::QualityChecksListProductionRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -31632,7 +31766,7 @@ client.production.post_v1production_quality_checks_list
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_orders_complete</a>(request) -> Nordlet::Production::Types::PostV1ProductionOrdersCompleteResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">orders_complete</a>(request) -> Nordlet::Production::Types::OrdersCompleteProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31645,7 +31779,7 @@ client.production.post_v1production_quality_checks_list
 <dd>
 
 ```ruby
-client.production.post_v1production_orders_complete(id: "id")
+client.production.orders_complete(id: "id")
 ```
 </dd>
 </dl>
@@ -31704,7 +31838,7 @@ client.production.post_v1production_orders_complete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_orders_get</a>(request) -> Nordlet::Production::Types::PostV1ProductionOrdersGetResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">orders_get</a>(request) -> Nordlet::Production::Types::OrdersGetProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31717,7 +31851,7 @@ client.production.post_v1production_orders_complete(id: "id")
 <dd>
 
 ```ruby
-client.production.post_v1production_orders_get(id: "id")
+client.production.orders_get(id: "id")
 ```
 </dd>
 </dl>
@@ -31752,7 +31886,7 @@ client.production.post_v1production_orders_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">post_v1production_orders_list</a>(request) -> Nordlet::Production::Types::PostV1ProductionOrdersListResponse</code></summary>
+<details><summary><code>client.production.<a href="/lib/nordlet/production/client.rb">orders_list</a>(request) -> Nordlet::Production::Types::OrdersListProductionResponse</code></summary>
 <dl>
 <dd>
 
@@ -31765,7 +31899,7 @@ client.production.post_v1production_orders_get(id: "id")
 <dd>
 
 ```ruby
-client.production.post_v1production_orders_list
+client.production.orders_list
 ```
 </dd>
 </dl>
@@ -31796,7 +31930,7 @@ client.production.post_v1production_orders_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionOrdersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Production::Types::OrdersListProductionRequestSortItem]` 
     
 </dd>
 </dl>
@@ -31804,7 +31938,7 @@ client.production.post_v1production_orders_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Production::Types::PostV1ProductionOrdersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Production::Types::OrdersListProductionRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -31832,8 +31966,8 @@ client.production.post_v1production_orders_list
 </dl>
 </details>
 
-## Ecommerce
-<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">post_v1ecommerce_orders_create</a>(request) -> Nordlet::Ecommerce::Types::PostV1EcommerceOrdersCreateResponse</code></summary>
+## ecommerce
+<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">orders_create</a>(request) -> Nordlet::Ecommerce::Types::OrdersCreateEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -31846,10 +31980,10 @@ client.production.post_v1production_orders_list
 <dd>
 
 ```ruby
-client.ecommerce.post_v1ecommerce_orders_create(lines: [{
+client.ecommerce.orders_create(lines: [{
   description: "description",
-  quantity: "quantity",
-  unit_price_excl_vat: "unitPriceExclVat"
+  quantity: "121.0000",
+  unit_price_excl_vat: "121.0000"
 }])
 ```
 </dd>
@@ -31889,7 +32023,7 @@ client.ecommerce.post_v1ecommerce_orders_create(lines: [{
 <dl>
 <dd>
 
-**partner:** `Nordlet::Ecommerce::Types::PostV1EcommerceOrdersCreateRequestPartner` 
+**partner:** `Nordlet::Ecommerce::Types::OrdersCreateEcommerceRequestPartner` 
     
 </dd>
 </dl>
@@ -31937,7 +32071,7 @@ client.ecommerce.post_v1ecommerce_orders_create(lines: [{
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Ecommerce::Types::PostV1EcommerceOrdersCreateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Ecommerce::Types::OrdersCreateEcommerceRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -31957,7 +32091,7 @@ client.ecommerce.post_v1ecommerce_orders_create(lines: [{
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">post_v1ecommerce_orders_get</a>(request) -> Nordlet::Ecommerce::Types::PostV1EcommerceOrdersGetResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">orders_get</a>(request) -> Nordlet::Ecommerce::Types::OrdersGetEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -31970,7 +32104,7 @@ client.ecommerce.post_v1ecommerce_orders_create(lines: [{
 <dd>
 
 ```ruby
-client.ecommerce.post_v1ecommerce_orders_get(id: "id")
+client.ecommerce.orders_get(id: "id")
 ```
 </dd>
 </dl>
@@ -32005,7 +32139,7 @@ client.ecommerce.post_v1ecommerce_orders_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">post_v1ecommerce_orders_list</a>(request) -> Nordlet::Ecommerce::Types::PostV1EcommerceOrdersListResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">orders_list</a>(request) -> Nordlet::Ecommerce::Types::OrdersListEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -32018,7 +32152,7 @@ client.ecommerce.post_v1ecommerce_orders_get(id: "id")
 <dd>
 
 ```ruby
-client.ecommerce.post_v1ecommerce_orders_list
+client.ecommerce.orders_list
 ```
 </dd>
 </dl>
@@ -32049,7 +32183,7 @@ client.ecommerce.post_v1ecommerce_orders_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Ecommerce::Types::PostV1EcommerceOrdersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Ecommerce::Types::OrdersListEcommerceRequestSortItem]` 
     
 </dd>
 </dl>
@@ -32057,7 +32191,7 @@ client.ecommerce.post_v1ecommerce_orders_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Ecommerce::Types::PostV1EcommerceOrdersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Ecommerce::Types::OrdersListEcommerceRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -32085,7 +32219,7 @@ client.ecommerce.post_v1ecommerce_orders_list
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">post_v1ecommerce_orders_reserve</a>(request) -> Nordlet::Ecommerce::Types::PostV1EcommerceOrdersReserveResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">orders_reserve</a>(request) -> Nordlet::Ecommerce::Types::OrdersReserveEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -32098,7 +32232,7 @@ client.ecommerce.post_v1ecommerce_orders_list
 <dd>
 
 ```ruby
-client.ecommerce.post_v1ecommerce_orders_reserve(id: "id")
+client.ecommerce.orders_reserve(id: "id")
 ```
 </dd>
 </dl>
@@ -32141,7 +32275,7 @@ client.ecommerce.post_v1ecommerce_orders_reserve(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">post_v1ecommerce_orders_fulfill</a>(request) -> Nordlet::Ecommerce::Types::PostV1EcommerceOrdersFulfillResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">orders_fulfill</a>(request) -> Nordlet::Ecommerce::Types::OrdersFulfillEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -32154,7 +32288,7 @@ client.ecommerce.post_v1ecommerce_orders_reserve(id: "id")
 <dd>
 
 ```ruby
-client.ecommerce.post_v1ecommerce_orders_fulfill(id: "id")
+client.ecommerce.orders_fulfill(id: "id")
 ```
 </dd>
 </dl>
@@ -32213,7 +32347,7 @@ client.ecommerce.post_v1ecommerce_orders_fulfill(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">post_v1ecommerce_orders_cancel</a>(request) -> Nordlet::Ecommerce::Types::PostV1EcommerceOrdersCancelResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">orders_cancel</a>(request) -> Nordlet::Ecommerce::Types::OrdersCancelEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -32226,7 +32360,7 @@ client.ecommerce.post_v1ecommerce_orders_fulfill(id: "id")
 <dd>
 
 ```ruby
-client.ecommerce.post_v1ecommerce_orders_cancel(id: "id")
+client.ecommerce.orders_cancel(id: "id")
 ```
 </dd>
 </dl>
@@ -32261,7 +32395,7 @@ client.ecommerce.post_v1ecommerce_orders_cancel(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">post_v1ecommerce_products_list</a>(request) -> Nordlet::Ecommerce::Types::PostV1EcommerceProductsListResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">products_list</a>(request) -> Nordlet::Ecommerce::Types::ProductsListEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -32274,7 +32408,7 @@ client.ecommerce.post_v1ecommerce_orders_cancel(id: "id")
 <dd>
 
 ```ruby
-client.ecommerce.post_v1ecommerce_products_list
+client.ecommerce.products_list
 ```
 </dd>
 </dl>
@@ -32341,7 +32475,7 @@ client.ecommerce.post_v1ecommerce_products_list
 </dl>
 </details>
 
-<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">post_v1ecommerce_stock_list</a>(request) -> Nordlet::Ecommerce::Types::PostV1EcommerceStockListResponse</code></summary>
+<details><summary><code>client.ecommerce.<a href="/lib/nordlet/ecommerce/client.rb">stock_list</a>(request) -> Nordlet::Ecommerce::Types::StockListEcommerceResponse</code></summary>
 <dl>
 <dd>
 
@@ -32354,7 +32488,7 @@ client.ecommerce.post_v1ecommerce_products_list
 <dd>
 
 ```ruby
-client.ecommerce.post_v1ecommerce_stock_list
+client.ecommerce.stock_list
 ```
 </dd>
 </dl>
@@ -32389,8 +32523,8 @@ client.ecommerce.post_v1ecommerce_stock_list
 </dl>
 </details>
 
-## Cash
-<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">post_v1cash_orders_create</a>(request) -> Nordlet::Cash::Types::PostV1CashOrdersCreateResponse</code></summary>
+## cash
+<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">orders_create</a>(request) -> Nordlet::Cash::Types::OrdersCreateCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -32403,10 +32537,10 @@ client.ecommerce.post_v1ecommerce_stock_list
 <dd>
 
 ```ruby
-client.cash.post_v1cash_orders_create(
+client.cash.orders_create(
   type: "receipt",
-  date: "date",
-  amount: "amount",
+  date: "2026-07-01",
+  amount: "121.0000",
   purpose: "purpose",
   counter_account_code: "counterAccountCode"
 )
@@ -32424,7 +32558,7 @@ client.cash.post_v1cash_orders_create(
 <dl>
 <dd>
 
-**type:** `Nordlet::Cash::Types::PostV1CashOrdersCreateRequestType` 
+**type:** `Nordlet::Cash::Types::OrdersCreateCashRequestType` 
     
 </dd>
 </dl>
@@ -32516,7 +32650,7 @@ client.cash.post_v1cash_orders_create(
 </dl>
 </details>
 
-<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">post_v1cash_orders_get</a>(request) -> Nordlet::Cash::Types::PostV1CashOrdersGetResponse</code></summary>
+<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">orders_get</a>(request) -> Nordlet::Cash::Types::OrdersGetCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -32529,7 +32663,7 @@ client.cash.post_v1cash_orders_create(
 <dd>
 
 ```ruby
-client.cash.post_v1cash_orders_get(id: "id")
+client.cash.orders_get(id: "id")
 ```
 </dd>
 </dl>
@@ -32564,7 +32698,7 @@ client.cash.post_v1cash_orders_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">post_v1cash_orders_list</a>(request) -> Nordlet::Cash::Types::PostV1CashOrdersListResponse</code></summary>
+<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">orders_list</a>(request) -> Nordlet::Cash::Types::OrdersListCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -32577,7 +32711,7 @@ client.cash.post_v1cash_orders_get(id: "id")
 <dd>
 
 ```ruby
-client.cash.post_v1cash_orders_list
+client.cash.orders_list
 ```
 </dd>
 </dl>
@@ -32608,7 +32742,7 @@ client.cash.post_v1cash_orders_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Cash::Types::PostV1CashOrdersListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Cash::Types::OrdersListCashRequestSortItem]` 
     
 </dd>
 </dl>
@@ -32616,7 +32750,7 @@ client.cash.post_v1cash_orders_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Cash::Types::PostV1CashOrdersListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Cash::Types::OrdersListCashRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -32644,7 +32778,7 @@ client.cash.post_v1cash_orders_list
 </dl>
 </details>
 
-<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">post_v1cash_balance</a>(request) -> Nordlet::Cash::Types::PostV1CashBalanceResponse</code></summary>
+<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">balance</a>(request) -> Nordlet::Cash::Types::BalanceCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -32657,7 +32791,7 @@ client.cash.post_v1cash_orders_list
 <dd>
 
 ```ruby
-client.cash.post_v1cash_balance
+client.cash.balance
 ```
 </dd>
 </dl>
@@ -32700,7 +32834,7 @@ client.cash.post_v1cash_balance
 </dl>
 </details>
 
-<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">post_v1cash_advance_holders_balances</a>(request) -> Nordlet::Cash::Types::PostV1CashAdvanceHoldersBalancesResponse</code></summary>
+<details><summary><code>client.cash.<a href="/lib/nordlet/cash/client.rb">advance_holders_balances</a>(request) -> Nordlet::Cash::Types::AdvanceHoldersBalancesCashResponse</code></summary>
 <dl>
 <dd>
 
@@ -32713,7 +32847,7 @@ client.cash.post_v1cash_balance
 <dd>
 
 ```ruby
-client.cash.post_v1cash_advance_holders_balances
+client.cash.advance_holders_balances
 ```
 </dd>
 </dl>
@@ -32740,8 +32874,8 @@ client.cash.post_v1cash_advance_holders_balances
 </dl>
 </details>
 
-## Projects
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_create</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsCreateResponse</code></summary>
+## projects
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">create</a>(request) -> Nordlet::Projects::Types::CreateProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32754,7 +32888,7 @@ client.cash.post_v1cash_advance_holders_balances
 <dd>
 
 ```ruby
-client.projects.post_v1projects_create(
+client.projects.create(
   code: "code",
   name: "name"
 )
@@ -32816,7 +32950,7 @@ client.projects.post_v1projects_create(
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_update</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsUpdateResponse</code></summary>
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">update</a>(request) -> Nordlet::Projects::Types::UpdateProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32829,7 +32963,7 @@ client.projects.post_v1projects_create(
 <dd>
 
 ```ruby
-client.projects.post_v1projects_update(id: "id")
+client.projects.update(id: "id")
 ```
 </dd>
 </dl>
@@ -32868,7 +33002,7 @@ client.projects.post_v1projects_update(id: "id")
 <dl>
 <dd>
 
-**status:** `Nordlet::Projects::Types::PostV1ProjectsUpdateRequestStatus` 
+**status:** `Nordlet::Projects::Types::UpdateProjectsRequestStatus` 
     
 </dd>
 </dl>
@@ -32896,7 +33030,7 @@ client.projects.post_v1projects_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_get</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsGetResponse</code></summary>
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">get</a>(request) -> Nordlet::Projects::Types::GetProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32909,7 +33043,7 @@ client.projects.post_v1projects_update(id: "id")
 <dd>
 
 ```ruby
-client.projects.post_v1projects_get(id: "id")
+client.projects.get(id: "id")
 ```
 </dd>
 </dl>
@@ -32944,7 +33078,7 @@ client.projects.post_v1projects_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_list</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsListResponse</code></summary>
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">list</a>(request) -> Nordlet::Projects::Types::ListProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -32957,7 +33091,7 @@ client.projects.post_v1projects_get(id: "id")
 <dd>
 
 ```ruby
-client.projects.post_v1projects_list
+client.projects.list
 ```
 </dd>
 </dl>
@@ -32988,7 +33122,7 @@ client.projects.post_v1projects_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Projects::Types::PostV1ProjectsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Projects::Types::ListProjectsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -32996,7 +33130,7 @@ client.projects.post_v1projects_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Projects::Types::PostV1ProjectsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Projects::Types::ListProjectsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -33024,7 +33158,7 @@ client.projects.post_v1projects_list
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_time_entries_create</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsTimeEntriesCreateResponse</code></summary>
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">time_entries_create</a>(request) -> Nordlet::Projects::Types::TimeEntriesCreateProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -33037,10 +33171,10 @@ client.projects.post_v1projects_list
 <dd>
 
 ```ruby
-client.projects.post_v1projects_time_entries_create(
+client.projects.time_entries_create(
   project_id: "projectId",
-  date: "date",
-  hours: "hours"
+  date: "2026-07-01",
+  hours: "121.00"
 )
 ```
 </dd>
@@ -33124,7 +33258,7 @@ client.projects.post_v1projects_time_entries_create(
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_time_entries_update</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsTimeEntriesUpdateResponse</code></summary>
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">time_entries_update</a>(request) -> Nordlet::Projects::Types::TimeEntriesUpdateProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -33137,7 +33271,7 @@ client.projects.post_v1projects_time_entries_create(
 <dd>
 
 ```ruby
-client.projects.post_v1projects_time_entries_update(id: "id")
+client.projects.time_entries_update(id: "id")
 ```
 </dd>
 </dl>
@@ -33212,7 +33346,7 @@ client.projects.post_v1projects_time_entries_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_time_entries_delete</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsTimeEntriesDeleteResponse</code></summary>
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">time_entries_delete</a>(request) -> Nordlet::Projects::Types::TimeEntriesDeleteProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -33225,7 +33359,7 @@ client.projects.post_v1projects_time_entries_update(id: "id")
 <dd>
 
 ```ruby
-client.projects.post_v1projects_time_entries_delete(id: "id")
+client.projects.time_entries_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -33260,7 +33394,7 @@ client.projects.post_v1projects_time_entries_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_time_entries_list</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsTimeEntriesListResponse</code></summary>
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">time_entries_list</a>(request) -> Nordlet::Projects::Types::TimeEntriesListProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -33273,7 +33407,7 @@ client.projects.post_v1projects_time_entries_delete(id: "id")
 <dd>
 
 ```ruby
-client.projects.post_v1projects_time_entries_list
+client.projects.time_entries_list
 ```
 </dd>
 </dl>
@@ -33304,7 +33438,7 @@ client.projects.post_v1projects_time_entries_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Projects::Types::PostV1ProjectsTimeEntriesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Projects::Types::TimeEntriesListProjectsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -33312,7 +33446,7 @@ client.projects.post_v1projects_time_entries_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Projects::Types::PostV1ProjectsTimeEntriesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Projects::Types::TimeEntriesListProjectsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -33340,7 +33474,7 @@ client.projects.post_v1projects_time_entries_list
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_time_entries_bill</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsTimeEntriesBillResponse</code></summary>
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">time_entries_bill</a>(request) -> Nordlet::Projects::Types::TimeEntriesBillProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -33353,7 +33487,7 @@ client.projects.post_v1projects_time_entries_list
 <dd>
 
 ```ruby
-client.projects.post_v1projects_time_entries_bill(project_id: "projectId")
+client.projects.time_entries_bill(project_id: "projectId")
 ```
 </dd>
 </dl>
@@ -33448,7 +33582,7 @@ client.projects.post_v1projects_time_entries_bill(project_id: "projectId")
 <dl>
 <dd>
 
-**group_by:** `Nordlet::Projects::Types::PostV1ProjectsTimeEntriesBillRequestGroupBy` 
+**group_by:** `Nordlet::Projects::Types::TimeEntriesBillProjectsRequestGroupBy` 
     
 </dd>
 </dl>
@@ -33476,7 +33610,7 @@ client.projects.post_v1projects_time_entries_bill(project_id: "projectId")
 </dl>
 </details>
 
-<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">post_v1projects_report</a>(request) -> Nordlet::Projects::Types::PostV1ProjectsReportResponse</code></summary>
+<details><summary><code>client.projects.<a href="/lib/nordlet/projects/client.rb">report</a>(request) -> Nordlet::Projects::Types::ReportProjectsResponse</code></summary>
 <dl>
 <dd>
 
@@ -33489,7 +33623,7 @@ client.projects.post_v1projects_time_entries_bill(project_id: "projectId")
 <dd>
 
 ```ruby
-client.projects.post_v1projects_report
+client.projects.report
 ```
 </dd>
 </dl>
@@ -33540,8 +33674,8 @@ client.projects.post_v1projects_report
 </dl>
 </details>
 
-## Transport
-<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">post_v1transport_waybills_create</a>(request) -> Nordlet::Transport::Types::PostV1TransportWaybillsCreateResponse</code></summary>
+## transport
+<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">waybills_create</a>(request) -> Nordlet::Transport::Types::WaybillsCreateTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -33554,7 +33688,7 @@ client.projects.post_v1projects_report
 <dd>
 
 ```ruby
-client.transport.post_v1transport_waybills_create(
+client.transport.waybills_create(
   consignee_partner_id: "consigneePartnerId",
   dispatch_at: "2024-01-15T09:30:00Z",
   load_address: "loadAddress",
@@ -33702,7 +33836,7 @@ client.transport.post_v1transport_waybills_create(
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Transport::Types::PostV1TransportWaybillsCreateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Transport::Types::WaybillsCreateTransportRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -33722,7 +33856,7 @@ client.transport.post_v1transport_waybills_create(
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">post_v1transport_waybills_update</a>(request) -> Nordlet::Transport::Types::PostV1TransportWaybillsUpdateResponse</code></summary>
+<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">waybills_update</a>(request) -> Nordlet::Transport::Types::WaybillsUpdateTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -33735,7 +33869,7 @@ client.transport.post_v1transport_waybills_create(
 <dd>
 
 ```ruby
-client.transport.post_v1transport_waybills_update(id: "id")
+client.transport.waybills_update(id: "id")
 ```
 </dd>
 </dl>
@@ -33878,7 +34012,7 @@ client.transport.post_v1transport_waybills_update(id: "id")
 <dl>
 <dd>
 
-**lines:** `Internal::Types::Array[Nordlet::Transport::Types::PostV1TransportWaybillsUpdateRequestLinesItem]` 
+**lines:** `Internal::Types::Array[Nordlet::Transport::Types::WaybillsUpdateTransportRequestLinesItem]` 
     
 </dd>
 </dl>
@@ -33906,7 +34040,7 @@ client.transport.post_v1transport_waybills_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">post_v1transport_waybills_issue</a>(request) -> Nordlet::Transport::Types::PostV1TransportWaybillsIssueResponse</code></summary>
+<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">waybills_issue</a>(request) -> Nordlet::Transport::Types::WaybillsIssueTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -33919,7 +34053,7 @@ client.transport.post_v1transport_waybills_update(id: "id")
 <dd>
 
 ```ruby
-client.transport.post_v1transport_waybills_issue(id: "id")
+client.transport.waybills_issue(id: "id")
 ```
 </dd>
 </dl>
@@ -33954,7 +34088,7 @@ client.transport.post_v1transport_waybills_issue(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">post_v1transport_waybills_cancel</a>(request) -> Nordlet::Transport::Types::PostV1TransportWaybillsCancelResponse</code></summary>
+<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">waybills_cancel</a>(request) -> Nordlet::Transport::Types::WaybillsCancelTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -33967,7 +34101,7 @@ client.transport.post_v1transport_waybills_issue(id: "id")
 <dd>
 
 ```ruby
-client.transport.post_v1transport_waybills_cancel(id: "id")
+client.transport.waybills_cancel(id: "id")
 ```
 </dd>
 </dl>
@@ -34002,7 +34136,7 @@ client.transport.post_v1transport_waybills_cancel(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">post_v1transport_waybills_get</a>(request) -> Nordlet::Transport::Types::PostV1TransportWaybillsGetResponse</code></summary>
+<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">waybills_get</a>(request) -> Nordlet::Transport::Types::WaybillsGetTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -34015,7 +34149,7 @@ client.transport.post_v1transport_waybills_cancel(id: "id")
 <dd>
 
 ```ruby
-client.transport.post_v1transport_waybills_get(id: "id")
+client.transport.waybills_get(id: "id")
 ```
 </dd>
 </dl>
@@ -34050,7 +34184,7 @@ client.transport.post_v1transport_waybills_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">post_v1transport_waybills_list</a>(request) -> Nordlet::Transport::Types::PostV1TransportWaybillsListResponse</code></summary>
+<details><summary><code>client.transport.<a href="/lib/nordlet/transport/client.rb">waybills_list</a>(request) -> Nordlet::Transport::Types::WaybillsListTransportResponse</code></summary>
 <dl>
 <dd>
 
@@ -34063,7 +34197,7 @@ client.transport.post_v1transport_waybills_get(id: "id")
 <dd>
 
 ```ruby
-client.transport.post_v1transport_waybills_list
+client.transport.waybills_list
 ```
 </dd>
 </dl>
@@ -34094,7 +34228,7 @@ client.transport.post_v1transport_waybills_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Transport::Types::PostV1TransportWaybillsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Transport::Types::WaybillsListTransportRequestSortItem]` 
     
 </dd>
 </dl>
@@ -34102,7 +34236,7 @@ client.transport.post_v1transport_waybills_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Transport::Types::PostV1TransportWaybillsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Transport::Types::WaybillsListTransportRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -34130,8 +34264,8 @@ client.transport.post_v1transport_waybills_list
 </dl>
 </details>
 
-## Pos
-<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">post_v1pos_devices_create</a>(request) -> Nordlet::Pos::Types::PostV1PosDevicesCreateResponse</code></summary>
+## pos
+<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">devices_create</a>(request) -> Nordlet::Pos::Types::DevicesCreatePosResponse</code></summary>
 <dl>
 <dd>
 
@@ -34144,7 +34278,7 @@ client.transport.post_v1transport_waybills_list
 <dd>
 
 ```ruby
-client.pos.post_v1pos_devices_create(
+client.pos.devices_create(
   name: "name",
   serial_number: "serialNumber"
 )
@@ -34214,7 +34348,7 @@ client.pos.post_v1pos_devices_create(
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">post_v1pos_devices_update</a>(request) -> Nordlet::Pos::Types::PostV1PosDevicesUpdateResponse</code></summary>
+<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">devices_update</a>(request) -> Nordlet::Pos::Types::DevicesUpdatePosResponse</code></summary>
 <dl>
 <dd>
 
@@ -34227,7 +34361,7 @@ client.pos.post_v1pos_devices_create(
 <dd>
 
 ```ruby
-client.pos.post_v1pos_devices_update(id: "id")
+client.pos.devices_update(id: "id")
 ```
 </dd>
 </dl>
@@ -34310,7 +34444,7 @@ client.pos.post_v1pos_devices_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">post_v1pos_devices_list</a>(request) -> Nordlet::Pos::Types::PostV1PosDevicesListResponse</code></summary>
+<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">devices_list</a>(request) -> Nordlet::Pos::Types::DevicesListPosResponse</code></summary>
 <dl>
 <dd>
 
@@ -34323,7 +34457,7 @@ client.pos.post_v1pos_devices_update(id: "id")
 <dd>
 
 ```ruby
-client.pos.post_v1pos_devices_list
+client.pos.devices_list
 ```
 </dd>
 </dl>
@@ -34354,7 +34488,7 @@ client.pos.post_v1pos_devices_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Pos::Types::PostV1PosDevicesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Pos::Types::DevicesListPosRequestSortItem]` 
     
 </dd>
 </dl>
@@ -34362,7 +34496,7 @@ client.pos.post_v1pos_devices_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Pos::Types::PostV1PosDevicesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Pos::Types::DevicesListPosRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -34390,7 +34524,7 @@ client.pos.post_v1pos_devices_list
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">post_v1pos_reports_create</a>(request) -> Nordlet::Pos::Types::PostV1PosReportsCreateResponse</code></summary>
+<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">reports_create</a>(request) -> Nordlet::Pos::Types::ReportsCreatePosResponse</code></summary>
 <dl>
 <dd>
 
@@ -34403,13 +34537,13 @@ client.pos.post_v1pos_devices_list
 <dd>
 
 ```ruby
-client.pos.post_v1pos_reports_create(
+client.pos.reports_create(
   report_number: "reportNumber",
-  date: "date",
+  date: "2026-07-01",
   vat_lines: [{
-    vat_rate_percent: "vatRatePercent",
-    net_amount: "netAmount",
-    vat_amount: "vatAmount"
+    vat_rate_percent: "121.00",
+    net_amount: "121.0000",
+    vat_amount: "121.0000"
   }]
 )
 ```
@@ -34458,7 +34592,7 @@ client.pos.post_v1pos_reports_create(
 <dl>
 <dd>
 
-**vat_lines:** `Internal::Types::Array[Nordlet::Pos::Types::PostV1PosReportsCreateRequestVatLinesItem]` 
+**vat_lines:** `Internal::Types::Array[Nordlet::Pos::Types::ReportsCreatePosRequestVatLinesItem]` 
     
 </dd>
 </dl>
@@ -34482,7 +34616,7 @@ client.pos.post_v1pos_reports_create(
 <dl>
 <dd>
 
-**item_lines:** `Internal::Types::Array[Nordlet::Pos::Types::PostV1PosReportsCreateRequestItemLinesItem]` 
+**item_lines:** `Internal::Types::Array[Nordlet::Pos::Types::ReportsCreatePosRequestItemLinesItem]` 
     
 </dd>
 </dl>
@@ -34558,7 +34692,7 @@ client.pos.post_v1pos_reports_create(
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">post_v1pos_reports_get</a>(request) -> Nordlet::Pos::Types::PostV1PosReportsGetResponse</code></summary>
+<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">reports_get</a>(request) -> Nordlet::Pos::Types::ReportsGetPosResponse</code></summary>
 <dl>
 <dd>
 
@@ -34571,7 +34705,7 @@ client.pos.post_v1pos_reports_create(
 <dd>
 
 ```ruby
-client.pos.post_v1pos_reports_get(id: "id")
+client.pos.reports_get(id: "id")
 ```
 </dd>
 </dl>
@@ -34606,7 +34740,7 @@ client.pos.post_v1pos_reports_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">post_v1pos_reports_list</a>(request) -> Nordlet::Pos::Types::PostV1PosReportsListResponse</code></summary>
+<details><summary><code>client.pos.<a href="/lib/nordlet/pos/client.rb">reports_list</a>(request) -> Nordlet::Pos::Types::ReportsListPosResponse</code></summary>
 <dl>
 <dd>
 
@@ -34619,7 +34753,7 @@ client.pos.post_v1pos_reports_get(id: "id")
 <dd>
 
 ```ruby
-client.pos.post_v1pos_reports_list
+client.pos.reports_list
 ```
 </dd>
 </dl>
@@ -34650,7 +34784,7 @@ client.pos.post_v1pos_reports_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Pos::Types::PostV1PosReportsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Pos::Types::ReportsListPosRequestSortItem]` 
     
 </dd>
 </dl>
@@ -34658,7 +34792,7 @@ client.pos.post_v1pos_reports_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Pos::Types::PostV1PosReportsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Pos::Types::ReportsListPosRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -34686,8 +34820,8 @@ client.pos.post_v1pos_reports_list
 </dl>
 </details>
 
-## Calendar
-<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_list</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarListResponse</code></summary>
+## calendar
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">list</a>(request) -> Nordlet::Calendar::Types::ListCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -34700,7 +34834,7 @@ client.pos.post_v1pos_reports_list
 <dd>
 
 ```ruby
-client.calendar.post_v1calendar_list
+client.calendar.list
 ```
 </dd>
 </dl>
@@ -34751,7 +34885,7 @@ client.calendar.post_v1calendar_list
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_get</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarGetResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">get</a>(request) -> Nordlet::Calendar::Types::GetCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -34764,7 +34898,7 @@ client.calendar.post_v1calendar_list
 <dd>
 
 ```ruby
-client.calendar.post_v1calendar_get(key: "key")
+client.calendar.get(key: "key")
 ```
 </dd>
 </dl>
@@ -34799,9 +34933,23 @@ client.calendar.post_v1calendar_get(key: "key")
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">generate_the_filing_for_a_deadline_and_send_it_to_the_administration</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarSubmitResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">submit</a>(request) -> Nordlet::Calendar::Types::SubmitCalendarResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only returns whose format has a correction mark accept it.
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -34812,7 +34960,7 @@ client.calendar.post_v1calendar_get(key: "key")
 <dd>
 
 ```ruby
-client.calendar.generate_the_filing_for_a_deadline_and_send_it_to_the_administration(key: "key")
+client.calendar.submit(key: "key")
 ```
 </dd>
 </dl>
@@ -34835,6 +34983,14 @@ client.calendar.generate_the_filing_for_a_deadline_and_send_it_to_the_administra
 <dl>
 <dd>
 
+**amend:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Calendar::RequestOptions` 
     
 </dd>
@@ -34847,7 +35003,7 @@ client.calendar.generate_the_filing_for_a_deadline_and_send_it_to_the_administra
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">generate_the_file_of_a_deadline_for_the_company_to_send_itself</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarDownloadResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">download</a>(request) -> Nordlet::Calendar::Types::DownloadCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -34874,7 +35030,7 @@ Builds the file of a deadline whose format Nordlet produces but whose administra
 <dd>
 
 ```ruby
-client.calendar.generate_the_file_of_a_deadline_for_the_company_to_send_itself(key: "key")
+client.calendar.download(key: "key")
 ```
 </dd>
 </dl>
@@ -34909,7 +35065,7 @@ client.calendar.generate_the_file_of_a_deadline_for_the_company_to_send_itself(k
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_create</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarCreateResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">create</a>(request) -> Nordlet::Calendar::Types::CreateCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -34922,9 +35078,9 @@ client.calendar.generate_the_file_of_a_deadline_for_the_company_to_send_itself(k
 <dd>
 
 ```ruby
-client.calendar.post_v1calendar_create(
+client.calendar.create(
   title: "title",
-  due_date: "dueDate"
+  due_date: "2026-07-01"
 )
 ```
 </dd>
@@ -34984,7 +35140,7 @@ client.calendar.post_v1calendar_create(
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_update</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarUpdateResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">update</a>(request) -> Nordlet::Calendar::Types::UpdateCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -34997,7 +35153,7 @@ client.calendar.post_v1calendar_create(
 <dd>
 
 ```ruby
-client.calendar.post_v1calendar_update(key: "key")
+client.calendar.update(key: "key")
 ```
 </dd>
 </dl>
@@ -35064,7 +35220,7 @@ client.calendar.post_v1calendar_update(key: "key")
 </dl>
 </details>
 
-<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">post_v1calendar_delete</a>(request) -> Nordlet::Calendar::Types::PostV1CalendarDeleteResponse</code></summary>
+<details><summary><code>client.calendar.<a href="/lib/nordlet/calendar/client.rb">delete</a>(request) -> Nordlet::Calendar::Types::DeleteCalendarResponse</code></summary>
 <dl>
 <dd>
 
@@ -35077,7 +35233,7 @@ client.calendar.post_v1calendar_update(key: "key")
 <dd>
 
 ```ruby
-client.calendar.post_v1calendar_delete(key: "key")
+client.calendar.delete(key: "key")
 ```
 </dd>
 </dl>
@@ -35112,8 +35268,8 @@ client.calendar.post_v1calendar_delete(key: "key")
 </dl>
 </details>
 
-## Audit
-<details><summary><code>client.audit.<a href="/lib/nordlet/audit/client.rb">post_v1audit_list</a>(request) -> Nordlet::Audit::Types::PostV1AuditListResponse</code></summary>
+## audit
+<details><summary><code>client.audit.<a href="/lib/nordlet/audit/client.rb">list</a>(request) -> Nordlet::Audit::Types::ListAuditResponse</code></summary>
 <dl>
 <dd>
 
@@ -35126,7 +35282,7 @@ client.calendar.post_v1calendar_delete(key: "key")
 <dd>
 
 ```ruby
-client.audit.post_v1audit_list
+client.audit.list
 ```
 </dd>
 </dl>
@@ -35157,7 +35313,7 @@ client.audit.post_v1audit_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Audit::Types::PostV1AuditListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Audit::Types::ListAuditRequestSortItem]` 
     
 </dd>
 </dl>
@@ -35165,7 +35321,7 @@ client.audit.post_v1audit_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Audit::Types::PostV1AuditListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Audit::Types::ListAuditRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -35193,8 +35349,8 @@ client.audit.post_v1audit_list
 </dl>
 </details>
 
-## Webhooks
-<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">post_v1webhooks_subscriptions_create</a>(request) -> Nordlet::Webhooks::Types::PostV1WebhooksSubscriptionsCreateResponse</code></summary>
+## webhooks
+<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">subscriptions_create</a>(request) -> Nordlet::Webhooks::Types::SubscriptionsCreateWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -35207,9 +35363,9 @@ client.audit.post_v1audit_list
 <dd>
 
 ```ruby
-client.webhooks.post_v1webhooks_subscriptions_create(
+client.webhooks.subscriptions_create(
   url: "url",
-  events: ["events"]
+  events: ["agreement.invoice_generated"]
 )
 ```
 </dd>
@@ -35233,7 +35389,7 @@ client.webhooks.post_v1webhooks_subscriptions_create(
 <dl>
 <dd>
 
-**events:** `Internal::Types::Array[String]` 
+**events:** `Internal::Types::Array[Nordlet::Webhooks::Types::SubscriptionsCreateWebhooksRequestEventsItem]` 
     
 </dd>
 </dl>
@@ -35261,7 +35417,7 @@ client.webhooks.post_v1webhooks_subscriptions_create(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">post_v1webhooks_subscriptions_list</a>(request) -> Nordlet::Webhooks::Types::PostV1WebhooksSubscriptionsListResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">subscriptions_list</a>(request) -> Nordlet::Webhooks::Types::SubscriptionsListWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -35274,7 +35430,7 @@ client.webhooks.post_v1webhooks_subscriptions_create(
 <dd>
 
 ```ruby
-client.webhooks.post_v1webhooks_subscriptions_list
+client.webhooks.subscriptions_list
 ```
 </dd>
 </dl>
@@ -35305,7 +35461,7 @@ client.webhooks.post_v1webhooks_subscriptions_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Webhooks::Types::PostV1WebhooksSubscriptionsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Webhooks::Types::SubscriptionsListWebhooksRequestSortItem]` 
     
 </dd>
 </dl>
@@ -35313,7 +35469,7 @@ client.webhooks.post_v1webhooks_subscriptions_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Webhooks::Types::PostV1WebhooksSubscriptionsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Webhooks::Types::SubscriptionsListWebhooksRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -35341,7 +35497,7 @@ client.webhooks.post_v1webhooks_subscriptions_list
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">post_v1webhooks_subscriptions_update</a>(request) -> Nordlet::Webhooks::Types::PostV1WebhooksSubscriptionsUpdateResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">subscriptions_update</a>(request) -> Nordlet::Webhooks::Types::SubscriptionsUpdateWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -35354,7 +35510,7 @@ client.webhooks.post_v1webhooks_subscriptions_list
 <dd>
 
 ```ruby
-client.webhooks.post_v1webhooks_subscriptions_update(id: "id")
+client.webhooks.subscriptions_update(id: "id")
 ```
 </dd>
 </dl>
@@ -35385,7 +35541,7 @@ client.webhooks.post_v1webhooks_subscriptions_update(id: "id")
 <dl>
 <dd>
 
-**events:** `Internal::Types::Array[String]` 
+**events:** `Internal::Types::Array[Nordlet::Webhooks::Types::SubscriptionsUpdateWebhooksRequestEventsItem]` 
     
 </dd>
 </dl>
@@ -35413,7 +35569,7 @@ client.webhooks.post_v1webhooks_subscriptions_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">post_v1webhooks_subscriptions_delete</a>(request) -> Nordlet::Webhooks::Types::PostV1WebhooksSubscriptionsDeleteResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">subscriptions_delete</a>(request) -> Nordlet::Webhooks::Types::SubscriptionsDeleteWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -35426,7 +35582,7 @@ client.webhooks.post_v1webhooks_subscriptions_update(id: "id")
 <dd>
 
 ```ruby
-client.webhooks.post_v1webhooks_subscriptions_delete(id: "id")
+client.webhooks.subscriptions_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -35461,7 +35617,7 @@ client.webhooks.post_v1webhooks_subscriptions_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">post_v1webhooks_deliveries_list</a>(request) -> Nordlet::Webhooks::Types::PostV1WebhooksDeliveriesListResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">deliveries_list</a>(request) -> Nordlet::Webhooks::Types::DeliveriesListWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -35474,7 +35630,7 @@ client.webhooks.post_v1webhooks_subscriptions_delete(id: "id")
 <dd>
 
 ```ruby
-client.webhooks.post_v1webhooks_deliveries_list
+client.webhooks.deliveries_list
 ```
 </dd>
 </dl>
@@ -35505,7 +35661,7 @@ client.webhooks.post_v1webhooks_deliveries_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Webhooks::Types::PostV1WebhooksDeliveriesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Webhooks::Types::DeliveriesListWebhooksRequestSortItem]` 
     
 </dd>
 </dl>
@@ -35513,7 +35669,7 @@ client.webhooks.post_v1webhooks_deliveries_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Webhooks::Types::PostV1WebhooksDeliveriesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Webhooks::Types::DeliveriesListWebhooksRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -35541,7 +35697,7 @@ client.webhooks.post_v1webhooks_deliveries_list
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">post_v1webhooks_deliveries_redeliver</a>(request) -> Nordlet::Webhooks::Types::PostV1WebhooksDeliveriesRedeliverResponse</code></summary>
+<details><summary><code>client.webhooks.<a href="/lib/nordlet/webhooks/client.rb">deliveries_redeliver</a>(request) -> Nordlet::Webhooks::Types::DeliveriesRedeliverWebhooksResponse</code></summary>
 <dl>
 <dd>
 
@@ -35554,7 +35710,7 @@ client.webhooks.post_v1webhooks_deliveries_list
 <dd>
 
 ```ruby
-client.webhooks.post_v1webhooks_deliveries_redeliver(id: "id")
+client.webhooks.deliveries_redeliver(id: "id")
 ```
 </dd>
 </dl>
@@ -35589,8 +35745,8 @@ client.webhooks.post_v1webhooks_deliveries_redeliver(id: "id")
 </dl>
 </details>
 
-## Bank
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_accounts_create</a>(request) -> Nordlet::Bank::Types::PostV1BankAccountsCreateResponse</code></summary>
+## bank
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">accounts_create</a>(request) -> Nordlet::Bank::Types::AccountsCreateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -35603,7 +35759,7 @@ client.webhooks.post_v1webhooks_deliveries_redeliver(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_accounts_create(name: "name")
+client.bank.accounts_create(name: "name")
 ```
 </dd>
 </dl>
@@ -35670,7 +35826,7 @@ client.bank.post_v1bank_accounts_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_accounts_list</a>(request) -> Nordlet::Bank::Types::PostV1BankAccountsListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">accounts_list</a>(request) -> Nordlet::Bank::Types::AccountsListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -35683,7 +35839,7 @@ client.bank.post_v1bank_accounts_create(name: "name")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_accounts_list
+client.bank.accounts_list
 ```
 </dd>
 </dl>
@@ -35714,7 +35870,7 @@ client.bank.post_v1bank_accounts_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankAccountsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::AccountsListBankRequestSortItem]` 
     
 </dd>
 </dl>
@@ -35722,7 +35878,7 @@ client.bank.post_v1bank_accounts_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankAccountsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::AccountsListBankRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -35750,7 +35906,7 @@ client.bank.post_v1bank_accounts_list
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_accounts_update</a>(request) -> Nordlet::Bank::Types::PostV1BankAccountsUpdateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">accounts_update</a>(request) -> Nordlet::Bank::Types::AccountsUpdateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -35763,7 +35919,7 @@ client.bank.post_v1bank_accounts_list
 <dd>
 
 ```ruby
-client.bank.post_v1bank_accounts_update(id: "id")
+client.bank.accounts_update(id: "id")
 ```
 </dd>
 </dl>
@@ -35830,7 +35986,7 @@ client.bank.post_v1bank_accounts_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_transactions_import</a>(request) -> Nordlet::Bank::Types::PostV1BankTransactionsImportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">transactions_import</a>(request) -> Nordlet::Bank::Types::TransactionsImportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -35843,11 +35999,11 @@ client.bank.post_v1bank_accounts_update(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_transactions_import(
+client.bank.transactions_import(
   bank_account_id: "bankAccountId",
   transactions: [{
-    date: "date",
-    amount: "amount"
+    date: "2026-07-01",
+    amount: "-121.0000"
   }]
 )
 ```
@@ -35872,7 +36028,7 @@ client.bank.post_v1bank_transactions_import(
 <dl>
 <dd>
 
-**transactions:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankTransactionsImportRequestTransactionsItem]` 
+**transactions:** `Internal::Types::Array[Nordlet::Bank::Types::TransactionsImportBankRequestTransactionsItem]` 
     
 </dd>
 </dl>
@@ -35892,7 +36048,7 @@ client.bank.post_v1bank_transactions_import(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_statements_import</a>(request) -> Nordlet::Bank::Types::PostV1BankStatementsImportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">statements_import</a>(request) -> Nordlet::Bank::Types::StatementsImportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -35905,7 +36061,7 @@ client.bank.post_v1bank_transactions_import(
 <dd>
 
 ```ruby
-client.bank.post_v1bank_statements_import(
+client.bank.statements_import(
   bank_account_id: "bankAccountId",
   content: "content"
 )
@@ -35939,7 +36095,7 @@ client.bank.post_v1bank_statements_import(
 <dl>
 <dd>
 
-**format:** `Nordlet::Bank::Types::PostV1BankStatementsImportRequestFormat` 
+**format:** `Nordlet::Bank::Types::StatementsImportBankRequestFormat` 
     
 </dd>
 </dl>
@@ -35975,7 +36131,7 @@ client.bank.post_v1bank_statements_import(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_transactions_list</a>(request) -> Nordlet::Bank::Types::PostV1BankTransactionsListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">transactions_list</a>(request) -> Nordlet::Bank::Types::TransactionsListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -35988,7 +36144,7 @@ client.bank.post_v1bank_statements_import(
 <dd>
 
 ```ruby
-client.bank.post_v1bank_transactions_list
+client.bank.transactions_list
 ```
 </dd>
 </dl>
@@ -36019,7 +36175,7 @@ client.bank.post_v1bank_transactions_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankTransactionsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::TransactionsListBankRequestSortItem]` 
     
 </dd>
 </dl>
@@ -36027,7 +36183,7 @@ client.bank.post_v1bank_transactions_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankTransactionsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::TransactionsListBankRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -36055,7 +36211,7 @@ client.bank.post_v1bank_transactions_list
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_transactions_match</a>(request) -> Nordlet::Bank::Types::PostV1BankTransactionsMatchResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">transactions_match</a>(request) -> Nordlet::Bank::Types::TransactionsMatchBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36068,7 +36224,7 @@ client.bank.post_v1bank_transactions_list
 <dd>
 
 ```ruby
-client.bank.post_v1bank_transactions_match(
+client.bank.transactions_match(
   transaction_id: "transactionId",
   document_type: "sale_invoice",
   document_id: "documentId"
@@ -36095,7 +36251,7 @@ client.bank.post_v1bank_transactions_match(
 <dl>
 <dd>
 
-**document_type:** `Nordlet::Bank::Types::PostV1BankTransactionsMatchRequestDocumentType` 
+**document_type:** `Nordlet::Bank::Types::TransactionsMatchBankRequestDocumentType` 
     
 </dd>
 </dl>
@@ -36104,6 +36260,14 @@ client.bank.post_v1bank_transactions_match(
 <dd>
 
 **document_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**invoice_amount:** `String` 
     
 </dd>
 </dl>
@@ -36123,7 +36287,77 @@ client.bank.post_v1bank_transactions_match(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_transactions_record</a>(request) -> Nordlet::Bank::Types::PostV1BankTransactionsRecordResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">transactions_unmatch</a>(request) -> Nordlet::Bank::Types::TransactionsUnmatchBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line linked to a payment-provider settlement is only unlinked. The line returns to status new.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.transactions_unmatch(transaction_id: "transactionId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**transaction_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">transactions_record</a>(request) -> Nordlet::Bank::Types::TransactionsRecordBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36136,10 +36370,10 @@ client.bank.post_v1bank_transactions_match(
 <dd>
 
 ```ruby
-client.bank.post_v1bank_transactions_record(
+client.bank.transactions_record(
   bank_account_id: "bankAccountId",
-  date: "date",
-  amount: "amount",
+  date: "2026-07-01",
+  amount: "121.0000",
   document_type: "sale_invoice",
   document_id: "documentId"
 )
@@ -36189,7 +36423,7 @@ client.bank.post_v1bank_transactions_record(
 <dl>
 <dd>
 
-**document_type:** `Nordlet::Bank::Types::PostV1BankTransactionsRecordRequestDocumentType` 
+**document_type:** `Nordlet::Bank::Types::TransactionsRecordBankRequestDocumentType` 
     
 </dd>
 </dl>
@@ -36217,7 +36451,7 @@ client.bank.post_v1bank_transactions_record(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_payments_export</a>(request) -> Nordlet::Bank::Types::PostV1BankPaymentsExportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">payments_export</a>(request) -> Nordlet::Bank::Types::PaymentsExportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36230,7 +36464,7 @@ client.bank.post_v1bank_transactions_record(
 <dd>
 
 ```ruby
-client.bank.post_v1bank_payments_export(
+client.bank.payments_export(
   bank_account_id: "bankAccountId",
   purchase_invoice_ids: ["purchaseInvoiceIds"]
 )
@@ -36284,7 +36518,7 @@ client.bank.post_v1bank_payments_export(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">create_a_bank_import_template_fields_default_to_the_types_standard_field_list</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesCreateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">import_templates_create</a>(request) -> Nordlet::Bank::Types::ImportTemplatesCreateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36297,7 +36531,7 @@ client.bank.post_v1bank_payments_export(
 <dd>
 
 ```ruby
-client.bank.create_a_bank_import_template_fields_default_to_the_types_standard_field_list(
+client.bank.import_templates_create(
   name: "name",
   type: "stripe"
 )
@@ -36323,7 +36557,7 @@ client.bank.create_a_bank_import_template_fields_default_to_the_types_standard_f
 <dl>
 <dd>
 
-**type:** `Nordlet::Bank::Types::PostV1BankImportTemplatesCreateRequestType` 
+**type:** `Nordlet::Bank::Types::ImportTemplatesCreateBankRequestType` 
     
 </dd>
 </dl>
@@ -36331,7 +36565,7 @@ client.bank.create_a_bank_import_template_fields_default_to_the_types_standard_f
 <dl>
 <dd>
 
-**fields:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankImportTemplatesCreateRequestFieldsItem]` 
+**fields:** `Internal::Types::Array[Nordlet::Bank::Types::ImportTemplatesCreateBankRequestFieldsItem]` 
     
 </dd>
 </dl>
@@ -36447,7 +36681,7 @@ client.bank.create_a_bank_import_template_fields_default_to_the_types_standard_f
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_import_templates_update</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">import_templates_update</a>(request) -> Nordlet::Bank::Types::ImportTemplatesUpdateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36460,7 +36694,7 @@ client.bank.create_a_bank_import_template_fields_default_to_the_types_standard_f
 <dd>
 
 ```ruby
-client.bank.post_v1bank_import_templates_update(id: "id")
+client.bank.import_templates_update(id: "id")
 ```
 </dd>
 </dl>
@@ -36483,7 +36717,7 @@ client.bank.post_v1bank_import_templates_update(id: "id")
 <dl>
 <dd>
 
-**type:** `Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateRequestType` 
+**type:** `Nordlet::Bank::Types::ImportTemplatesUpdateBankRequestType` 
     
 </dd>
 </dl>
@@ -36491,7 +36725,7 @@ client.bank.post_v1bank_import_templates_update(id: "id")
 <dl>
 <dd>
 
-**fields:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateRequestFieldsItem]` 
+**fields:** `Internal::Types::Array[Nordlet::Bank::Types::ImportTemplatesUpdateBankRequestFieldsItem]` 
     
 </dd>
 </dl>
@@ -36615,7 +36849,7 @@ client.bank.post_v1bank_import_templates_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_import_templates_delete</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesDeleteResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">import_templates_delete</a>(request) -> Nordlet::Bank::Types::ImportTemplatesDeleteBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36628,7 +36862,7 @@ client.bank.post_v1bank_import_templates_update(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_import_templates_delete(id: "id")
+client.bank.import_templates_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -36663,7 +36897,7 @@ client.bank.post_v1bank_import_templates_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_import_templates_get</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesGetResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">import_templates_get</a>(request) -> Nordlet::Bank::Types::ImportTemplatesGetBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36676,7 +36910,7 @@ client.bank.post_v1bank_import_templates_delete(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_import_templates_get(id: "id")
+client.bank.import_templates_get(id: "id")
 ```
 </dd>
 </dl>
@@ -36711,7 +36945,7 @@ client.bank.post_v1bank_import_templates_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_import_templates_list</a>(request) -> Nordlet::Bank::Types::PostV1BankImportTemplatesListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">import_templates_list</a>(request) -> Nordlet::Bank::Types::ImportTemplatesListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36724,7 +36958,7 @@ client.bank.post_v1bank_import_templates_get(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_import_templates_list
+client.bank.import_templates_list
 ```
 </dd>
 </dl>
@@ -36755,7 +36989,7 @@ client.bank.post_v1bank_import_templates_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankImportTemplatesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::ImportTemplatesListBankRequestSortItem]` 
     
 </dd>
 </dl>
@@ -36763,7 +36997,7 @@ client.bank.post_v1bank_import_templates_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankImportTemplatesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::ImportTemplatesListBankRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -36791,7 +37025,7 @@ client.bank.post_v1bank_import_templates_list
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_match_rules_create</a>(request) -> Nordlet::Bank::Types::PostV1BankMatchRulesCreateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">match_rules_create</a>(request) -> Nordlet::Bank::Types::MatchRulesCreateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36804,7 +37038,7 @@ client.bank.post_v1bank_import_templates_list
 <dd>
 
 ```ruby
-client.bank.post_v1bank_match_rules_create(
+client.bank.match_rules_create(
   name: "name",
   pattern: "pattern"
 )
@@ -36890,7 +37124,7 @@ client.bank.post_v1bank_match_rules_create(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_match_rules_update</a>(request) -> Nordlet::Bank::Types::PostV1BankMatchRulesUpdateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">match_rules_update</a>(request) -> Nordlet::Bank::Types::MatchRulesUpdateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -36903,7 +37137,7 @@ client.bank.post_v1bank_match_rules_create(
 <dd>
 
 ```ruby
-client.bank.post_v1bank_match_rules_update(id: "id")
+client.bank.match_rules_update(id: "id")
 ```
 </dd>
 </dl>
@@ -36994,7 +37228,7 @@ client.bank.post_v1bank_match_rules_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_match_rules_delete</a>(request) -> Nordlet::Bank::Types::PostV1BankMatchRulesDeleteResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">match_rules_delete</a>(request) -> Nordlet::Bank::Types::MatchRulesDeleteBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37007,7 +37241,7 @@ client.bank.post_v1bank_match_rules_update(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_match_rules_delete(id: "id")
+client.bank.match_rules_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -37042,7 +37276,7 @@ client.bank.post_v1bank_match_rules_delete(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_match_rules_list</a>(request) -> Nordlet::Bank::Types::PostV1BankMatchRulesListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">match_rules_list</a>(request) -> Nordlet::Bank::Types::MatchRulesListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37055,7 +37289,7 @@ client.bank.post_v1bank_match_rules_delete(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_match_rules_list
+client.bank.match_rules_list
 ```
 </dd>
 </dl>
@@ -37082,7 +37316,7 @@ client.bank.post_v1bank_match_rules_list
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_mandates_create</a>(request) -> Nordlet::Bank::Types::PostV1BankMandatesCreateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">mandates_create</a>(request) -> Nordlet::Bank::Types::MandatesCreateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37095,10 +37329,10 @@ client.bank.post_v1bank_match_rules_list
 <dd>
 
 ```ruby
-client.bank.post_v1bank_mandates_create(
+client.bank.mandates_create(
   partner_id: "partnerId",
   iban: "iban",
-  signature_date: "signatureDate"
+  signature_date: "2026-07-01"
 )
 ```
 </dd>
@@ -37138,7 +37372,7 @@ client.bank.post_v1bank_mandates_create(
 <dl>
 <dd>
 
-**scheme:** `Nordlet::Bank::Types::PostV1BankMandatesCreateRequestScheme` 
+**scheme:** `Nordlet::Bank::Types::MandatesCreateBankRequestScheme` 
     
 </dd>
 </dl>
@@ -37146,7 +37380,7 @@ client.bank.post_v1bank_mandates_create(
 <dl>
 <dd>
 
-**sequence_type:** `Nordlet::Bank::Types::PostV1BankMandatesCreateRequestSequenceType` 
+**sequence_type:** `Nordlet::Bank::Types::MandatesCreateBankRequestSequenceType` 
     
 </dd>
 </dl>
@@ -37198,7 +37432,7 @@ client.bank.post_v1bank_mandates_create(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_mandates_update</a>(request) -> Nordlet::Bank::Types::PostV1BankMandatesUpdateResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">mandates_update</a>(request) -> Nordlet::Bank::Types::MandatesUpdateBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37211,7 +37445,7 @@ client.bank.post_v1bank_mandates_create(
 <dd>
 
 ```ruby
-client.bank.post_v1bank_mandates_update(id: "id")
+client.bank.mandates_update(id: "id")
 ```
 </dd>
 </dl>
@@ -37270,7 +37504,7 @@ client.bank.post_v1bank_mandates_update(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_mandates_cancel</a>(request) -> Nordlet::Bank::Types::PostV1BankMandatesCancelResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">mandates_cancel</a>(request) -> Nordlet::Bank::Types::MandatesCancelBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37283,7 +37517,7 @@ client.bank.post_v1bank_mandates_update(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_mandates_cancel(id: "id")
+client.bank.mandates_cancel(id: "id")
 ```
 </dd>
 </dl>
@@ -37318,7 +37552,7 @@ client.bank.post_v1bank_mandates_cancel(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_mandates_get</a>(request) -> Nordlet::Bank::Types::PostV1BankMandatesGetResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">mandates_get</a>(request) -> Nordlet::Bank::Types::MandatesGetBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37331,7 +37565,7 @@ client.bank.post_v1bank_mandates_cancel(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_mandates_get(id: "id")
+client.bank.mandates_get(id: "id")
 ```
 </dd>
 </dl>
@@ -37366,7 +37600,7 @@ client.bank.post_v1bank_mandates_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_mandates_list</a>(request) -> Nordlet::Bank::Types::PostV1BankMandatesListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">mandates_list</a>(request) -> Nordlet::Bank::Types::MandatesListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37379,7 +37613,7 @@ client.bank.post_v1bank_mandates_get(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_mandates_list
+client.bank.mandates_list
 ```
 </dd>
 </dl>
@@ -37410,7 +37644,7 @@ client.bank.post_v1bank_mandates_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankMandatesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::MandatesListBankRequestSortItem]` 
     
 </dd>
 </dl>
@@ -37418,7 +37652,7 @@ client.bank.post_v1bank_mandates_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankMandatesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::MandatesListBankRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -37446,7 +37680,7 @@ client.bank.post_v1bank_mandates_list
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_direct_debits_export</a>(request) -> Nordlet::Bank::Types::PostV1BankDirectDebitsExportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">direct_debits_export</a>(request) -> Nordlet::Bank::Types::DirectDebitsExportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37459,7 +37693,7 @@ client.bank.post_v1bank_mandates_list
 <dd>
 
 ```ruby
-client.bank.post_v1bank_direct_debits_export(
+client.bank.direct_debits_export(
   bank_account_id: "bankAccountId",
   sale_invoice_ids: ["saleInvoiceIds"]
 )
@@ -37513,7 +37747,7 @@ client.bank.post_v1bank_direct_debits_export(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_transactions_suggest_matches</a>(request) -> Nordlet::Bank::Types::PostV1BankTransactionsSuggestMatchesResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">transactions_suggest_matches</a>(request) -> Nordlet::Bank::Types::TransactionsSuggestMatchesBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37526,7 +37760,7 @@ client.bank.post_v1bank_direct_debits_export(
 <dd>
 
 ```ruby
-client.bank.post_v1bank_transactions_suggest_matches(transaction_id: "transactionId")
+client.bank.transactions_suggest_matches(transaction_id: "transactionId")
 ```
 </dd>
 </dl>
@@ -37569,7 +37803,7 @@ client.bank.post_v1bank_transactions_suggest_matches(transaction_id: "transactio
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_import</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsImportResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">settlements_import</a>(request) -> Nordlet::Bank::Types::SettlementsImportBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37582,7 +37816,7 @@ client.bank.post_v1bank_transactions_suggest_matches(transaction_id: "transactio
 <dd>
 
 ```ruby
-client.bank.post_v1bank_settlements_import(
+client.bank.settlements_import(
   bank_account_id: "bankAccountId",
   content: "content"
 )
@@ -37608,7 +37842,7 @@ client.bank.post_v1bank_settlements_import(
 <dl>
 <dd>
 
-**provider:** `Nordlet::Bank::Types::PostV1BankSettlementsImportRequestProvider` 
+**provider:** `Nordlet::Bank::Types::SettlementsImportBankRequestProvider` 
     
 </dd>
 </dl>
@@ -37636,7 +37870,7 @@ client.bank.post_v1bank_settlements_import(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_list</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">settlements_list</a>(request) -> Nordlet::Bank::Types::SettlementsListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37649,7 +37883,7 @@ client.bank.post_v1bank_settlements_import(
 <dd>
 
 ```ruby
-client.bank.post_v1bank_settlements_list
+client.bank.settlements_list
 ```
 </dd>
 </dl>
@@ -37680,7 +37914,7 @@ client.bank.post_v1bank_settlements_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankSettlementsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::SettlementsListBankRequestSortItem]` 
     
 </dd>
 </dl>
@@ -37688,7 +37922,7 @@ client.bank.post_v1bank_settlements_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankSettlementsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::SettlementsListBankRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -37716,7 +37950,7 @@ client.bank.post_v1bank_settlements_list
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_get</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsGetResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">settlements_get</a>(request) -> Nordlet::Bank::Types::SettlementsGetBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37729,7 +37963,7 @@ client.bank.post_v1bank_settlements_list
 <dd>
 
 ```ruby
-client.bank.post_v1bank_settlements_get(id: "id")
+client.bank.settlements_get(id: "id")
 ```
 </dd>
 </dl>
@@ -37764,7 +37998,7 @@ client.bank.post_v1bank_settlements_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_match</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsMatchResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">settlements_match</a>(request) -> Nordlet::Bank::Types::SettlementsMatchBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37777,7 +38011,7 @@ client.bank.post_v1bank_settlements_get(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_settlements_match(line_id: "lineId")
+client.bank.settlements_match(line_id: "lineId")
 ```
 </dd>
 </dl>
@@ -37820,7 +38054,7 @@ client.bank.post_v1bank_settlements_match(line_id: "lineId")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">set_what_the_marketplace_keeps_from_one_settlement_line_as_a_rate_or_as_an_amount</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsCommissionResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">settlements_commission</a>(request) -> Nordlet::Bank::Types::SettlementsCommissionBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37847,7 +38081,7 @@ A line with its own rate or amount is split with that value when the batch is po
 <dd>
 
 ```ruby
-client.bank.set_what_the_marketplace_keeps_from_one_settlement_line_as_a_rate_or_as_an_amount(line_id: "lineId")
+client.bank.settlements_commission(line_id: "lineId")
 ```
 </dd>
 </dl>
@@ -37898,7 +38132,7 @@ client.bank.set_what_the_marketplace_keeps_from_one_settlement_line_as_a_rate_or
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_link</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsLinkResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">settlements_link</a>(request) -> Nordlet::Bank::Types::SettlementsLinkBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37925,7 +38159,7 @@ Attach the incoming bank-statement line that carries this payout to the settleme
 <dd>
 
 ```ruby
-client.bank.post_v1bank_settlements_link(
+client.bank.settlements_link(
   id: "id",
   bank_transaction_id: "bankTransactionId"
 )
@@ -37971,7 +38205,7 @@ client.bank.post_v1bank_settlements_link(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_unlink</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsUnlinkResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">settlements_unlink</a>(request) -> Nordlet::Bank::Types::SettlementsUnlinkBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -37998,7 +38232,7 @@ Detach the bank-statement line from the settlement batch and return the line to 
 <dd>
 
 ```ruby
-client.bank.post_v1bank_settlements_unlink(id: "id")
+client.bank.settlements_unlink(id: "id")
 ```
 </dd>
 </dl>
@@ -38033,7 +38267,7 @@ client.bank.post_v1bank_settlements_unlink(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_settlements_post</a>(request) -> Nordlet::Bank::Types::PostV1BankSettlementsPostResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">settlements_post</a>(request) -> Nordlet::Bank::Types::SettlementsPostBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38046,7 +38280,7 @@ client.bank.post_v1bank_settlements_unlink(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_settlements_post(id: "id")
+client.bank.settlements_post(id: "id")
 ```
 </dd>
 </dl>
@@ -38097,7 +38331,7 @@ client.bank.post_v1bank_settlements_post(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">list_the_psd2banks_asps_ps_available_to_connect</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsBanksListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_banks_list</a>(request) -> Nordlet::Bank::Types::FeedsBanksListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38110,7 +38344,7 @@ client.bank.post_v1bank_settlements_post(id: "id")
 <dd>
 
 ```ruby
-client.bank.list_the_psd2banks_asps_ps_available_to_connect
+client.bank.feeds_banks_list
 ```
 </dd>
 </dl>
@@ -38145,7 +38379,7 @@ client.bank.list_the_psd2banks_asps_ps_available_to_connect
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">begin_bank_authorization_redirect_the_user_to_the_returned_url</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsConnectionsStartResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_connections_start</a>(request) -> Nordlet::Bank::Types::FeedsConnectionsStartBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38158,7 +38392,7 @@ client.bank.list_the_psd2banks_asps_ps_available_to_connect
 <dd>
 
 ```ruby
-client.bank.begin_bank_authorization_redirect_the_user_to_the_returned_url(
+client.bank.feeds_connections_start(
   aspsp_name: "aspspName",
   aspsp_country: "aspspCountry"
 )
@@ -38192,7 +38426,7 @@ client.bank.begin_bank_authorization_redirect_the_user_to_the_returned_url(
 <dl>
 <dd>
 
-**psu_type:** `Nordlet::Bank::Types::PostV1BankFeedsConnectionsStartRequestPsuType` 
+**psu_type:** `Nordlet::Bank::Types::FeedsConnectionsStartBankRequestPsuType` 
     
 </dd>
 </dl>
@@ -38236,7 +38470,7 @@ client.bank.begin_bank_authorization_redirect_the_user_to_the_returned_url(
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">exchange_the_redirect_code_for_a_session_and_store_the_bank_accounts_it_exposes</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsConnectionsCompleteResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_connections_complete</a>(request) -> Nordlet::Bank::Types::FeedsConnectionsCompleteBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38249,7 +38483,7 @@ client.bank.begin_bank_authorization_redirect_the_user_to_the_returned_url(
 <dd>
 
 ```ruby
-client.bank.exchange_the_redirect_code_for_a_session_and_store_the_bank_accounts_it_exposes(
+client.bank.feeds_connections_complete(
   reference: "reference",
   code: "code"
 )
@@ -38295,7 +38529,7 @@ client.bank.exchange_the_redirect_code_for_a_session_and_store_the_bank_accounts
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_feeds_connections_get</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsConnectionsGetResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_connections_get</a>(request) -> Nordlet::Bank::Types::FeedsConnectionsGetBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38308,7 +38542,7 @@ client.bank.exchange_the_redirect_code_for_a_session_and_store_the_bank_accounts
 <dd>
 
 ```ruby
-client.bank.post_v1bank_feeds_connections_get(id: "id")
+client.bank.feeds_connections_get(id: "id")
 ```
 </dd>
 </dl>
@@ -38343,7 +38577,7 @@ client.bank.post_v1bank_feeds_connections_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">post_v1bank_feeds_connections_list</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsConnectionsListResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_connections_list</a>(request) -> Nordlet::Bank::Types::FeedsConnectionsListBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38356,7 +38590,7 @@ client.bank.post_v1bank_feeds_connections_get(id: "id")
 <dd>
 
 ```ruby
-client.bank.post_v1bank_feeds_connections_list
+client.bank.feeds_connections_list
 ```
 </dd>
 </dl>
@@ -38387,7 +38621,7 @@ client.bank.post_v1bank_feeds_connections_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankFeedsConnectionsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::FeedsConnectionsListBankRequestSortItem]` 
     
 </dd>
 </dl>
@@ -38395,7 +38629,7 @@ client.bank.post_v1bank_feeds_connections_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Bank::Types::PostV1BankFeedsConnectionsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::FeedsConnectionsListBankRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -38423,7 +38657,7 @@ client.bank.post_v1bank_feeds_connections_list
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">revoke_the_consent_at_the_bank_and_drop_the_stored_connection</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsConnectionsDeleteResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_connections_delete</a>(request) -> Nordlet::Bank::Types::FeedsConnectionsDeleteBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38436,7 +38670,7 @@ client.bank.post_v1bank_feeds_connections_list
 <dd>
 
 ```ruby
-client.bank.revoke_the_consent_at_the_bank_and_drop_the_stored_connection(id: "id")
+client.bank.feeds_connections_delete(id: "id")
 ```
 </dd>
 </dl>
@@ -38471,7 +38705,7 @@ client.bank.revoke_the_consent_at_the_bank_and_drop_the_stored_connection(id: "i
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">point_a_bank_feed_account_at_a_ledger_bank_account_so_its_transactions_can_be_synced</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsAccountsLinkResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_accounts_link</a>(request) -> Nordlet::Bank::Types::FeedsAccountsLinkBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38484,7 +38718,7 @@ client.bank.revoke_the_consent_at_the_bank_and_drop_the_stored_connection(id: "i
 <dd>
 
 ```ruby
-client.bank.point_a_bank_feed_account_at_a_ledger_bank_account_so_its_transactions_can_be_synced(id: "id")
+client.bank.feeds_accounts_link(id: "id")
 ```
 </dd>
 </dl>
@@ -38515,7 +38749,7 @@ client.bank.point_a_bank_feed_account_at_a_ledger_bank_account_so_its_transactio
 <dl>
 <dd>
 
-**create_bank_account:** `Nordlet::Bank::Types::PostV1BankFeedsAccountsLinkRequestCreateBankAccount` 
+**create_bank_account:** `Nordlet::Bank::Types::FeedsAccountsLinkBankRequestCreateBankAccount` 
     
 </dd>
 </dl>
@@ -38543,7 +38777,7 @@ client.bank.point_a_bank_feed_account_at_a_ledger_bank_account_so_its_transactio
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">choose_the_import_template_applied_on_sync_and_how_often_the_account_is_synced_automatically</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsAccountsConfigureResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_accounts_configure</a>(request) -> Nordlet::Bank::Types::FeedsAccountsConfigureBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38556,7 +38790,7 @@ client.bank.point_a_bank_feed_account_at_a_ledger_bank_account_so_its_transactio
 <dd>
 
 ```ruby
-client.bank.choose_the_import_template_applied_on_sync_and_how_often_the_account_is_synced_automatically(id: "id")
+client.bank.feeds_accounts_configure(id: "id")
 ```
 </dd>
 </dl>
@@ -38587,7 +38821,7 @@ client.bank.choose_the_import_template_applied_on_sync_and_how_often_the_account
 <dl>
 <dd>
 
-**sync_schedule:** `Nordlet::Bank::Types::PostV1BankFeedsAccountsConfigureRequestSyncSchedule` 
+**sync_schedule:** `Nordlet::Bank::Types::FeedsAccountsConfigureBankRequestSyncSchedule` 
     
 </dd>
 </dl>
@@ -38607,7 +38841,7 @@ client.bank.choose_the_import_template_applied_on_sync_and_how_often_the_account
 </dl>
 </details>
 
-<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">pull_new_transactions_from_the_bank_into_the_ledger_emits_bank_feed_synced</a>(request) -> Nordlet::Bank::Types::PostV1BankFeedsSyncResponse</code></summary>
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_sync</a>(request) -> Nordlet::Bank::Types::FeedsSyncBankResponse</code></summary>
 <dl>
 <dd>
 
@@ -38620,7 +38854,7 @@ client.bank.choose_the_import_template_applied_on_sync_and_how_often_the_account
 <dd>
 
 ```ruby
-client.bank.pull_new_transactions_from_the_bank_into_the_ledger_emits_bank_feed_synced(connection_id: "connectionId")
+client.bank.feeds_sync(connection_id: "connectionId")
 ```
 </dd>
 </dl>
@@ -38679,8 +38913,8 @@ client.bank.pull_new_transactions_from_the_bank_into_the_ledger_emits_bank_feed_
 </dl>
 </details>
 
-## Files
-<details><summary><code>client.files.<a href="/lib/nordlet/files/client.rb">post_v1files_upload</a>(request) -> Nordlet::Files::Types::PostV1FilesUploadResponse</code></summary>
+## files
+<details><summary><code>client.files.<a href="/lib/nordlet/files/client.rb">upload</a>(request) -> Nordlet::Files::Types::UploadFilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -38693,7 +38927,7 @@ client.bank.pull_new_transactions_from_the_bank_into_the_ledger_emits_bank_feed_
 <dd>
 
 ```ruby
-client.files.post_v1files_upload(
+client.files.upload(
   entity: "entity",
   file_name: "fileName",
   mime_type: "mimeType",
@@ -38737,7 +38971,7 @@ client.files.post_v1files_upload(
 <dl>
 <dd>
 
-**mime_type:** `String` 
+**mime_type:** `String` — Stored as the bare media type; only PNG, JPEG, GIF, WebP and PDF files are shown in the browser, every other type is downloaded
     
 </dd>
 </dl>
@@ -38765,7 +38999,7 @@ client.files.post_v1files_upload(
 </dl>
 </details>
 
-<details><summary><code>client.files.<a href="/lib/nordlet/files/client.rb">post_v1files_get</a>(request) -> Nordlet::Files::Types::PostV1FilesGetResponse</code></summary>
+<details><summary><code>client.files.<a href="/lib/nordlet/files/client.rb">get</a>(request) -> Nordlet::Files::Types::GetFilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -38778,7 +39012,7 @@ client.files.post_v1files_upload(
 <dd>
 
 ```ruby
-client.files.post_v1files_get(id: "id")
+client.files.get(id: "id")
 ```
 </dd>
 </dl>
@@ -38813,7 +39047,7 @@ client.files.post_v1files_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.files.<a href="/lib/nordlet/files/client.rb">post_v1files_list</a>(request) -> Nordlet::Files::Types::PostV1FilesListResponse</code></summary>
+<details><summary><code>client.files.<a href="/lib/nordlet/files/client.rb">list</a>(request) -> Nordlet::Files::Types::ListFilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -38826,7 +39060,7 @@ client.files.post_v1files_get(id: "id")
 <dd>
 
 ```ruby
-client.files.post_v1files_list
+client.files.list
 ```
 </dd>
 </dl>
@@ -38857,7 +39091,7 @@ client.files.post_v1files_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Files::Types::PostV1FilesListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Files::Types::ListFilesRequestSortItem]` 
     
 </dd>
 </dl>
@@ -38865,7 +39099,7 @@ client.files.post_v1files_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Files::Types::PostV1FilesListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Files::Types::ListFilesRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -38893,7 +39127,7 @@ client.files.post_v1files_list
 </dl>
 </details>
 
-<details><summary><code>client.files.<a href="/lib/nordlet/files/client.rb">post_v1files_delete</a>(request) -> Nordlet::Files::Types::PostV1FilesDeleteResponse</code></summary>
+<details><summary><code>client.files.<a href="/lib/nordlet/files/client.rb">delete</a>(request) -> Nordlet::Files::Types::DeleteFilesResponse</code></summary>
 <dl>
 <dd>
 
@@ -38906,7 +39140,7 @@ client.files.post_v1files_list
 <dd>
 
 ```ruby
-client.files.post_v1files_delete(id: "id")
+client.files.delete(id: "id")
 ```
 </dd>
 </dl>
@@ -38941,8 +39175,8 @@ client.files.post_v1files_delete(id: "id")
 </dl>
 </details>
 
-## Reports
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_trial_balance</a>(request) -> Nordlet::Reports::Types::PostV1ReportsTrialBalanceResponse</code></summary>
+## reports
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">trial_balance</a>(request) -> Nordlet::Reports::Types::TrialBalanceReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -38955,9 +39189,9 @@ client.files.post_v1files_delete(id: "id")
 <dd>
 
 ```ruby
-client.reports.post_v1reports_trial_balance(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.trial_balance(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -39001,7 +39235,7 @@ client.reports.post_v1reports_trial_balance(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_size_category</a>(request) -> Nordlet::Reports::Types::PostV1ReportsSizeCategoryResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">size_category</a>(request) -> Nordlet::Reports::Types::SizeCategoryReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39014,7 +39248,7 @@ client.reports.post_v1reports_trial_balance(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_size_category(year: 1000000)
+client.reports.size_category(year: 1000000)
 ```
 </dd>
 </dl>
@@ -39049,7 +39283,7 @@ client.reports.post_v1reports_size_category(year: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_financial_statements</a>(request) -> Nordlet::Reports::Types::PostV1ReportsFinancialStatementsResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">financial_statements</a>(request) -> Nordlet::Reports::Types::FinancialStatementsReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39062,9 +39296,9 @@ client.reports.post_v1reports_size_category(year: 1000000)
 <dd>
 
 ```ruby
-client.reports.post_v1reports_financial_statements(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.financial_statements(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -39096,7 +39330,7 @@ client.reports.post_v1reports_financial_statements(
 <dl>
 <dd>
 
-**category:** `Nordlet::Reports::Types::PostV1ReportsFinancialStatementsRequestCategory` 
+**category:** `Nordlet::Reports::Types::FinancialStatementsReportsRequestCategory` 
     
 </dd>
 </dl>
@@ -39116,7 +39350,7 @@ client.reports.post_v1reports_financial_statements(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_general_journal</a>(request) -> Nordlet::Reports::Types::PostV1ReportsGeneralJournalResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">general_journal</a>(request) -> Nordlet::Reports::Types::GeneralJournalReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39129,9 +39363,9 @@ client.reports.post_v1reports_financial_statements(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_general_journal(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.general_journal(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -39191,7 +39425,7 @@ client.reports.post_v1reports_general_journal(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_gl_detail</a>(request) -> Nordlet::Reports::Types::PostV1ReportsGlDetailResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">gl_detail</a>(request) -> Nordlet::Reports::Types::GlDetailReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39204,10 +39438,10 @@ client.reports.post_v1reports_general_journal(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_gl_detail(
+client.reports.gl_detail(
   account_code: "accountCode",
-  from_date: "fromDate",
-  to_date: "toDate"
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -39259,7 +39493,7 @@ client.reports.post_v1reports_gl_detail(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_partner_balances</a>(request) -> Nordlet::Reports::Types::PostV1ReportsPartnerBalancesResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">partner_balances</a>(request) -> Nordlet::Reports::Types::PartnerBalancesReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39272,7 +39506,7 @@ client.reports.post_v1reports_gl_detail(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_partner_balances
+client.reports.partner_balances
 ```
 </dd>
 </dl>
@@ -39299,7 +39533,7 @@ client.reports.post_v1reports_partner_balances
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_debt_aging</a>(request) -> Nordlet::Reports::Types::PostV1ReportsDebtAgingResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">debt_aging</a>(request) -> Nordlet::Reports::Types::DebtAgingReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39312,7 +39546,7 @@ client.reports.post_v1reports_partner_balances
 <dd>
 
 ```ruby
-client.reports.post_v1reports_debt_aging
+client.reports.debt_aging
 ```
 </dd>
 </dl>
@@ -39327,7 +39561,7 @@ client.reports.post_v1reports_debt_aging
 <dl>
 <dd>
 
-**side:** `Nordlet::Reports::Types::PostV1ReportsDebtAgingRequestSide` 
+**side:** `Nordlet::Reports::Types::DebtAgingReportsRequestSide` 
     
 </dd>
 </dl>
@@ -39355,7 +39589,7 @@ client.reports.post_v1reports_debt_aging
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_monthly_summary</a>(request) -> Nordlet::Reports::Types::PostV1ReportsMonthlySummaryResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">monthly_summary</a>(request) -> Nordlet::Reports::Types::MonthlySummaryReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39368,7 +39602,7 @@ client.reports.post_v1reports_debt_aging
 <dd>
 
 ```ruby
-client.reports.post_v1reports_monthly_summary
+client.reports.monthly_summary
 ```
 </dd>
 </dl>
@@ -39403,7 +39637,7 @@ client.reports.post_v1reports_monthly_summary
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_stock_balance</a>(request) -> Nordlet::Reports::Types::PostV1ReportsStockBalanceResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">stock_balance</a>(request) -> Nordlet::Reports::Types::StockBalanceReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39416,7 +39650,7 @@ client.reports.post_v1reports_monthly_summary
 <dd>
 
 ```ruby
-client.reports.post_v1reports_stock_balance(as_of: "asOf")
+client.reports.stock_balance(as_of: "2026-07-01")
 ```
 </dd>
 </dl>
@@ -39459,7 +39693,7 @@ client.reports.post_v1reports_stock_balance(as_of: "asOf")
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_stock_movement</a>(request) -> Nordlet::Reports::Types::PostV1ReportsStockMovementResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">stock_movement</a>(request) -> Nordlet::Reports::Types::StockMovementReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39472,9 +39706,9 @@ client.reports.post_v1reports_stock_balance(as_of: "asOf")
 <dd>
 
 ```ruby
-client.reports.post_v1reports_stock_movement(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.stock_movement(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -39534,7 +39768,7 @@ client.reports.post_v1reports_stock_movement(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_vat_summary</a>(request) -> Nordlet::Reports::Types::PostV1ReportsVatSummaryResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">vat_summary</a>(request) -> Nordlet::Reports::Types::VatSummaryReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39547,9 +39781,9 @@ client.reports.post_v1reports_stock_movement(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_vat_summary(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.vat_summary(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -39581,7 +39815,7 @@ client.reports.post_v1reports_vat_summary(
 <dl>
 <dd>
 
-**side:** `Nordlet::Reports::Types::PostV1ReportsVatSummaryRequestSide` 
+**side:** `Nordlet::Reports::Types::VatSummaryReportsRequestSide` 
     
 </dd>
 </dl>
@@ -39601,7 +39835,7 @@ client.reports.post_v1reports_vat_summary(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_cash_flow</a>(request) -> Nordlet::Reports::Types::PostV1ReportsCashFlowResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">cash_flow</a>(request) -> Nordlet::Reports::Types::CashFlowReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39614,9 +39848,9 @@ client.reports.post_v1reports_vat_summary(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_cash_flow(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.cash_flow(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -39660,7 +39894,7 @@ client.reports.post_v1reports_cash_flow(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_stock_aging</a>(request) -> Nordlet::Reports::Types::PostV1ReportsStockAgingResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">stock_aging</a>(request) -> Nordlet::Reports::Types::StockAgingReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39673,7 +39907,7 @@ client.reports.post_v1reports_cash_flow(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_stock_aging(as_of: "asOf")
+client.reports.stock_aging(as_of: "2026-07-01")
 ```
 </dd>
 </dl>
@@ -39716,7 +39950,7 @@ client.reports.post_v1reports_stock_aging(as_of: "asOf")
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_stock_shortage</a>(request) -> Nordlet::Reports::Types::PostV1ReportsStockShortageResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">stock_shortage</a>(request) -> Nordlet::Reports::Types::StockShortageReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39729,7 +39963,7 @@ client.reports.post_v1reports_stock_aging(as_of: "asOf")
 <dd>
 
 ```ruby
-client.reports.post_v1reports_stock_shortage
+client.reports.stock_shortage
 ```
 </dd>
 </dl>
@@ -39764,7 +39998,7 @@ client.reports.post_v1reports_stock_shortage
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_sie</a>(request) -> Nordlet::Reports::Types::PostV1ReportsSieResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">sie</a>(request) -> Nordlet::Reports::Types::SieReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39791,9 +40025,9 @@ Export the ledger of one financial year as an SIE file (the Swedish standard acc
 <dd>
 
 ```ruby
-client.reports.post_v1reports_sie(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.sie(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -39845,7 +40079,7 @@ client.reports.post_v1reports_sie(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_datev</a>(request) -> Nordlet::Reports::Types::PostV1ReportsDatevResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">datev</a>(request) -> Nordlet::Reports::Types::DatevReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39872,9 +40106,9 @@ Export the posted ledger of a period as a DATEV Buchungsstapel file (DATEV forma
 <dd>
 
 ```ruby
-client.reports.post_v1reports_datev(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.datev(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -39934,7 +40168,7 @@ client.reports.post_v1reports_datev(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_fec</a>(request) -> Nordlet::Reports::Types::PostV1ReportsFecResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">fec</a>(request) -> Nordlet::Reports::Types::FecReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -39961,9 +40195,9 @@ Export the posted ledger of a period as a French FEC file (fichier des écriture
 <dd>
 
 ```ruby
-client.reports.post_v1reports_fec(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.fec(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -40007,7 +40241,7 @@ client.reports.post_v1reports_fec(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_eu_purchases</a>(request) -> Nordlet::Reports::Types::PostV1ReportsEuPurchasesResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">eu_purchases</a>(request) -> Nordlet::Reports::Types::EuPurchasesReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40020,9 +40254,9 @@ client.reports.post_v1reports_fec(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_eu_purchases(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.eu_purchases(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -40066,7 +40300,7 @@ client.reports.post_v1reports_eu_purchases(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_vat_detail</a>(request) -> Nordlet::Reports::Types::PostV1ReportsVatDetailResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">vat_detail</a>(request) -> Nordlet::Reports::Types::VatDetailReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40079,9 +40313,9 @@ client.reports.post_v1reports_eu_purchases(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_vat_detail(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.vat_detail(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -40113,7 +40347,7 @@ client.reports.post_v1reports_vat_detail(
 <dl>
 <dd>
 
-**side:** `Nordlet::Reports::Types::PostV1ReportsVatDetailRequestSide` 
+**side:** `Nordlet::Reports::Types::VatDetailReportsRequestSide` 
     
 </dd>
 </dl>
@@ -40133,7 +40367,7 @@ client.reports.post_v1reports_vat_detail(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_pos_sales</a>(request) -> Nordlet::Reports::Types::PostV1ReportsPosSalesResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">pos_sales</a>(request) -> Nordlet::Reports::Types::PosSalesReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40146,68 +40380,9 @@ client.reports.post_v1reports_vat_detail(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_pos_sales(
-  from_date: "fromDate",
-  to_date: "toDate"
-)
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**from_date:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**to_date:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `Nordlet::Reports::RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_online_sales</a>(request) -> Nordlet::Reports::Types::PostV1ReportsOnlineSalesResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.reports.post_v1reports_online_sales(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.pos_sales(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -40251,7 +40426,7 @@ client.reports.post_v1reports_online_sales(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_oss</a>(request) -> Nordlet::Reports::Types::PostV1ReportsOssResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">online_sales</a>(request) -> Nordlet::Reports::Types::OnlineSalesReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40264,9 +40439,9 @@ client.reports.post_v1reports_online_sales(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_oss(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.online_sales(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -40310,7 +40485,7 @@ client.reports.post_v1reports_oss(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_advance_reconciliation</a>(request) -> Nordlet::Reports::Types::PostV1ReportsAdvanceReconciliationResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">oss</a>(request) -> Nordlet::Reports::Types::OssReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40323,9 +40498,9 @@ client.reports.post_v1reports_oss(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_advance_reconciliation(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.oss(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -40369,7 +40544,7 @@ client.reports.post_v1reports_advance_reconciliation(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_write_off_acts</a>(request) -> Nordlet::Reports::Types::PostV1ReportsWriteOffActsResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">advance_reconciliation</a>(request) -> Nordlet::Reports::Types::AdvanceReconciliationReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40382,9 +40557,68 @@ client.reports.post_v1reports_advance_reconciliation(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_write_off_acts(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.advance_reconciliation(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Reports::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">write_off_acts</a>(request) -> Nordlet::Reports::Types::WriteOffActsReportsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.reports.write_off_acts(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -40436,7 +40670,7 @@ client.reports.post_v1reports_write_off_acts(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_cost_centers</a>(request) -> Nordlet::Reports::Types::PostV1ReportsCostCentersResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">cost_centers</a>(request) -> Nordlet::Reports::Types::CostCentersReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40449,9 +40683,9 @@ client.reports.post_v1reports_write_off_acts(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_cost_centers(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.cost_centers(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -40495,7 +40729,7 @@ client.reports.post_v1reports_cost_centers(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_cost_center_activity</a>(request) -> Nordlet::Reports::Types::PostV1ReportsCostCenterActivityResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">cost_center_activity</a>(request) -> Nordlet::Reports::Types::CostCenterActivityReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40508,9 +40742,9 @@ client.reports.post_v1reports_cost_centers(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_cost_center_activity(
-  from_date: "fromDate",
-  to_date: "toDate",
+client.reports.cost_center_activity(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01",
   cost_center_id: "costCenterId"
 )
 ```
@@ -40563,7 +40797,7 @@ client.reports.post_v1reports_cost_center_activity(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_cost_center_items</a>(request) -> Nordlet::Reports::Types::PostV1ReportsCostCenterItemsResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">cost_center_items</a>(request) -> Nordlet::Reports::Types::CostCenterItemsReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40576,9 +40810,9 @@ client.reports.post_v1reports_cost_center_activity(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_cost_center_items(
-  from_date: "fromDate",
-  to_date: "toDate"
+client.reports.cost_center_items(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -40630,7 +40864,7 @@ client.reports.post_v1reports_cost_center_items(
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_jobs_create</a>(request) -> Nordlet::Reports::Types::PostV1ReportsJobsCreateResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">jobs_create</a>(request) -> Nordlet::Reports::Types::JobsCreateReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40643,7 +40877,7 @@ client.reports.post_v1reports_cost_center_items(
 <dd>
 
 ```ruby
-client.reports.post_v1reports_jobs_create(report_type: "reportType")
+client.reports.jobs_create(report_type: "reportType")
 ```
 </dd>
 </dl>
@@ -40674,7 +40908,7 @@ client.reports.post_v1reports_jobs_create(report_type: "reportType")
 <dl>
 <dd>
 
-**formats:** `Internal::Types::Array[Nordlet::Reports::Types::PostV1ReportsJobsCreateRequestFormatsItem]` 
+**formats:** `Internal::Types::Array[Nordlet::Reports::Types::JobsCreateReportsRequestFormatsItem]` 
     
 </dd>
 </dl>
@@ -40694,7 +40928,7 @@ client.reports.post_v1reports_jobs_create(report_type: "reportType")
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_jobs_get</a>(request) -> Nordlet::Reports::Types::PostV1ReportsJobsGetResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">jobs_get</a>(request) -> Nordlet::Reports::Types::JobsGetReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40707,7 +40941,7 @@ client.reports.post_v1reports_jobs_create(report_type: "reportType")
 <dd>
 
 ```ruby
-client.reports.post_v1reports_jobs_get(id: "id")
+client.reports.jobs_get(id: "id")
 ```
 </dd>
 </dl>
@@ -40742,7 +40976,7 @@ client.reports.post_v1reports_jobs_get(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">post_v1reports_jobs_list</a>(request) -> Nordlet::Reports::Types::PostV1ReportsJobsListResponse</code></summary>
+<details><summary><code>client.reports.<a href="/lib/nordlet/reports/client.rb">jobs_list</a>(request) -> Nordlet::Reports::Types::JobsListReportsResponse</code></summary>
 <dl>
 <dd>
 
@@ -40755,7 +40989,7 @@ client.reports.post_v1reports_jobs_get(id: "id")
 <dd>
 
 ```ruby
-client.reports.post_v1reports_jobs_list
+client.reports.jobs_list
 ```
 </dd>
 </dl>
@@ -40786,7 +41020,7 @@ client.reports.post_v1reports_jobs_list
 <dl>
 <dd>
 
-**sort:** `Internal::Types::Array[Nordlet::Reports::Types::PostV1ReportsJobsListRequestSortItem]` 
+**sort:** `Internal::Types::Array[Nordlet::Reports::Types::JobsListReportsRequestSortItem]` 
     
 </dd>
 </dl>
@@ -40794,7 +41028,7 @@ client.reports.post_v1reports_jobs_list
 <dl>
 <dd>
 
-**filter:** `Internal::Types::Array[Nordlet::Reports::Types::PostV1ReportsJobsListRequestFilterItem]` 
+**filter:** `Internal::Types::Array[Nordlet::Reports::Types::JobsListReportsRequestFilterItem]` 
     
 </dd>
 </dl>
@@ -40822,8 +41056,8 @@ client.reports.post_v1reports_jobs_list
 </dl>
 </details>
 
-## Consolidation
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_groups_create</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationGroupsCreateResponse</code></summary>
+## consolidation
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">groups_create</a>(request) -> Nordlet::Consolidation::Types::GroupsCreateConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -40836,7 +41070,7 @@ client.reports.post_v1reports_jobs_list
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_groups_create(name: "name")
+client.consolidation.groups_create(name: "name")
 ```
 </dd>
 </dl>
@@ -40879,7 +41113,7 @@ client.consolidation.post_v1consolidation_groups_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_groups_list</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationGroupsListResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">groups_list</a>(request) -> Nordlet::Consolidation::Types::GroupsListConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -40892,7 +41126,7 @@ client.consolidation.post_v1consolidation_groups_create(name: "name")
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_groups_list
+client.consolidation.groups_list
 ```
 </dd>
 </dl>
@@ -40919,7 +41153,7 @@ client.consolidation.post_v1consolidation_groups_list
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_groups_get</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationGroupsGetResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">groups_get</a>(request) -> Nordlet::Consolidation::Types::GroupsGetConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -40932,7 +41166,7 @@ client.consolidation.post_v1consolidation_groups_list
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_groups_get(group_id: "groupId")
+client.consolidation.groups_get(group_id: "groupId")
 ```
 </dd>
 </dl>
@@ -40967,7 +41201,7 @@ client.consolidation.post_v1consolidation_groups_get(group_id: "groupId")
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_groups_update</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationGroupsUpdateResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">groups_update</a>(request) -> Nordlet::Consolidation::Types::GroupsUpdateConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -40980,7 +41214,7 @@ client.consolidation.post_v1consolidation_groups_get(group_id: "groupId")
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_groups_update(group_id: "groupId")
+client.consolidation.groups_update(group_id: "groupId")
 ```
 </dd>
 </dl>
@@ -41031,7 +41265,7 @@ client.consolidation.post_v1consolidation_groups_update(group_id: "groupId")
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_groups_delete</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationGroupsDeleteResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">groups_delete</a>(request) -> Nordlet::Consolidation::Types::GroupsDeleteConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -41044,7 +41278,7 @@ client.consolidation.post_v1consolidation_groups_update(group_id: "groupId")
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_groups_delete(group_id: "groupId")
+client.consolidation.groups_delete(group_id: "groupId")
 ```
 </dd>
 </dl>
@@ -41079,7 +41313,7 @@ client.consolidation.post_v1consolidation_groups_delete(group_id: "groupId")
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_members_add</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationMembersAddResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">members_add</a>(request) -> Nordlet::Consolidation::Types::MembersAddConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -41092,7 +41326,7 @@ client.consolidation.post_v1consolidation_groups_delete(group_id: "groupId")
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_members_add(
+client.consolidation.members_add(
   group_id: "groupId",
   member_company_id: "memberCompanyId"
 )
@@ -41134,7 +41368,7 @@ client.consolidation.post_v1consolidation_members_add(
 <dl>
 <dd>
 
-**method_:** `Nordlet::Consolidation::Types::PostV1ConsolidationMembersAddRequestMethod` 
+**method_:** `Nordlet::Consolidation::Types::MembersAddConsolidationRequestMethod` 
     
 </dd>
 </dl>
@@ -41154,7 +41388,7 @@ client.consolidation.post_v1consolidation_members_add(
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_members_remove</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationMembersRemoveResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">members_remove</a>(request) -> Nordlet::Consolidation::Types::MembersRemoveConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -41167,7 +41401,7 @@ client.consolidation.post_v1consolidation_members_add(
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_members_remove(
+client.consolidation.members_remove(
   group_id: "groupId",
   member_company_id: "memberCompanyId"
 )
@@ -41213,7 +41447,7 @@ client.consolidation.post_v1consolidation_members_remove(
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_intercompany_candidates</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyCandidatesResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">intercompany_candidates</a>(request) -> Nordlet::Consolidation::Types::IntercompanyCandidatesConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -41240,7 +41474,7 @@ Partners in member companies that look like other members of the same group (mat
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_intercompany_candidates(group_id: "groupId")
+client.consolidation.intercompany_candidates(group_id: "groupId")
 ```
 </dd>
 </dl>
@@ -41275,7 +41509,7 @@ client.consolidation.post_v1consolidation_intercompany_candidates(group_id: "gro
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_intercompany_links_set</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksSetResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">intercompany_links_set</a>(request) -> Nordlet::Consolidation::Types::IntercompanyLinksSetConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -41302,7 +41536,7 @@ Confirm that a partner record in one member company represents another member co
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_intercompany_links_set(
+client.consolidation.intercompany_links_set(
   group_id: "groupId",
   partner_id: "partnerId",
   counterparty_company_id: "counterpartyCompanyId"
@@ -41357,7 +41591,7 @@ client.consolidation.post_v1consolidation_intercompany_links_set(
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_intercompany_links_list</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksListResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">intercompany_links_list</a>(request) -> Nordlet::Consolidation::Types::IntercompanyLinksListConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -41370,7 +41604,7 @@ client.consolidation.post_v1consolidation_intercompany_links_set(
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_intercompany_links_list(group_id: "groupId")
+client.consolidation.intercompany_links_list(group_id: "groupId")
 ```
 </dd>
 </dl>
@@ -41405,7 +41639,7 @@ client.consolidation.post_v1consolidation_intercompany_links_list(group_id: "gro
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_intercompany_links_remove</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksRemoveResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">intercompany_links_remove</a>(request) -> Nordlet::Consolidation::Types::IntercompanyLinksRemoveConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -41418,7 +41652,7 @@ client.consolidation.post_v1consolidation_intercompany_links_list(group_id: "gro
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_intercompany_links_remove(
+client.consolidation.intercompany_links_remove(
   group_id: "groupId",
   id: "id"
 )
@@ -41464,7 +41698,7 @@ client.consolidation.post_v1consolidation_intercompany_links_remove(
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_intercompany_report</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyReportResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">intercompany_report</a>(request) -> Nordlet::Consolidation::Types::IntercompanyReportConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -41491,10 +41725,10 @@ Intercompany reconciliation for a period: every issued intercompany sale invoice
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_intercompany_report(
+client.consolidation.intercompany_report(
   group_id: "groupId",
-  from_date: "fromDate",
-  to_date: "toDate"
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -41546,7 +41780,7 @@ client.consolidation.post_v1consolidation_intercompany_report(
 </dl>
 </details>
 
-<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">post_v1consolidation_report</a>(request) -> Nordlet::Consolidation::Types::PostV1ConsolidationReportResponse</code></summary>
+<details><summary><code>client.consolidation.<a href="/lib/nordlet/consolidation/client.rb">report</a>(request) -> Nordlet::Consolidation::Types::ReportConsolidationResponse</code></summary>
 <dl>
 <dd>
 
@@ -41559,10 +41793,10 @@ client.consolidation.post_v1consolidation_intercompany_report(
 <dd>
 
 ```ruby
-client.consolidation.post_v1consolidation_report(
+client.consolidation.report(
   group_id: "groupId",
-  from_date: "fromDate",
-  to_date: "toDate"
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
 )
 ```
 </dd>
@@ -41602,7 +41836,7 @@ client.consolidation.post_v1consolidation_report(
 <dl>
 <dd>
 
-**category:** `Nordlet::Consolidation::Types::PostV1ConsolidationReportRequestCategory` 
+**category:** `Nordlet::Consolidation::Types::ReportConsolidationRequestCategory` 
     
 </dd>
 </dl>
@@ -41610,7 +41844,7 @@ client.consolidation.post_v1consolidation_report(
 <dl>
 <dd>
 
-**eliminations:** `Internal::Types::Array[Nordlet::Consolidation::Types::PostV1ConsolidationReportRequestEliminationsItem]` 
+**eliminations:** `Internal::Types::Array[Nordlet::Consolidation::Types::ReportConsolidationRequestEliminationsItem]` 
     
 </dd>
 </dl>
@@ -41630,8 +41864,8 @@ client.consolidation.post_v1consolidation_report(
 </dl>
 </details>
 
-## Public
-<details><summary><code>client.public.<a href="/lib/nordlet/public/client.rb">post_v1public_integration_requests</a>(request) -> Nordlet::Public::Types::PostV1PublicIntegrationRequestsResponse</code></summary>
+## public
+<details><summary><code>client.public.<a href="/lib/nordlet/public/client.rb">integration_requests</a>(request) -> Nordlet::Public::Types::IntegrationRequestsPublicResponse</code></summary>
 <dl>
 <dd>
 
@@ -41644,7 +41878,7 @@ client.consolidation.post_v1consolidation_report(
 <dd>
 
 ```ruby
-client.public.post_v1public_integration_requests(
+client.public.integration_requests(
   integration: "integration",
   name: "name",
   email: "email"
@@ -41723,7 +41957,7 @@ client.public.post_v1public_integration_requests(
 </dl>
 </details>
 
-<details><summary><code>client.public.<a href="/lib/nordlet/public/client.rb">get_v1public_pay_token</a>(token:) -> </code></summary>
+<details><summary><code>client.public.<a href="/lib/nordlet/public/client.rb">pay</a>(token:) -> </code></summary>
 <dl>
 <dd>
 
@@ -41736,7 +41970,7 @@ client.public.post_v1public_integration_requests(
 <dd>
 
 ```ruby
-client.public.get_v1public_pay_token(token: "token")
+client.public.pay(token: "token")
 ```
 </dd>
 </dl>
@@ -41771,8 +42005,8 @@ client.public.get_v1public_pay_token(token: "token")
 </dl>
 </details>
 
-## Billing
-<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">post_v1billing_account_get</a>(request) -> Nordlet::Billing::Types::PostV1BillingAccountGetResponse</code></summary>
+## billing
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">account_get</a>(request) -> Nordlet::Billing::Types::AccountGetBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -41785,7 +42019,7 @@ client.public.get_v1public_pay_token(token: "token")
 <dd>
 
 ```ruby
-client.billing.post_v1billing_account_get
+client.billing.account_get
 ```
 </dd>
 </dl>
@@ -41812,7 +42046,7 @@ client.billing.post_v1billing_account_get
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">post_v1billing_account_set_plan</a>(request) -> Nordlet::Billing::Types::PostV1BillingAccountSetPlanResponse</code></summary>
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">account_set_plan</a>(request) -> Nordlet::Billing::Types::AccountSetPlanBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -41825,7 +42059,7 @@ client.billing.post_v1billing_account_get
 <dd>
 
 ```ruby
-client.billing.post_v1billing_account_set_plan(plan: "starter")
+client.billing.account_set_plan(plan: "starter")
 ```
 </dd>
 </dl>
@@ -41840,7 +42074,7 @@ client.billing.post_v1billing_account_set_plan(plan: "starter")
 <dl>
 <dd>
 
-**plan:** `Nordlet::Billing::Types::PostV1BillingAccountSetPlanRequestPlan` 
+**plan:** `Nordlet::Billing::Types::AccountSetPlanBillingRequestPlan` 
     
 </dd>
 </dl>
@@ -41860,7 +42094,7 @@ client.billing.post_v1billing_account_set_plan(plan: "starter")
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">post_v1billing_topup_create</a>(request) -> Nordlet::Billing::Types::PostV1BillingTopupCreateResponse</code></summary>
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">topup_create</a>(request) -> Nordlet::Billing::Types::TopupCreateBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -41873,7 +42107,7 @@ client.billing.post_v1billing_account_set_plan(plan: "starter")
 <dd>
 
 ```ruby
-client.billing.post_v1billing_topup_create(amount_cents: 1000000)
+client.billing.topup_create(amount_cents: 1000000)
 ```
 </dd>
 </dl>
@@ -41896,7 +42130,7 @@ client.billing.post_v1billing_topup_create(amount_cents: 1000000)
 <dl>
 <dd>
 
-**locale:** `Nordlet::Billing::Types::PostV1BillingTopupCreateRequestLocale` 
+**locale:** `Nordlet::Billing::Types::TopupCreateBillingRequestLocale` 
     
 </dd>
 </dl>
@@ -41916,7 +42150,7 @@ client.billing.post_v1billing_topup_create(amount_cents: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">post_v1billing_portal_create</a>(request) -> Nordlet::Billing::Types::PostV1BillingPortalCreateResponse</code></summary>
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">portal_create</a>(request) -> Nordlet::Billing::Types::PortalCreateBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -41929,7 +42163,7 @@ client.billing.post_v1billing_topup_create(amount_cents: 1000000)
 <dd>
 
 ```ruby
-client.billing.post_v1billing_portal_create
+client.billing.portal_create
 ```
 </dd>
 </dl>
@@ -41944,7 +42178,7 @@ client.billing.post_v1billing_portal_create
 <dl>
 <dd>
 
-**locale:** `Nordlet::Billing::Types::PostV1BillingPortalCreateRequestLocale` 
+**locale:** `Nordlet::Billing::Types::PortalCreateBillingRequestLocale` 
     
 </dd>
 </dl>
@@ -41964,7 +42198,7 @@ client.billing.post_v1billing_portal_create
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">post_v1billing_transactions_list</a>(request) -> Nordlet::Billing::Types::PostV1BillingTransactionsListResponse</code></summary>
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">transactions_list</a>(request) -> Nordlet::Billing::Types::TransactionsListBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -41977,7 +42211,7 @@ client.billing.post_v1billing_portal_create
 <dd>
 
 ```ruby
-client.billing.post_v1billing_transactions_list
+client.billing.transactions_list
 ```
 </dd>
 </dl>
@@ -42012,7 +42246,7 @@ client.billing.post_v1billing_transactions_list
 </dl>
 </details>
 
-<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">post_v1billing_usage_list</a>(request) -> Nordlet::Billing::Types::PostV1BillingUsageListResponse</code></summary>
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">usage_list</a>(request) -> Nordlet::Billing::Types::UsageListBillingResponse</code></summary>
 <dl>
 <dd>
 
@@ -42025,9 +42259,9 @@ client.billing.post_v1billing_transactions_list
 <dd>
 
 ```ruby
-client.billing.post_v1billing_usage_list(
-  from: "from",
-  to: "to"
+client.billing.usage_list(
+  from: "2026-07-01",
+  to: "2026-07-01"
 )
 ```
 </dd>
@@ -42071,8 +42305,8 @@ client.billing.post_v1billing_usage_list(
 </dl>
 </details>
 
-## Account
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_login_link_request</a>(request) -> Nordlet::Account::Types::PostV1AccountLoginLinkRequestResponse</code></summary>
+## account
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">login_link_request</a>(request) -> Nordlet::Account::Types::LoginLinkRequestAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42085,7 +42319,7 @@ client.billing.post_v1billing_usage_list(
 <dd>
 
 ```ruby
-client.account.post_v1account_login_link_request(email: "email")
+client.account.login_link_request(email: "email")
 ```
 </dd>
 </dl>
@@ -42108,7 +42342,7 @@ client.account.post_v1account_login_link_request(email: "email")
 <dl>
 <dd>
 
-**locale:** `Nordlet::Account::Types::PostV1AccountLoginLinkRequestRequestLocale` 
+**locale:** `Nordlet::Account::Types::LoginLinkRequestAccountRequestLocale` 
     
 </dd>
 </dl>
@@ -42152,7 +42386,7 @@ client.account.post_v1account_login_link_request(email: "email")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_login_link_consume</a>(request) -> Nordlet::Account::Types::PostV1AccountLoginLinkConsumeResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">login_link_consume</a>(request) -> Nordlet::Account::Types::LoginLinkConsumeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42165,7 +42399,7 @@ client.account.post_v1account_login_link_request(email: "email")
 <dd>
 
 ```ruby
-client.account.post_v1account_login_link_consume(token: "token")
+client.account.login_link_consume(token: "token")
 ```
 </dd>
 </dl>
@@ -42200,7 +42434,7 @@ client.account.post_v1account_login_link_consume(token: "token")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_logout</a>(request) -> Nordlet::Account::Types::PostV1AccountLogoutResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">logout</a>(request) -> Nordlet::Account::Types::LogoutAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42213,7 +42447,7 @@ client.account.post_v1account_login_link_consume(token: "token")
 <dd>
 
 ```ruby
-client.account.post_v1account_logout
+client.account.logout
 ```
 </dd>
 </dl>
@@ -42240,7 +42474,7 @@ client.account.post_v1account_logout
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_me</a>(request) -> Nordlet::Account::Types::PostV1AccountMeResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">me</a>(request) -> Nordlet::Account::Types::MeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42253,7 +42487,7 @@ client.account.post_v1account_logout
 <dd>
 
 ```ruby
-client.account.post_v1account_me
+client.account.me
 ```
 </dd>
 </dl>
@@ -42280,7 +42514,7 @@ client.account.post_v1account_me
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_members_list</a>(request) -> Nordlet::Account::Types::PostV1AccountMembersListResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">members_list</a>(request) -> Nordlet::Account::Types::MembersListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42293,7 +42527,7 @@ client.account.post_v1account_me
 <dd>
 
 ```ruby
-client.account.post_v1account_members_list
+client.account.members_list
 ```
 </dd>
 </dl>
@@ -42320,7 +42554,7 @@ client.account.post_v1account_members_list
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_members_set_role</a>(request) -> Nordlet::Account::Types::PostV1AccountMembersSetRoleResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">members_set_role</a>(request) -> Nordlet::Account::Types::MembersSetRoleAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42333,7 +42567,7 @@ client.account.post_v1account_members_list
 <dd>
 
 ```ruby
-client.account.post_v1account_members_set_role(
+client.account.members_set_role(
   user_id: "userId",
   role: "admin"
 )
@@ -42359,7 +42593,7 @@ client.account.post_v1account_members_set_role(
 <dl>
 <dd>
 
-**role:** `Nordlet::Account::Types::PostV1AccountMembersSetRoleRequestRole` 
+**role:** `Nordlet::Account::Types::MembersSetRoleAccountRequestRole` 
     
 </dd>
 </dl>
@@ -42379,7 +42613,7 @@ client.account.post_v1account_members_set_role(
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_members_transfer_ownership</a>(request) -> Nordlet::Account::Types::PostV1AccountMembersTransferOwnershipResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">members_transfer_ownership</a>(request) -> Nordlet::Account::Types::MembersTransferOwnershipAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42392,7 +42626,7 @@ client.account.post_v1account_members_set_role(
 <dd>
 
 ```ruby
-client.account.post_v1account_members_transfer_ownership(user_id: "userId")
+client.account.members_transfer_ownership(user_id: "userId")
 ```
 </dd>
 </dl>
@@ -42435,7 +42669,7 @@ client.account.post_v1account_members_transfer_ownership(user_id: "userId")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_members_remove</a>(request) -> Nordlet::Account::Types::PostV1AccountMembersRemoveResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">members_remove</a>(request) -> Nordlet::Account::Types::MembersRemoveAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42448,7 +42682,7 @@ client.account.post_v1account_members_transfer_ownership(user_id: "userId")
 <dd>
 
 ```ruby
-client.account.post_v1account_members_remove(user_id: "userId")
+client.account.members_remove(user_id: "userId")
 ```
 </dd>
 </dl>
@@ -42483,7 +42717,7 @@ client.account.post_v1account_members_remove(user_id: "userId")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_invites_create</a>(request) -> Nordlet::Account::Types::PostV1AccountInvitesCreateResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">invites_create</a>(request) -> Nordlet::Account::Types::InvitesCreateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42496,7 +42730,7 @@ client.account.post_v1account_members_remove(user_id: "userId")
 <dd>
 
 ```ruby
-client.account.post_v1account_invites_create(
+client.account.invites_create(
   email: "email",
   role: "admin"
 )
@@ -42522,7 +42756,7 @@ client.account.post_v1account_invites_create(
 <dl>
 <dd>
 
-**role:** `Nordlet::Account::Types::PostV1AccountInvitesCreateRequestRole` 
+**role:** `Nordlet::Account::Types::InvitesCreateAccountRequestRole` 
     
 </dd>
 </dl>
@@ -42530,7 +42764,7 @@ client.account.post_v1account_invites_create(
 <dl>
 <dd>
 
-**locale:** `Nordlet::Account::Types::PostV1AccountInvitesCreateRequestLocale` 
+**locale:** `Nordlet::Account::Types::InvitesCreateAccountRequestLocale` 
     
 </dd>
 </dl>
@@ -42550,7 +42784,7 @@ client.account.post_v1account_invites_create(
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_invites_list</a>(request) -> Nordlet::Account::Types::PostV1AccountInvitesListResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">invites_list</a>(request) -> Nordlet::Account::Types::InvitesListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42563,7 +42797,7 @@ client.account.post_v1account_invites_create(
 <dd>
 
 ```ruby
-client.account.post_v1account_invites_list
+client.account.invites_list
 ```
 </dd>
 </dl>
@@ -42590,7 +42824,7 @@ client.account.post_v1account_invites_list
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_invites_revoke</a>(request) -> Nordlet::Account::Types::PostV1AccountInvitesRevokeResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">invites_revoke</a>(request) -> Nordlet::Account::Types::InvitesRevokeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42603,7 +42837,7 @@ client.account.post_v1account_invites_list
 <dd>
 
 ```ruby
-client.account.post_v1account_invites_revoke(id: "id")
+client.account.invites_revoke(id: "id")
 ```
 </dd>
 </dl>
@@ -42638,7 +42872,7 @@ client.account.post_v1account_invites_revoke(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_invites_get</a>(request) -> Nordlet::Account::Types::PostV1AccountInvitesGetResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">invites_get</a>(request) -> Nordlet::Account::Types::InvitesGetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42651,7 +42885,7 @@ client.account.post_v1account_invites_revoke(id: "id")
 <dd>
 
 ```ruby
-client.account.post_v1account_invites_get(token: "token")
+client.account.invites_get(token: "token")
 ```
 </dd>
 </dl>
@@ -42686,7 +42920,7 @@ client.account.post_v1account_invites_get(token: "token")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_invites_accept</a>(request) -> Nordlet::Account::Types::PostV1AccountInvitesAcceptResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">invites_accept</a>(request) -> Nordlet::Account::Types::InvitesAcceptAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42699,7 +42933,7 @@ client.account.post_v1account_invites_get(token: "token")
 <dd>
 
 ```ruby
-client.account.post_v1account_invites_accept(token: "token")
+client.account.invites_accept(token: "token")
 ```
 </dd>
 </dl>
@@ -42730,7 +42964,7 @@ client.account.post_v1account_invites_accept(token: "token")
 <dl>
 <dd>
 
-**locale:** `Nordlet::Account::Types::PostV1AccountInvitesAcceptRequestLocale` 
+**locale:** `Nordlet::Account::Types::InvitesAcceptAccountRequestLocale` 
     
 </dd>
 </dl>
@@ -42766,7 +43000,7 @@ client.account.post_v1account_invites_accept(token: "token")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_locale_set</a>(request) -> Nordlet::Account::Types::PostV1AccountLocaleSetResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">locale_set</a>(request) -> Nordlet::Account::Types::LocaleSetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42779,7 +43013,7 @@ client.account.post_v1account_invites_accept(token: "token")
 <dd>
 
 ```ruby
-client.account.post_v1account_locale_set(locale: "en")
+client.account.locale_set(locale: "en")
 ```
 </dd>
 </dl>
@@ -42794,7 +43028,7 @@ client.account.post_v1account_locale_set(locale: "en")
 <dl>
 <dd>
 
-**locale:** `Nordlet::Account::Types::PostV1AccountLocaleSetRequestLocale` 
+**locale:** `Nordlet::Account::Types::LocaleSetAccountRequestLocale` 
     
 </dd>
 </dl>
@@ -42814,7 +43048,7 @@ client.account.post_v1account_locale_set(locale: "en")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_companies_create</a>(request) -> Nordlet::Account::Types::PostV1AccountCompaniesCreateResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">companies_create</a>(request) -> Nordlet::Account::Types::CompaniesCreateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -42827,7 +43061,7 @@ client.account.post_v1account_locale_set(locale: "en")
 <dd>
 
 ```ruby
-client.account.post_v1account_companies_create(name: "name")
+client.account.companies_create(name: "name")
 ```
 </dd>
 </dl>
@@ -42882,7 +43116,7 @@ client.account.post_v1account_companies_create(name: "name")
 <dl>
 <dd>
 
-**vat_period:** `Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestVatPeriod` 
+**vat_period:** `Nordlet::Account::Types::CompaniesCreateAccountRequestVatPeriod` 
     
 </dd>
 </dl>
@@ -42914,7 +43148,7 @@ client.account.post_v1account_companies_create(name: "name")
 <dl>
 <dd>
 
-**address:** `Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestAddress` 
+**address:** `Nordlet::Account::Types::CompaniesCreateAccountRequestAddress` 
     
 </dd>
 </dl>
@@ -43010,7 +43244,7 @@ client.account.post_v1account_companies_create(name: "name")
 <dl>
 <dd>
 
-**accounts_kept_by:** `Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestAccountsKeptBy` 
+**accounts_kept_by:** `Nordlet::Account::Types::CompaniesCreateAccountRequestAccountsKeptBy` 
     
 </dd>
 </dl>
@@ -43050,7 +43284,15 @@ client.account.post_v1account_companies_create(name: "name")
 <dl>
 <dd>
 
-**country_code:** `Nordlet::Account::Types::PostV1AccountCompaniesCreateRequestCountryCode` — Jurisdiction the company is registered in (immutable after creation)
+**country_code:** `Nordlet::Account::Types::CompaniesCreateAccountRequestCountryCode` — Jurisdiction the company is registered in (immutable after creation)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**base_currency:** `String` — Currency the ledger is kept in; defaults to the national currency of countryCode (immutable after creation)
     
 </dd>
 </dl>
@@ -43078,7 +43320,7 @@ client.account.post_v1account_companies_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_companies_select</a>(request) -> Nordlet::Account::Types::PostV1AccountCompaniesSelectResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">companies_select</a>(request) -> Nordlet::Account::Types::CompaniesSelectAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43091,7 +43333,7 @@ client.account.post_v1account_companies_create(name: "name")
 <dd>
 
 ```ruby
-client.account.post_v1account_companies_select(company_id: "companyId")
+client.account.companies_select(company_id: "companyId")
 ```
 </dd>
 </dl>
@@ -43126,7 +43368,7 @@ client.account.post_v1account_companies_select(company_id: "companyId")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_companies_profile</a>(request) -> Nordlet::Account::Types::PostV1AccountCompaniesProfileResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">companies_profile</a>(request) -> Nordlet::Account::Types::CompaniesProfileAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43139,7 +43381,7 @@ client.account.post_v1account_companies_select(company_id: "companyId")
 <dd>
 
 ```ruby
-client.account.post_v1account_companies_profile
+client.account.companies_profile
 ```
 </dd>
 </dl>
@@ -43166,7 +43408,7 @@ client.account.post_v1account_companies_profile
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_companies_update</a>(request) -> Nordlet::Account::Types::PostV1AccountCompaniesUpdateResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">companies_update</a>(request) -> Nordlet::Account::Types::CompaniesUpdateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43179,7 +43421,7 @@ client.account.post_v1account_companies_profile
 <dd>
 
 ```ruby
-client.account.post_v1account_companies_update
+client.account.companies_update
 ```
 </dd>
 </dl>
@@ -43234,7 +43476,7 @@ client.account.post_v1account_companies_update
 <dl>
 <dd>
 
-**vat_period:** `Nordlet::Account::Types::PostV1AccountCompaniesUpdateRequestVatPeriod` 
+**vat_period:** `Nordlet::Account::Types::CompaniesUpdateAccountRequestVatPeriod` 
     
 </dd>
 </dl>
@@ -43266,7 +43508,7 @@ client.account.post_v1account_companies_update
 <dl>
 <dd>
 
-**address:** `Nordlet::Account::Types::PostV1AccountCompaniesUpdateRequestAddress` 
+**address:** `Nordlet::Account::Types::CompaniesUpdateAccountRequestAddress` 
     
 </dd>
 </dl>
@@ -43362,7 +43604,7 @@ client.account.post_v1account_companies_update
 <dl>
 <dd>
 
-**accounts_kept_by:** `Nordlet::Account::Types::PostV1AccountCompaniesUpdateRequestAccountsKeptBy` 
+**accounts_kept_by:** `Nordlet::Account::Types::CompaniesUpdateAccountRequestAccountsKeptBy` 
     
 </dd>
 </dl>
@@ -43402,7 +43644,7 @@ client.account.post_v1account_companies_update
 <dl>
 <dd>
 
-**logo:** `Nordlet::Account::Types::PostV1AccountCompaniesUpdateRequestLogo` 
+**logo:** `Nordlet::Account::Types::CompaniesUpdateAccountRequestLogo` 
     
 </dd>
 </dl>
@@ -43422,7 +43664,7 @@ client.account.post_v1account_companies_update
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_companies_archive</a>(request) -> Nordlet::Account::Types::PostV1AccountCompaniesArchiveResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">companies_archive</a>(request) -> Nordlet::Account::Types::CompaniesArchiveAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43435,7 +43677,7 @@ client.account.post_v1account_companies_update
 <dd>
 
 ```ruby
-client.account.post_v1account_companies_archive(company_id: "companyId")
+client.account.companies_archive(company_id: "companyId")
 ```
 </dd>
 </dl>
@@ -43470,7 +43712,7 @@ client.account.post_v1account_companies_archive(company_id: "companyId")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_companies_delete</a>(request) -> Nordlet::Account::Types::PostV1AccountCompaniesDeleteResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">companies_delete</a>(request) -> Nordlet::Account::Types::CompaniesDeleteAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43483,7 +43725,7 @@ client.account.post_v1account_companies_archive(company_id: "companyId")
 <dd>
 
 ```ruby
-client.account.post_v1account_companies_delete(company_id: "companyId")
+client.account.companies_delete(company_id: "companyId")
 ```
 </dd>
 </dl>
@@ -43518,7 +43760,7 @@ client.account.post_v1account_companies_delete(company_id: "companyId")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_companies_activate</a>(request) -> Nordlet::Account::Types::PostV1AccountCompaniesActivateResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">companies_activate</a>(request) -> Nordlet::Account::Types::CompaniesActivateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43531,7 +43773,7 @@ client.account.post_v1account_companies_delete(company_id: "companyId")
 <dd>
 
 ```ruby
-client.account.post_v1account_companies_activate(company_id: "companyId")
+client.account.companies_activate(company_id: "companyId")
 ```
 </dd>
 </dl>
@@ -43566,7 +43808,7 @@ client.account.post_v1account_companies_activate(company_id: "companyId")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_api_keys_create</a>(request) -> Nordlet::Account::Types::PostV1AccountAPIKeysCreateResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">api_keys_create</a>(request) -> Nordlet::Account::Types::APIKeysCreateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43579,7 +43821,7 @@ client.account.post_v1account_companies_activate(company_id: "companyId")
 <dd>
 
 ```ruby
-client.account.post_v1account_api_keys_create(name: "name")
+client.account.api_keys_create(name: "name")
 ```
 </dd>
 </dl>
@@ -43630,7 +43872,7 @@ client.account.post_v1account_api_keys_create(name: "name")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_api_keys_list</a>(request) -> Nordlet::Account::Types::PostV1AccountAPIKeysListResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">api_keys_list</a>(request) -> Nordlet::Account::Types::APIKeysListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43643,7 +43885,7 @@ client.account.post_v1account_api_keys_create(name: "name")
 <dd>
 
 ```ruby
-client.account.post_v1account_api_keys_list
+client.account.api_keys_list
 ```
 </dd>
 </dl>
@@ -43670,7 +43912,7 @@ client.account.post_v1account_api_keys_list
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">issue_a_replacement_for_an_api_key_and_set_the_old_one_to_stop_working_after_a_short_overlap</a>(request) -> Nordlet::Account::Types::PostV1AccountAPIKeysRotateResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">api_keys_rotate</a>(request) -> Nordlet::Account::Types::APIKeysRotateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43683,7 +43925,7 @@ client.account.post_v1account_api_keys_list
 <dd>
 
 ```ruby
-client.account.issue_a_replacement_for_an_api_key_and_set_the_old_one_to_stop_working_after_a_short_overlap(id: "id")
+client.account.api_keys_rotate(id: "id")
 ```
 </dd>
 </dl>
@@ -43734,7 +43976,7 @@ client.account.issue_a_replacement_for_an_api_key_and_set_the_old_one_to_stop_wo
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_api_keys_revoke</a>(request) -> Nordlet::Account::Types::PostV1AccountAPIKeysRevokeResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">api_keys_revoke</a>(request) -> Nordlet::Account::Types::APIKeysRevokeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43747,7 +43989,7 @@ client.account.issue_a_replacement_for_an_api_key_and_set_the_old_one_to_stop_wo
 <dd>
 
 ```ruby
-client.account.post_v1account_api_keys_revoke(id: "id")
+client.account.api_keys_revoke(id: "id")
 ```
 </dd>
 </dl>
@@ -43782,7 +44024,7 @@ client.account.post_v1account_api_keys_revoke(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_consent_accept</a>(request) -> Nordlet::Account::Types::PostV1AccountConsentAcceptResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">consent_accept</a>(request) -> Nordlet::Account::Types::ConsentAcceptAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43795,7 +44037,7 @@ client.account.post_v1account_api_keys_revoke(id: "id")
 <dd>
 
 ```ruby
-client.account.post_v1account_consent_accept(
+client.account.consent_accept(
   accept_terms: true,
   accept_dpa: true
 )
@@ -43841,7 +44083,7 @@ client.account.post_v1account_consent_accept(
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_profile_update</a>(request) -> Nordlet::Account::Types::PostV1AccountProfileUpdateResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">profile_update</a>(request) -> Nordlet::Account::Types::ProfileUpdateAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43854,7 +44096,7 @@ client.account.post_v1account_consent_accept(
 <dd>
 
 ```ruby
-client.account.post_v1account_profile_update
+client.account.profile_update
 ```
 </dd>
 </dl>
@@ -43889,7 +44131,7 @@ client.account.post_v1account_profile_update
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_email_change_request</a>(request) -> Nordlet::Account::Types::PostV1AccountEmailChangeRequestResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">email_change_request</a>(request) -> Nordlet::Account::Types::EmailChangeRequestAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43902,7 +44144,7 @@ client.account.post_v1account_profile_update
 <dd>
 
 ```ruby
-client.account.post_v1account_email_change_request(new_email: "newEmail")
+client.account.email_change_request(new_email: "newEmail")
 ```
 </dd>
 </dl>
@@ -43925,7 +44167,7 @@ client.account.post_v1account_email_change_request(new_email: "newEmail")
 <dl>
 <dd>
 
-**locale:** `Nordlet::Account::Types::PostV1AccountEmailChangeRequestRequestLocale` 
+**locale:** `Nordlet::Account::Types::EmailChangeRequestAccountRequestLocale` 
     
 </dd>
 </dl>
@@ -43945,7 +44187,7 @@ client.account.post_v1account_email_change_request(new_email: "newEmail")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_sessions_list</a>(request) -> Nordlet::Account::Types::PostV1AccountSessionsListResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">sessions_list</a>(request) -> Nordlet::Account::Types::SessionsListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43958,7 +44200,7 @@ client.account.post_v1account_email_change_request(new_email: "newEmail")
 <dd>
 
 ```ruby
-client.account.post_v1account_sessions_list
+client.account.sessions_list
 ```
 </dd>
 </dl>
@@ -43985,7 +44227,7 @@ client.account.post_v1account_sessions_list
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_sessions_revoke</a>(request) -> Nordlet::Account::Types::PostV1AccountSessionsRevokeResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">sessions_revoke</a>(request) -> Nordlet::Account::Types::SessionsRevokeAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -43998,7 +44240,7 @@ client.account.post_v1account_sessions_list
 <dd>
 
 ```ruby
-client.account.post_v1account_sessions_revoke(id: "id")
+client.account.sessions_revoke(id: "id")
 ```
 </dd>
 </dl>
@@ -44033,7 +44275,7 @@ client.account.post_v1account_sessions_revoke(id: "id")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_sessions_revoke_others</a>(request) -> Nordlet::Account::Types::PostV1AccountSessionsRevokeOthersResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">sessions_revoke_others</a>(request) -> Nordlet::Account::Types::SessionsRevokeOthersAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -44046,7 +44288,7 @@ client.account.post_v1account_sessions_revoke(id: "id")
 <dd>
 
 ```ruby
-client.account.post_v1account_sessions_revoke_others
+client.account.sessions_revoke_others
 ```
 </dd>
 </dl>
@@ -44073,7 +44315,7 @@ client.account.post_v1account_sessions_revoke_others
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">download_everything_nordlet_stores_about_the_signed_in_user</a>(request) -> Nordlet::Account::Types::PostV1AccountExportResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">export</a>(request) -> Nordlet::Account::Types::ExportAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -44086,7 +44328,7 @@ client.account.post_v1account_sessions_revoke_others
 <dd>
 
 ```ruby
-client.account.download_everything_nordlet_stores_about_the_signed_in_user
+client.account.export
 ```
 </dd>
 </dl>
@@ -44113,7 +44355,7 @@ client.account.download_everything_nordlet_stores_about_the_signed_in_user
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">delete_the_signed_in_user_account</a>(request) -> Nordlet::Account::Types::PostV1AccountDeleteResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">delete</a>(request) -> Nordlet::Account::Types::DeleteAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -44140,7 +44382,7 @@ Removes the user: sessions, sign-in links, memberships and pending invitations a
 <dd>
 
 ```ruby
-client.account.delete_the_signed_in_user_account(confirm_email: "confirmEmail")
+client.account.delete(confirm_email: "confirmEmail")
 ```
 </dd>
 </dl>
@@ -44175,7 +44417,7 @@ client.account.delete_the_signed_in_user_account(confirm_email: "confirmEmail")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_referral_get</a>(request) -> Nordlet::Account::Types::PostV1AccountReferralGetResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">referral_get</a>(request) -> Nordlet::Account::Types::ReferralGetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -44188,7 +44430,7 @@ client.account.delete_the_signed_in_user_account(confirm_email: "confirmEmail")
 <dd>
 
 ```ruby
-client.account.post_v1account_referral_get
+client.account.referral_get
 ```
 </dd>
 </dl>
@@ -44215,7 +44457,7 @@ client.account.post_v1account_referral_get
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_referral_convert</a>(request) -> Nordlet::Account::Types::PostV1AccountReferralConvertResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">referral_convert</a>(request) -> Nordlet::Account::Types::ReferralConvertAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -44228,7 +44470,7 @@ client.account.post_v1account_referral_get
 <dd>
 
 ```ruby
-client.account.post_v1account_referral_convert(points: 1000000)
+client.account.referral_convert(points: 1000000)
 ```
 </dd>
 </dl>
@@ -44263,7 +44505,7 @@ client.account.post_v1account_referral_convert(points: 1000000)
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_table_settings_get</a>(request) -> Nordlet::Account::Types::PostV1AccountTableSettingsGetResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">table_settings_get</a>(request) -> Nordlet::Account::Types::TableSettingsGetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -44276,7 +44518,7 @@ client.account.post_v1account_referral_convert(points: 1000000)
 <dd>
 
 ```ruby
-client.account.post_v1account_table_settings_get(table_key: "tableKey")
+client.account.table_settings_get(table_key: "tableKey")
 ```
 </dd>
 </dl>
@@ -44311,7 +44553,7 @@ client.account.post_v1account_table_settings_get(table_key: "tableKey")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_table_settings_set</a>(request) -> Nordlet::Account::Types::PostV1AccountTableSettingsSetResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">table_settings_set</a>(request) -> Nordlet::Account::Types::TableSettingsSetAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -44324,7 +44566,7 @@ client.account.post_v1account_table_settings_get(table_key: "tableKey")
 <dd>
 
 ```ruby
-client.account.post_v1account_table_settings_set(table_key: "tableKey")
+client.account.table_settings_set(table_key: "tableKey")
 ```
 </dd>
 </dl>
@@ -44375,7 +44617,7 @@ client.account.post_v1account_table_settings_set(table_key: "tableKey")
 </dl>
 </details>
 
-<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">post_v1account_table_settings_list</a>(request) -> Nordlet::Account::Types::PostV1AccountTableSettingsListResponse</code></summary>
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">table_settings_list</a>(request) -> Nordlet::Account::Types::TableSettingsListAccountResponse</code></summary>
 <dl>
 <dd>
 
@@ -44388,7 +44630,7 @@ client.account.post_v1account_table_settings_set(table_key: "tableKey")
 <dd>
 
 ```ruby
-client.account.post_v1account_table_settings_list
+client.account.table_settings_list
 ```
 </dd>
 </dl>

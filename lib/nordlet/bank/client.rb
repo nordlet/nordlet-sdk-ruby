@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankAccountsCreateRequest]
+      # @param params [Nordlet::Bank::Types::AccountsCreateBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankAccountsCreateResponse]
-      def post_v1bank_accounts_create(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::AccountsCreateBankResponse]
+      def accounts_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/accounts/create",
-          body: Nordlet::Bank::Types::PostV1BankAccountsCreateRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::AccountsCreateBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankAccountsCreateResponse.load(response.body)
+          Nordlet::Bank::Types::AccountsCreateBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankAccountsListRequest]
+      # @param params [Nordlet::Bank::Types::AccountsListBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankAccountsListResponse]
-      def post_v1bank_accounts_list(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::AccountsListBankResponse]
+      def accounts_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/accounts/list",
-          body: Nordlet::Bank::Types::PostV1BankAccountsListRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::AccountsListBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankAccountsListResponse.load(response.body)
+          Nordlet::Bank::Types::AccountsListBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankAccountsUpdateRequest]
+      # @param params [Nordlet::Bank::Types::AccountsUpdateBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankAccountsUpdateResponse]
-      def post_v1bank_accounts_update(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::AccountsUpdateBankResponse]
+      def accounts_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/accounts/update",
-          body: Nordlet::Bank::Types::PostV1BankAccountsUpdateRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::AccountsUpdateBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankAccountsUpdateResponse.load(response.body)
+          Nordlet::Bank::Types::AccountsUpdateBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankTransactionsImportRequest]
+      # @param params [Nordlet::Bank::Types::TransactionsImportBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankTransactionsImportResponse]
-      def post_v1bank_transactions_import(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::TransactionsImportBankResponse]
+      def transactions_import(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/transactions/import",
-          body: Nordlet::Bank::Types::PostV1BankTransactionsImportRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::TransactionsImportBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankTransactionsImportResponse.load(response.body)
+          Nordlet::Bank::Types::TransactionsImportBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankStatementsImportRequest]
+      # @param params [Nordlet::Bank::Types::StatementsImportBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankStatementsImportResponse]
-      def post_v1bank_statements_import(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::StatementsImportBankResponse]
+      def statements_import(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/statements/import",
-          body: Nordlet::Bank::Types::PostV1BankStatementsImportRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::StatementsImportBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankStatementsImportResponse.load(response.body)
+          Nordlet::Bank::Types::StatementsImportBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankTransactionsListRequest]
+      # @param params [Nordlet::Bank::Types::TransactionsListBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankTransactionsListResponse]
-      def post_v1bank_transactions_list(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::TransactionsListBankResponse]
+      def transactions_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/transactions/list",
-          body: Nordlet::Bank::Types::PostV1BankTransactionsListRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::TransactionsListBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankTransactionsListResponse.load(response.body)
+          Nordlet::Bank::Types::TransactionsListBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -203,21 +203,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankTransactionsMatchRequest]
+      # @param params [Nordlet::Bank::Types::TransactionsMatchBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankTransactionsMatchResponse]
-      def post_v1bank_transactions_match(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::TransactionsMatchBankResponse]
+      def transactions_match(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/transactions/match",
-          body: Nordlet::Bank::Types::PostV1BankTransactionsMatchRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::TransactionsMatchBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -227,7 +227,43 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankTransactionsMatchResponse.load(response.body)
+          Nordlet::Bank::Types::TransactionsMatchBankResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal
+      # transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line
+      # linked to a payment-provider settlement is only unlinked. The line returns to status new.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Bank::Types::TransactionsUnmatchBankRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Bank::Types::TransactionsUnmatchBankResponse]
+      def transactions_unmatch(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/bank/transactions/unmatch",
+          body: Nordlet::Bank::Types::TransactionsUnmatchBankRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Bank::Types::TransactionsUnmatchBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -235,21 +271,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankTransactionsRecordRequest]
+      # @param params [Nordlet::Bank::Types::TransactionsRecordBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankTransactionsRecordResponse]
-      def post_v1bank_transactions_record(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::TransactionsRecordBankResponse]
+      def transactions_record(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/transactions/record",
-          body: Nordlet::Bank::Types::PostV1BankTransactionsRecordRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::TransactionsRecordBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -259,7 +295,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankTransactionsRecordResponse.load(response.body)
+          Nordlet::Bank::Types::TransactionsRecordBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -267,21 +303,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankPaymentsExportRequest]
+      # @param params [Nordlet::Bank::Types::PaymentsExportBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankPaymentsExportResponse]
-      def post_v1bank_payments_export(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::PaymentsExportBankResponse]
+      def payments_export(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/payments/export",
-          body: Nordlet::Bank::Types::PostV1BankPaymentsExportRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::PaymentsExportBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -291,7 +327,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankPaymentsExportResponse.load(response.body)
+          Nordlet::Bank::Types::PaymentsExportBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -299,21 +335,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankImportTemplatesCreateRequest]
+      # @param params [Nordlet::Bank::Types::ImportTemplatesCreateBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankImportTemplatesCreateResponse]
-      def create_a_bank_import_template_fields_default_to_the_types_standard_field_list(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::ImportTemplatesCreateBankResponse]
+      def import_templates_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/import-templates/create",
-          body: Nordlet::Bank::Types::PostV1BankImportTemplatesCreateRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::ImportTemplatesCreateBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -323,7 +359,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankImportTemplatesCreateResponse.load(response.body)
+          Nordlet::Bank::Types::ImportTemplatesCreateBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -331,21 +367,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateRequest]
+      # @param params [Nordlet::Bank::Types::ImportTemplatesUpdateBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateResponse]
-      def post_v1bank_import_templates_update(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::ImportTemplatesUpdateBankResponse]
+      def import_templates_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/import-templates/update",
-          body: Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::ImportTemplatesUpdateBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -355,7 +391,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankImportTemplatesUpdateResponse.load(response.body)
+          Nordlet::Bank::Types::ImportTemplatesUpdateBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -363,21 +399,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankImportTemplatesDeleteRequest]
+      # @param params [Nordlet::Bank::Types::ImportTemplatesDeleteBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankImportTemplatesDeleteResponse]
-      def post_v1bank_import_templates_delete(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::ImportTemplatesDeleteBankResponse]
+      def import_templates_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/import-templates/delete",
-          body: Nordlet::Bank::Types::PostV1BankImportTemplatesDeleteRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::ImportTemplatesDeleteBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -387,7 +423,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankImportTemplatesDeleteResponse.load(response.body)
+          Nordlet::Bank::Types::ImportTemplatesDeleteBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -395,21 +431,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankImportTemplatesGetRequest]
+      # @param params [Nordlet::Bank::Types::ImportTemplatesGetBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankImportTemplatesGetResponse]
-      def post_v1bank_import_templates_get(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::ImportTemplatesGetBankResponse]
+      def import_templates_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/import-templates/get",
-          body: Nordlet::Bank::Types::PostV1BankImportTemplatesGetRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::ImportTemplatesGetBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -419,7 +455,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankImportTemplatesGetResponse.load(response.body)
+          Nordlet::Bank::Types::ImportTemplatesGetBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -427,21 +463,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankImportTemplatesListRequest]
+      # @param params [Nordlet::Bank::Types::ImportTemplatesListBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankImportTemplatesListResponse]
-      def post_v1bank_import_templates_list(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::ImportTemplatesListBankResponse]
+      def import_templates_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/import-templates/list",
-          body: Nordlet::Bank::Types::PostV1BankImportTemplatesListRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::ImportTemplatesListBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -451,7 +487,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankImportTemplatesListResponse.load(response.body)
+          Nordlet::Bank::Types::ImportTemplatesListBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -459,21 +495,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankMatchRulesCreateRequest]
+      # @param params [Nordlet::Bank::Types::MatchRulesCreateBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankMatchRulesCreateResponse]
-      def post_v1bank_match_rules_create(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::MatchRulesCreateBankResponse]
+      def match_rules_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/match-rules/create",
-          body: Nordlet::Bank::Types::PostV1BankMatchRulesCreateRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::MatchRulesCreateBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -483,7 +519,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankMatchRulesCreateResponse.load(response.body)
+          Nordlet::Bank::Types::MatchRulesCreateBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -491,21 +527,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankMatchRulesUpdateRequest]
+      # @param params [Nordlet::Bank::Types::MatchRulesUpdateBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankMatchRulesUpdateResponse]
-      def post_v1bank_match_rules_update(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::MatchRulesUpdateBankResponse]
+      def match_rules_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/match-rules/update",
-          body: Nordlet::Bank::Types::PostV1BankMatchRulesUpdateRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::MatchRulesUpdateBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -515,7 +551,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankMatchRulesUpdateResponse.load(response.body)
+          Nordlet::Bank::Types::MatchRulesUpdateBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -523,21 +559,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankMatchRulesDeleteRequest]
+      # @param params [Nordlet::Bank::Types::MatchRulesDeleteBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankMatchRulesDeleteResponse]
-      def post_v1bank_match_rules_delete(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::MatchRulesDeleteBankResponse]
+      def match_rules_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/match-rules/delete",
-          body: Nordlet::Bank::Types::PostV1BankMatchRulesDeleteRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::MatchRulesDeleteBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -547,7 +583,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankMatchRulesDeleteResponse.load(response.body)
+          Nordlet::Bank::Types::MatchRulesDeleteBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -555,21 +591,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankMatchRulesListRequest]
+      # @param params [Nordlet::Bank::Types::MatchRulesListBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankMatchRulesListResponse]
-      def post_v1bank_match_rules_list(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::MatchRulesListBankResponse]
+      def match_rules_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/match-rules/list",
-          body: Nordlet::Bank::Types::PostV1BankMatchRulesListRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::MatchRulesListBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -579,7 +615,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankMatchRulesListResponse.load(response.body)
+          Nordlet::Bank::Types::MatchRulesListBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -587,21 +623,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankMandatesCreateRequest]
+      # @param params [Nordlet::Bank::Types::MandatesCreateBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankMandatesCreateResponse]
-      def post_v1bank_mandates_create(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::MandatesCreateBankResponse]
+      def mandates_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/mandates/create",
-          body: Nordlet::Bank::Types::PostV1BankMandatesCreateRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::MandatesCreateBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -611,7 +647,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankMandatesCreateResponse.load(response.body)
+          Nordlet::Bank::Types::MandatesCreateBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -619,21 +655,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankMandatesUpdateRequest]
+      # @param params [Nordlet::Bank::Types::MandatesUpdateBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankMandatesUpdateResponse]
-      def post_v1bank_mandates_update(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::MandatesUpdateBankResponse]
+      def mandates_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/mandates/update",
-          body: Nordlet::Bank::Types::PostV1BankMandatesUpdateRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::MandatesUpdateBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -643,7 +679,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankMandatesUpdateResponse.load(response.body)
+          Nordlet::Bank::Types::MandatesUpdateBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -651,21 +687,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankMandatesCancelRequest]
+      # @param params [Nordlet::Bank::Types::MandatesCancelBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankMandatesCancelResponse]
-      def post_v1bank_mandates_cancel(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::MandatesCancelBankResponse]
+      def mandates_cancel(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/mandates/cancel",
-          body: Nordlet::Bank::Types::PostV1BankMandatesCancelRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::MandatesCancelBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -675,7 +711,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankMandatesCancelResponse.load(response.body)
+          Nordlet::Bank::Types::MandatesCancelBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -683,21 +719,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankMandatesGetRequest]
+      # @param params [Nordlet::Bank::Types::MandatesGetBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankMandatesGetResponse]
-      def post_v1bank_mandates_get(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::MandatesGetBankResponse]
+      def mandates_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/mandates/get",
-          body: Nordlet::Bank::Types::PostV1BankMandatesGetRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::MandatesGetBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -707,7 +743,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankMandatesGetResponse.load(response.body)
+          Nordlet::Bank::Types::MandatesGetBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -715,21 +751,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankMandatesListRequest]
+      # @param params [Nordlet::Bank::Types::MandatesListBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankMandatesListResponse]
-      def post_v1bank_mandates_list(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::MandatesListBankResponse]
+      def mandates_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/mandates/list",
-          body: Nordlet::Bank::Types::PostV1BankMandatesListRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::MandatesListBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -739,7 +775,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankMandatesListResponse.load(response.body)
+          Nordlet::Bank::Types::MandatesListBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -747,21 +783,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankDirectDebitsExportRequest]
+      # @param params [Nordlet::Bank::Types::DirectDebitsExportBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankDirectDebitsExportResponse]
-      def post_v1bank_direct_debits_export(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::DirectDebitsExportBankResponse]
+      def direct_debits_export(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/direct-debits/export",
-          body: Nordlet::Bank::Types::PostV1BankDirectDebitsExportRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::DirectDebitsExportBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -771,7 +807,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankDirectDebitsExportResponse.load(response.body)
+          Nordlet::Bank::Types::DirectDebitsExportBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -779,21 +815,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankTransactionsSuggestMatchesRequest]
+      # @param params [Nordlet::Bank::Types::TransactionsSuggestMatchesBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankTransactionsSuggestMatchesResponse]
-      def post_v1bank_transactions_suggest_matches(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::TransactionsSuggestMatchesBankResponse]
+      def transactions_suggest_matches(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/transactions/suggest-matches",
-          body: Nordlet::Bank::Types::PostV1BankTransactionsSuggestMatchesRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::TransactionsSuggestMatchesBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -803,7 +839,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankTransactionsSuggestMatchesResponse.load(response.body)
+          Nordlet::Bank::Types::TransactionsSuggestMatchesBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -811,21 +847,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankSettlementsImportRequest]
+      # @param params [Nordlet::Bank::Types::SettlementsImportBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankSettlementsImportResponse]
-      def post_v1bank_settlements_import(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::SettlementsImportBankResponse]
+      def settlements_import(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/settlements/import",
-          body: Nordlet::Bank::Types::PostV1BankSettlementsImportRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::SettlementsImportBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -835,7 +871,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankSettlementsImportResponse.load(response.body)
+          Nordlet::Bank::Types::SettlementsImportBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -843,21 +879,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankSettlementsListRequest]
+      # @param params [Nordlet::Bank::Types::SettlementsListBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankSettlementsListResponse]
-      def post_v1bank_settlements_list(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::SettlementsListBankResponse]
+      def settlements_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/settlements/list",
-          body: Nordlet::Bank::Types::PostV1BankSettlementsListRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::SettlementsListBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -867,7 +903,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankSettlementsListResponse.load(response.body)
+          Nordlet::Bank::Types::SettlementsListBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -875,21 +911,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankSettlementsGetRequest]
+      # @param params [Nordlet::Bank::Types::SettlementsGetBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankSettlementsGetResponse]
-      def post_v1bank_settlements_get(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::SettlementsGetBankResponse]
+      def settlements_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/settlements/get",
-          body: Nordlet::Bank::Types::PostV1BankSettlementsGetRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::SettlementsGetBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -899,7 +935,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankSettlementsGetResponse.load(response.body)
+          Nordlet::Bank::Types::SettlementsGetBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -907,21 +943,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankSettlementsMatchRequest]
+      # @param params [Nordlet::Bank::Types::SettlementsMatchBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankSettlementsMatchResponse]
-      def post_v1bank_settlements_match(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::SettlementsMatchBankResponse]
+      def settlements_match(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/settlements/match",
-          body: Nordlet::Bank::Types::PostV1BankSettlementsMatchRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::SettlementsMatchBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -931,7 +967,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankSettlementsMatchResponse.load(response.body)
+          Nordlet::Bank::Types::SettlementsMatchBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -943,21 +979,21 @@ module Nordlet
       # account. Send both fields as null to clear the line back to the fallback.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankSettlementsCommissionRequest]
+      # @param params [Nordlet::Bank::Types::SettlementsCommissionBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankSettlementsCommissionResponse]
-      def set_what_the_marketplace_keeps_from_one_settlement_line_as_a_rate_or_as_an_amount(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::SettlementsCommissionBankResponse]
+      def settlements_commission(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/settlements/commission",
-          body: Nordlet::Bank::Types::PostV1BankSettlementsCommissionRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::SettlementsCommissionBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -967,7 +1003,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankSettlementsCommissionResponse.load(response.body)
+          Nordlet::Bank::Types::SettlementsCommissionBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -977,21 +1013,21 @@ module Nordlet
       # Attach the incoming bank-statement line that carries this payout to the settlement batch.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankSettlementsLinkRequest]
+      # @param params [Nordlet::Bank::Types::SettlementsLinkBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankSettlementsLinkResponse]
-      def post_v1bank_settlements_link(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::SettlementsLinkBankResponse]
+      def settlements_link(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/settlements/link",
-          body: Nordlet::Bank::Types::PostV1BankSettlementsLinkRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::SettlementsLinkBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1001,7 +1037,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankSettlementsLinkResponse.load(response.body)
+          Nordlet::Bank::Types::SettlementsLinkBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1011,21 +1047,21 @@ module Nordlet
       # Detach the bank-statement line from the settlement batch and return the line to unmatched.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankSettlementsUnlinkRequest]
+      # @param params [Nordlet::Bank::Types::SettlementsUnlinkBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankSettlementsUnlinkResponse]
-      def post_v1bank_settlements_unlink(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::SettlementsUnlinkBankResponse]
+      def settlements_unlink(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/settlements/unlink",
-          body: Nordlet::Bank::Types::PostV1BankSettlementsUnlinkRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::SettlementsUnlinkBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1035,7 +1071,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankSettlementsUnlinkResponse.load(response.body)
+          Nordlet::Bank::Types::SettlementsUnlinkBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1043,21 +1079,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankSettlementsPostRequest]
+      # @param params [Nordlet::Bank::Types::SettlementsPostBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankSettlementsPostResponse]
-      def post_v1bank_settlements_post(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::SettlementsPostBankResponse]
+      def settlements_post(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/settlements/post",
-          body: Nordlet::Bank::Types::PostV1BankSettlementsPostRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::SettlementsPostBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1067,7 +1103,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankSettlementsPostResponse.load(response.body)
+          Nordlet::Bank::Types::SettlementsPostBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1075,21 +1111,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankFeedsBanksListRequest]
+      # @param params [Nordlet::Bank::Types::FeedsBanksListBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankFeedsBanksListResponse]
-      def list_the_psd2banks_asps_ps_available_to_connect(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::FeedsBanksListBankResponse]
+      def feeds_banks_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/feeds/banks/list",
-          body: Nordlet::Bank::Types::PostV1BankFeedsBanksListRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::FeedsBanksListBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1099,7 +1135,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankFeedsBanksListResponse.load(response.body)
+          Nordlet::Bank::Types::FeedsBanksListBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1107,21 +1143,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankFeedsConnectionsStartRequest]
+      # @param params [Nordlet::Bank::Types::FeedsConnectionsStartBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankFeedsConnectionsStartResponse]
-      def begin_bank_authorization_redirect_the_user_to_the_returned_url(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::FeedsConnectionsStartBankResponse]
+      def feeds_connections_start(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/feeds/connections/start",
-          body: Nordlet::Bank::Types::PostV1BankFeedsConnectionsStartRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::FeedsConnectionsStartBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1131,7 +1167,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankFeedsConnectionsStartResponse.load(response.body)
+          Nordlet::Bank::Types::FeedsConnectionsStartBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1139,21 +1175,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankFeedsConnectionsCompleteRequest]
+      # @param params [Nordlet::Bank::Types::FeedsConnectionsCompleteBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankFeedsConnectionsCompleteResponse]
-      def exchange_the_redirect_code_for_a_session_and_store_the_bank_accounts_it_exposes(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::FeedsConnectionsCompleteBankResponse]
+      def feeds_connections_complete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/feeds/connections/complete",
-          body: Nordlet::Bank::Types::PostV1BankFeedsConnectionsCompleteRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::FeedsConnectionsCompleteBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1163,7 +1199,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankFeedsConnectionsCompleteResponse.load(response.body)
+          Nordlet::Bank::Types::FeedsConnectionsCompleteBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1171,21 +1207,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankFeedsConnectionsGetRequest]
+      # @param params [Nordlet::Bank::Types::FeedsConnectionsGetBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankFeedsConnectionsGetResponse]
-      def post_v1bank_feeds_connections_get(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::FeedsConnectionsGetBankResponse]
+      def feeds_connections_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/feeds/connections/get",
-          body: Nordlet::Bank::Types::PostV1BankFeedsConnectionsGetRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::FeedsConnectionsGetBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1195,7 +1231,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankFeedsConnectionsGetResponse.load(response.body)
+          Nordlet::Bank::Types::FeedsConnectionsGetBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1203,21 +1239,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankFeedsConnectionsListRequest]
+      # @param params [Nordlet::Bank::Types::FeedsConnectionsListBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankFeedsConnectionsListResponse]
-      def post_v1bank_feeds_connections_list(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::FeedsConnectionsListBankResponse]
+      def feeds_connections_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/feeds/connections/list",
-          body: Nordlet::Bank::Types::PostV1BankFeedsConnectionsListRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::FeedsConnectionsListBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1227,7 +1263,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankFeedsConnectionsListResponse.load(response.body)
+          Nordlet::Bank::Types::FeedsConnectionsListBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1235,21 +1271,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankFeedsConnectionsDeleteRequest]
+      # @param params [Nordlet::Bank::Types::FeedsConnectionsDeleteBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankFeedsConnectionsDeleteResponse]
-      def revoke_the_consent_at_the_bank_and_drop_the_stored_connection(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::FeedsConnectionsDeleteBankResponse]
+      def feeds_connections_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/feeds/connections/delete",
-          body: Nordlet::Bank::Types::PostV1BankFeedsConnectionsDeleteRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::FeedsConnectionsDeleteBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1259,7 +1295,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankFeedsConnectionsDeleteResponse.load(response.body)
+          Nordlet::Bank::Types::FeedsConnectionsDeleteBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1267,21 +1303,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankFeedsAccountsLinkRequest]
+      # @param params [Nordlet::Bank::Types::FeedsAccountsLinkBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankFeedsAccountsLinkResponse]
-      def point_a_bank_feed_account_at_a_ledger_bank_account_so_its_transactions_can_be_synced(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::FeedsAccountsLinkBankResponse]
+      def feeds_accounts_link(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/feeds/accounts/link",
-          body: Nordlet::Bank::Types::PostV1BankFeedsAccountsLinkRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::FeedsAccountsLinkBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1291,7 +1327,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankFeedsAccountsLinkResponse.load(response.body)
+          Nordlet::Bank::Types::FeedsAccountsLinkBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1299,21 +1335,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankFeedsAccountsConfigureRequest]
+      # @param params [Nordlet::Bank::Types::FeedsAccountsConfigureBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankFeedsAccountsConfigureResponse]
-      def choose_the_import_template_applied_on_sync_and_how_often_the_account_is_synced_automatically(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::FeedsAccountsConfigureBankResponse]
+      def feeds_accounts_configure(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/feeds/accounts/configure",
-          body: Nordlet::Bank::Types::PostV1BankFeedsAccountsConfigureRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::FeedsAccountsConfigureBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1323,7 +1359,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankFeedsAccountsConfigureResponse.load(response.body)
+          Nordlet::Bank::Types::FeedsAccountsConfigureBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1331,21 +1367,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Bank::Types::PostV1BankFeedsSyncRequest]
+      # @param params [Nordlet::Bank::Types::FeedsSyncBankRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Bank::Types::PostV1BankFeedsSyncResponse]
-      def pull_new_transactions_from_the_bank_into_the_ledger_emits_bank_feed_synced(request_options: {}, **params)
+      # @return [Nordlet::Bank::Types::FeedsSyncBankResponse]
+      def feeds_sync(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/bank/feeds/sync",
-          body: Nordlet::Bank::Types::PostV1BankFeedsSyncRequest.new(params).to_h,
+          body: Nordlet::Bank::Types::FeedsSyncBankRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1355,7 +1391,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Bank::Types::PostV1BankFeedsSyncResponse.load(response.body)
+          Nordlet::Bank::Types::FeedsSyncBankResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

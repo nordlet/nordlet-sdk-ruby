@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsCreateRequest]
+      # @param params [Nordlet::Consolidation::Types::GroupsCreateConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsCreateResponse]
-      def post_v1consolidation_groups_create(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::GroupsCreateConsolidationResponse]
+      def groups_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/groups/create",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationGroupsCreateRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::GroupsCreateConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationGroupsCreateResponse.load(response.body)
+          Nordlet::Consolidation::Types::GroupsCreateConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsListRequest]
+      # @param params [Nordlet::Consolidation::Types::GroupsListConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsListResponse]
-      def post_v1consolidation_groups_list(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::GroupsListConsolidationResponse]
+      def groups_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/groups/list",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationGroupsListRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::GroupsListConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationGroupsListResponse.load(response.body)
+          Nordlet::Consolidation::Types::GroupsListConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsGetRequest]
+      # @param params [Nordlet::Consolidation::Types::GroupsGetConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsGetResponse]
-      def post_v1consolidation_groups_get(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::GroupsGetConsolidationResponse]
+      def groups_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/groups/get",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationGroupsGetRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::GroupsGetConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationGroupsGetResponse.load(response.body)
+          Nordlet::Consolidation::Types::GroupsGetConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsUpdateRequest]
+      # @param params [Nordlet::Consolidation::Types::GroupsUpdateConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsUpdateResponse]
-      def post_v1consolidation_groups_update(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::GroupsUpdateConsolidationResponse]
+      def groups_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/groups/update",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationGroupsUpdateRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::GroupsUpdateConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationGroupsUpdateResponse.load(response.body)
+          Nordlet::Consolidation::Types::GroupsUpdateConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsDeleteRequest]
+      # @param params [Nordlet::Consolidation::Types::GroupsDeleteConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationGroupsDeleteResponse]
-      def post_v1consolidation_groups_delete(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::GroupsDeleteConsolidationResponse]
+      def groups_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/groups/delete",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationGroupsDeleteRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::GroupsDeleteConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationGroupsDeleteResponse.load(response.body)
+          Nordlet::Consolidation::Types::GroupsDeleteConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationMembersAddRequest]
+      # @param params [Nordlet::Consolidation::Types::MembersAddConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationMembersAddResponse]
-      def post_v1consolidation_members_add(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::MembersAddConsolidationResponse]
+      def members_add(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/members/add",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationMembersAddRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::MembersAddConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationMembersAddResponse.load(response.body)
+          Nordlet::Consolidation::Types::MembersAddConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -203,21 +203,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationMembersRemoveRequest]
+      # @param params [Nordlet::Consolidation::Types::MembersRemoveConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationMembersRemoveResponse]
-      def post_v1consolidation_members_remove(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::MembersRemoveConsolidationResponse]
+      def members_remove(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/members/remove",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationMembersRemoveRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::MembersRemoveConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -227,7 +227,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationMembersRemoveResponse.load(response.body)
+          Nordlet::Consolidation::Types::MembersRemoveConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -239,21 +239,21 @@ module Nordlet
       # mirroring.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyCandidatesRequest]
+      # @param params [Nordlet::Consolidation::Types::IntercompanyCandidatesConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyCandidatesResponse]
-      def post_v1consolidation_intercompany_candidates(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::IntercompanyCandidatesConsolidationResponse]
+      def intercompany_candidates(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/intercompany/candidates",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyCandidatesRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::IntercompanyCandidatesConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -263,7 +263,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyCandidatesResponse.load(response.body)
+          Nordlet::Consolidation::Types::IntercompanyCandidatesConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -275,21 +275,21 @@ module Nordlet
       # invoice in the counterparty.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksSetRequest]
+      # @param params [Nordlet::Consolidation::Types::IntercompanyLinksSetConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksSetResponse]
-      def post_v1consolidation_intercompany_links_set(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::IntercompanyLinksSetConsolidationResponse]
+      def intercompany_links_set(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/intercompany/links/set",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksSetRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::IntercompanyLinksSetConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -299,7 +299,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksSetResponse.load(response.body)
+          Nordlet::Consolidation::Types::IntercompanyLinksSetConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -307,21 +307,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksListRequest]
+      # @param params [Nordlet::Consolidation::Types::IntercompanyLinksListConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksListResponse]
-      def post_v1consolidation_intercompany_links_list(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::IntercompanyLinksListConsolidationResponse]
+      def intercompany_links_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/intercompany/links/list",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksListRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::IntercompanyLinksListConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -331,7 +331,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksListResponse.load(response.body)
+          Nordlet::Consolidation::Types::IntercompanyLinksListConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -339,21 +339,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksRemoveRequest]
+      # @param params [Nordlet::Consolidation::Types::IntercompanyLinksRemoveConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksRemoveResponse]
-      def post_v1consolidation_intercompany_links_remove(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::IntercompanyLinksRemoveConsolidationResponse]
+      def intercompany_links_remove(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/intercompany/links/remove",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksRemoveRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::IntercompanyLinksRemoveConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -363,7 +363,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyLinksRemoveResponse.load(response.body)
+          Nordlet::Consolidation::Types::IntercompanyLinksRemoveConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -375,21 +375,21 @@ module Nordlet
       # pairs are the basis for consolidation eliminations.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyReportRequest]
+      # @param params [Nordlet::Consolidation::Types::IntercompanyReportConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyReportResponse]
-      def post_v1consolidation_intercompany_report(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::IntercompanyReportConsolidationResponse]
+      def intercompany_report(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/intercompany/report",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyReportRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::IntercompanyReportConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -399,7 +399,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationIntercompanyReportResponse.load(response.body)
+          Nordlet::Consolidation::Types::IntercompanyReportConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -407,21 +407,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Consolidation::Types::PostV1ConsolidationReportRequest]
+      # @param params [Nordlet::Consolidation::Types::ReportConsolidationRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Consolidation::Types::PostV1ConsolidationReportResponse]
-      def post_v1consolidation_report(request_options: {}, **params)
+      # @return [Nordlet::Consolidation::Types::ReportConsolidationResponse]
+      def report(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/consolidation/report",
-          body: Nordlet::Consolidation::Types::PostV1ConsolidationReportRequest.new(params).to_h,
+          body: Nordlet::Consolidation::Types::ReportConsolidationRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -431,7 +431,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Consolidation::Types::PostV1ConsolidationReportResponse.load(response.body)
+          Nordlet::Consolidation::Types::ReportConsolidationResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

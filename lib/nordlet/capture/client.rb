@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureSettingsGetRequest]
+      # @param params [Nordlet::Capture::Types::SettingsGetCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureSettingsGetResponse]
-      def post_v1capture_settings_get(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::SettingsGetCaptureResponse]
+      def settings_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/settings/get",
-          body: Nordlet::Capture::Types::PostV1CaptureSettingsGetRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::SettingsGetCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureSettingsGetResponse.load(response.body)
+          Nordlet::Capture::Types::SettingsGetCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureSettingsUpdateRequest]
+      # @param params [Nordlet::Capture::Types::SettingsUpdateCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureSettingsUpdateResponse]
-      def post_v1capture_settings_update(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::SettingsUpdateCaptureResponse]
+      def settings_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/settings/update",
-          body: Nordlet::Capture::Types::PostV1CaptureSettingsUpdateRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::SettingsUpdateCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureSettingsUpdateResponse.load(response.body)
+          Nordlet::Capture::Types::SettingsUpdateCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureSettingsRegenerateIntakeRequest]
+      # @param params [Nordlet::Capture::Types::SettingsRegenerateIntakeCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureSettingsRegenerateIntakeResponse]
-      def post_v1capture_settings_regenerate_intake(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::SettingsRegenerateIntakeCaptureResponse]
+      def settings_regenerate_intake(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/settings/regenerate-intake",
-          body: Nordlet::Capture::Types::PostV1CaptureSettingsRegenerateIntakeRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::SettingsRegenerateIntakeCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureSettingsRegenerateIntakeResponse.load(response.body)
+          Nordlet::Capture::Types::SettingsRegenerateIntakeCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureInboundEmailRequest]
+      # @param params [Nordlet::Capture::Types::InboundEmailCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureInboundEmailResponse]
-      def receive_an_inbound_email_with_supplier_documents_attached_postmark_style_or_generic_json(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::InboundEmailCaptureResponse]
+      def inbound_email(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/inbound-email",
-          body: Nordlet::Capture::Types::PostV1CaptureInboundEmailRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::InboundEmailCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureInboundEmailResponse.load(response.body)
+          Nordlet::Capture::Types::InboundEmailCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureDocumentsUploadRequest]
+      # @param params [Nordlet::Capture::Types::DocumentsUploadCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureDocumentsUploadResponse]
-      def read_a_vendor_bill_or_receipt_and_return_an_editable_purchase_invoice_draft(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::DocumentsUploadCaptureResponse]
+      def documents_upload(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/documents/upload",
-          body: Nordlet::Capture::Types::PostV1CaptureDocumentsUploadRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::DocumentsUploadCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureDocumentsUploadResponse.load(response.body)
+          Nordlet::Capture::Types::DocumentsUploadCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureDocumentsExtractRequest]
+      # @param params [Nordlet::Capture::Types::DocumentsExtractCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureDocumentsExtractResponse]
-      def re_read_a_stored_capture_replacing_the_previous_draft(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::DocumentsExtractCaptureResponse]
+      def documents_extract(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/documents/extract",
-          body: Nordlet::Capture::Types::PostV1CaptureDocumentsExtractRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::DocumentsExtractCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureDocumentsExtractResponse.load(response.body)
+          Nordlet::Capture::Types::DocumentsExtractCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -203,21 +203,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureDocumentsGetRequest]
+      # @param params [Nordlet::Capture::Types::DocumentsGetCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureDocumentsGetResponse]
-      def post_v1capture_documents_get(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::DocumentsGetCaptureResponse]
+      def documents_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/documents/get",
-          body: Nordlet::Capture::Types::PostV1CaptureDocumentsGetRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::DocumentsGetCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -227,7 +227,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureDocumentsGetResponse.load(response.body)
+          Nordlet::Capture::Types::DocumentsGetCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -235,21 +235,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureDocumentsListRequest]
+      # @param params [Nordlet::Capture::Types::DocumentsListCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureDocumentsListResponse]
-      def post_v1capture_documents_list(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::DocumentsListCaptureResponse]
+      def documents_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/documents/list",
-          body: Nordlet::Capture::Types::PostV1CaptureDocumentsListRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::DocumentsListCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -259,7 +259,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureDocumentsListResponse.load(response.body)
+          Nordlet::Capture::Types::DocumentsListCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -267,21 +267,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureDocumentsDeleteRequest]
+      # @param params [Nordlet::Capture::Types::DocumentsDeleteCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureDocumentsDeleteResponse]
-      def post_v1capture_documents_delete(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::DocumentsDeleteCaptureResponse]
+      def documents_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/documents/delete",
-          body: Nordlet::Capture::Types::PostV1CaptureDocumentsDeleteRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::DocumentsDeleteCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -291,7 +291,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureDocumentsDeleteResponse.load(response.body)
+          Nordlet::Capture::Types::DocumentsDeleteCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -299,21 +299,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Capture::Types::PostV1CaptureDocumentsConfirmRequest]
+      # @param params [Nordlet::Capture::Types::DocumentsConfirmCaptureRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Capture::Types::PostV1CaptureDocumentsConfirmResponse]
-      def save_the_reviewed_draft_as_a_purchase_invoice_and_attach_the_original_document(request_options: {}, **params)
+      # @return [Nordlet::Capture::Types::DocumentsConfirmCaptureResponse]
+      def documents_confirm(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/capture/documents/confirm",
-          body: Nordlet::Capture::Types::PostV1CaptureDocumentsConfirmRequest.new(params).to_h,
+          body: Nordlet::Capture::Types::DocumentsConfirmCaptureRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -323,7 +323,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Capture::Types::PostV1CaptureDocumentsConfirmResponse.load(response.body)
+          Nordlet::Capture::Types::DocumentsConfirmCaptureResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

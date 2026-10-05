@@ -11,21 +11,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersAddressesCreateRequest]
+      # @param params [Nordlet::Partners::Types::AddressesCreatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersAddressesCreateResponse]
-      def post_v1partners_addresses_create(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::AddressesCreatePartnersResponse]
+      def addresses_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/addresses/create",
-          body: Nordlet::Partners::Types::PostV1PartnersAddressesCreateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::AddressesCreatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -35,7 +35,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersAddressesCreateResponse.load(response.body)
+          Nordlet::Partners::Types::AddressesCreatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -43,21 +43,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersAddressesUpdateRequest]
+      # @param params [Nordlet::Partners::Types::AddressesUpdatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersAddressesUpdateResponse]
-      def post_v1partners_addresses_update(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::AddressesUpdatePartnersResponse]
+      def addresses_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/addresses/update",
-          body: Nordlet::Partners::Types::PostV1PartnersAddressesUpdateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::AddressesUpdatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -67,7 +67,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersAddressesUpdateResponse.load(response.body)
+          Nordlet::Partners::Types::AddressesUpdatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -75,21 +75,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersAddressesDeleteRequest]
+      # @param params [Nordlet::Partners::Types::AddressesDeletePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersAddressesDeleteResponse]
-      def post_v1partners_addresses_delete(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::AddressesDeletePartnersResponse]
+      def addresses_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/addresses/delete",
-          body: Nordlet::Partners::Types::PostV1PartnersAddressesDeleteRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::AddressesDeletePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,7 +99,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersAddressesDeleteResponse.load(response.body)
+          Nordlet::Partners::Types::AddressesDeletePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -107,21 +107,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersAddressesListRequest]
+      # @param params [Nordlet::Partners::Types::AddressesListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersAddressesListResponse]
-      def post_v1partners_addresses_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::AddressesListPartnersResponse]
+      def addresses_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/addresses/list",
-          body: Nordlet::Partners::Types::PostV1PartnersAddressesListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::AddressesListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -131,7 +131,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersAddressesListResponse.load(response.body)
+          Nordlet::Partners::Types::AddressesListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -139,21 +139,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersContactsCreateRequest]
+      # @param params [Nordlet::Partners::Types::ContactsCreatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersContactsCreateResponse]
-      def post_v1partners_contacts_create(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::ContactsCreatePartnersResponse]
+      def contacts_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/contacts/create",
-          body: Nordlet::Partners::Types::PostV1PartnersContactsCreateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::ContactsCreatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -163,7 +163,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersContactsCreateResponse.load(response.body)
+          Nordlet::Partners::Types::ContactsCreatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -171,21 +171,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersContactsUpdateRequest]
+      # @param params [Nordlet::Partners::Types::ContactsUpdatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersContactsUpdateResponse]
-      def post_v1partners_contacts_update(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::ContactsUpdatePartnersResponse]
+      def contacts_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/contacts/update",
-          body: Nordlet::Partners::Types::PostV1PartnersContactsUpdateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::ContactsUpdatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -195,7 +195,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersContactsUpdateResponse.load(response.body)
+          Nordlet::Partners::Types::ContactsUpdatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -203,21 +203,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersContactsDeleteRequest]
+      # @param params [Nordlet::Partners::Types::ContactsDeletePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersContactsDeleteResponse]
-      def post_v1partners_contacts_delete(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::ContactsDeletePartnersResponse]
+      def contacts_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/contacts/delete",
-          body: Nordlet::Partners::Types::PostV1PartnersContactsDeleteRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::ContactsDeletePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -227,7 +227,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersContactsDeleteResponse.load(response.body)
+          Nordlet::Partners::Types::ContactsDeletePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -235,21 +235,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersContactsListRequest]
+      # @param params [Nordlet::Partners::Types::ContactsListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersContactsListResponse]
-      def post_v1partners_contacts_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::ContactsListPartnersResponse]
+      def contacts_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/contacts/list",
-          body: Nordlet::Partners::Types::PostV1PartnersContactsListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::ContactsListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -259,7 +259,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersContactsListResponse.load(response.body)
+          Nordlet::Partners::Types::ContactsListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -267,21 +267,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersBankAccountsCreateRequest]
+      # @param params [Nordlet::Partners::Types::BankAccountsCreatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersBankAccountsCreateResponse]
-      def post_v1partners_bank_accounts_create(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::BankAccountsCreatePartnersResponse]
+      def bank_accounts_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/bank-accounts/create",
-          body: Nordlet::Partners::Types::PostV1PartnersBankAccountsCreateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::BankAccountsCreatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -291,7 +291,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersBankAccountsCreateResponse.load(response.body)
+          Nordlet::Partners::Types::BankAccountsCreatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -299,21 +299,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersBankAccountsUpdateRequest]
+      # @param params [Nordlet::Partners::Types::BankAccountsUpdatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersBankAccountsUpdateResponse]
-      def post_v1partners_bank_accounts_update(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::BankAccountsUpdatePartnersResponse]
+      def bank_accounts_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/bank-accounts/update",
-          body: Nordlet::Partners::Types::PostV1PartnersBankAccountsUpdateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::BankAccountsUpdatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -323,7 +323,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersBankAccountsUpdateResponse.load(response.body)
+          Nordlet::Partners::Types::BankAccountsUpdatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -331,21 +331,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersBankAccountsDeleteRequest]
+      # @param params [Nordlet::Partners::Types::BankAccountsDeletePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersBankAccountsDeleteResponse]
-      def post_v1partners_bank_accounts_delete(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::BankAccountsDeletePartnersResponse]
+      def bank_accounts_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/bank-accounts/delete",
-          body: Nordlet::Partners::Types::PostV1PartnersBankAccountsDeleteRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::BankAccountsDeletePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -355,7 +355,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersBankAccountsDeleteResponse.load(response.body)
+          Nordlet::Partners::Types::BankAccountsDeletePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -363,21 +363,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersBankAccountsListRequest]
+      # @param params [Nordlet::Partners::Types::BankAccountsListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersBankAccountsListResponse]
-      def post_v1partners_bank_accounts_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::BankAccountsListPartnersResponse]
+      def bank_accounts_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/bank-accounts/list",
-          body: Nordlet::Partners::Types::PostV1PartnersBankAccountsListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::BankAccountsListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -387,7 +387,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersBankAccountsListResponse.load(response.body)
+          Nordlet::Partners::Types::BankAccountsListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -395,21 +395,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersFilesListRequest]
+      # @param params [Nordlet::Partners::Types::FilesListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersFilesListResponse]
-      def post_v1partners_files_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::FilesListPartnersResponse]
+      def files_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/files/list",
-          body: Nordlet::Partners::Types::PostV1PartnersFilesListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::FilesListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -419,7 +419,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersFilesListResponse.load(response.body)
+          Nordlet::Partners::Types::FilesListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -427,21 +427,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersDebtRemindersPreviewRequest]
+      # @param params [Nordlet::Partners::Types::DebtRemindersPreviewPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersDebtRemindersPreviewResponse]
-      def reminders_the_overnight_debt_reminder_job_would_send_today_for_this_company(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::DebtRemindersPreviewPartnersResponse]
+      def debt_reminders_preview(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/debt-reminders/preview",
-          body: Nordlet::Partners::Types::PostV1PartnersDebtRemindersPreviewRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::DebtRemindersPreviewPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -451,7 +451,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersDebtRemindersPreviewResponse.load(response.body)
+          Nordlet::Partners::Types::DebtRemindersPreviewPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -459,21 +459,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersDebtRemindersListRequest]
+      # @param params [Nordlet::Partners::Types::DebtRemindersListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersDebtRemindersListResponse]
-      def post_v1partners_debt_reminders_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::DebtRemindersListPartnersResponse]
+      def debt_reminders_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/debt-reminders/list",
-          body: Nordlet::Partners::Types::PostV1PartnersDebtRemindersListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::DebtRemindersListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -483,7 +483,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersDebtRemindersListResponse.load(response.body)
+          Nordlet::Partners::Types::DebtRemindersListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -491,21 +491,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersValidateVatRequest]
+      # @param params [Nordlet::Partners::Types::ValidateVatPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersValidateVatResponse]
-      def post_v1partners_validate_vat(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::ValidateVatPartnersResponse]
+      def validate_vat(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/validate-vat",
-          body: Nordlet::Partners::Types::PostV1PartnersValidateVatRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::ValidateVatPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -515,7 +515,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersValidateVatResponse.load(response.body)
+          Nordlet::Partners::Types::ValidateVatPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -523,21 +523,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersVatReviewsListRequest]
+      # @param params [Nordlet::Partners::Types::VatReviewsListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersVatReviewsListResponse]
-      def post_v1partners_vat_reviews_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::VatReviewsListPartnersResponse]
+      def vat_reviews_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/vat-reviews/list",
-          body: Nordlet::Partners::Types::PostV1PartnersVatReviewsListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::VatReviewsListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -547,7 +547,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersVatReviewsListResponse.load(response.body)
+          Nordlet::Partners::Types::VatReviewsListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -555,21 +555,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersVatReviewsResolveRequest]
+      # @param params [Nordlet::Partners::Types::VatReviewsResolvePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersVatReviewsResolveResponse]
-      def post_v1partners_vat_reviews_resolve(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::VatReviewsResolvePartnersResponse]
+      def vat_reviews_resolve(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/vat-reviews/resolve",
-          body: Nordlet::Partners::Types::PostV1PartnersVatReviewsResolveRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::VatReviewsResolvePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -579,7 +579,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersVatReviewsResolveResponse.load(response.body)
+          Nordlet::Partners::Types::VatReviewsResolvePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -587,21 +587,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersCreateRequest]
+      # @param params [Nordlet::Partners::Types::CreatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersCreateResponse]
-      def post_v1partners_create(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::CreatePartnersResponse]
+      def create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/create",
-          body: Nordlet::Partners::Types::PostV1PartnersCreateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::CreatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -611,7 +611,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersCreateResponse.load(response.body)
+          Nordlet::Partners::Types::CreatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -619,21 +619,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersFindOrCreateRequest]
+      # @param params [Nordlet::Partners::Types::FindOrCreatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersFindOrCreateResponse]
-      def post_v1partners_find_or_create(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::FindOrCreatePartnersResponse]
+      def find_or_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/find-or-create",
-          body: Nordlet::Partners::Types::PostV1PartnersFindOrCreateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::FindOrCreatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -643,7 +643,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersFindOrCreateResponse.load(response.body)
+          Nordlet::Partners::Types::FindOrCreatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -651,21 +651,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersGetRequest]
+      # @param params [Nordlet::Partners::Types::GetPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersGetResponse]
-      def post_v1partners_get(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::GetPartnersResponse]
+      def get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/get",
-          body: Nordlet::Partners::Types::PostV1PartnersGetRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::GetPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -675,7 +675,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersGetResponse.load(response.body)
+          Nordlet::Partners::Types::GetPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -683,21 +683,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersUpdateRequest]
+      # @param params [Nordlet::Partners::Types::UpdatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersUpdateResponse]
-      def post_v1partners_update(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::UpdatePartnersResponse]
+      def update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/update",
-          body: Nordlet::Partners::Types::PostV1PartnersUpdateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::UpdatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -707,7 +707,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersUpdateResponse.load(response.body)
+          Nordlet::Partners::Types::UpdatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -715,21 +715,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersDeleteRequest]
+      # @param params [Nordlet::Partners::Types::DeletePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersDeleteResponse]
-      def post_v1partners_delete(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::DeletePartnersResponse]
+      def delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/delete",
-          body: Nordlet::Partners::Types::PostV1PartnersDeleteRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::DeletePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -739,7 +739,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersDeleteResponse.load(response.body)
+          Nordlet::Partners::Types::DeletePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -751,21 +751,21 @@ module Nordlet
       # identifying the counterparty for the statutory retention period.
       #
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersAnonymizeRequest]
+      # @param params [Nordlet::Partners::Types::AnonymizePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersAnonymizeResponse]
-      def blank_a_partners_personal_data_and_hide_the_record(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::AnonymizePartnersResponse]
+      def anonymize(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/anonymize",
-          body: Nordlet::Partners::Types::PostV1PartnersAnonymizeRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::AnonymizePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -775,7 +775,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersAnonymizeResponse.load(response.body)
+          Nordlet::Partners::Types::AnonymizePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -783,21 +783,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersListRequest]
+      # @param params [Nordlet::Partners::Types::ListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersListResponse]
-      def post_v1partners_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::ListPartnersResponse]
+      def list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/list",
-          body: Nordlet::Partners::Types::PostV1PartnersListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::ListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -807,7 +807,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersListResponse.load(response.body)
+          Nordlet::Partners::Types::ListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -815,21 +815,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersGroupsCreateRequest]
+      # @param params [Nordlet::Partners::Types::GroupsCreatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersGroupsCreateResponse]
-      def post_v1partners_groups_create(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::GroupsCreatePartnersResponse]
+      def groups_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/groups/create",
-          body: Nordlet::Partners::Types::PostV1PartnersGroupsCreateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::GroupsCreatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -839,7 +839,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersGroupsCreateResponse.load(response.body)
+          Nordlet::Partners::Types::GroupsCreatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -847,21 +847,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersGroupsUpdateRequest]
+      # @param params [Nordlet::Partners::Types::GroupsUpdatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersGroupsUpdateResponse]
-      def post_v1partners_groups_update(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::GroupsUpdatePartnersResponse]
+      def groups_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/groups/update",
-          body: Nordlet::Partners::Types::PostV1PartnersGroupsUpdateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::GroupsUpdatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -871,7 +871,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersGroupsUpdateResponse.load(response.body)
+          Nordlet::Partners::Types::GroupsUpdatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -879,21 +879,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersGroupsDeleteRequest]
+      # @param params [Nordlet::Partners::Types::GroupsDeletePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersGroupsDeleteResponse]
-      def post_v1partners_groups_delete(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::GroupsDeletePartnersResponse]
+      def groups_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/groups/delete",
-          body: Nordlet::Partners::Types::PostV1PartnersGroupsDeleteRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::GroupsDeletePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -903,7 +903,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersGroupsDeleteResponse.load(response.body)
+          Nordlet::Partners::Types::GroupsDeletePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -911,21 +911,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersGroupsListRequest]
+      # @param params [Nordlet::Partners::Types::GroupsListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersGroupsListResponse]
-      def post_v1partners_groups_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::GroupsListPartnersResponse]
+      def groups_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/groups/list",
-          body: Nordlet::Partners::Types::PostV1PartnersGroupsListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::GroupsListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -935,7 +935,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersGroupsListResponse.load(response.body)
+          Nordlet::Partners::Types::GroupsListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -943,21 +943,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersStatusesCreateRequest]
+      # @param params [Nordlet::Partners::Types::StatusesCreatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersStatusesCreateResponse]
-      def post_v1partners_statuses_create(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::StatusesCreatePartnersResponse]
+      def statuses_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/statuses/create",
-          body: Nordlet::Partners::Types::PostV1PartnersStatusesCreateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::StatusesCreatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -967,7 +967,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersStatusesCreateResponse.load(response.body)
+          Nordlet::Partners::Types::StatusesCreatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -975,21 +975,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersStatusesUpdateRequest]
+      # @param params [Nordlet::Partners::Types::StatusesUpdatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersStatusesUpdateResponse]
-      def post_v1partners_statuses_update(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::StatusesUpdatePartnersResponse]
+      def statuses_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/statuses/update",
-          body: Nordlet::Partners::Types::PostV1PartnersStatusesUpdateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::StatusesUpdatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -999,7 +999,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersStatusesUpdateResponse.load(response.body)
+          Nordlet::Partners::Types::StatusesUpdatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1007,21 +1007,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersStatusesDeleteRequest]
+      # @param params [Nordlet::Partners::Types::StatusesDeletePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersStatusesDeleteResponse]
-      def post_v1partners_statuses_delete(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::StatusesDeletePartnersResponse]
+      def statuses_delete(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/statuses/delete",
-          body: Nordlet::Partners::Types::PostV1PartnersStatusesDeleteRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::StatusesDeletePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1031,7 +1031,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersStatusesDeleteResponse.load(response.body)
+          Nordlet::Partners::Types::StatusesDeletePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1039,21 +1039,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersStatusesListRequest]
+      # @param params [Nordlet::Partners::Types::StatusesListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersStatusesListResponse]
-      def post_v1partners_statuses_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::StatusesListPartnersResponse]
+      def statuses_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/statuses/list",
-          body: Nordlet::Partners::Types::PostV1PartnersStatusesListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::StatusesListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1063,7 +1063,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersStatusesListResponse.load(response.body)
+          Nordlet::Partners::Types::StatusesListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1071,21 +1071,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersInquiriesCreateRequest]
+      # @param params [Nordlet::Partners::Types::InquiriesCreatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersInquiriesCreateResponse]
-      def post_v1partners_inquiries_create(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::InquiriesCreatePartnersResponse]
+      def inquiries_create(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/inquiries/create",
-          body: Nordlet::Partners::Types::PostV1PartnersInquiriesCreateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::InquiriesCreatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1095,7 +1095,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersInquiriesCreateResponse.load(response.body)
+          Nordlet::Partners::Types::InquiriesCreatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1103,21 +1103,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersInquiriesUpdateRequest]
+      # @param params [Nordlet::Partners::Types::InquiriesUpdatePartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersInquiriesUpdateResponse]
-      def post_v1partners_inquiries_update(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::InquiriesUpdatePartnersResponse]
+      def inquiries_update(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/inquiries/update",
-          body: Nordlet::Partners::Types::PostV1PartnersInquiriesUpdateRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::InquiriesUpdatePartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1127,7 +1127,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersInquiriesUpdateResponse.load(response.body)
+          Nordlet::Partners::Types::InquiriesUpdatePartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1135,21 +1135,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersInquiriesGetRequest]
+      # @param params [Nordlet::Partners::Types::InquiriesGetPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersInquiriesGetResponse]
-      def post_v1partners_inquiries_get(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::InquiriesGetPartnersResponse]
+      def inquiries_get(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/inquiries/get",
-          body: Nordlet::Partners::Types::PostV1PartnersInquiriesGetRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::InquiriesGetPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1159,7 +1159,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersInquiriesGetResponse.load(response.body)
+          Nordlet::Partners::Types::InquiriesGetPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1167,21 +1167,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersInquiriesListRequest]
+      # @param params [Nordlet::Partners::Types::InquiriesListPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersInquiriesListResponse]
-      def post_v1partners_inquiries_list(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::InquiriesListPartnersResponse]
+      def inquiries_list(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/inquiries/list",
-          body: Nordlet::Partners::Types::PostV1PartnersInquiriesListRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::InquiriesListPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1191,7 +1191,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersInquiriesListResponse.load(response.body)
+          Nordlet::Partners::Types::InquiriesListPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
@@ -1199,21 +1199,21 @@ module Nordlet
       end
 
       # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1PartnersCreditCheckRequest]
+      # @param params [Nordlet::Partners::Types::CreditCheckPartnersRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       #
-      # @return [Nordlet::Partners::Types::PostV1PartnersCreditCheckResponse]
-      def post_v1partners_credit_check(request_options: {}, **params)
+      # @return [Nordlet::Partners::Types::CreditCheckPartnersResponse]
+      def credit_check(request_options: {}, **params)
         params = Nordlet::Internal::Types::Utils.normalize_keys(params)
         request = Nordlet::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/partners/credit-check",
-          body: Nordlet::Partners::Types::PostV1PartnersCreditCheckRequest.new(params).to_h,
+          body: Nordlet::Partners::Types::CreditCheckPartnersRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -1223,490 +1223,7 @@ module Nordlet
         end
         code = response.code.to_i
         if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1PartnersCreditCheckResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsCreateRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsCreateResponse]
-      def post_v1leads_create(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/create",
-          body: Nordlet::Partners::Types::PostV1LeadsCreateRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsCreateResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsGetRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsGetResponse]
-      def post_v1leads_get(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/get",
-          body: Nordlet::Partners::Types::PostV1LeadsGetRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsGetResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsUpdateRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsUpdateResponse]
-      def post_v1leads_update(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/update",
-          body: Nordlet::Partners::Types::PostV1LeadsUpdateRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsUpdateResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsDeleteRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsDeleteResponse]
-      def post_v1leads_delete(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/delete",
-          body: Nordlet::Partners::Types::PostV1LeadsDeleteRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsDeleteResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsListRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsListResponse]
-      def post_v1leads_list(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/list",
-          body: Nordlet::Partners::Types::PostV1LeadsListRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsListResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsNotesCreateRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsNotesCreateResponse]
-      def post_v1leads_notes_create(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/notes/create",
-          body: Nordlet::Partners::Types::PostV1LeadsNotesCreateRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsNotesCreateResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsNotesDeleteRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsNotesDeleteResponse]
-      def post_v1leads_notes_delete(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/notes/delete",
-          body: Nordlet::Partners::Types::PostV1LeadsNotesDeleteRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsNotesDeleteResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsNotesListRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsNotesListResponse]
-      def post_v1leads_notes_list(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/notes/list",
-          body: Nordlet::Partners::Types::PostV1LeadsNotesListRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsNotesListResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsFilesListRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsFilesListResponse]
-      def post_v1leads_files_list(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/files/list",
-          body: Nordlet::Partners::Types::PostV1LeadsFilesListRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsFilesListResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsSourcesCreateRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsSourcesCreateResponse]
-      def post_v1leads_sources_create(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/sources/create",
-          body: Nordlet::Partners::Types::PostV1LeadsSourcesCreateRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsSourcesCreateResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsSourcesUpdateRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsSourcesUpdateResponse]
-      def post_v1leads_sources_update(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/sources/update",
-          body: Nordlet::Partners::Types::PostV1LeadsSourcesUpdateRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsSourcesUpdateResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsSourcesDeleteRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsSourcesDeleteResponse]
-      def post_v1leads_sources_delete(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/sources/delete",
-          body: Nordlet::Partners::Types::PostV1LeadsSourcesDeleteRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsSourcesDeleteResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsSourcesListRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsSourcesListResponse]
-      def post_v1leads_sources_list(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/sources/list",
-          body: Nordlet::Partners::Types::PostV1LeadsSourcesListRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsSourcesListResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsSourcesOptionsRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsSourcesOptionsResponse]
-      def post_v1leads_sources_options(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/sources/options",
-          body: Nordlet::Partners::Types::PostV1LeadsSourcesOptionsRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsSourcesOptionsResponse.load(response.body)
-        else
-          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
-          raise error_class.new(response.body, code: code)
-        end
-      end
-
-      # Create a customer partner from the lead, move the lead files to the partner, copy the lead notes into the
-      # partner notes and mark the lead as converted.
-      #
-      # @param request_options [Hash]
-      # @param params [Nordlet::Partners::Types::PostV1LeadsConvertRequest]
-      # @option request_options [String] :base_url
-      # @option request_options [Hash{String => Object}] :additional_headers
-      # @option request_options [Hash{String => Object}] :additional_query_parameters
-      # @option request_options [Hash{String => Object}] :additional_body_parameters
-      # @option request_options [Integer] :timeout_in_seconds
-      #
-      # @return [Nordlet::Partners::Types::PostV1LeadsConvertResponse]
-      def post_v1leads_convert(request_options: {}, **params)
-        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
-        request = Nordlet::Internal::JSON::Request.new(
-          base_url: request_options[:base_url],
-          method: "POST",
-          path: "v1/leads/convert",
-          body: Nordlet::Partners::Types::PostV1LeadsConvertRequest.new(params).to_h,
-          request_options: request_options
-        )
-        begin
-          response = @client.send(request)
-        rescue Net::HTTPRequestTimeout
-          raise Nordlet::Errors::TimeoutError
-        end
-        code = response.code.to_i
-        if code.between?(200, 299)
-          Nordlet::Partners::Types::PostV1LeadsConvertResponse.load(response.body)
+          Nordlet::Partners::Types::CreditCheckPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

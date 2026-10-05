@@ -13,6 +13,7 @@ module Nordlet
       IDEMPOTENCY_KEY_REUSE = "idempotency_key_reuse"
       IDEMPOTENCY_IN_PROGRESS = "idempotency_in_progress"
       RATE_LIMITED = "rate_limited"
+      PAYMENT_REQUIRED = "payment_required"
       INTERNAL = "internal"
     end
   end
