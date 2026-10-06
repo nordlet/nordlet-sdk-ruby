@@ -22,6 +22,10 @@ module Nordlet
 
         field :source_name, -> { String }, optional: false, nullable: true, api_name: "sourceName"
 
+        field :type_id, -> { String }, optional: false, nullable: true, api_name: "typeId"
+
+        field :type_name, -> { String }, optional: false, nullable: true, api_name: "typeName"
+
         field :status, -> { Nordlet::Leads::Types::UpdateLeadsResponseStatus }, optional: false, nullable: false
 
         field :estimated_value, -> { String }, optional: false, nullable: true, api_name: "estimatedValue"

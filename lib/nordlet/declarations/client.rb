@@ -1960,9 +1960,9 @@ module Nordlet
         end
       end
 
-      # Build the working paper for the Form B1 annual return of a financial year — company details, registered office,
+      # Build the working paper for the Form B1 annual return of a financial year - company details, registered office,
       # directors and secretary from Settings → Officers, the members from Settings → Shareholders, the issued share
-      # capital and the figures of the financial statements — in the order the CORE screens ask for them. The CRO
+      # capital and the figures of the financial statements - in the order the CORE screens ask for them. The CRO
       # publishes no file format for the B1, so it is keyed into CORE.
       #
       # @param request_options [Hash]

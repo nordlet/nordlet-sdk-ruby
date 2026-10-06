@@ -15,6 +15,8 @@ module Nordlet
         field :lines, -> { Internal::Types::Array[Nordlet::Payroll::Types::RunsCreatePayrollRequestLinesItem] }, optional: true, nullable: false
 
         field :notes, -> { String }, optional: true, nullable: false
+
+        field :pay_date, -> { String }, optional: true, nullable: false, api_name: "payDate"
       end
     end
   end

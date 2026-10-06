@@ -12,6 +12,8 @@ module Nordlet
 
         field :due_date, -> { String }, optional: false, nullable: false, api_name: "dueDate"
 
+        field :currency, -> { String }, optional: false, nullable: false
+
         field :remaining, -> { String }, optional: false, nullable: false
 
         field :days_late, -> { Integer }, optional: false, nullable: false, api_name: "daysLate"

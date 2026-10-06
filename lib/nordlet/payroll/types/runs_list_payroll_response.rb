@@ -13,6 +13,8 @@ module Nordlet
         field :total, -> { Integer }, optional: false, nullable: false
 
         field :totals, -> { Internal::Types::Hash[String, String] }, optional: true, nullable: false
+
+        field :totals_by_currency, -> { Internal::Types::Hash[String, Internal::Types::Hash[String, String]] }, optional: true, nullable: false, api_name: "totalsByCurrency"
       end
     end
   end

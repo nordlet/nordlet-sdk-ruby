@@ -5113,6 +5113,14 @@ client.leads.create(name: "name")
 <dl>
 <dd>
 
+**type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **status:** `Nordlet::Leads::Types::CreateLeadsRequestStatus` 
     
 </dd>
@@ -5314,6 +5322,14 @@ client.leads.update(id: "id")
 <dd>
 
 **source_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type_id:** `String` 
     
 </dd>
 </dl>
@@ -5934,6 +5950,254 @@ client.leads.sources_list
 
 ```ruby
 client.leads.sources_options
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Leads::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">types_create</a>(request) -> Nordlet::Leads::Types::TypesCreateLeadsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.leads.types_create(name: "name")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Leads::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">types_update</a>(request) -> Nordlet::Leads::Types::TypesUpdateLeadsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.leads.types_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_active:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Leads::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">types_delete</a>(request) -> Nordlet::Leads::Types::TypesDeleteLeadsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.leads.types_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Leads::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">types_list</a>(request) -> Nordlet::Leads::Types::TypesListLeadsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.leads.types_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Leads::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.leads.<a href="/lib/nordlet/leads/client.rb">types_options</a>(request) -> Nordlet::Leads::Types::TypesOptionsLeadsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.leads.types_options
 ```
 </dd>
 </dl>
@@ -18461,7 +18725,7 @@ client.declarations.ie_ct1generate(year: 1000000)
 <dl>
 <dd>
 
-Build the working paper for the Form B1 annual return of a financial year — company details, registered office, directors and secretary from Settings → Officers, the members from Settings → Shareholders, the issued share capital and the figures of the financial statements — in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
+Build the working paper for the Form B1 annual return of a financial year - company details, registered office, directors and secretary from Settings → Officers, the members from Settings → Shareholders, the issued share capital and the figures of the financial statements - in the order the CORE screens ask for them. The CRO publishes no file format for the B1, so it is keyed into CORE.
 </dd>
 </dl>
 </dd>
@@ -22980,7 +23244,7 @@ client.migration.books_validate(cutover_date: "2026-07-01")
 <dl>
 <dd>
 
-Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The whole package is written in one database transaction — if any row fails, nothing is stored.
+Brings a company over from another system in one call: chart of accounts, partners, items, opening balances (or the full journal history), open customer and supplier invoices, fixed assets with their accumulated depreciation, and stock on hand. The whole package is written in one database transaction - if any row fails, nothing is stored.
 </dd>
 </dl>
 </dd>
@@ -27420,6 +27684,14 @@ client.payroll.runs_create(
 <dd>
 
 **notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pay_date:** `String` 
     
 </dd>
 </dl>
@@ -37653,6 +37925,86 @@ client.bank.mandates_list
 <dd>
 
 **filter:** `Internal::Types::Array[Nordlet::Bank::Types::MandatesListBankRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">direct_debits_candidates</a>(request) -> Nordlet::Bank::Types::DirectDebitsCandidatesBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.direct_debits_candidates
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::DirectDebitsCandidatesBankRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::DirectDebitsCandidatesBankRequestFilterItem]` 
     
 </dd>
 </dl>

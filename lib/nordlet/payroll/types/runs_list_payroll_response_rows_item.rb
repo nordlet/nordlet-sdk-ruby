@@ -12,6 +12,8 @@ module Nordlet
 
         field :country_code, -> { String }, optional: false, nullable: false, api_name: "countryCode"
 
+        field :pay_date, -> { String }, optional: false, nullable: true, api_name: "payDate"
+
         field :status, -> { Nordlet::Payroll::Types::RunsListPayrollResponseRowsItemStatus }, optional: false, nullable: false
 
         field :gross_total, -> { String }, optional: false, nullable: false, api_name: "grossTotal"

@@ -21,6 +21,8 @@ module Nordlet
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 
         field :posted_at, -> { String }, optional: false, nullable: true, api_name: "postedAt"
+
+        field :partner_name, -> { String }, optional: false, nullable: true, api_name: "partnerName"
       end
     end
   end

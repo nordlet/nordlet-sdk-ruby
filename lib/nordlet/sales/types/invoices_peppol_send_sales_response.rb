@@ -10,7 +10,7 @@ module Nordlet
 
         field :receiver_id, -> { String }, optional: false, nullable: false, api_name: "receiverId"
 
-        field :file_id, -> { String }, optional: false, nullable: false, api_name: "fileId"
+        field :file_id, -> { String }, optional: false, nullable: true, api_name: "fileId"
       end
     end
   end

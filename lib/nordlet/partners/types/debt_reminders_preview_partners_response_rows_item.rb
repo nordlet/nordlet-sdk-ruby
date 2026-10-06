@@ -12,13 +12,9 @@ module Nordlet
 
         field :locale, -> { Nordlet::Partners::Types::DebtRemindersPreviewPartnersResponseRowsItemLocale }, optional: false, nullable: false
 
-        field :currency, -> { String }, optional: false, nullable: false
-
         field :invoices, -> { Internal::Types::Array[Nordlet::Partners::Types::DebtRemindersPreviewPartnersResponseRowsItemInvoicesItem] }, optional: false, nullable: false
 
-        field :total_due, -> { String }, optional: false, nullable: false, api_name: "totalDue"
-
-        field :interest_due, -> { String }, optional: false, nullable: false, api_name: "interestDue"
+        field :totals, -> { Internal::Types::Array[Nordlet::Partners::Types::DebtRemindersPreviewPartnersResponseRowsItemTotalsItem] }, optional: false, nullable: false
       end
     end
   end
