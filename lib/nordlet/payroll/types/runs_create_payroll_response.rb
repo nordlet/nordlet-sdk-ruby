@@ -40,6 +40,12 @@ module Nordlet
 
         field :approved_at, -> { String }, optional: false, nullable: true, api_name: "approvedAt"
 
+        field :reversed_at, -> { String }, optional: false, nullable: true, api_name: "reversedAt"
+
+        field :reversal_journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "reversalJournalTransactionId"
+
+        field :reversal_reason, -> { String }, optional: false, nullable: true, api_name: "reversalReason"
+
         field :lines, -> { Internal::Types::Array[Nordlet::Payroll::Types::RunsCreatePayrollResponseLinesItem] }, optional: false, nullable: false
       end
     end

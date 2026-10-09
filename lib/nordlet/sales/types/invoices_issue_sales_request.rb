@@ -11,6 +11,8 @@ module Nordlet
         field :issue_date, -> { String }, optional: true, nullable: false, api_name: "issueDate"
 
         field :warehouse_id, -> { String }, optional: true, nullable: false, api_name: "warehouseId"
+
+        field :return_to_stock, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "returnToStock"
       end
     end
   end

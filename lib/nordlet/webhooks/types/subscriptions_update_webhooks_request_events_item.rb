@@ -19,6 +19,7 @@ module Nordlet
         LEAD_CREATED = "lead.created"
         PARTNER_INQUIRY_CREATED = "partner_inquiry.created"
         PAYROLL_RUN_APPROVED = "payroll_run.approved"
+        PAYROLL_RUN_REVERSED = "payroll_run.reversed"
         POS_REPORT_CREATED = "pos_report.created"
         PRICE_LIST_UPDATED = "price_list.updated"
         PURCHASE_INVOICE_PAID = "purchase_invoice.paid"

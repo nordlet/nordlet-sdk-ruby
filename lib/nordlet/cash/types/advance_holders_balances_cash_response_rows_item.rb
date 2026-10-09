@@ -14,6 +14,8 @@ module Nordlet
 
         field :returned, -> { String }, optional: false, nullable: false
 
+        field :settled, -> { String }, optional: false, nullable: false
+
         field :balance, -> { String }, optional: false, nullable: false
       end
     end

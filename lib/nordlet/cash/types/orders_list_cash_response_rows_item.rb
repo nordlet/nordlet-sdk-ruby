@@ -32,6 +32,10 @@ module Nordlet
 
         field :journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "journalTransactionId"
 
+        field :sale_invoice_id, -> { String }, optional: false, nullable: true, api_name: "saleInvoiceId"
+
+        field :purchase_invoice_id, -> { String }, optional: false, nullable: true, api_name: "purchaseInvoiceId"
+
         field :notes, -> { String }, optional: false, nullable: true
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"

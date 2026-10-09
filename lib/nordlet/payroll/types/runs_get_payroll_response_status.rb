@@ -8,6 +8,7 @@ module Nordlet
 
         DRAFT = "draft"
         APPROVED = "approved"
+        REVERSED = "reversed"
       end
     end
   end

@@ -28,6 +28,10 @@ module Nordlet
 
         field :account_code, -> { String }, optional: false, nullable: true, api_name: "accountCode"
 
+        field :deferral_start_date, -> { String }, optional: false, nullable: true, api_name: "deferralStartDate"
+
+        field :deferral_end_date, -> { String }, optional: false, nullable: true, api_name: "deferralEndDate"
+
         field :line_net, -> { String }, optional: false, nullable: false, api_name: "lineNet"
 
         field :line_vat, -> { String }, optional: false, nullable: false, api_name: "lineVat"

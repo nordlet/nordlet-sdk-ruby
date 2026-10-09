@@ -234,6 +234,38 @@ module Nordlet
         end
       end
 
+      # @param request_options [Hash]
+      # @param params [Nordlet::Bank::Types::TransactionsMatchManyBankRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Bank::Types::TransactionsMatchManyBankResponse]
+      def transactions_match_many(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/bank/transactions/match-many",
+          body: Nordlet::Bank::Types::TransactionsMatchManyBankRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Bank::Types::TransactionsMatchManyBankResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal
       # transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line
       # linked to a payment-provider settlement is only unlinked. The line returns to status new.

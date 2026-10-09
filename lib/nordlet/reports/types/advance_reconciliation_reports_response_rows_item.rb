@@ -16,6 +16,8 @@ module Nordlet
 
         field :returned, -> { String }, optional: false, nullable: false
 
+        field :settled, -> { String }, optional: false, nullable: false
+
         field :closing, -> { String }, optional: false, nullable: false
       end
     end

@@ -15,6 +15,7 @@ module Nordlet
         PURCHASES_VAT_RECEIVABLE = "purchases.vatReceivable"
         PURCHASES_GOODS_FOR_RESALE = "purchases.goodsForResale"
         PURCHASES_DEFAULT_EXPENSE = "purchases.defaultExpense"
+        PURCHASES_PREPAID_EXPENSES = "purchases.prepaidExpenses"
         INVENTORY_COGS = "inventory.cogs"
         INVENTORY_STOCK = "inventory.stock"
         PRODUCTION_LABOR_APPLIED = "production.laborApplied"
@@ -31,6 +32,7 @@ module Nordlet
         ASSETS_DISPOSAL_GAIN = "assets.disposalGain"
         ASSETS_DISPOSAL_LOSS = "assets.disposalLoss"
         ASSETS_DISPOSAL_PROCEEDS = "assets.disposalProceeds"
+        CASH_ADVANCES = "cash.advances"
         CLOSING_RETAINED_EARNINGS = "closing.retainedEarnings"
       end
     end

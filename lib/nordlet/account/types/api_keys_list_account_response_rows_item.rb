@@ -16,6 +16,8 @@ module Nordlet
 
         field :replaced_by_key_id, -> { String }, optional: false, nullable: true, api_name: "replacedByKeyId"
 
+        field :created_by_user_id, -> { String }, optional: false, nullable: true, api_name: "createdByUserId"
+
         field :revoked_at, -> { String }, optional: false, nullable: true, api_name: "revokedAt"
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"

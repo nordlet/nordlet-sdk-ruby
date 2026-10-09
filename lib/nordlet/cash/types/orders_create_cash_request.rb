@@ -12,9 +12,13 @@ module Nordlet
 
         field :purpose, -> { String }, optional: false, nullable: false
 
-        field :counter_account_code, -> { String }, optional: false, nullable: false, api_name: "counterAccountCode"
+        field :counter_account_code, -> { String }, optional: true, nullable: false, api_name: "counterAccountCode"
 
         field :cash_account_code, -> { String }, optional: true, nullable: false, api_name: "cashAccountCode"
+
+        field :sale_invoice_id, -> { String }, optional: true, nullable: false, api_name: "saleInvoiceId"
+
+        field :purchase_invoice_id, -> { String }, optional: true, nullable: false, api_name: "purchaseInvoiceId"
 
         field :series, -> { String }, optional: true, nullable: false
 
