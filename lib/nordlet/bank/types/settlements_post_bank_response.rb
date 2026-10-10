@@ -36,6 +36,12 @@ module Nordlet
 
         field :unmatched_count, -> { Integer }, optional: false, nullable: false, api_name: "unmatchedCount"
 
+        field :cleared_net, -> { String }, optional: false, nullable: true, api_name: "clearedNet"
+
+        field :clearing_difference, -> { String }, optional: false, nullable: true, api_name: "clearingDifference"
+
+        field :clearing_open_count, -> { Integer }, optional: false, nullable: false, api_name: "clearingOpenCount"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"

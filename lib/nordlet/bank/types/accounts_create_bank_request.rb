@@ -6,6 +6,8 @@ module Nordlet
       class AccountsCreateBankRequest < Internal::Types::Model
         field :name, -> { String }, optional: false, nullable: false
 
+        field :type, -> { Nordlet::Bank::Types::AccountsCreateBankRequestType }, optional: true, nullable: false
+
         field :iban, -> { String }, optional: true, nullable: false
 
         field :currency, -> { String }, optional: true, nullable: false

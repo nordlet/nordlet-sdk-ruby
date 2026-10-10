@@ -523,6 +523,137 @@ module Nordlet
       end
 
       # @param request_options [Hash]
+      # @param params [Nordlet::Declarations::Types::EuOwnGoodsTransfersComputeDeclarationsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Declarations::Types::EuOwnGoodsTransfersComputeDeclarationsResponse]
+      def eu_own_goods_transfers_compute(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/declarations/eu/own-goods-transfers/compute",
+          body: Nordlet::Declarations::Types::EuOwnGoodsTransfersComputeDeclarationsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Declarations::Types::EuOwnGoodsTransfersComputeDeclarationsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # @param request_options [Hash]
+      # @param params [Nordlet::Declarations::Types::EuDigitalReportingListDeclarationsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Declarations::Types::EuDigitalReportingListDeclarationsResponse]
+      def eu_digital_reporting_list(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/declarations/eu/digital-reporting/list",
+          body: Nordlet::Declarations::Types::EuDigitalReportingListDeclarationsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Declarations::Types::EuDigitalReportingListDeclarationsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Which platform sellers are reportable for the year (Council Directive (EU) 2021/514, Annex V) and why the others
+      # are excluded, the data still missing, and how the company files the report in its Member State.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Declarations::Types::EuDac7PreviewDeclarationsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Declarations::Types::EuDac7PreviewDeclarationsResponse]
+      def eu_dac7preview(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/declarations/eu/dac7/preview",
+          body: Nordlet::Declarations::Types::EuDac7PreviewDeclarationsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Declarations::Types::EuDac7PreviewDeclarationsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # @param request_options [Hash]
+      # @param params [Nordlet::Declarations::Types::EuDac7XMLDeclarationsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Declarations::Types::EuDac7XMLDeclarationsResponse]
+      def eu_dac7xml(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/declarations/eu/dac7/xml",
+          body: Nordlet::Declarations::Types::EuDac7XMLDeclarationsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Declarations::Types::EuDac7XMLDeclarationsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuDistanceSalesThresholdGetDeclarationsRequest]
       # @option request_options [String] :base_url
       # @option request_options [Hash{String => Object}] :additional_headers
@@ -2360,7 +2491,8 @@ module Nordlet
 
       # Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance
       # withheld and the social and health contributions taken off it. One document per person, because that is how the
-      # form is filed.
+      # form is filed, addressed to the tax office of the place of residence of that person (employee field
+      # plKodUrzedu); a person without that code is refused with 422.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::PlPit11GenerateDeclarationsRequest]

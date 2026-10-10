@@ -8,6 +8,7 @@ module Nordlet
 
         SALE_INVOICE = "sale_invoice"
         PURCHASE_INVOICE = "purchase_invoice"
+        PAYROLL_RUN = "payroll_run"
       end
     end
   end

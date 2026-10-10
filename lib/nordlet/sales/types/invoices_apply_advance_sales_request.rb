@@ -9,6 +9,8 @@ module Nordlet
         field :invoice_id, -> { String }, optional: false, nullable: false, api_name: "invoiceId"
 
         field :date, -> { String }, optional: true, nullable: false
+
+        field :amount, -> { String }, optional: true, nullable: false
       end
     end
   end

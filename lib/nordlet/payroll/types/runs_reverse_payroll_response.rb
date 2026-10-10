@@ -30,6 +30,8 @@ module Nordlet
 
         field :net_total, -> { String }, optional: false, nullable: false, api_name: "netTotal"
 
+        field :paid_amount, -> { String }, optional: false, nullable: false, api_name: "paidAmount"
+
         field :journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "journalTransactionId"
 
         field :notes, -> { String }, optional: false, nullable: true

@@ -63,6 +63,11 @@ module Nordlet
       @capture ||= Nordlet::Capture::Client.new(client: @raw_client)
     end
 
+    # @return [Nordlet::Peppol::Client]
+    def peppol
+      @peppol ||= Nordlet::Peppol::Client.new(client: @raw_client)
+    end
+
     # @return [Nordlet::Declarations::Client]
     def declarations
       @declarations ||= Nordlet::Declarations::Client.new(client: @raw_client)
@@ -76,6 +81,11 @@ module Nordlet
     # @return [Nordlet::Officers::Client]
     def officers
       @officers ||= Nordlet::Officers::Client.new(client: @raw_client)
+    end
+
+    # @return [Nordlet::PlatformSellers::Client]
+    def platform_sellers
+      @platform_sellers ||= Nordlet::PlatformSellers::Client.new(client: @raw_client)
     end
 
     # @return [Nordlet::Migration::Client]

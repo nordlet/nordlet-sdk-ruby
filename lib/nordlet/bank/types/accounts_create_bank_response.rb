@@ -8,6 +8,8 @@ module Nordlet
 
         field :name, -> { String }, optional: false, nullable: false
 
+        field :type, -> { Nordlet::Bank::Types::AccountsCreateBankResponseType }, optional: false, nullable: false
+
         field :iban, -> { String }, optional: false, nullable: true
 
         field :currency, -> { String }, optional: false, nullable: false

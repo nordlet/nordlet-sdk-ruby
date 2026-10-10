@@ -30,6 +30,8 @@ module Nordlet
 
         field :error, -> { String }, optional: false, nullable: true
 
+        field :sender_id, -> { String }, optional: false, nullable: true, api_name: "senderId"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"

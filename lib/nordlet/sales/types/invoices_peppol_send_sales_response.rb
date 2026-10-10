@@ -10,6 +10,10 @@ module Nordlet
 
         field :receiver_id, -> { String }, optional: false, nullable: false, api_name: "receiverId"
 
+        field :status, -> { Nordlet::Sales::Types::InvoicesPeppolSendSalesResponseStatus }, optional: false, nullable: false
+
+        field :detail, -> { String }, optional: false, nullable: true
+
         field :file_id, -> { String }, optional: false, nullable: true, api_name: "fileId"
       end
     end

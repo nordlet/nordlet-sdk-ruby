@@ -1188,6 +1188,54 @@ client.reference.vat_resolve
 <dl>
 <dd>
 
+**service_kind:** `Nordlet::Reference::Types::VatResolveReferenceRequestServiceKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**service_country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**underlying_supplier_gave_vat_number:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**underlying_supplier_charges_vat:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**goods_kind:** `Nordlet::Reference::Types::VatResolveReferenceRequestGoodsKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**goods_location_country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Reference::RequestOptions` 
     
 </dd>
@@ -9258,6 +9306,20 @@ client.sales.invoices_peppol_xml(id: "id")
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send an issued invoice or credit note to the customer over Peppol through the company's own access point (Settings → Compliance → EU; Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending` until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -9268,6 +9330,68 @@ client.sales.invoices_peppol_xml(id: "id")
 
 ```ruby
 client.sales.invoices_peppol_send(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_peppol_status</a>(request) -> Nordlet::Sales::Types::InvoicesPeppolStatusSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Ask the company's Peppol access point what happened to an invoice sent with `sales/invoices/peppol-send`, and store the answer: `pending`, `delivered` (the receiving access point confirmed it), `rejected` (the receiver refused it, see `detail`) or `failed` (it could not be delivered, see `detail`). The access point's webhook updates the same fields without this call. Storecove has no call for the status of a sent document, so for a Storecove access point this answers 422 and the status comes only from its webhook.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.invoices_peppol_status(id: "id")
 ```
 </dd>
 </dl>
@@ -10208,6 +10332,14 @@ client.sales.invoices_apply_advance(
 <dd>
 
 **date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount:** `String` — Gross amount of the advance to apply; defaults to the unapplied advance or the unpaid balance of the invoice, whichever is smaller
     
 </dd>
 </dl>
@@ -13033,6 +13165,14 @@ client.purchases.invoices_register(id: "id")
 <dl>
 <dd>
 
+**return_from_stock:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Purchases::RequestOptions` 
     
 </dd>
@@ -14745,6 +14885,20 @@ client.capture.documents_delete(id: "id")
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates the purchase invoice (or credit note, see `type`) from `lines`. Lines with the opposite sign go in `oppositeLines` and are saved as a second document of the opposite type for the same supplier: a purchase credit note against the new invoice, or a purchase invoice next to the new credit note. It is numbered `oppositeDocumentNumber`, by default the document number followed by "-CR" (credit note) or "-INV" (invoice).
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -14791,6 +14945,14 @@ client.capture.documents_confirm(
 <dd>
 
 **new_supplier:** `Nordlet::Capture::Types::DocumentsConfirmCaptureRequestNewSupplier` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type:** `Nordlet::Capture::Types::DocumentsConfirmCaptureRequestType` 
     
 </dd>
 </dl>
@@ -14846,7 +15008,153 @@ client.capture.documents_confirm(
 <dl>
 <dd>
 
+**opposite_lines:** `Internal::Types::Array[Nordlet::Capture::Types::DocumentsConfirmCaptureRequestOppositeLinesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**opposite_document_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Capture::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## peppol
+<details><summary><code>client.peppol.<a href="/lib/nordlet/peppol/client.rb">participants_lookup</a>(request) -> Nordlet::Peppol::Types::ParticipantsLookupPeppolResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Look a receiver up on the Peppol network (SML and SMP) and say which Peppol BIS Billing 3.0 documents it accepts. Give `partnerId` to look up a partner by its Peppol ID, VAT code or registration code, or `participantId` as "<scheme>:<identifier>". Works without an access point.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.peppol.participants_lookup
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**participant_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Peppol::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.peppol.<a href="/lib/nordlet/peppol/client.rb">webhooks</a>(provider:, company_id:) -> Nordlet::Peppol::Types::WebhooksPeppolResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.peppol.webhooks(
+  provider: "recommand",
+  company_id: "companyId"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**provider:** `Nordlet::Peppol::Types::WebhooksPeppolRequestProvider` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**company_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Peppol::RequestOptions` 
     
 </dd>
 </dl>
@@ -15891,6 +16199,234 @@ client.declarations.eu_ioss_compute(
 <dd>
 
 **month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_own_goods_transfers_compute</a>(request) -> Nordlet::Declarations::Types::EuOwnGoodsTransfersComputeDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.eu_own_goods_transfers_compute(
+  year: 1000000,
+  month: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_digital_reporting_list</a>(request) -> Nordlet::Declarations::Types::EuDigitalReportingListDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.eu_digital_reporting_list(
+  from_date: "2026-07-01",
+  to_date: "2026-07-01"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_dac7preview</a>(request) -> Nordlet::Declarations::Types::EuDac7PreviewDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Which platform sellers are reportable for the year (Council Directive (EU) 2021/514, Annex V) and why the others are excluded, the data still missing, and how the company files the report in its Member State.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.eu_dac7preview(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">eu_dac7xml</a>(request) -> Nordlet::Declarations::Types::EuDac7XMLDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.eu_dac7xml(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
     
 </dd>
 </dl>
@@ -19746,7 +20282,7 @@ client.declarations.pl_jpk_mag_generate(
 <dl>
 <dd>
 
-Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed.
+Generate PIT-11(29) for every person on the payroll of one year: the pay, the deductible costs, the advance withheld and the social and health contributions taken off it. One document per person, because that is how the form is filed, addressed to the tax office of the place of residence of that person (employee field plKodUrzedu); a person without that code is refused with 422.
 </dd>
 </dl>
 </dd>
@@ -22731,6 +23267,14 @@ client.ledger.journal_transactions_create(
 <dl>
 <dd>
 
+**currency:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **entries:** `Internal::Types::Array[Nordlet::Ledger::Types::JournalTransactionsCreateLedgerRequestEntriesItem]` 
     
 </dd>
@@ -23265,6 +23809,600 @@ client.officers.delete(id: "id")
 <dd>
 
 **request_options:** `Nordlet::Officers::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## PlatformSellers
+<details><summary><code>client.platform_sellers.<a href="/lib/nordlet/platform_sellers/client.rb">list</a>(request) -> Nordlet::PlatformSellers::Types::ListPlatformSellersResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Individuals and entities that sell goods, rent out property or transport, or perform personal services through the platform the company operates. The yearly DAC7 report is built from them.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.platform_sellers.list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::PlatformSellers::Types::ListPlatformSellersRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::PlatformSellers::Types::ListPlatformSellersRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::PlatformSellers::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.platform_sellers.<a href="/lib/nordlet/platform_sellers/client.rb">get</a>(request) -> Nordlet::PlatformSellers::Types::GetPlatformSellersResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.platform_sellers.get(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::PlatformSellers::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.platform_sellers.<a href="/lib/nordlet/platform_sellers/client.rb">create</a>(request) -> Nordlet::PlatformSellers::Types::CreatePlatformSellersResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.platform_sellers.create(
+  kind: "individual",
+  address: {
+    country_code: "countryCode"
+  }
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**kind:** `Nordlet::PlatformSellers::Types::CreatePlatformSellersRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**first_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**middle_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**entity_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tax_residences:** `Internal::Types::Array[Nordlet::PlatformSellers::Types::CreatePlatformSellersRequestTaxResidencesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**business_registration_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**address:** `Nordlet::PlatformSellers::Types::CreatePlatformSellersRequestAddress` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**birth_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**birth_city:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**birth_country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**iban:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**account_holder_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**government_entity:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**listed_entity:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**permanent_establishments:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**activities:** `Internal::Types::Array[Nordlet::PlatformSellers::Types::CreatePlatformSellersRequestActivitiesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::PlatformSellers::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.platform_sellers.<a href="/lib/nordlet/platform_sellers/client.rb">update</a>(request) -> Nordlet::PlatformSellers::Types::UpdatePlatformSellersResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.platform_sellers.update(
+  id: "id",
+  kind: "individual",
+  address: {
+    country_code: "countryCode"
+  }
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**kind:** `Nordlet::PlatformSellers::Types::UpdatePlatformSellersRequestKind` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**first_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**middle_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**entity_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tax_residences:** `Internal::Types::Array[Nordlet::PlatformSellers::Types::UpdatePlatformSellersRequestTaxResidencesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**business_registration_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**address:** `Nordlet::PlatformSellers::Types::UpdatePlatformSellersRequestAddress` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**birth_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**birth_city:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**birth_country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**iban:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**account_holder_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**government_entity:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**listed_entity:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**permanent_establishments:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**activities:** `Internal::Types::Array[Nordlet::PlatformSellers::Types::UpdatePlatformSellersRequestActivitiesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::PlatformSellers::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.platform_sellers.<a href="/lib/nordlet/platform_sellers/client.rb">delete</a>(request) -> Nordlet::PlatformSellers::Types::DeletePlatformSellersResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.platform_sellers.delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::PlatformSellers::RequestOptions` 
     
 </dd>
 </dl>
@@ -30204,6 +31342,14 @@ client.inventory.warehouses_create(
 <dl>
 <dd>
 
+**country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Inventory::RequestOptions` 
     
 </dd>
@@ -30277,6 +31423,70 @@ client.inventory.warehouses_list
 <dd>
 
 **totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Inventory::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.inventory.<a href="/lib/nordlet/inventory/client.rb">warehouses_update</a>(request) -> Nordlet::Inventory::Types::WarehousesUpdateInventoryResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.inventory.warehouses_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**country_code:** `String` 
     
 </dd>
 </dl>
@@ -37687,6 +38897,14 @@ client.bank.accounts_create(name: "name")
 <dl>
 <dd>
 
+**type:** `Nordlet::Bank::Types::AccountsCreateBankRequestType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **iban:** `String` 
     
 </dd>
@@ -37848,6 +39066,14 @@ client.bank.accounts_update(id: "id")
 <dd>
 
 **name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type:** `Nordlet::Bank::Types::AccountsUpdateBankRequestType` 
     
 </dd>
 </dl>

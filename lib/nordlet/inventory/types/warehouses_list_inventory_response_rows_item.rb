@@ -12,6 +12,8 @@ module Nordlet
 
         field :is_default, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isDefault"
 
+        field :country_code, -> { String }, optional: false, nullable: true, api_name: "countryCode"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
       end
     end

@@ -8,6 +8,8 @@ module Nordlet
 
         field :description, -> { String }, optional: true, nullable: false
 
+        field :currency, -> { String }, optional: true, nullable: false
+
         field :entries, -> { Internal::Types::Array[Nordlet::Ledger::Types::JournalTransactionsCreateLedgerRequestEntriesItem] }, optional: false, nullable: false
       end
     end

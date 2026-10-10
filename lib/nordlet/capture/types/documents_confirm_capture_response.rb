@@ -7,6 +7,8 @@ module Nordlet
         field :capture, -> { Nordlet::Capture::Types::DocumentsConfirmCaptureResponseCapture }, optional: false, nullable: false
 
         field :invoice, -> { Nordlet::Capture::Types::DocumentsConfirmCaptureResponseInvoice }, optional: false, nullable: false
+
+        field :opposite_invoice, -> { Nordlet::Capture::Types::DocumentsConfirmCaptureResponseOppositeInvoice }, optional: false, nullable: true, api_name: "oppositeInvoice"
       end
     end
   end

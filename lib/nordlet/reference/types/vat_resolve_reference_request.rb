@@ -23,6 +23,18 @@ module Nordlet
         field :seller_established_in_eu, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "sellerEstablishedInEu"
 
         field :imported_consignment_value_eur, -> { String }, optional: true, nullable: false, api_name: "importedConsignmentValueEur"
+
+        field :service_kind, -> { Nordlet::Reference::Types::VatResolveReferenceRequestServiceKind }, optional: true, nullable: false, api_name: "serviceKind"
+
+        field :service_country_code, -> { String }, optional: true, nullable: false, api_name: "serviceCountryCode"
+
+        field :underlying_supplier_gave_vat_number, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "underlyingSupplierGaveVatNumber"
+
+        field :underlying_supplier_charges_vat, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "underlyingSupplierChargesVat"
+
+        field :goods_kind, -> { Nordlet::Reference::Types::VatResolveReferenceRequestGoodsKind }, optional: true, nullable: false, api_name: "goodsKind"
+
+        field :goods_location_country_code, -> { String }, optional: true, nullable: false, api_name: "goodsLocationCountryCode"
       end
     end
   end

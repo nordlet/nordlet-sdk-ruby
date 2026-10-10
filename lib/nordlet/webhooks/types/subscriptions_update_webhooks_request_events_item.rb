@@ -8,6 +8,7 @@ module Nordlet
 
         AGREEMENT_INVOICE_GENERATED = "agreement.invoice_generated"
         BANK_FEED_SYNCED = "bank_feed.synced"
+        DOCUMENT_CAPTURE_PEPPOL_RECEIVED = "document_capture.peppol_received"
         FILING_FAILED = "filing.failed"
         FILING_REJECTED = "filing.rejected"
         GOODS_RECEIPT_POSTED = "goods_receipt.posted"
@@ -35,6 +36,9 @@ module Nordlet
         SALE_INVOICE_EINVOICE_SENT = "sale_invoice.einvoice_sent"
         SALE_INVOICE_ISSUED = "sale_invoice.issued"
         SALE_INVOICE_PAID = "sale_invoice.paid"
+        SALE_INVOICE_PEPPOL_DELIVERED = "sale_invoice.peppol_delivered"
+        SALE_INVOICE_PEPPOL_FAILED = "sale_invoice.peppol_failed"
+        SALE_INVOICE_PEPPOL_REJECTED = "sale_invoice.peppol_rejected"
         SALE_INVOICE_PEPPOL_SENT = "sale_invoice.peppol_sent"
         SALE_INVOICE_SENT = "sale_invoice.sent"
         SALES_ORDER_CREATED = "sales_order.created"

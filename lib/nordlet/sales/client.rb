@@ -170,6 +170,13 @@ module Nordlet
         end
       end
 
+      # Send an issued invoice or credit note to the customer over Peppol through the company's own access point
+      # (Settings → Compliance → EU; Nordlet supports Recommand, Storecove and e-invoice.be). Without one the call is
+      # refused with 422 and the document can only be downloaded with `sales/invoices/peppol-xml`. `status` is `pending`
+      # until the receiving access point confirms, then `delivered`; `failed` and `rejected` come with `detail`, and the
+      # invoice can then be sent again. Later changes arrive through the access point's webhook and are announced as
+      # `sale_invoice.peppol_delivered`, `sale_invoice.peppol_rejected` and `sale_invoice.peppol_failed`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesPeppolSendSalesRequest]
       # @option request_options [String] :base_url
@@ -196,6 +203,44 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Sales::Types::InvoicesPeppolSendSalesResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Ask the company's Peppol access point what happened to an invoice sent with `sales/invoices/peppol-send`, and
+      # store the answer: `pending`, `delivered` (the receiving access point confirmed it), `rejected` (the receiver
+      # refused it, see `detail`) or `failed` (it could not be delivered, see `detail`). The access point's webhook
+      # updates the same fields without this call. Storecove has no call for the status of a sent document, so for a
+      # Storecove access point this answers 422 and the status comes only from its webhook.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::InvoicesPeppolStatusSalesRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::InvoicesPeppolStatusSalesResponse]
+      def invoices_peppol_status(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/invoices/peppol-status",
+          body: Nordlet::Sales::Types::InvoicesPeppolStatusSalesRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::InvoicesPeppolStatusSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

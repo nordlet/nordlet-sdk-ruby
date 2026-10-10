@@ -33,6 +33,14 @@ module Nordlet
         field :matched_invoice_id, -> { String }, optional: false, nullable: true, api_name: "matchedInvoiceId"
 
         field :match_status, -> { Nordlet::Bank::Types::SettlementsMatchBankResponseMatchStatus }, optional: false, nullable: false, api_name: "matchStatus"
+
+        field :clearing_bank_account_id, -> { String }, optional: false, nullable: true, api_name: "clearingBankAccountId"
+
+        field :clearing_booked, -> { String }, optional: false, nullable: true, api_name: "clearingBooked"
+
+        field :clearing_difference, -> { String }, optional: false, nullable: true, api_name: "clearingDifference"
+
+        field :clearing_unposted, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "clearingUnposted"
       end
     end
   end

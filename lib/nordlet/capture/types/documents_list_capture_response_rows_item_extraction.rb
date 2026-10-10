@@ -4,6 +4,8 @@ module Nordlet
   module Capture
     module Types
       class DocumentsListCaptureResponseRowsItemExtraction < Internal::Types::Model
+        field :document_type, -> { Nordlet::Capture::Types::DocumentsListCaptureResponseRowsItemExtractionDocumentType }, optional: true, nullable: false, api_name: "documentType"
+
         field :supplier, -> { Nordlet::Capture::Types::DocumentsListCaptureResponseRowsItemExtractionSupplier }, optional: false, nullable: false
 
         field :document_number, -> { String }, optional: false, nullable: true, api_name: "documentNumber"
@@ -23,6 +25,8 @@ module Nordlet
         field :notes, -> { String }, optional: false, nullable: true
 
         field :lines, -> { Internal::Types::Array[Nordlet::Capture::Types::DocumentsListCaptureResponseRowsItemExtractionLinesItem] }, optional: false, nullable: false
+
+        field :opposite_lines, -> { Internal::Types::Array[Nordlet::Capture::Types::DocumentsListCaptureResponseRowsItemExtractionOppositeLinesItem] }, optional: true, nullable: false, api_name: "oppositeLines"
       end
     end
   end

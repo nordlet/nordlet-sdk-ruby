@@ -8,6 +8,8 @@ module Nordlet
 
         field :name, -> { String }, optional: true, nullable: false
 
+        field :type, -> { Nordlet::Bank::Types::AccountsUpdateBankRequestType }, optional: true, nullable: false
+
         field :iban, -> { String }, optional: true, nullable: false
 
         field :account_code, -> { String }, optional: true, nullable: false, api_name: "accountCode"

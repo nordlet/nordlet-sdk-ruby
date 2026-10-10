@@ -6,6 +6,8 @@ module Nordlet
       class OnlineSalesReportsResponseRowsItem < Internal::Types::Model
         field :channel, -> { String }, optional: false, nullable: false
 
+        field :currency, -> { String }, optional: false, nullable: false
+
         field :orders, -> { Integer }, optional: false, nullable: false
 
         field :fulfilled, -> { Integer }, optional: false, nullable: false

@@ -106,9 +106,21 @@ module Nordlet
 
         field :einvoice_checked_at, -> { String }, optional: false, nullable: true, api_name: "einvoiceCheckedAt"
 
+        field :peppol_message_id, -> { String }, optional: false, nullable: true, api_name: "peppolMessageId"
+
+        field :peppol_status, -> { String }, optional: false, nullable: true, api_name: "peppolStatus"
+
+        field :peppol_detail, -> { String }, optional: false, nullable: true, api_name: "peppolDetail"
+
+        field :peppol_sent_at, -> { String }, optional: false, nullable: true, api_name: "peppolSentAt"
+
+        field :peppol_checked_at, -> { String }, optional: false, nullable: true, api_name: "peppolCheckedAt"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"
+
+        field :advance_applied_amount, -> { String }, optional: false, nullable: true, api_name: "advanceAppliedAmount"
 
         field :lines, -> { Internal::Types::Array[Nordlet::Sales::Types::InvoicesApplyAdvanceSalesResponseLinesItem] }, optional: false, nullable: false
 

@@ -20,6 +20,8 @@ module Nordlet
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
 
+        field :journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "journalTransactionId"
+
         field :lines, -> { Internal::Types::Array[Nordlet::Inventory::Types::LandedCostsCreateInventoryResponseLinesItem] }, optional: false, nullable: false
       end
     end
