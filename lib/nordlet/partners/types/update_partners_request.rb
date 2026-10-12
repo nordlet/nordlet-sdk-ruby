@@ -54,10 +54,6 @@ module Nordlet
 
         field :eori_code, -> { String }, optional: true, nullable: false, api_name: "eoriCode"
 
-        field :other_code, -> { String }, optional: true, nullable: false, api_name: "otherCode"
-
-        field :foreign_tax_number, -> { String }, optional: true, nullable: false, api_name: "foreignTaxNumber"
-
         field :auto_debt_reminder, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "autoDebtReminder"
 
         field :late_interest_percent, -> { String }, optional: true, nullable: false, api_name: "lateInterestPercent"

@@ -10,6 +10,7 @@ module Nordlet
         OCR_PAGE = "ocr_page"
         FILE_STORAGE_BYTES = "file_storage_bytes"
         DATABASE_BYTES = "database_bytes"
+        SALE_INVOICE = "sale_invoice"
       end
     end
   end

@@ -3228,22 +3228,6 @@ client.partners.create(name: "name")
 <dl>
 <dd>
 
-**other_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**foreign_tax_number:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **auto_debt_reminder:** `Internal::Types::Boolean` 
     
 </dd>
@@ -3549,22 +3533,6 @@ client.partners.find_or_create(name: "name")
 <dd>
 
 **eori_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**other_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**foreign_tax_number:** `String` 
     
 </dd>
 </dl>
@@ -3933,22 +3901,6 @@ client.partners.update(id: "id")
 <dd>
 
 **eori_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**other_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**foreign_tax_number:** `String` 
     
 </dd>
 </dl>
@@ -10964,6 +10916,654 @@ client.sales.acts_pdf(id: "id")
 <dd>
 
 **locale:** `Nordlet::Sales::Types::ActsPdfSalesRequestLocale` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoice_templates_create</a>(request) -> Nordlet::Sales::Types::InvoiceTemplatesCreateSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.invoice_templates_create(name: "name")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_type:** `Nordlet::Sales::Types::InvoiceTemplatesCreateSalesRequestDocumentType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**currency:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payment_term_days:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_scheme:** `Nordlet::Sales::Types::InvoiceTemplatesCreateSalesRequestVatScheme` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**agreement_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_series_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**discount_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**issued_by_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**issued_by_title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**received_by_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**received_by_title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**supply_type:** `Nordlet::Sales::Types::InvoiceTemplatesCreateSalesRequestSupplyType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**series_label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**order_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_transport_mode:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_delivery_terms:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_region:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_nature_of_transaction:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lines:** `Internal::Types::Array[Nordlet::Sales::Types::InvoiceTemplatesCreateSalesRequestLinesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoice_templates_update</a>(request) -> Nordlet::Sales::Types::InvoiceTemplatesUpdateSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.invoice_templates_update(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_type:** `Nordlet::Sales::Types::InvoiceTemplatesUpdateSalesRequestDocumentType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**currency:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payment_term_days:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_scheme:** `Nordlet::Sales::Types::InvoiceTemplatesUpdateSalesRequestVatScheme` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vat_country_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**agreement_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**operation_type_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_series_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**discount_percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**issued_by_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**issued_by_title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**received_by_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**received_by_title:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**supply_type:** `Nordlet::Sales::Types::InvoiceTemplatesUpdateSalesRequestSupplyType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**series_label:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**order_number:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_transport_mode:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_delivery_terms:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_region:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**intrastat_nature_of_transaction:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lines:** `Internal::Types::Array[Nordlet::Sales::Types::InvoiceTemplatesUpdateSalesRequestLinesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoice_templates_get</a>(request) -> Nordlet::Sales::Types::InvoiceTemplatesGetSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.invoice_templates_get(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoice_templates_delete</a>(request) -> Nordlet::Sales::Types::InvoiceTemplatesDeleteSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.invoice_templates_delete(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoice_templates_list</a>(request) -> Nordlet::Sales::Types::InvoiceTemplatesListSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.invoice_templates_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Sales::Types::InvoiceTemplatesListSalesRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Sales::Types::InvoiceTemplatesListSalesRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>
@@ -41605,6 +42205,201 @@ client.bank.settlements_post(id: "id")
 </dl>
 </details>
 
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">securities_import</a>(request) -> Nordlet::Bank::Types::SecuritiesImportBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.securities_import(
+  bank_account_id: "bankAccountId",
+  content: "content"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**bank_account_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**content:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file_name:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">securities_list</a>(request) -> Nordlet::Bank::Types::SecuritiesListBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.securities_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::SecuritiesListBankRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::SecuritiesListBankRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">securities_get</a>(request) -> Nordlet::Bank::Types::SecuritiesGetBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.securities_get(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">feeds_banks_list</a>(request) -> Nordlet::Bank::Types::FeedsBanksListBankResponse</code></summary>
 <dl>
 <dd>
@@ -45368,6 +46163,161 @@ client.billing.account_set_plan(plan: "starter")
 </dl>
 </details>
 
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">account_set_account_type</a>(request) -> Nordlet::Billing::Types::AccountSetAccountTypeBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.billing.account_set_account_type(account_type: "flat_rate")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**account_type:** `Nordlet::Billing::Types::AccountSetAccountTypeBillingRequestAccountType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Billing::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">account_set_auto_top_up</a>(request) -> Nordlet::Billing::Types::AccountSetAutoTopUpBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.billing.account_set_auto_top_up(
+  enabled: true,
+  amount_cents: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**enabled:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount_cents:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Billing::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">account_set_overdraft_cap</a>(request) -> Nordlet::Billing::Types::AccountSetOverdraftCapBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.billing.account_set_overdraft_cap(cap_cents: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**cap_cents:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Billing::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">topup_create</a>(request) -> Nordlet::Billing::Types::TopupCreateBillingResponse</code></summary>
 <dl>
 <dd>
@@ -45405,6 +46355,166 @@ client.billing.topup_create(amount_cents: 1000000)
 <dd>
 
 **locale:** `Nordlet::Billing::Types::TopupCreateBillingRequestLocale` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**return_to:** `Nordlet::Billing::Types::TopupCreateBillingRequestReturnTo` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Billing::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">topup_confirm</a>(request) -> Nordlet::Billing::Types::TopupConfirmBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.billing.topup_confirm(session_id: "sessionId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**session_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Billing::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">flat_rate_create</a>(request) -> Nordlet::Billing::Types::FlatRateCreateBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.billing.flat_rate_create
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**locale:** `Nordlet::Billing::Types::FlatRateCreateBillingRequestLocale` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**plan:** `Nordlet::Billing::Types::FlatRateCreateBillingRequestPlan` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Billing::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">flat_rate_confirm</a>(request) -> Nordlet::Billing::Types::FlatRateConfirmBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.billing.flat_rate_confirm(session_id: "sessionId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**session_id:** `String` 
     
 </dd>
 </dl>

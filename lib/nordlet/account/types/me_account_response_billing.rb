@@ -10,6 +10,8 @@ module Nordlet
 
         field :balance_cents, -> { Integer }, optional: false, nullable: false, api_name: "balanceCents"
 
+        field :overdraft_allowance_cents, -> { Integer }, optional: false, nullable: false, api_name: "overdraftAllowanceCents"
+
         field :trial_ends_at, -> { String }, optional: false, nullable: true, api_name: "trialEndsAt"
 
         field :payer_user_id, -> { String }, optional: false, nullable: false, api_name: "payerUserId"
@@ -17,6 +19,10 @@ module Nordlet
         field :payer_email, -> { String }, optional: false, nullable: false, api_name: "payerEmail"
 
         field :is_payer, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isPayer"
+
+        field :plan_chosen, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "planChosen"
+
+        field :flat_rate, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "flatRate"
       end
     end
   end

@@ -33,6 +33,14 @@ module Nordlet
         ASSETS_DISPOSAL_LOSS = "assets.disposalLoss"
         ASSETS_DISPOSAL_PROCEEDS = "assets.disposalProceeds"
         CASH_ADVANCES = "cash.advances"
+        SECURITIES_INVESTMENTS = "securities.investments"
+        SECURITIES_GAIN = "securities.gain"
+        SECURITIES_LOSS = "securities.loss"
+        SECURITIES_DIVIDEND_INCOME = "securities.dividendIncome"
+        SECURITIES_WITHHOLDING_TAX = "securities.withholdingTax"
+        SECURITIES_INTEREST_INCOME = "securities.interestIncome"
+        SECURITIES_INTEREST_EXPENSE = "securities.interestExpense"
+        SECURITIES_FEES = "securities.fees"
         CLOSING_RETAINED_EARNINGS = "closing.retainedEarnings"
       end
     end

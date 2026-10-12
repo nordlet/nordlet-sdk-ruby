@@ -8,6 +8,7 @@ module Nordlet
 
         BANK = "bank"
         STRIPE = "stripe"
+        BROKER = "broker"
       end
     end
   end

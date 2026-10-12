@@ -6,6 +6,8 @@ module Nordlet
       class AccountGetBillingResponse < Internal::Types::Model
         field :plan, -> { Nordlet::Billing::Types::AccountGetBillingResponsePlan }, optional: false, nullable: false
 
+        field :account_type, -> { Nordlet::Billing::Types::AccountGetBillingResponseAccountType }, optional: false, nullable: false, api_name: "accountType"
+
         field :status, -> { Nordlet::Billing::Types::AccountGetBillingResponseStatus }, optional: false, nullable: false
 
         field :balance_cents, -> { Integer }, optional: false, nullable: false, api_name: "balanceCents"
@@ -30,7 +32,15 @@ module Nordlet
 
         field :plans, -> { Internal::Types::Hash[String, Nordlet::Billing::Types::AccountGetBillingResponsePlansValue] }, optional: false, nullable: false
 
+        field :api_request_eur, -> { String }, optional: false, nullable: false, api_name: "apiRequestEur"
+
         field :top_up, -> { Nordlet::Billing::Types::AccountGetBillingResponseTopUp }, optional: false, nullable: false, api_name: "topUp"
+
+        field :auto_top_up, -> { Nordlet::Billing::Types::AccountGetBillingResponseAutoTopUp }, optional: false, nullable: false, api_name: "autoTopUp"
+
+        field :overdraft_cap_cents, -> { Integer }, optional: false, nullable: false, api_name: "overdraftCapCents"
+
+        field :overdraft_cap_max_cents, -> { Integer }, optional: false, nullable: false, api_name: "overdraftCapMaxCents"
 
         field :trial_days, -> { Integer }, optional: false, nullable: false, api_name: "trialDays"
       end
