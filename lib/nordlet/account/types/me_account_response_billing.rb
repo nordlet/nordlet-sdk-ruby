@@ -23,6 +23,8 @@ module Nordlet
         field :plan_chosen, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "planChosen"
 
         field :flat_rate, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "flatRate"
+
+        field :account_type, -> { Nordlet::Account::Types::MeAccountResponseBillingAccountType }, optional: false, nullable: false, api_name: "accountType"
       end
     end
   end
