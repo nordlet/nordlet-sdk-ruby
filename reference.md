@@ -22306,14 +22306,6 @@ client.ledger.accounts_create(
 <dl>
 <dd>
 
-**translations:** `Internal::Types::Hash[String, Nordlet::Ledger::Types::AccountsCreateLedgerRequestTranslationsValue]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **type:** `Nordlet::Ledger::Types::AccountsCreateLedgerRequestType` 
     
 </dd>
@@ -22387,14 +22379,6 @@ client.ledger.accounts_update(id: "id")
 <dd>
 
 **name:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**translations:** `Internal::Types::Hash[String, Nordlet::Ledger::Types::AccountsUpdateLedgerRequestTranslationsValue]` 
     
 </dd>
 </dl>
@@ -40723,6 +40707,46 @@ client.bank.import_templates_get(id: "id")
     
 </dd>
 </dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">import_templates_list_builtin</a>(request) -> Nordlet::Bank::Types::ImportTemplatesListBuiltinBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.import_templates_list_builtin
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
 
 <dl>
 <dd>

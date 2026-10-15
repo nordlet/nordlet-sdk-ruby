@@ -9,6 +9,7 @@ module Nordlet
         STRIPE = "stripe"
         ISO20022 = "iso20022"
         BANK_CONNECTION = "bank_connection"
+        REVOLUT = "revolut"
       end
     end
   end

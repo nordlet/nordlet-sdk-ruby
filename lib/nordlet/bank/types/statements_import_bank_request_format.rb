@@ -9,6 +9,7 @@ module Nordlet
         CAMT053 = "camt053"
         MT940 = "mt940"
         STRIPE_CSV = "stripe-csv"
+        REVOLUT_CSV = "revolut-csv"
       end
     end
   end

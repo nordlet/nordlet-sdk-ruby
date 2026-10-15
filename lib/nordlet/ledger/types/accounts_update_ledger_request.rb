@@ -8,8 +8,6 @@ module Nordlet
 
         field :name, -> { String }, optional: true, nullable: false
 
-        field :translations, -> { Internal::Types::Hash[String, Nordlet::Ledger::Types::AccountsUpdateLedgerRequestTranslationsValue] }, optional: true, nullable: false
-
         field :parent_id, -> { String }, optional: true, nullable: false, api_name: "parentId"
 
         field :is_postable, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "isPostable"
