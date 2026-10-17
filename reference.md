@@ -21551,6 +21551,14 @@ client.declarations.configs_list
 <dl>
 <dd>
 
+**country:** `String` — List the systems of this country instead of the company country
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `Nordlet::Declarations::RequestOptions` 
     
 </dd>
@@ -42405,6 +42413,86 @@ client.bank.securities_get(id: "id")
 <dd>
 
 **id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">securities_operations_list</a>(request) -> Nordlet::Bank::Types::SecuritiesOperationsListBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.securities_operations_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**page:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_size:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sort:** `Internal::Types::Array[Nordlet::Bank::Types::SecuritiesOperationsListBankRequestSortItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**filter:** `Internal::Types::Array[Nordlet::Bank::Types::SecuritiesOperationsListBankRequestFilterItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**totals:** `Internal::Types::Array[String]` — Numeric fields to sum over every row matching the filter (not only the current page)
     
 </dd>
 </dl>

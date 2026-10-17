@@ -6,6 +6,8 @@ module Nordlet
       class SecuritiesGetBankResponseOperationsItem < Internal::Types::Model
         field :id, -> { String }, optional: false, nullable: false
 
+        field :bank_account_id, -> { String }, optional: false, nullable: false, api_name: "bankAccountId"
+
         field :kind, -> { String }, optional: false, nullable: false
 
         field :date, -> { String }, optional: false, nullable: false

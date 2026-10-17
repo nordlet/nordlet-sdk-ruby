@@ -3,7 +3,9 @@
 module Nordlet
   module Declarations
     module Types
-      class ConfigsListDeclarationsRequest < Internal::Types::Model; end
+      class ConfigsListDeclarationsRequest < Internal::Types::Model
+        field :country, -> { String }, optional: true, nullable: false
+      end
     end
   end
 end
