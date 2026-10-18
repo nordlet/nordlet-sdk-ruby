@@ -13,6 +13,8 @@ module Nordlet
         field :rate, -> { String }, optional: true, nullable: false
 
         field :base, -> { String }, optional: true, nullable: false
+
+        field :payment_type, -> { String }, optional: true, nullable: false, api_name: "paymentType"
       end
     end
   end

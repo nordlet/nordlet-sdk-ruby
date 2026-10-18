@@ -19,6 +19,8 @@ module Nordlet
         field :benefit_in_kind, -> { String }, optional: true, nullable: false, api_name: "benefitInKind"
 
         field :options, -> { Internal::Types::Hash[String, String] }, optional: true, nullable: false
+
+        field :payments, -> { Internal::Types::Array[Nordlet::Payroll::Types::CalcPayrollRequestPaymentsItem] }, optional: true, nullable: false
       end
     end
   end

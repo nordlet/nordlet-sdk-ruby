@@ -17,6 +17,8 @@ module Nordlet
         field :paid_amount, -> { String }, optional: false, nullable: false, api_name: "paidAmount"
 
         field :gpm_withheld, -> { String }, optional: false, nullable: false, api_name: "gpmWithheld"
+
+        field :gpm_rate_percent, -> { String }, optional: false, nullable: false, api_name: "gpmRatePercent"
       end
     end
   end
