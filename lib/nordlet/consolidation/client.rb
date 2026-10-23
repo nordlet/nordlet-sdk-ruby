@@ -10,6 +10,9 @@ module Nordlet
         @client = client
       end
 
+      # Create a consolidation group owned by the calling company; `presentationCurrency` defaults to the company's base
+      # currency. Members are added with `consolidation/members/add`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::GroupsCreateConsolidationRequest]
       # @option request_options [String] :base_url
@@ -42,6 +45,8 @@ module Nordlet
         end
       end
 
+      # List the calling company's consolidation groups with their member counts.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::GroupsListConsolidationRequest]
       # @option request_options [String] :base_url
@@ -74,6 +79,8 @@ module Nordlet
         end
       end
 
+      # Return one consolidation group with its members, each with its ownership percentage and consolidation method.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::GroupsGetConsolidationRequest]
       # @option request_options [String] :base_url
@@ -106,6 +113,8 @@ module Nordlet
         end
       end
 
+      # Rename a consolidation group or change its presentation currency.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::GroupsUpdateConsolidationRequest]
       # @option request_options [String] :base_url
@@ -138,6 +147,8 @@ module Nordlet
         end
       end
 
+      # Delete a consolidation group.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::GroupsDeleteConsolidationRequest]
       # @option request_options [String] :base_url
@@ -170,6 +181,10 @@ module Nordlet
         end
       end
 
+      # Add a company to a consolidation group with its ownership percentage and method (`full`, `proportional` or
+      # `equity`), or change those of an existing member. Another company can be added only by a signed-in user who is
+      # owner, admin or accountant of it; an API key is refused with 403.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::MembersAddConsolidationRequest]
       # @option request_options [String] :base_url
@@ -202,6 +217,8 @@ module Nordlet
         end
       end
 
+      # Remove a company from a consolidation group.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::MembersRemoveConsolidationRequest]
       # @option request_options [String] :base_url
@@ -306,6 +323,9 @@ module Nordlet
         end
       end
 
+      # List the intercompany links of a group: which partner record of which member company stands for which other
+      # member company.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::IntercompanyLinksListConsolidationRequest]
       # @option request_options [String] :base_url
@@ -338,6 +358,8 @@ module Nordlet
         end
       end
 
+      # Remove an intercompany link from a group.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::IntercompanyLinksRemoveConsolidationRequest]
       # @option request_options [String] :base_url
@@ -406,6 +428,13 @@ module Nordlet
         end
       end
 
+      # Consolidated financial statements of a group for a period in its presentation currency, with the consolidated
+      # trial balance and cash flow, each member's contribution and the intercompany candidates. Each member's balances
+      # are translated at the group owner's exchange rates of `toDate` and taken in full, in proportion to the ownership
+      # (`proportional`) or as an equity-method investment (`equity`); a fully consolidated member held below 100 %
+      # yields the non-controlling interest, and `eliminations` are amounts added to account codes before the statements
+      # are assembled (`balanced` tells whether they net to zero). Refused with 422 when the group has no members.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Consolidation::Types::ReportConsolidationRequest]
       # @option request_options [String] :base_url

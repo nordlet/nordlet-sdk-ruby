@@ -10,6 +10,8 @@ module Nordlet
         @client = client
       end
 
+      # Return the company's fixed asset setting `autoDepreciation`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::SettingsGetAssetsRequest]
       # @option request_options [String] :base_url
@@ -42,6 +44,9 @@ module Nordlet
         end
       end
 
+      # Turn automatic depreciation on or off. When it is on, the scheduler posts the previous month's depreciation for
+      # the company once a day, as `assets/depreciation/post` does.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::SettingsUpdateAssetsRequest]
       # @option request_options [String] :base_url
@@ -74,6 +79,11 @@ module Nordlet
         end
       end
 
+      # Create an asset group: the asset, accumulated depreciation and depreciation expense accounts its assets are
+      # posted to, and an optional default useful life in months. `expenseAccountCode` defaults to the chart's
+      # depreciation expense account; each account must exist and be postable (422). A duplicate code is refused with
+      # 409.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::GroupsCreateAssetsRequest]
       # @option request_options [String] :base_url
@@ -106,6 +116,8 @@ module Nordlet
         end
       end
 
+      # List the asset groups; filterable and sortable by `code` and `name`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::GroupsListAssetsRequest]
       # @option request_options [String] :base_url
@@ -138,6 +150,11 @@ module Nordlet
         end
       end
 
+      # Register a fixed asset in a group with its acquisition date and cost, salvage value, useful life in months
+      # (defaults to the group's default; 422 when neither is set) and depreciation start date (defaults to the
+      # acquisition date). The salvage value must be below the acquisition cost (422); a duplicate code is refused with
+      # 409. Depreciation is posted with `assets/depreciation/post`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::AssetsCreateAssetsRequest]
       # @option request_options [String] :base_url
@@ -170,6 +187,10 @@ module Nordlet
         end
       end
 
+      # Change an asset that has no posted depreciation yet: group, code, name, dates, cost, salvage value, useful life,
+      # notes or documents. Refused with 409 once depreciation is posted or the asset is disposed, and with 422 when the
+      # salvage value would reach the acquisition cost; a duplicate code is 409.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::AssetsUpdateAssetsRequest]
       # @option request_options [String] :base_url
@@ -240,6 +261,9 @@ module Nordlet
         end
       end
 
+      # Return one fixed asset with its totals (cost including modernisations, accumulated depreciation, net book value,
+      # total life in months), its input VAT facts and its disposal.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::AssetsGetAssetsRequest]
       # @option request_options [String] :base_url
@@ -272,6 +296,9 @@ module Nordlet
         end
       end
 
+      # List the fixed assets; filterable by `code`, `name`, `groupId`, `status`, `acquisitionDate`, `acquisitionCost`
+      # and `accumulatedDepreciation`, sortable by `code`, `name`, `acquisitionDate` and `acquisitionCost`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::AssetsListAssetsRequest]
       # @option request_options [String] :base_url
@@ -304,6 +331,11 @@ module Nordlet
         end
       end
 
+      # Record a modernisation of a fixed asset: `amount` is added to its cost and `addedLifeMonths` to its useful life
+      # from the month of `date` on, and the remaining depreciable value is spread over the months left. Refused with
+      # 422 when the asset is disposed or when no depreciation month would be left (give `addedLifeMonths` of at least
+      # 1); a fully depreciated asset becomes active again.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::AssetsModernizeAssetsRequest]
       # @option request_options [String] :base_url
@@ -373,6 +405,9 @@ module Nordlet
         end
       end
 
+      # Preview what `assets/depreciation/post` would post for a month: per active asset the amount and the months it
+      # covers, earlier unposted months included, and whether the month is already posted. Nothing is written.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::DepreciationPreviewAssetsRequest]
       # @option request_options [String] :base_url
@@ -405,6 +440,13 @@ module Nordlet
         end
       end
 
+      # Post the depreciation of a month: one journal entry dated the last day of the month that debits each group's
+      # expense account and credits its accumulated depreciation account, for every active asset whose depreciation has
+      # started, covering that month and any earlier month not yet posted. Each month's amount is the remaining
+      # depreciable value (cost plus modernisations less salvage value less accumulated depreciation) divided by the
+      # months left; an asset whose life or value is used up becomes `fully_depreciated`. Answers 409 when the period is
+      # locked, and `journalTransactionId` null when nothing is due.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Assets::Types::DepreciationPostAssetsRequest]
       # @option request_options [String] :base_url

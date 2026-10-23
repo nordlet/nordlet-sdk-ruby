@@ -10,6 +10,14 @@ module Nordlet
         @client = client
       end
 
+      # Create a numbering series for sale invoices, credit notes, proformas or advance invoices (`documentType`).
+      # Numbers run from `nextNumber`, padded to `numberLength` digits, and are written as `prefix`-number or, with
+      # `printSeries` false, as the bare number; a series may be bound to an operation type (a default series of an
+      # operation type is picked for its documents that name no series) and to a warehouse, which `sales/invoices/issue`
+      # takes the goods from. `isDefault` makes it the default of its document type and clears the previous one. Answers
+      # 422 when only one end of the allocated range `allocatedFrom`..`allocatedTo` is given or the range is reversed,
+      # 409 when the prefix exists for the document type.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::DocumentSeries::Types::CreateDocumentSeriesRequest]
       # @option request_options [String] :base_url
@@ -42,6 +50,10 @@ module Nordlet
         end
       end
 
+      # Change a document series; fields left out keep their value. `nextNumber` cannot go below its current value
+      # (409); `isDefault` clears the previous default of the document type. Answers 422 for an incomplete or reversed
+      # allocated range, 409 when the prefix is taken for the document type.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::DocumentSeries::Types::UpdateDocumentSeriesRequest]
       # @option request_options [String] :base_url
@@ -74,6 +86,8 @@ module Nordlet
         end
       end
 
+      # Return one document series.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::DocumentSeries::Types::GetDocumentSeriesRequest]
       # @option request_options [String] :base_url
@@ -106,6 +120,9 @@ module Nordlet
         end
       end
 
+      # Delete a document series no sale document uses. Answers 409 when invoices reference it; deactivate it with
+      # `isActive` instead.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::DocumentSeries::Types::DeleteDocumentSeriesRequest]
       # @option request_options [String] :base_url
@@ -138,6 +155,9 @@ module Nordlet
         end
       end
 
+      # List document series. Filterable by documentType, prefix, operationTypeId and isActive; sortable by prefix,
+      # documentType and createdAt.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::DocumentSeries::Types::ListDocumentSeriesRequest]
       # @option request_options [String] :base_url

@@ -40,6 +40,8 @@ module Nordlet
 
         field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
 
+        field :locale, -> { Nordlet::Sales::Types::InvoicesCreateSalesRequestLocale }, optional: true, nullable: false
+
         field :operation_type_id, -> { String }, optional: true, nullable: false, api_name: "operationTypeId"
 
         field :document_series_id, -> { String }, optional: true, nullable: false, api_name: "documentSeriesId"

@@ -32,6 +32,8 @@ module Nordlet
 
         field :notes, -> { String }, optional: true, nullable: false
 
+        field :locale, -> { Nordlet::Sales::Types::InvoicesUpdateSalesRequestLocale }, optional: true, nullable: false
+
         field :operation_type_id, -> { String }, optional: true, nullable: false, api_name: "operationTypeId"
 
         field :document_series_id, -> { String }, optional: true, nullable: false, api_name: "documentSeriesId"

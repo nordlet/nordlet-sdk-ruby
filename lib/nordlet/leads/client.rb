@@ -10,6 +10,11 @@ module Nordlet
         @client = client
       end
 
+      # Creates a lead in status `new`, `contacted`, `qualified` or `lost`. `assignedUserId` must be a member of the
+      # company and `sourceId` and `typeId` must exist in it; `countryCode` and `currency` are stored in upper case;
+      # `documents` attach uploaded files not yet linked to a record, and `notes` become the lead's first notes with the
+      # caller as author. Emits `lead.created`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::CreateLeadsRequest]
       # @option request_options [String] :base_url
@@ -42,6 +47,8 @@ module Nordlet
         end
       end
 
+      # Returns one lead with its source and type names.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::GetLeadsRequest]
       # @option request_options [String] :base_url
@@ -74,6 +81,10 @@ module Nordlet
         end
       end
 
+      # Changes the given fields of a lead; the clearable fields accept null, `documents` attach more uploaded files,
+      # and `countryCode` and `currency` are stored in upper case. A lead that is already converted cannot change
+      # `status` (409).
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::UpdateLeadsRequest]
       # @option request_options [String] :base_url
@@ -106,6 +117,8 @@ module Nordlet
         end
       end
 
+      # Deletes a lead with its notes and detaches its files, which stay in the company's files without a record.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::DeleteLeadsRequest]
       # @option request_options [String] :base_url
@@ -138,6 +151,10 @@ module Nordlet
         end
       end
 
+      # Lists leads with their source and type names; filterable by `name`, `contactName`, `email`, `phone`, `status`,
+      # `sourceId`, `typeId`, `countryCode`, `assignedUserId`, `partnerId`, `estimatedValue` and `createdAt`, sortable
+      # by `name`, `status`, `estimatedValue`, `createdAt` and `updatedAt`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::ListLeadsRequest]
       # @option request_options [String] :base_url
@@ -170,6 +187,8 @@ module Nordlet
         end
       end
 
+      # Adds a note to a lead with the caller as author and refreshes the lead's `updatedAt`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::NotesCreateLeadsRequest]
       # @option request_options [String] :base_url
@@ -202,6 +221,8 @@ module Nordlet
         end
       end
 
+      # Deletes a lead note.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::NotesDeleteLeadsRequest]
       # @option request_options [String] :base_url
@@ -234,6 +255,8 @@ module Nordlet
         end
       end
 
+      # Lists the notes of a lead, newest first.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::NotesListLeadsRequest]
       # @option request_options [String] :base_url
@@ -266,6 +289,8 @@ module Nordlet
         end
       end
 
+      # Lists the files attached to a lead, newest first.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::FilesListLeadsRequest]
       # @option request_options [String] :base_url
@@ -298,6 +323,8 @@ module Nordlet
         end
       end
 
+      # Creates a lead source; a `name` already used by a source of the company is refused with 409.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::SourcesCreateLeadsRequest]
       # @option request_options [String] :base_url
@@ -330,6 +357,9 @@ module Nordlet
         end
       end
 
+      # Changes the name or `isActive` flag of a lead source; a name already used by another source of the company is
+      # refused with 409.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::SourcesUpdateLeadsRequest]
       # @option request_options [String] :base_url
@@ -362,6 +392,9 @@ module Nordlet
         end
       end
 
+      # Deletes a lead source; one still referenced by a lead is refused with 409 and should be deactivated with
+      # `leads/sources/update` instead.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::SourcesDeleteLeadsRequest]
       # @option request_options [String] :base_url
@@ -394,6 +427,8 @@ module Nordlet
         end
       end
 
+      # Lists all lead sources of the company, active and inactive, ordered by name.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::SourcesListLeadsRequest]
       # @option request_options [String] :base_url
@@ -426,6 +461,8 @@ module Nordlet
         end
       end
 
+      # Lists the id and name of the active lead sources, ordered by name.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::SourcesOptionsLeadsRequest]
       # @option request_options [String] :base_url
@@ -458,6 +495,8 @@ module Nordlet
         end
       end
 
+      # Creates a lead type; a `name` already used by a type of the company is refused with 409.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::TypesCreateLeadsRequest]
       # @option request_options [String] :base_url
@@ -490,6 +529,9 @@ module Nordlet
         end
       end
 
+      # Changes the name or `isActive` flag of a lead type; a name already used by another type of the company is
+      # refused with 409.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::TypesUpdateLeadsRequest]
       # @option request_options [String] :base_url
@@ -522,6 +564,9 @@ module Nordlet
         end
       end
 
+      # Deletes a lead type; one still referenced by a lead is refused with 409 and should be deactivated with
+      # `leads/types/update` instead.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::TypesDeleteLeadsRequest]
       # @option request_options [String] :base_url
@@ -554,6 +599,8 @@ module Nordlet
         end
       end
 
+      # Lists all lead types of the company, active and inactive, ordered by name.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::TypesListLeadsRequest]
       # @option request_options [String] :base_url
@@ -586,6 +633,8 @@ module Nordlet
         end
       end
 
+      # Lists the id and name of the active lead types, ordered by name.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::TypesOptionsLeadsRequest]
       # @option request_options [String] :base_url

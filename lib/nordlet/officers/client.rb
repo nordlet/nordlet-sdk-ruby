@@ -46,6 +46,9 @@ module Nordlet
         end
       end
 
+      # Add an officer to the company's register (`officers/list`); `signsAccounts` defaults to true. Refused with 422
+      # when `resignedOn` is before `appointedOn`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Officers::Types::CreateOfficersRequest]
       # @option request_options [String] :base_url
@@ -78,6 +81,9 @@ module Nordlet
         end
       end
 
+      # Replace the recorded data of an officer; every field is written as sent, so a field left out is cleared and
+      # `signsAccounts` falls back to true. Refused with 422 when `resignedOn` is before `appointedOn`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Officers::Types::UpdateOfficersRequest]
       # @option request_options [String] :base_url
@@ -110,6 +116,8 @@ module Nordlet
         end
       end
 
+      # Remove an officer from the company's register.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Officers::Types::DeleteOfficersRequest]
       # @option request_options [String] :base_url

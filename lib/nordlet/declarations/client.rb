@@ -10,6 +10,13 @@ module Nordlet
         @client = client
       end
 
+      # Builds the Lithuanian Intrastat report of a month for one flow as the IDAIS INTRASTATReportSubmission XML:
+      # dispatches from the issued sale invoices and purchase credit notes, arrivals from the registered purchase
+      # invoices and sale credit notes, grouped into report items. `transactionNature`, `deliveryTerms`, `transportMode`
+      # and `regionCode` are the defaults for lines without their own values; `statisticalValueRequired` adds the
+      # statistical value to each item. Answers 422 when the company is not a VAT payer. With `persist`, the file is
+      # stored and a submission for `lt-intrastat-arrivals` or `lt-intrastat-dispatches` is created.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtIntrastatComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -42,6 +49,10 @@ module Nordlet
         end
       end
 
+      # Builds the i.VAZ transport document message (iVAZ1.3.3) for up to 100 issued waybills and returns the XML.
+      # Answers 422 when the registration code of the company is not numeric or when a waybill is not issued. With
+      # `persist`, the file is stored and a submission for `lt-ivaz` is created.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtIvazGenerateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -74,6 +85,11 @@ module Nordlet
         end
       end
 
+      # Checks the Intrastat reporting obligation of a year per flow: the value of goods traded with other Member States
+      # in the previous year, the month from which reporting is due (January when that value already passed the
+      # reporting threshold, else the month the cumulative value of the year passes it), whether the statistical value
+      # is required, and the monthly values. Answers 422 when no thresholds are stored for the year.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtIntrastatObligationDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -106,6 +122,10 @@ module Nordlet
         end
       end
 
+      # Builds the Lithuanian i.SAF register XML of a month: `dataType` F covers both registers, S the issued sale
+      # invoices only, P the registered purchase invoices only. Returns the XML without storing it;
+      # `declarations/submissions/create` stores it as a submission.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtIsafGenerateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -138,6 +158,10 @@ module Nordlet
         end
       end
 
+      # Computes the fields of the Lithuanian VAT return FR0600 for the period of `months` months starting in `month`,
+      # with the breakdown by VAT classifier behind them. `deductionPercent` is the share of input VAT deducted and is
+      # written to field 28.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtFr0600ComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -170,6 +194,11 @@ module Nordlet
         end
       end
 
+      # Computes fields 5 to 7 of the monthly GPM313 from the payroll run of the month the pay was earned: the run of
+      # the previous month with `payoutTiming` `next-month`, the run of the same month with `same-month`. `paymentDay`
+      # decides whether the withheld tax goes to field 6 (paid by the 15th) or field 7 (after it). Fields 8 to 12 are
+      # returned as zero.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtGpm313ComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -202,6 +231,10 @@ module Nordlet
         end
       end
 
+      # Computes the monthly SAM figures from the payroll run of the month: per employee the insured income, the
+      # employee and employer contributions together and the resulting tariff, plus the insured count and the totals. A
+      # missing run or a run still in draft is reported in the warnings.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtSamComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -234,6 +267,10 @@ module Nordlet
         end
       end
 
+      # Lists the rows of the 1-SD (employment contracts that start in the date range) or of the 2-SD (contracts that
+      # ended in the range, with the final insured income and contributions from the payroll line of the termination
+      # month). Answers 422 when `fromDate` is after `toDate`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtSdGenerateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -266,6 +303,11 @@ module Nordlet
         end
       end
 
+      # Builds the Lithuanian SAF-T (version 2.01) XML for a date range: `dataType` F is the full file, GL, SI, PI, PA,
+      # MG and AS limit it to the general ledger, sale invoices, purchase invoices, payments, movements of goods or
+      # asset transactions. Answers 422 when `fromDate` is after `toDate`. With `persist`, the file is stored and a
+      # submission for `lt-saft` is created.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtSaftGenerateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -298,6 +340,11 @@ module Nordlet
         end
       end
 
+      # Builds an i.VAZ amendment message for up to 100 issued waybills, carrying their current data as
+      # TransportDocumentAmendment elements. Answers 422 when the registration code of the company is not numeric or
+      # when a waybill is not issued. With `persist`, the file is stored and a submission for `lt-ivaz-amendment` is
+      # created.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtIvazAmendDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -330,6 +377,11 @@ module Nordlet
         end
       end
 
+      # Builds an i.VAZ cancellation message for up to 100 waybills, each with a cancellation reason code and optional
+      # additional information. Answers 422 when the registration code of the company is not numeric; a waybill that was
+      # never issued is reported in the warnings. With `persist`, the file is stored and a submission for
+      # `lt-ivaz-cancellation` is created.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtIvazCancelDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -362,6 +414,11 @@ module Nordlet
         end
       end
 
+      # Computes the rows of the Lithuanian FR0564 report of a month from the issued sale invoices and credit notes with
+      # the `intra_eu_b2b` or `reverse_charge` scheme: one row per buyer VAT number of another Member State, with goods
+      # and services split by the type of the catalogue item. Invoices not in EUR and buyers without a valid EU VAT
+      # number are left out and named in the warnings; the triangular column is always zero.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtFr0564ComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -394,6 +451,10 @@ module Nordlet
         end
       end
 
+      # Computes the rows of the annual GPM312 from the payroll runs of the payout months of the year (December of the
+      # previous year to November with `payoutTiming` `next-month`, January to December with `same-month`): one row per
+      # employee and payment type code, with the amount paid, the tax withheld and the rate applied.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtGpm312ComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -426,6 +487,12 @@ module Nordlet
         end
       end
 
+      # Computes the boxes of the Lithuanian annual corporate income tax return PLN204 for the fiscal year from the
+      # financial statements and the tax adjustments recorded with `declarations/tax-adjustments/create`: the PLN204S
+      # annex from the `non_deductible` adjustments and the PLN204Z annex from the `non_taxable_income` ones, by their
+      # `code`. The small-entity rate is applied when the size criteria allow it. Answers 422 when such an adjustment
+      # has no code or a code the annex does not list, or when no rate table covers the period.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::LtPln204ComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -458,6 +525,11 @@ module Nordlet
         end
       end
 
+      # Computes the Union OSS return of a quarter from the issued invoices and credit notes with the `oss_union` VAT
+      # scheme: one row per Member State of consumption and VAT rate, classified as standard or reduced, and a
+      # corrections section for the credit notes that credit invoices of earlier periods. Amounts are in EUR, converted
+      # at the official rate of the last day of the period. Answers 422 when the company is not established in the EU.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuOssComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -490,6 +562,10 @@ module Nordlet
         end
       end
 
+      # Computes the IOSS return of a month from the issued invoices and credit notes with the `ioss` VAT scheme, with
+      # the same rows, corrections and EUR conversion as `declarations/eu/oss/compute`. Answers 422 when the company is
+      # not established in the EU.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuIossComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -522,6 +598,11 @@ module Nordlet
         end
       end
 
+      # Builds the monthly return of the special scheme for transfers of own goods from the warehouse transfers between
+      # warehouses in two different EU Member States: one row per destination and dispatch country with the cost of the
+      # goods as the taxable amount in EUR, the transfers behind the rows, and the due date. Answers 422 when the
+      # company is not established in the EU.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuOwnGoodsTransfersComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -554,6 +635,12 @@ module Nordlet
         end
       end
 
+      # Lists the transactions of a date range that fall under EU digital reporting: issued sale invoices and credit
+      # notes with the `intra_eu_b2b` or `reverse_charge` scheme to EU customers, and registered purchase invoices from
+      # suppliers in other Member States whose lines carry a self-assessed VAT classifier. Each transaction names the
+      # article it is reported under, the Member State it is reported to, its deadline and the data still missing.
+      # Answers 422 when the company is not identified for VAT in the EU.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuDigitalReportingListDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -621,6 +708,10 @@ module Nordlet
         end
       end
 
+      # Builds the DAC7 (DPI) XML report of a year for the Member State of the company and returns it base64-encoded
+      # with the file name the administration expects. Answers 422 when no DAC7 filing channel exists for the company
+      # country. The sellers and the missing data behind it come from `declarations/eu/dac7/preview`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuDac7XMLDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -653,6 +744,11 @@ module Nordlet
         end
       end
 
+      # Sums the cross-border sales to EU consumers (invoices under the `oss_union` scheme, and domestic-scheme invoices
+      # to partners without a VAT number in another Member State) of the current and the preceding calendar year as of
+      # `date` (default: the current date of the company) and compares both with the EUR 10 000 distance sales
+      # threshold.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuDistanceSalesThresholdGetDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -685,6 +781,11 @@ module Nordlet
         end
       end
 
+      # Sums the turnover of the company within the Union (issued invoices and credit notes other than export and
+      # out-of-scope supplies) for the current and the previous calendar year as of `date` (default: the current date of
+      # the company) and compares it with the EUR 100 000 cap of the cross-border SME scheme. The status is
+      # `not_applicable` for a registered VAT payer, otherwise `below`, `approaching` or `exceeded`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuUnionTurnoverGetDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -717,6 +818,11 @@ module Nordlet
         end
       end
 
+      # Builds the quarterly report of the cross-border SME scheme: the value of the issued supplies within the Union
+      # per Member State of supply (the VAT country of the invoice, else the country of the partner, else the home
+      # country), in the base currency of the company. Supplies that resolve to a non-EU country are left out and named
+      # in the warnings.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuSmeCrossBorderReportComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -749,6 +855,10 @@ module Nordlet
         end
       end
 
+      # Returns the stored table of national SME VAT exemption thresholds per Member State, with sector thresholds and
+      # intra-EU acquisition triggers where recorded, and the national and Union-wide caps of the directive. No company
+      # data is read.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuSmeThresholdsListDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -781,6 +891,12 @@ module Nordlet
         end
       end
 
+      # Compares the gross turnover of the company in the current calendar year as of `date` (default: the current date
+      # of the company) with the national SME exemption threshold of its country. The status is `not_applicable` for a
+      # registered VAT payer, `unknown` when no threshold is on file or its currency differs from the base currency,
+      # otherwise `below`, `approaching` or `exceeded`; when the country has an intra-EU acquisitions trigger, the
+      # acquisitions from and services to other Member States are compared with it too.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuSmeThresholdGetDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -813,6 +929,9 @@ module Nordlet
         end
       end
 
+      # Lists the national VAT return forms Nordlet can compute, with the country, form key, form name, filing frequency
+      # and source.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuVatReturnPacksListDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -845,6 +964,10 @@ module Nordlet
         end
       end
 
+      # Computes the national VAT return of `countryCode` for the period of `months` months starting in `month`, as the
+      # numbered boxes of the form with labels and amounts. Answers 422 when no return pack is registered for the
+      # country; the packs are listed by `declarations/eu/vat-return/packs/list`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::EuVatReturnComputeDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1130,6 +1253,9 @@ module Nordlet
         end
       end
 
+      # Records a tax adjustment of one kind for a tax year, with an optional form `code`. Answers 422 when the amount
+      # is zero.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::TaxAdjustmentsCreateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1162,6 +1288,9 @@ module Nordlet
         end
       end
 
+      # Changes the kind, code, amount or description of a recorded tax adjustment; fields left out keep their value and
+      # an empty `code` clears it. Answers 422 when the new amount is zero.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::TaxAdjustmentsUpdateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1194,6 +1323,8 @@ module Nordlet
         end
       end
 
+      # Deletes a recorded tax adjustment.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::TaxAdjustmentsDeleteDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1262,6 +1393,9 @@ module Nordlet
         end
       end
 
+      # Records a payment made towards a tax (`tax`) of a year, and of a month when given, as an advance payment, tax
+      # withheld by others, a final settlement or a refund received. Answers 422 when the amount is zero.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::TaxPaymentsCreateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1294,6 +1428,9 @@ module Nordlet
         end
       end
 
+      # Changes the kind, amount, payment date, reference or description of a recorded tax payment; fields left out keep
+      # their value and an empty `reference` clears it. Answers 422 when the new amount is zero.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::TaxPaymentsUpdateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1326,6 +1463,8 @@ module Nordlet
         end
       end
 
+      # Deletes a recorded tax payment.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::TaxPaymentsDeleteDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1393,6 +1532,12 @@ module Nordlet
         end
       end
 
+      # Creates or replaces the record of a year: whether and when the accounts were adopted, when they were prepared,
+      # whether they were audited (with the qualification flag and the auditor report date) or the auditor was not
+      # elected, the report texts and the appropriation of the result. Answers 422 when `adopted` is true without
+      # `adoptionDate`, when the adoption date is not after 31 December of the year, or when the date of preparation is
+      # after the adoption date.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AnnualAccountsSetDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1425,6 +1570,11 @@ module Nordlet
         end
       end
 
+      # Adds a director to the signatures of the annual accounts of the year: signed, with the date and place of
+      # signature, or not signed, with the reason. Answers 422 when no annual accounts record exists for the year
+      # (`declarations/annual-accounts/set` first), when a signed entry lacks the date or the place, or when an unsigned
+      # entry lacks the reason.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AnnualAccountsSignaturesCreateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1457,6 +1607,9 @@ module Nordlet
         end
       end
 
+      # Replaces the name, type and signing facts of a recorded director signature. Answers 422 when a signed entry
+      # lacks the date or the place of signature, or when an unsigned entry lacks the reason.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AnnualAccountsSignaturesUpdateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1489,6 +1642,8 @@ module Nordlet
         end
       end
 
+      # Deletes a recorded director signature.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AnnualAccountsSignaturesDeleteDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1521,6 +1676,9 @@ module Nordlet
         end
       end
 
+      # Adds a profit distribution decision (decision date, kind, amount, description) to the annual accounts record of
+      # the year. Answers 422 when no annual accounts record exists for the year.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AnnualAccountsDistributionsCreateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1553,6 +1711,8 @@ module Nordlet
         end
       end
 
+      # Replaces the decision date, kind, amount and description of a recorded profit distribution.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AnnualAccountsDistributionsUpdateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1585,6 +1745,8 @@ module Nordlet
         end
       end
 
+      # Deletes a recorded profit distribution.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AnnualAccountsDistributionsDeleteDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -1654,6 +1816,8 @@ module Nordlet
         end
       end
 
+      # Removes the attachment from the annual accounts and deletes its file record and the stored bytes.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AnnualAccountsAttachmentsDeleteDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -2852,6 +3016,11 @@ module Nordlet
         end
       end
 
+      # Lists the filing systems the company can configure: those of the company country (or of `country` when given),
+      # the EU-wide systems and the cross-border e-invoicing systems `it_sdi`, `pl_ksef` and `ro_efactura`. Each row
+      # carries the stored values, with a secret or certificate field shown as `__secret_set__` and the fields taken
+      # from the company profile filled from it.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::ConfigsListDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -2884,6 +3053,10 @@ module Nordlet
         end
       end
 
+      # Stores the settings of one filing system for the company, merging the given fields into the stored ones. A
+      # secret or certificate value is encrypted before it is stored, an empty string clears a field, and
+      # `__secret_set__` leaves a stored secret unchanged. Answers 422 for an unknown system.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::ConfigsUpdateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -2916,6 +3089,11 @@ module Nordlet
         end
       end
 
+      # Stores a PEM certificate, a PEM private key or a PKCS#12 bundle (base64 in `content`, opened with `passphrase`
+      # when it needs one) in the settings of the filing system and replaces the earlier upload of the same kind; for a
+      # PEM certificate the fingerprint, subject, issuer and validity dates are recorded. Answers 422 when the system is
+      # unknown or does not authenticate with a certificate. Returns the full certificate list of the company.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::CertificatesUploadDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -2948,6 +3126,9 @@ module Nordlet
         end
       end
 
+      # Lists the certificates and private keys stored for the filing systems of the company, ordered by system and
+      # field, each with its validity facts and health (`ok`, `expiring`, `expired` or `unknown`).
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::CertificatesListDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -2980,6 +3161,9 @@ module Nordlet
         end
       end
 
+      # Removes the certificate or the private key (`fieldKey`) of a filing system from the settings of the company and
+      # from the certificate list, and returns the remaining certificates.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::CertificatesDeleteDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -3012,6 +3196,10 @@ module Nordlet
         end
       end
 
+      # Lists the filing deadlines Nordlet can file by itself for the country of the company: for each, whether
+      # automatic filing is switched on, whether the rule applies to the company profile, whether its filing system is
+      # configured, the state of its certificate and whether it would go to the test or the production service.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AutomationListDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -3044,6 +3232,11 @@ module Nordlet
         end
       end
 
+      # Switches automatic filing of one deadline on or off for the company and returns the list of
+      # `declarations/automation/list`. Answers 422 when the deadline is not one Nordlet files, or when switching on
+      # while the filing system is connected to the test service of the administration (unless the company is a
+      # sandbox), is not configured, or has no valid certificate.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::AutomationUpdateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -3076,6 +3269,10 @@ module Nordlet
         end
       end
 
+      # Sends a submission that is still in status `generated` through its filing system once more, with the stored file
+      # or, when none was stored yet, a freshly generated one, and returns the updated submission. Answers 409 when the
+      # submission is already submitted, accepted or rejected.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::SubmissionsRetryDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -3108,6 +3305,11 @@ module Nordlet
         end
       end
 
+      # Builds the Lithuanian i.SAF register file of a month (`dataType` F both registers, S sale invoices only, P
+      # purchase invoices only), stores it and creates a submission in status `generated` for the obligation `lt-isaf`,
+      # the only obligation accepted. The XML alone comes from `declarations/lt/isaf/generate`; the submission is moved
+      # on with `declarations/submissions/mark`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::SubmissionsCreateDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -3140,6 +3342,10 @@ module Nordlet
         end
       end
 
+      # Records by hand that a submission was sent, accepted or rejected, with the reference and message of the
+      # administration when given. The allowed moves are `generated` to `submitted` and `submitted` to `accepted` or
+      # `rejected`; any other move answers 409. A submission without a transport system is marked as sent manually.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::SubmissionsMarkDeclarationsRequest]
       # @option request_options [String] :base_url
@@ -3172,6 +3378,9 @@ module Nordlet
         end
       end
 
+      # Lists the declaration submissions of the company, newest first, filterable by `obligation`, `status`,
+      # `periodYear` and `periodMonth` and sortable by `createdAt` or `periodYear`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::SubmissionsListDeclarationsRequest]
       # @option request_options [String] :base_url

@@ -84,6 +84,10 @@ module Nordlet
 
         field :received_by_title, -> { String }, optional: false, nullable: true, api_name: "receivedByTitle"
 
+        field :locale, -> { String }, optional: false, nullable: true
+
+        field :recurring_invoice_id, -> { String }, optional: false, nullable: true, api_name: "recurringInvoiceId"
+
         field :locked_at, -> { String }, optional: false, nullable: true, api_name: "lockedAt"
 
         field :locked_by, -> { String }, optional: false, nullable: true, api_name: "lockedBy"

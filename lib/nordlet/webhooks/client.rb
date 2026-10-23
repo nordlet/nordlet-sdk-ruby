@@ -10,6 +10,10 @@ module Nordlet
         @client = client
       end
 
+      # Register a webhook endpoint for the given event types (`*` for every event). The URL must be an https address
+      # that resolves to a public network (422 otherwise). The signing secret is generated unless `secret` is given, and
+      # this call is the only one that returns it.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Webhooks::Types::SubscriptionsCreateWebhooksRequest]
       # @option request_options [String] :base_url
@@ -42,6 +46,9 @@ module Nordlet
         end
       end
 
+      # List the company's webhook subscriptions with their last delivery state. Filterable by `url` and `isActive`;
+      # sortable by `createdAt` and `url`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Webhooks::Types::SubscriptionsListWebhooksRequest]
       # @option request_options [String] :base_url
@@ -74,6 +81,11 @@ module Nordlet
         end
       end
 
+      # Change the URL, event types or `isActive` flag of a subscription; at least one field is required (400) and a new
+      # URL must be an https address that resolves to a public network (422). Setting `isActive` to true also clears
+      # `pausedAt` and `consecutiveFailures`, which is how a subscription paused after 5 failed deliveries in a row is
+      # switched back on.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Webhooks::Types::SubscriptionsUpdateWebhooksRequest]
       # @option request_options [String] :base_url
@@ -106,6 +118,8 @@ module Nordlet
         end
       end
 
+      # Delete a webhook subscription.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Webhooks::Types::SubscriptionsDeleteWebhooksRequest]
       # @option request_options [String] :base_url
@@ -138,6 +152,9 @@ module Nordlet
         end
       end
 
+      # List the company's webhook deliveries, newest first. Filterable by `status`, `eventType` and `subscriptionId`;
+      # sortable by `createdAt`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Webhooks::Types::DeliveriesListWebhooksRequest]
       # @option request_options [String] :base_url
@@ -170,6 +187,9 @@ module Nordlet
         end
       end
 
+      # Send a delivery again now: its status goes back to `pending` with the attempt count and last error cleared.
+      # Answers 409 when the subscription is inactive.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Webhooks::Types::DeliveriesRedeliverWebhooksRequest]
       # @option request_options [String] :base_url

@@ -10,6 +10,8 @@ module Nordlet
         @client = client
       end
 
+      # Creates a job position with an optional code and name translations, for use in `hr/contracts/create`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::PositionsCreateHrRequest]
       # @option request_options [String] :base_url
@@ -42,6 +44,8 @@ module Nordlet
         end
       end
 
+      # Changes the code, name or translations of a position; a null `translations` removes them.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::PositionsUpdateHrRequest]
       # @option request_options [String] :base_url
@@ -74,6 +78,8 @@ module Nordlet
         end
       end
 
+      # Lists the company's positions; filterable and sortable by `name` and `code`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::PositionsListHrRequest]
       # @option request_options [String] :base_url
@@ -106,6 +112,9 @@ module Nordlet
         end
       end
 
+      # Creates an employee record. `payrollOptions` holds the country-specific settings the payroll engine reads for
+      # the person (see `hr/employees/fields`); `applyAllowance` defaults to true and `pensionAccumulation` to false.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesCreateHrRequest]
       # @option request_options [String] :base_url
@@ -138,6 +147,10 @@ module Nordlet
         end
       end
 
+      # Changes the given fields of an employee; a null clears the fields that allow it (code, personal code, birth
+      # date, contact details, address, IBAN, social insurance number and start, hire date, notes). `status` and
+      # `terminationDate` are set here too.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesUpdateHrRequest]
       # @option request_options [String] :base_url
@@ -170,6 +183,8 @@ module Nordlet
         end
       end
 
+      # Reads one employee.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesGetHrRequest]
       # @option request_options [String] :base_url
@@ -238,6 +253,9 @@ module Nordlet
         end
       end
 
+      # Lists the employees that are not deleted; filterable by `firstName`, `lastName`, `code`, `status` and `email`,
+      # sortable by `lastName`, `code` and `createdAt`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesListHrRequest]
       # @option request_options [String] :base_url
@@ -270,6 +288,9 @@ module Nordlet
         end
       end
 
+      # Marks the employee deleted; the record stays and no longer appears in lists or payroll runs.
+      # `hr/employees/anonymize` also blanks the personal data.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesDeleteHrRequest]
       # @option request_options [String] :base_url
@@ -338,6 +359,12 @@ module Nordlet
         end
       end
 
+      # Creates an employment contract for an employee. A `permanent` contract takes no `endDate` and a `fixed_term` one
+      # requires it; the number comes from `contractNo` or, with `agreementId`, from the employee's agreement;
+      # `workHours` defaults by `salaryType`. Answers 422 when the end date is before the start, and 409 when the
+      # employee already has a contract overlapping the period (end it with `hr/contracts/end` first) or the contract
+      # number already exists.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::ContractsCreateHrRequest]
       # @option request_options [String] :base_url
@@ -370,6 +397,9 @@ module Nordlet
         end
       end
 
+      # Ends a contract on `endDate` with an optional reason. Answers 422 when the end date is before the contract
+      # start.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::ContractsEndHrRequest]
       # @option request_options [String] :base_url
@@ -402,6 +432,9 @@ module Nordlet
         end
       end
 
+      # Lists employment contracts; filterable by `employeeId`, `agreementId`, `status` and `contractNo`, sortable by
+      # `startDate` and `contractNo`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::ContractsListHrRequest]
       # @option request_options [String] :base_url
@@ -434,6 +467,9 @@ module Nordlet
         end
       end
 
+      # Creates or replaces the leave entitlement of an employee for a year; `usedDays` is kept unless given (0 on a new
+      # row) and `remainingDays` is the entitled days less the used ones.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::LeaveBalancesSetHrRequest]
       # @option request_options [String] :base_url
@@ -466,6 +502,8 @@ module Nordlet
         end
       end
 
+      # Lists leave balances, narrowed to an employee and/or a year when given, oldest year first.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::LeaveBalancesListHrRequest]
       # @option request_options [String] :base_url
@@ -498,6 +536,9 @@ module Nordlet
         end
       end
 
+      # Records a sick-leave certificate of an employee. Answers 422 when `toDate` is before `fromDate`.
+      # `payroll/runs/create` warns when a certificate covers working days of a month that has no timesheet.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::IncapacityCertificatesCreateHrRequest]
       # @option request_options [String] :base_url
@@ -530,6 +571,8 @@ module Nordlet
         end
       end
 
+      # Lists incapacity certificates; filterable by `employeeId` and `number`, sortable by `fromDate` and `number`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::IncapacityCertificatesListHrRequest]
       # @option request_options [String] :base_url
@@ -562,6 +605,10 @@ module Nordlet
         end
       end
 
+      # Adds the company's daily per diem rate for a destination country from `validFrom`; `hr/business-trips/create`
+      # takes the latest rate valid on the trip's start date. Answers 409 when a rate for that country already starts on
+      # that date.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::PerDiemRatesCreateHrRequest]
       # @option request_options [String] :base_url
@@ -594,6 +641,8 @@ module Nordlet
         end
       end
 
+      # Lists per diem rates; filterable by `countryCode`, sortable by `countryCode` and `validFrom`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::PerDiemRatesListHrRequest]
       # @option request_options [String] :base_url
@@ -626,6 +675,8 @@ module Nordlet
         end
       end
 
+      # Deletes a per diem rate.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::PerDiemRatesDeleteHrRequest]
       # @option request_options [String] :base_url
@@ -658,6 +709,11 @@ module Nordlet
         end
       end
 
+      # Stores the trip as a draft with `days` counted as calendar days, both ends included, and `perDiemAmount` as the
+      # days times the company's rate for the destination valid on the start date (`hr/per-diem-rates/create`). Answers
+      # 422 when the trip ends before it starts or no rate covers the destination on that date, and 409 when the
+      # employee already has a trip overlapping the dates.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::BusinessTripsCreateHrRequest]
       # @option request_options [String] :base_url
@@ -690,6 +746,8 @@ module Nordlet
         end
       end
 
+      # Reads one business trip.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::BusinessTripsGetHrRequest]
       # @option request_options [String] :base_url
@@ -722,6 +780,8 @@ module Nordlet
         end
       end
 
+      # Lists business trips; filterable by `employeeId`, `status` and `payrollRunId`, sortable by `startDate`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::BusinessTripsListHrRequest]
       # @option request_options [String] :base_url
@@ -754,6 +814,10 @@ module Nordlet
         end
       end
 
+      # Sets the trip's status to `approved`. `payroll/runs/create` without explicit lines adds the per diem of every
+      # approved trip ending in the run month as an untaxed addition and sets the trip's `payrollRunId`; reversing or
+      # cancelling the run releases the trip again. Answers 409 when the trip is not a draft.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::BusinessTripsApproveHrRequest]
       # @option request_options [String] :base_url
@@ -786,6 +850,8 @@ module Nordlet
         end
       end
 
+      # Deletes a draft trip; answers 409 when the trip is not a draft.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::BusinessTripsDeleteHrRequest]
       # @option request_options [String] :base_url
@@ -818,6 +884,9 @@ module Nordlet
         end
       end
 
+      # Adds an education, qualification, certificate or training record to an employee, optionally linked to one of the
+      # company's uploaded files (`fileId`).
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesRecordsCreateHrRequest]
       # @option request_options [String] :base_url
@@ -850,6 +919,8 @@ module Nordlet
         end
       end
 
+      # Changes the given fields of an employee record; `issuedAt`, `validUntil` and `fileId` can be cleared with null.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesRecordsUpdateHrRequest]
       # @option request_options [String] :base_url
@@ -882,6 +953,8 @@ module Nordlet
         end
       end
 
+      # Deletes an employee record.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesRecordsDeleteHrRequest]
       # @option request_options [String] :base_url
@@ -914,6 +987,8 @@ module Nordlet
         end
       end
 
+      # Lists employee records; filterable by `employeeId`, `type` and `title`, sortable by `createdAt` and `issuedAt`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesRecordsListHrRequest]
       # @option request_options [String] :base_url
@@ -946,6 +1021,8 @@ module Nordlet
         end
       end
 
+      # Lists the files uploaded against an employee, newest first.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::EmployeesAttachmentsListHrRequest]
       # @option request_options [String] :base_url
@@ -978,6 +1055,11 @@ module Nordlet
         end
       end
 
+      # Builds the timesheet of the month for every employee with a contract in it, or for one employee with
+      # `employeeId`, replacing any existing timesheet: the Monday to Friday days within the contract get the contract's
+      # daily hours (its weekly hours over five), and for a Lithuanian company the public holidays are `holiday` days
+      # with 0 hours. Answers 422 when no contract covers the month.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::TimesheetsGenerateHrRequest]
       # @option request_options [String] :base_url
@@ -1010,6 +1092,11 @@ module Nordlet
         end
       end
 
+      # Creates or replaces the timesheet of an employee for a month from the given days; `workedDays` and `workedHours`
+      # count the `work` and `business_trip` days with hours. Answers 422 for a day outside the month, a day given twice
+      # or more than 24 hours in a day. `payroll/runs/create` reads the timesheet for the paid days, the days worked and
+      # the business-trip days of the month.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::TimesheetsUpsertHrRequest]
       # @option request_options [String] :base_url
@@ -1042,6 +1129,8 @@ module Nordlet
         end
       end
 
+      # Reads the timesheet of an employee for a month.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::TimesheetsGetHrRequest]
       # @option request_options [String] :base_url
@@ -1074,6 +1163,8 @@ module Nordlet
         end
       end
 
+      # Lists the timesheets of a month, ordered by employee name.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::TimesheetsListHrRequest]
       # @option request_options [String] :base_url
@@ -1106,6 +1197,8 @@ module Nordlet
         end
       end
 
+      # Deletes a timesheet.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::TimesheetsDeleteHrRequest]
       # @option request_options [String] :base_url

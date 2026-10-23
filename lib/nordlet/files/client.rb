@@ -10,6 +10,9 @@ module Nordlet
         @client = client
       end
 
+      # Store a base64-encoded file of up to 10 MB (413 above that) under an `entity` and optional `entityId`, and
+      # return its record with the SHA-256 of the content and its `storageKey`, which other calls take as `documentRef`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Files::Types::UploadFilesRequest]
       # @option request_options [String] :base_url
@@ -42,6 +45,8 @@ module Nordlet
         end
       end
 
+      # Return a file record with its content, base64-encoded.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Files::Types::GetFilesRequest]
       # @option request_options [String] :base_url
@@ -74,6 +79,9 @@ module Nordlet
         end
       end
 
+      # List the company's files. Filterable by `entity`, `entityId` and `fileName`; sortable by `createdAt`, `fileName`
+      # and `sizeBytes`.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Files::Types::ListFilesRequest]
       # @option request_options [String] :base_url
@@ -106,6 +114,8 @@ module Nordlet
         end
       end
 
+      # Delete a file record and its stored content.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Files::Types::DeleteFilesRequest]
       # @option request_options [String] :base_url

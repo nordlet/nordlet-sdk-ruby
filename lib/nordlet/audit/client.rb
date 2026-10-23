@@ -10,6 +10,10 @@ module Nordlet
         @client = client
       end
 
+      # List the audit log of the company: who did what to which entity, with the recorded change in `diff`. Filterable
+      # by `action`, `entity`, `entityId`, `actorType` and `actorId`; sortable by `createdAt` and `id`, newest first by
+      # default.
+      #
       # @param request_options [Hash]
       # @param params [Nordlet::Audit::Types::ListAuditRequest]
       # @option request_options [String] :base_url

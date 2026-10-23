@@ -27,6 +27,7 @@ module Nordlet
         PURCHASE_INVOICE_REGISTERED = "purchase_invoice.registered"
         PURCHASE_ORDER_APPROVED = "purchase_order.approved"
         PURCHASE_ORDER_RECEIVED = "purchase_order.received"
+        RECURRING_INVOICE_GENERATED = "recurring_invoice.generated"
         REFUND_LIABILITY_ACTUAL = "refund_liability.actual"
         REFUND_LIABILITY_TRUED_UP = "refund_liability.trued_up"
         REPORT_COMPLETED = "report.completed"
