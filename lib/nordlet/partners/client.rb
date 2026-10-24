@@ -457,12 +457,13 @@ module Nordlet
         end
       end
 
-      # Runs the selection of the daily debt-reminder job for this company as of the company's current date and returns
-      # what it would send, without sending or recording anything. A partner is included when it has `autoDebtReminder`,
-      # is active, has an e-mail address, got no reminder in the last 7 days and has issued invoices or advance invoices
-      # past their due date with an unpaid remainder; the interest per invoice is the remainder times the partner's
-      # `lateInterestPercent` times the days late over 365, and the totals are per currency. Sent reminders are listed
-      # by `partners/debt-reminders/list`.
+      # Runs the overdue selection of the daily debt-reminder job for this company as of the company's current date and
+      # returns the overdue reminders it would send, without sending or recording anything. A partner is included when
+      # it has `autoDebtReminder`, is active, has an e-mail address, got no overdue reminder in the last `repeatDays`
+      # days (`partners/debt-reminders/settings/get`) and has issued invoices or advance invoices past their due date
+      # with an unpaid remainder; the interest per invoice is the remainder times the partner's `lateInterestPercent`
+      # times the days late over 365, and the totals are per currency. Sent reminders are listed by
+      # `partners/debt-reminders/list`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Partners::Types::DebtRemindersPreviewPartnersRequest]
@@ -497,7 +498,7 @@ module Nordlet
       end
 
       # Lists the debt reminders the daily job has sent, one row per partner and currency with the ids of the invoices
-      # it covered; filterable by `partnerId`, sortable by `sentAt`.
+      # it covered and its `kind` (`before_due` or `overdue`); filterable by `partnerId`, sortable by `sentAt`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Partners::Types::DebtRemindersListPartnersRequest]
@@ -525,6 +526,118 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Partners::Types::DebtRemindersListPartnersResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Returns the debt-reminder schedule of the company: `daysBefore`, the days before the due date on which the first
+      # reminder is sent (null when no reminder is sent before the due date), and `repeatDays`, the days between overdue
+      # reminders to a partner.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Partners::Types::DebtRemindersSettingsGetPartnersRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Partners::Types::DebtRemindersSettingsGetPartnersResponse]
+      def debt_reminders_settings_get(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/partners/debt-reminders/settings/get",
+          body: Nordlet::Partners::Types::DebtRemindersSettingsGetPartnersRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Partners::Types::DebtRemindersSettingsGetPartnersResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Changes the given fields of the company's debt-reminder schedule. `daysBefore` (1 to 90, or null to send nothing
+      # before the due date) makes the daily job send one "payment due soon" reminder per invoice that many days before
+      # its due date; `repeatDays` (1 to 90) is the number of days between overdue reminders to a partner. Only partners
+      # with `autoDebtReminder` get reminders. A body without fields is refused with 400.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Partners::Types::DebtRemindersSettingsUpdatePartnersRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Partners::Types::DebtRemindersSettingsUpdatePartnersResponse]
+      def debt_reminders_settings_update(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/partners/debt-reminders/settings/update",
+          body: Nordlet::Partners::Types::DebtRemindersSettingsUpdatePartnersRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Partners::Types::DebtRemindersSettingsUpdatePartnersResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Returns the next reminder the daily debt-reminder job would send for each unpaid issued invoice or advance
+      # invoice of the partners that get reminders (`autoDebtReminder`, active, with an e-mail address), as of the
+      # company's current date and sorted by `date`. A `before_due` reminder is sent once per invoice, `daysBefore` days
+      # before its due date or on the first daily run after that while the due date is still ahead; `overdue` reminders
+      # start the day after the due date and repeat every `repeatDays` days per partner, counting only overdue
+      # reminders. Nothing is sent or recorded.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Partners::Types::DebtRemindersUpcomingPartnersRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Partners::Types::DebtRemindersUpcomingPartnersResponse]
+      def debt_reminders_upcoming(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/partners/debt-reminders/upcoming",
+          body: Nordlet::Partners::Types::DebtRemindersUpcomingPartnersRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Partners::Types::DebtRemindersUpcomingPartnersResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

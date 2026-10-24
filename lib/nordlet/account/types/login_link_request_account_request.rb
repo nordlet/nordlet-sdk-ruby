@@ -13,6 +13,8 @@ module Nordlet
         field :accept_dpa, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "acceptDpa"
 
         field :referral_code, -> { String }, optional: true, nullable: false, api_name: "referralCode"
+
+        field :app, -> { Nordlet::Account::Types::LoginLinkRequestAccountRequestApp }, optional: true, nullable: false
       end
     end
   end

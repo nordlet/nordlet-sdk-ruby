@@ -8,6 +8,8 @@ module Nordlet
 
         field :partner_id, -> { String }, optional: false, nullable: false, api_name: "partnerId"
 
+        field :kind, -> { Nordlet::Partners::Types::DebtRemindersListPartnersResponseRowsItemKind }, optional: false, nullable: false
+
         field :sent_to, -> { String }, optional: false, nullable: false, api_name: "sentTo"
 
         field :invoice_count, -> { Integer }, optional: false, nullable: false, api_name: "invoiceCount"
