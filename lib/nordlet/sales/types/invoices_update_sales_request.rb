@@ -34,6 +34,10 @@ module Nordlet
 
         field :locale, -> { Nordlet::Sales::Types::InvoicesUpdateSalesRequestLocale }, optional: true, nullable: false
 
+        field :pay_link_enabled, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "payLinkEnabled"
+
+        field :debt_reminders_enabled, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "debtRemindersEnabled"
+
         field :operation_type_id, -> { String }, optional: true, nullable: false, api_name: "operationTypeId"
 
         field :document_series_id, -> { String }, optional: true, nullable: false, api_name: "documentSeriesId"
@@ -51,6 +55,8 @@ module Nordlet
         field :received_by_name, -> { String }, optional: true, nullable: false, api_name: "receivedByName"
 
         field :received_by_title, -> { String }, optional: true, nullable: false, api_name: "receivedByTitle"
+
+        field :sales_tax_percent, -> { String }, optional: true, nullable: false, api_name: "salesTaxPercent"
 
         field :lines, -> { Internal::Types::Array[Nordlet::Sales::Types::InvoicesUpdateSalesRequestLinesItem] }, optional: true, nullable: false
       end

@@ -262,9 +262,10 @@ module Nordlet
       end
 
       # Open a Stripe Checkout session for a flat-rate subscription on `plan`, with the trial period of `trialDays`
-      # days, and return its URL; a Stripe customer is created for the user when there is none. Answers 409 when a
-      # flat-rate subscription is already active and 503 when online payments are not configured or the plan has no
-      # price.
+      # days, and return its URL; a Stripe customer is created for the user when there is none. The `invoicing` plan of
+      # the invoice tool takes its trial days from the server setting `INVOICE_PLAN_TRIAL_DAYS` and returns to the
+      # invoice app. Answers 409 when a flat-rate subscription is already active and 503 when online payments are not
+      # configured, the plan has no price, or the Invoicing trial is not set.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Billing::Types::FlatRateCreateBillingRequest]
@@ -328,6 +329,42 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Billing::Types::FlatRateConfirmBillingResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Cancel the user's Stripe subscription at the end of the period already paid: the plan stays active until
+      # `subscriptionCancelAt`, and Stripe then ends the subscription, which its `customer.subscription.deleted` webhook
+      # records. Answers 503 when online payments are not configured and 409 when the account has no subscription.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Billing::Types::SubscriptionCancelBillingRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Billing::Types::SubscriptionCancelBillingResponse]
+      def subscription_cancel(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/billing/subscription/cancel",
+          body: Nordlet::Billing::Types::SubscriptionCancelBillingRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Billing::Types::SubscriptionCancelBillingResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

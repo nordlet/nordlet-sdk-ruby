@@ -28,6 +28,10 @@ module Nordlet
 
         field :payment_term_days, -> { Integer }, optional: true, nullable: false, api_name: "paymentTermDays"
 
+        field :invoice_currency, -> { Nordlet::Partners::Types::CreatePartnersRequestInvoiceCurrency }, optional: true, nullable: false, api_name: "invoiceCurrency"
+
+        field :invoice_locale, -> { Nordlet::Partners::Types::CreatePartnersRequestInvoiceLocale }, optional: true, nullable: false, api_name: "invoiceLocale"
+
         field :credit_limit, -> { String }, optional: true, nullable: false, api_name: "creditLimit"
 
         field :price_list_id, -> { String }, optional: true, nullable: false, api_name: "priceListId"

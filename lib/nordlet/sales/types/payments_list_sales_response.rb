@@ -1,0 +1,19 @@
+# frozen_string_literal: true
+
+module Nordlet
+  module Sales
+    module Types
+      class PaymentsListSalesResponse < Internal::Types::Model
+        field :rows, -> { Internal::Types::Array[Nordlet::Sales::Types::PaymentsListSalesResponseRowsItem] }, optional: false, nullable: false
+
+        field :page, -> { Integer }, optional: false, nullable: false
+
+        field :page_size, -> { Integer }, optional: false, nullable: false, api_name: "pageSize"
+
+        field :total, -> { Integer }, optional: false, nullable: false
+
+        field :totals_by_currency, -> { Internal::Types::Hash[String, String] }, optional: false, nullable: false, api_name: "totalsByCurrency"
+      end
+    end
+  end
+end

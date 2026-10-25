@@ -120,9 +120,48 @@ module Nordlet
         end
       end
 
+      # Return a sale document as its customer sees it: the seller as printed on it (the snapshot taken at issue, else
+      # the company), the buyer with address and e-mail, the lines, the totals, `paidOn` (the date of the latest payment
+      # once the document is paid), `payUrl` (as in `sales/invoices/payment-link`) and `token`, the document's customer
+      # token for `public/invoices/get` and `public/invoices/pdf`, created on first use; `token` is null on a draft.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::InvoicesViewSalesRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::InvoicesViewSalesResponse]
+      def invoices_view(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/invoices/view",
+          body: Nordlet::Sales::Types::InvoicesViewSalesRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::InvoicesViewSalesResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # E-mail an issued sale document as a PDF attachment to `to`, else to the partner's e-mail address, and emit
-      # `sale_invoice.sent`. The PDF is the one of `sales/invoices/pdf`. Answers 422 when e-mail sending is not
-      # configured, when the document is not issued, or when neither `to` nor the partner's e-mail is set.
+      # `sale_invoice.sent`. The PDF is the one of `sales/invoices/pdf`. With `quote: true` the document must be a
+      # draft: it is e-mailed as a quote (PDF titled quote, no payment link), stays a draft, and
+      # `sale_invoice.quote_sent` is emitted instead. Answers 422 when e-mail sending is not configured, when the
+      # document is not issued (or, with `quote`, not a draft), or when neither `to` nor the partner's e-mail is set.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesSendSalesRequest]
@@ -378,10 +417,11 @@ module Nordlet
         end
       end
 
-      # Change a draft sale document. Fields left out keep their value, `lines` replaces every line, and a changed
-      # `discountPercent` recomputes the existing lines. Answers 409 when the document is issued or locked, and 422
-      # under the checks of `sales/invoices/create` (the credited document's partner and currency, the OSS and IOSS
-      # country, VAT on the lines, the operation type and document series).
+      # Change a draft sale document. Fields left out keep their value, `lines` replaces every line, a changed
+      # `discountPercent` recomputes the existing lines, and `salesTaxPercent` (invoices only, null removes it)
+      # recomputes the sales tax and the total. Answers 409 when the document is issued or locked, and 422 under the
+      # checks of `sales/invoices/create` (the credited document's partner and currency, the OSS and IOSS country, VAT
+      # on the lines, the operation type and document series).
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesUpdateSalesRequest]
@@ -563,9 +603,11 @@ module Nordlet
         end
       end
 
-      # Return the customer payment link of a sale document, rendered from the company's payment link template
-      # (`sales/invoices/payment-settings/update`); `url` is null when the company has no template or the document is
-      # not issued. The document's payment token is created on first use. Answers 409 when the document is already paid.
+      # Return the customer payment link of a sale document: the Stripe card payment page (`source` `stripe`) when the
+      # company's Stripe account is connected and can take charges (`sales/invoices/card-payments/get`), else the link
+      # rendered from the company's payment link template (`sales/invoices/payment-settings/update`, `source`
+      # `template`); `url` is null when the company has neither, the document is not issued or its `payLinkEnabled` is
+      # false. The document's payment token is created on first use. Answers 409 when the document is already paid.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesPaymentLinkSalesRequest]
@@ -1754,6 +1796,192 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Sales::Types::RefundLiabilityTrueUpSalesResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # List the money received on sale documents between `from` and `to` (inclusive), oldest first: bank payments
+      # matched to the document, card settlements of a payment provider and cash receipt orders. A reversed bank match
+      # is a row with a negative amount on the date it was reversed. Credit notes, advances applied to a final invoice
+      # and balances carried over by a migration are not money received and are left out. `amount` is in the document
+      # currency; `method` is `card` for a settlement or a payment into a Stripe bank account, `cash` for a cash order
+      # and `bank_transfer` otherwise.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::PaymentsListSalesRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::PaymentsListSalesResponse]
+      def payments_list(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/payments/list",
+          body: Nordlet::Sales::Types::PaymentsListSalesRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::PaymentsListSalesResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Export one calendar month for the accountant as a single file: every invoice and credit note issued in the month
+      # (number, dates, client, currency, net, VAT, total and the amount paid so far) and every payment received in the
+      # month as listed by `sales/payments/list`. `format` is `csv` (comma separated, UTF-8, one section per table) or
+      # `pdf`. `format` `nordlet` instead returns a JSON package that `migration/books/validate` and
+      # `migration/books/import` accept: every posted journal transaction dated in the month with its debit and credit
+      # lines, the accounts those lines use (with their parent accounts) and the partners of those transactions; its
+      # cutoverDate is the day after the month ends. The file comes back base64-encoded in `data`.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::ExportsMonthSalesRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::ExportsMonthSalesResponse]
+      def exports_month(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/exports/month",
+          body: Nordlet::Sales::Types::ExportsMonthSalesRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::ExportsMonthSalesResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Return whether the company's Stripe account is connected for card payments and whether Stripe lets it take
+      # charges yet. While the account is connected but cannot take charges, Stripe is asked again on each call. When
+      # `chargesEnabled` is true, payment links of issued invoices open a Stripe Checkout page on that account.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::InvoicesCardPaymentsGetSalesRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::InvoicesCardPaymentsGetSalesResponse]
+      def invoices_card_payments_get(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/invoices/card-payments/get",
+          body: Nordlet::Sales::Types::InvoicesCardPaymentsGetSalesRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::InvoicesCardPaymentsGetSalesResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Start or continue connecting the company's own Stripe account for card payments: creates the Stripe account on
+      # first use and returns the Stripe-hosted onboarding `url`. Stripe sends the user back to `returnUrl` when
+      # onboarding ends and to `refreshUrl` when the link has expired. Answers 503 when Stripe is not configured.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::InvoicesCardPaymentsConnectSalesRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::InvoicesCardPaymentsConnectSalesResponse]
+      def invoices_card_payments_connect(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/invoices/card-payments/connect",
+          body: Nordlet::Sales::Types::InvoicesCardPaymentsConnectSalesRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::InvoicesCardPaymentsConnectSalesResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Disconnect the company's Stripe account: payment links fall back to the payment link template. The Stripe
+      # account itself is left as it is.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Sales::Types::InvoicesCardPaymentsDisconnectSalesRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Sales::Types::InvoicesCardPaymentsDisconnectSalesResponse]
+      def invoices_card_payments_disconnect(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/sales/invoices/card-payments/disconnect",
+          body: Nordlet::Sales::Types::InvoicesCardPaymentsDisconnectSalesRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Sales::Types::InvoicesCardPaymentsDisconnectSalesResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

@@ -34,6 +34,10 @@ module Nordlet
 
         field :gross_total, -> { String }, optional: false, nullable: false, api_name: "grossTotal"
 
+        field :sales_tax_percent, -> { String }, optional: false, nullable: true, api_name: "salesTaxPercent"
+
+        field :sales_tax_total, -> { String }, optional: false, nullable: false, api_name: "salesTaxTotal"
+
         field :paid_amount, -> { String }, optional: false, nullable: false, api_name: "paidAmount"
 
         field :journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "journalTransactionId"
@@ -93,6 +97,10 @@ module Nordlet
         field :locked_by, -> { String }, optional: false, nullable: true, api_name: "lockedBy"
 
         field :pay_token, -> { String }, optional: false, nullable: true, api_name: "payToken"
+
+        field :pay_link_enabled, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "payLinkEnabled"
+
+        field :debt_reminders_enabled, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "debtRemindersEnabled"
 
         field :einvoice_system, -> { String }, optional: false, nullable: true, api_name: "einvoiceSystem"
 

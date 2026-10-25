@@ -24,6 +24,8 @@ module Nordlet
 
         field :has_subscription, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "hasSubscription"
 
+        field :subscription_cancel_at, -> { String }, optional: false, nullable: true, api_name: "subscriptionCancelAt"
+
         field :payment_failed_at, -> { String }, optional: false, nullable: true, api_name: "paymentFailedAt"
 
         field :payment_failed_invoice_url, -> { String }, optional: false, nullable: true, api_name: "paymentFailedInvoiceUrl"

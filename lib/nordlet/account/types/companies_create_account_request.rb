@@ -32,6 +32,20 @@ module Nordlet
 
         field :bank_name, -> { String }, optional: true, nullable: false, api_name: "bankName"
 
+        field :bank_bic, -> { String }, optional: true, nullable: false, api_name: "bankBic"
+
+        field :bank_code, -> { String }, optional: true, nullable: false, api_name: "bankCode"
+
+        field :bank_branch_code, -> { String }, optional: true, nullable: false, api_name: "bankBranchCode"
+
+        field :bank_account_number, -> { String }, optional: true, nullable: false, api_name: "bankAccountNumber"
+
+        field :invoice_prefix, -> { String }, optional: true, nullable: false, api_name: "invoicePrefix"
+
+        field :default_invoice_locale, -> { Nordlet::Account::Types::CompaniesCreateAccountRequestDefaultInvoiceLocale }, optional: true, nullable: false, api_name: "defaultInvoiceLocale"
+
+        field :default_invoice_note, -> { String }, optional: true, nullable: false, api_name: "defaultInvoiceNote"
+
         field :peppol_id, -> { String }, optional: true, nullable: false, api_name: "peppolId"
 
         field :sepa_creditor_id, -> { String }, optional: true, nullable: false, api_name: "sepaCreditorId"

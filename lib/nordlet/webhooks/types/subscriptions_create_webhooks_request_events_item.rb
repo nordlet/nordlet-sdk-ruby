@@ -41,6 +41,7 @@ module Nordlet
         SALE_INVOICE_PEPPOL_FAILED = "sale_invoice.peppol_failed"
         SALE_INVOICE_PEPPOL_REJECTED = "sale_invoice.peppol_rejected"
         SALE_INVOICE_PEPPOL_SENT = "sale_invoice.peppol_sent"
+        SALE_INVOICE_QUOTE_SENT = "sale_invoice.quote_sent"
         SALE_INVOICE_SENT = "sale_invoice.sent"
         SALES_ORDER_CREATED = "sales_order.created"
         SALES_ORDER_FULFILLED = "sales_order.fulfilled"

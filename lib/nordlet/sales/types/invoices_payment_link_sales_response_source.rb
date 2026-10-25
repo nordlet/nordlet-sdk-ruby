@@ -6,6 +6,7 @@ module Nordlet
       module InvoicesPaymentLinkSalesResponseSource
         extend Nordlet::Internal::Types::Enum
 
+        STRIPE = "stripe"
         TEMPLATE = "template"
       end
     end

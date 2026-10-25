@@ -9,6 +9,8 @@ module Nordlet
         field :to, -> { String }, optional: true, nullable: false
 
         field :locale, -> { Nordlet::Sales::Types::InvoicesSendSalesRequestLocale }, optional: true, nullable: false
+
+        field :quote, -> { Internal::Types::Boolean }, optional: true, nullable: false
       end
     end
   end

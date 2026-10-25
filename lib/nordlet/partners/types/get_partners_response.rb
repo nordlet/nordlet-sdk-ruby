@@ -30,6 +30,10 @@ module Nordlet
 
         field :payment_term_days, -> { Integer }, optional: false, nullable: true, api_name: "paymentTermDays"
 
+        field :invoice_currency, -> { String }, optional: false, nullable: true, api_name: "invoiceCurrency"
+
+        field :invoice_locale, -> { String }, optional: false, nullable: true, api_name: "invoiceLocale"
+
         field :credit_limit, -> { String }, optional: false, nullable: true, api_name: "creditLimit"
 
         field :price_list_id, -> { String }, optional: false, nullable: true, api_name: "priceListId"
