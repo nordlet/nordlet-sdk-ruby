@@ -13,6 +13,7 @@ module Nordlet
         DE_ANNUAL_VAT_RETURN = "de-annual-vat-return"
         DE_PAYROLL_WITHHOLDING = "de-payroll-withholding"
         DE_PAYROLL_STATEMENTS = "de-payroll-statements"
+        DE_EUER = "de-euer"
       end
     end
   end

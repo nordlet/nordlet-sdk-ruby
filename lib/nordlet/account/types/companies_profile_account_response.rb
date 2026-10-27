@@ -18,6 +18,8 @@ module Nordlet
 
         field :is_sandbox, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isSandbox"
 
+        field :cash_basis, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "cashBasis"
+
         field :country_code, -> { String }, optional: false, nullable: false, api_name: "countryCode"
 
         field :chart_template, -> { String }, optional: false, nullable: false, api_name: "chartTemplate"

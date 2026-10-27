@@ -16,6 +16,8 @@ module Nordlet
 
         field :is_sandbox, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isSandbox"
 
+        field :cash_basis, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "cashBasis"
+
         field :status, -> { Nordlet::Account::Types::MeAccountResponseCompaniesItemStatus }, optional: false, nullable: false
 
         field :deleted_at, -> { String }, optional: false, nullable: true, api_name: "deletedAt"

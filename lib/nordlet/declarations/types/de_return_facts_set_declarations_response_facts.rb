@@ -53,6 +53,12 @@ module Nordlet
         field :single_transport_tax, -> { String }, optional: true, nullable: false, api_name: "singleTransportTax"
 
         field :distance_sales, -> { String }, optional: true, nullable: false, api_name: "distanceSales"
+
+        field :euer_einkunftsart, -> { Nordlet::Declarations::Types::DeReturnFactsSetDeclarationsResponseFactsEuerEinkunftsart }, optional: true, nullable: false, api_name: "euerEinkunftsart"
+
+        field :euer_entnahmen, -> { String }, optional: true, nullable: false, api_name: "euerEntnahmen"
+
+        field :euer_einlagen, -> { String }, optional: true, nullable: false, api_name: "euerEinlagen"
       end
     end
   end

@@ -15,6 +15,8 @@ module Nordlet
         field :role, -> { String }, optional: false, nullable: false
 
         field :is_sandbox, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isSandbox"
+
+        field :cash_basis, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "cashBasis"
       end
     end
   end

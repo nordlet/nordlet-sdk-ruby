@@ -75,6 +75,8 @@ module Nordlet
         field :base_currency, -> { String }, optional: true, nullable: false, api_name: "baseCurrency"
 
         field :is_sandbox, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "isSandbox"
+
+        field :cash_basis, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "cashBasis"
       end
     end
   end
