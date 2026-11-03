@@ -15,6 +15,8 @@ module Nordlet
         field :unit_price, -> { String }, optional: false, nullable: true, api_name: "unitPrice"
 
         field :vat_rate_percent, -> { String }, optional: false, nullable: true, api_name: "vatRatePercent"
+
+        field :vat_classifier_code, -> { String }, optional: false, nullable: true, api_name: "vatClassifierCode"
       end
     end
   end

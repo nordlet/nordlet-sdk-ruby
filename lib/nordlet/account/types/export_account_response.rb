@@ -16,6 +16,8 @@ module Nordlet
 
         field :billing, -> { Nordlet::Account::Types::ExportAccountResponseBilling }, optional: false, nullable: true
 
+        field :billing_accounts, -> { Internal::Types::Array[Nordlet::Account::Types::ExportAccountResponseBillingAccountsItem] }, optional: false, nullable: false, api_name: "billingAccounts"
+
         field :credit_transactions, -> { Internal::Types::Array[Nordlet::Account::Types::ExportAccountResponseCreditTransactionsItem] }, optional: false, nullable: false, api_name: "creditTransactions"
 
         field :audit_entries, -> { Internal::Types::Array[Nordlet::Account::Types::ExportAccountResponseAuditEntriesItem] }, optional: false, nullable: false, api_name: "auditEntries"

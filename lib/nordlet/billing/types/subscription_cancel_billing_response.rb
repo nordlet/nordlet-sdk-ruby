@@ -4,6 +4,8 @@ module Nordlet
   module Billing
     module Types
       class SubscriptionCancelBillingResponse < Internal::Types::Model
+        field :site, -> { Nordlet::Billing::Types::SubscriptionCancelBillingResponseSite }, optional: false, nullable: false
+
         field :plan, -> { Nordlet::Billing::Types::SubscriptionCancelBillingResponsePlan }, optional: false, nullable: false
 
         field :account_type, -> { Nordlet::Billing::Types::SubscriptionCancelBillingResponseAccountType }, optional: false, nullable: false, api_name: "accountType"

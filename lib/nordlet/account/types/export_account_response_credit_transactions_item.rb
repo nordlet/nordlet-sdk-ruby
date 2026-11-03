@@ -6,6 +6,8 @@ module Nordlet
       class ExportAccountResponseCreditTransactionsItem < Internal::Types::Model
         field :id, -> { String }, optional: false, nullable: false
 
+        field :site, -> { Nordlet::Account::Types::ExportAccountResponseCreditTransactionsItemSite }, optional: false, nullable: false
+
         field :type, -> { String }, optional: false, nullable: false
 
         field :amount_cents, -> { Integer }, optional: false, nullable: false, api_name: "amountCents"

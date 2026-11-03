@@ -4,6 +4,8 @@ module Nordlet
   module Billing
     module Types
       class AccountSetAutoTopUpBillingResponse < Internal::Types::Model
+        field :site, -> { Nordlet::Billing::Types::AccountSetAutoTopUpBillingResponseSite }, optional: false, nullable: false
+
         field :plan, -> { Nordlet::Billing::Types::AccountSetAutoTopUpBillingResponsePlan }, optional: false, nullable: false
 
         field :account_type, -> { Nordlet::Billing::Types::AccountSetAutoTopUpBillingResponseAccountType }, optional: false, nullable: false, api_name: "accountType"

@@ -4,6 +4,8 @@ module Nordlet
   module Billing
     module Types
       class FlatRateConfirmBillingResponse < Internal::Types::Model
+        field :site, -> { Nordlet::Billing::Types::FlatRateConfirmBillingResponseSite }, optional: false, nullable: false
+
         field :plan, -> { Nordlet::Billing::Types::FlatRateConfirmBillingResponsePlan }, optional: false, nullable: false
 
         field :account_type, -> { Nordlet::Billing::Types::FlatRateConfirmBillingResponseAccountType }, optional: false, nullable: false, api_name: "accountType"

@@ -4,6 +4,8 @@ module Nordlet
   module Billing
     module Types
       class AccountSetOverdraftCapBillingResponse < Internal::Types::Model
+        field :site, -> { Nordlet::Billing::Types::AccountSetOverdraftCapBillingResponseSite }, optional: false, nullable: false
+
         field :plan, -> { Nordlet::Billing::Types::AccountSetOverdraftCapBillingResponsePlan }, optional: false, nullable: false
 
         field :account_type, -> { Nordlet::Billing::Types::AccountSetOverdraftCapBillingResponseAccountType }, optional: false, nullable: false, api_name: "accountType"

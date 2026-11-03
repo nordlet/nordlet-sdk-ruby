@@ -14,6 +14,8 @@ module Nordlet
 
         field :vat_rate_percent, -> { String }, optional: true, nullable: false, api_name: "vatRatePercent"
 
+        field :vat_classifier_code, -> { String }, optional: true, nullable: false, api_name: "vatClassifierCode"
+
         field :vat_exemption_basis, -> { String }, optional: true, nullable: false, api_name: "vatExemptionBasis"
 
         field :project_id, -> { String }, optional: true, nullable: false, api_name: "projectId"

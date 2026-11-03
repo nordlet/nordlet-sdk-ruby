@@ -38,6 +38,7 @@ module Nordlet
         HI = "hi"
         RU = "ru"
         TR = "tr"
+        UK = "uk"
       end
     end
   end

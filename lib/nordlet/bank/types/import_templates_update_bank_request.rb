@@ -16,6 +16,8 @@ module Nordlet
 
         field :invoice_vat_rate_percent, -> { String }, optional: true, nullable: false, api_name: "invoiceVatRatePercent"
 
+        field :invoice_vat_classifier_code, -> { String }, optional: true, nullable: false, api_name: "invoiceVatClassifierCode"
+
         field :company_meta_field, -> { String }, optional: true, nullable: false, api_name: "companyMetaField"
 
         field :invoice_item_id, -> { String }, optional: true, nullable: false, api_name: "invoiceItemId"
