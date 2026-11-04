@@ -14,6 +14,10 @@ module Nordlet
 
         field :quantity, -> { String }, optional: false, nullable: false
 
+        field :unit_factor, -> { String }, optional: false, nullable: false, api_name: "unitFactor"
+
+        field :base_quantity, -> { String }, optional: false, nullable: false, api_name: "baseQuantity"
+
         field :product_code, -> { String }, optional: false, nullable: true, api_name: "productCode"
 
         field :sort_order, -> { Integer }, optional: false, nullable: false, api_name: "sortOrder"

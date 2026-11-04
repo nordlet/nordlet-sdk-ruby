@@ -30,6 +30,8 @@ module Nordlet
 
         field :status, -> { Nordlet::Fleet::Types::VehiclesUpdateFleetRequestStatus }, optional: true, nullable: false
 
+        field :disposal_date, -> { String }, optional: true, nullable: false, api_name: "disposalDate"
+
         field :notes, -> { String }, optional: true, nullable: false
       end
     end

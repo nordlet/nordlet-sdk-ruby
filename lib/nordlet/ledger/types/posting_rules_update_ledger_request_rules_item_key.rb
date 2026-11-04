@@ -20,6 +20,8 @@ module Nordlet
         INVENTORY_STOCK = "inventory.stock"
         PRODUCTION_LABOR_APPLIED = "production.laborApplied"
         PRODUCTION_SCRAP = "production.scrap"
+        POS_CASH_SHORTAGE = "pos.cashShortage"
+        POS_CASH_SURPLUS = "pos.cashSurplus"
         BANK_FX_GAIN = "bank.fxGain"
         BANK_FX_LOSS = "bank.fxLoss"
         BANK_FEES = "bank.fees"

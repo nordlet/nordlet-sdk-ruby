@@ -29,6 +29,10 @@ module Nordlet
         field :deferral_start_date, -> { String }, optional: true, nullable: false, api_name: "deferralStartDate"
 
         field :deferral_end_date, -> { String }, optional: true, nullable: false, api_name: "deferralEndDate"
+
+        field :lot_number, -> { String }, optional: true, nullable: false, api_name: "lotNumber"
+
+        field :expiry_date, -> { String }, optional: true, nullable: false, api_name: "expiryDate"
       end
     end
   end

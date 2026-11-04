@@ -10,6 +10,8 @@ module Nordlet
 
         field :name, -> { String }, optional: false, nullable: false
 
+        field :rec20code, -> { String }, optional: false, nullable: true, api_name: "rec20Code"
+
         field :is_active, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isActive"
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"

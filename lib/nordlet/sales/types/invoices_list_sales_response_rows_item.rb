@@ -133,6 +133,8 @@ module Nordlet
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"
 
         field :partner_name, -> { String }, optional: false, nullable: true, api_name: "partnerName"
+
+        field :advance_unapplied_amount, -> { String }, optional: false, nullable: true, api_name: "advanceUnappliedAmount"
       end
     end
   end

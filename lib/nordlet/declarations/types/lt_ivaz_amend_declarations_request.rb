@@ -7,6 +7,8 @@ module Nordlet
         field :waybill_ids, -> { Internal::Types::Array[String] }, optional: false, nullable: false, api_name: "waybillIds"
 
         field :persist, -> { Internal::Types::Boolean }, optional: true, nullable: false
+
+        field :corrections, -> { Internal::Types::Array[Nordlet::Declarations::Types::LtIvazAmendDeclarationsRequestCorrectionsItem] }, optional: true, nullable: false
       end
     end
   end

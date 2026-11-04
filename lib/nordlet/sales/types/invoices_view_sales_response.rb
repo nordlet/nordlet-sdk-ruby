@@ -36,6 +36,8 @@ module Nordlet
 
         field :pay_url, -> { String }, optional: false, nullable: true, api_name: "payUrl"
 
+        field :card_payment_received, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "cardPaymentReceived"
+
         field :seller, -> { Nordlet::Sales::Types::InvoicesViewSalesResponseSeller }, optional: false, nullable: false
 
         field :buyer, -> { Nordlet::Sales::Types::InvoicesViewSalesResponseBuyer }, optional: false, nullable: false

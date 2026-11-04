@@ -14,6 +14,10 @@ module Nordlet
 
         field :quantity, -> { String }, optional: false, nullable: false
 
+        field :unit_factor, -> { String }, optional: false, nullable: false, api_name: "unitFactor"
+
+        field :base_quantity, -> { String }, optional: false, nullable: false, api_name: "baseQuantity"
+
         field :unit_price_excl_vat, -> { String }, optional: false, nullable: true, api_name: "unitPriceExclVat"
 
         field :line_net, -> { String }, optional: false, nullable: true, api_name: "lineNet"

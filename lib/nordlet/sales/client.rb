@@ -122,8 +122,10 @@ module Nordlet
 
       # Return a sale document as its customer sees it: the seller as printed on it (the snapshot taken at issue, else
       # the company), the buyer with address and e-mail, the lines, the totals, `paidOn` (the date of the latest payment
-      # once the document is paid), `payUrl` (as in `sales/invoices/payment-link`) and `token`, the document's customer
-      # token for `public/invoices/get` and `public/invoices/pdf`, created on first use; `token` is null on a draft.
+      # once the document is paid), `payUrl` (as in `sales/invoices/payment-link`; null while `cardPaymentReceived`),
+      # `cardPaymentReceived` (a completed card payment was received and the invoice waits for the payout settlement)
+      # and `token`, the document's customer token for `public/invoices/get` and `public/invoices/pdf`, created on first
+      # use; `token` is null on a draft.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesViewSalesRequest]
@@ -494,13 +496,14 @@ module Nordlet
       # default prefix and the year), the issue date (`issueDate`, else the draft's, else today) and a missing due date
       # from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and
       # stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of
-      # stock with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice.
-      # A credit note is set against the unpaid balance of the credited document. Emits `sale_invoice.issued`,
-      # `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored`
-      # when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers
-      # 409 when the document is already issued or locked or the accounting period is locked, 422 when the lines carry
-      # VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock`
-      # is used on anything but a credit note of an invoice.
+      # stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers
+      # first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit
+      # note that credits an invoice. A credit note is set against the unpaid balance of the credited document. Emits
+      # `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and
+      # `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase
+      # invoice is created there). Answers 409 when the document is already issued or locked or the accounting period is
+      # locked, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the
+      # credited total, or when `returnToStock` is used on anything but a credit note of an invoice.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesIssueSalesRequest]
@@ -790,11 +793,12 @@ module Nordlet
         end
       end
 
-      # List the sale documents of the company with the partner name. Filterable by partnerId, type, status,
-      # paymentStatus, fullNumber, issueDate, currency, agreementId, creditedInvoiceId, operationTypeId,
-      # documentSeriesId, lockedAt, grossTotal, netTotal, vatTotal, dueDate, orderNumber, seriesLabel, locale and
-      # recurringInvoiceId; sortable by createdAt, issueDate, fullNumber, grossTotal, netTotal, vatTotal, status and
-      # paymentStatus.
+      # List the sale documents of the company with the partner name. An advance invoice also carries
+      # `advanceUnappliedAmount`: its gross total less the amounts applied with `sales/invoices/apply-advance` and the
+      # issued credit notes on it (null on other documents). Filterable by partnerId, type, status, paymentStatus,
+      # fullNumber, issueDate, currency, agreementId, creditedInvoiceId, operationTypeId, documentSeriesId, lockedAt,
+      # grossTotal, netTotal, vatTotal, dueDate, orderNumber, seriesLabel, locale and recurringInvoiceId; sortable by
+      # createdAt, issueDate, fullNumber, grossTotal, netTotal, vatTotal, status and paymentStatus.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesListSalesRequest]
@@ -937,7 +941,10 @@ module Nordlet
         end
       end
 
-      # Cancel a draft or issued delivery act. Answers 409 when it is already cancelled.
+      # Cancel a draft or issued delivery act. When issuing the act recognised milestone revenue, the recognition
+      # journal entry is reversed on the company's current date (or on the recognition date when that is later) and
+      # those milestone schedules return to `pending`. Answers 409 when it is already cancelled or when the recognition
+      # it posted has changed since.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::ActsCancelSalesRequest]
@@ -1805,10 +1812,10 @@ module Nordlet
 
       # List the money received on sale documents between `from` and `to` (inclusive), oldest first: bank payments
       # matched to the document, card settlements of a payment provider and cash receipt orders. A reversed bank match
-      # is a row with a negative amount on the date it was reversed. Credit notes, advances applied to a final invoice
-      # and balances carried over by a migration are not money received and are left out. `amount` is in the document
-      # currency; `method` is `card` for a settlement or a payment into a Stripe bank account, `cash` for a cash order
-      # and `bank_transfer` otherwise.
+      # is a row with a negative amount on the date it was reversed. Refunds paid on credit notes, credit notes,
+      # advances applied to a final invoice and balances carried over by a migration are not money received and are left
+      # out. `amount` is in the document currency; `method` is `card` for a settlement or a payment into a Stripe bank
+      # account, `cash` for a cash order and `bank_transfer` otherwise.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::PaymentsListSalesRequest]

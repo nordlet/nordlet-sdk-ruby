@@ -116,12 +116,14 @@ module Nordlet
 
       # Record a daily cash register report (Z-report) and post it to the ledger in one journal entry: the cash and card
       # takings are debited to `cashAccountCode` and `cardAccountCode`, the net of the `vatLines` is credited to
-      # `revenueAccountCode` and their VAT to `vatAccountCode`. `itemLines` write the sold products off `warehouseId`
-      # FIFO (a set is expanded to its product components) and add the cost of goods sold, debited to `cogsAccountCode`
-      # against the stock accounts. Account codes default to the company's chart. Refused with 422 when cash plus card
-      # differs from the gross total, the item lines have no warehouse or the device is inactive, with 409 when the
-      # accounting period is locked or the `reportNumber` already exists. Emits `pos_report.created` and, per item line,
-      # `stock.changed`.
+      # `revenueAccountCode` and their VAT to `vatAccountCode`. `itemLines` write the sold products off `warehouseId`,
+      # the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first),
+      # leaving out expired lots (a set is expanded to its product components) and add the cost of goods sold, debited
+      # to `cogsAccountCode` against the stock accounts. `cogsAccountCode` and `inventoryAccountCode` default to the
+      # posting rules `inventory.cogs` and `inventory.stock`, the other account codes to the company's chart. Refused
+      # with 422 when cash plus card differs from the gross total, the item lines have no warehouse or the device is
+      # inactive, with 409 when the accounting period is locked or the `reportNumber` already exists. Emits
+      # `pos_report.created` and, per item line, `stock.changed`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Pos::Types::ReportsCreatePosRequest]
@@ -433,12 +435,127 @@ module Nordlet
         end
       end
 
+      # Refund `quantity` of lines of a receipt, paid in cash out of the open shift `shiftId`, on `date` (default: the
+      # company's today). A line refunded in part is priced from its VAT-inclusive unit price, the rest of a line at
+      # what is left of its amounts. One journal entry debits the chart's POS revenue and VAT accounts with the net and
+      # VAT and credits the chart's cash account with the gross. When the receipt's shift is closed, the stock lines go
+      # back into the warehouse at the cost they left it on that shift's report, debited to their stock accounts
+      # (`inventory.stock` for layers without one) against `inventory.cogs`; when it is still open, the refunded
+      # quantities are left out of the stock write-off at its close. A receipt of another open shift is refused with
+      # 422, as are a line not on the receipt, a line named twice, a zero quantity and a quantity above what is left to
+      # refund; 409 when the shift is closed or the accounting period is locked.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Pos::Types::RefundsCreatePosRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Pos::Types::RefundsCreatePosResponse]
+      def refunds_create(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/pos/refunds/create",
+          body: Nordlet::Pos::Types::RefundsCreatePosRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Pos::Types::RefundsCreatePosResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Read one POS refund with its lines.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Pos::Types::RefundsGetPosRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Pos::Types::RefundsGetPosResponse]
+      def refunds_get(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/pos/refunds/get",
+          body: Nordlet::Pos::Types::RefundsGetPosRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Pos::Types::RefundsGetPosResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # List POS refunds without their lines. Filterable by `shiftId` and `receiptId`; sortable by `date` and
+      # `createdAt`.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Pos::Types::RefundsListPosRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Pos::Types::RefundsListPosResponse]
+      def refunds_list(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/pos/refunds/list",
+          body: Nordlet::Pos::Types::RefundsListPosRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Pos::Types::RefundsListPosResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # Close an open shift: its receipts are summed by VAT rate and by product into one POS report, created as by
       # `pos/reports/create` with number `reportNumber` (default `Z-<device serial>-<n>`, n being the device's closed
       # shifts plus one) on `date` (default: the company's today), which posts the takings and the stock write-off to
-      # the ledger and emits `pos_report.created`. The response adds `expectedCash` (opening cash plus the cash
-      # receipts) and `cashDifference` (`countedCash` less expected). A shift without receipts is refused with 422, a
-      # closed one with 409.
+      # the ledger and emits `pos_report.created`. Quantities refunded from the shift's receipts by `pos/refunds/create`
+      # are left out of the stock write-off. The response adds `expectedCash` (opening cash plus the cash receipts less
+      # the cash refunds paid out of the shift) and `cashDifference` (`countedCash` less expected). A difference is
+      # posted in its own journal entry on `date` (document type `pos_shift`): a shortage debits the `pos.cashShortage`
+      # rule account and credits the chart's cash account, a surplus debits the cash account and credits
+      # `pos.cashSurplus`; 422 when the company's chart lacks the account. A shift without receipts is refused with 422,
+      # a closed one with 409.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Pos::Types::ShiftsClosePosRequest]

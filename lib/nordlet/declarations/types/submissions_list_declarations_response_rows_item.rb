@@ -52,6 +52,8 @@ module Nordlet
 
         field :delivery_error, -> { String }, optional: false, nullable: true, api_name: "deliveryError"
 
+        field :confirmation_pending, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "confirmationPending"
+
         field :sent_sha256, -> { String }, optional: false, nullable: true, api_name: "sentSha256"
 
         field :certificate_fingerprint, -> { String }, optional: false, nullable: true, api_name: "certificateFingerprint"

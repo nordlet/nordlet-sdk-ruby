@@ -22,6 +22,8 @@ module Nordlet
 
         field :cost, -> { String }, optional: false, nullable: true
 
+        field :purchase_invoice_id, -> { String }, optional: false, nullable: true, api_name: "purchaseInvoiceId"
+
         field :notes, -> { String }, optional: false, nullable: true
 
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"

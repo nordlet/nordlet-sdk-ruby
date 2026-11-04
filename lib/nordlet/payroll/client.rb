@@ -224,15 +224,16 @@ module Nordlet
 
       # Creates a draft payroll run for a month, computing each line with the company country's payroll engine, the
       # employee's approved runs of the year so far and of the two previous years, the month's timesheet and `payDate`
-      # (default the last day of the month). Without `lines`, every active employee whose contract covers the month gets
-      # a line: the gross is the contract's monthly salary reduced to the paid working days of the contract and the
-      # timesheet, unless `grossOverrides` sets it; the per diems of approved business trips ending in the month are
-      # added untaxed and the trips linked to the run; for a Lithuanian company the car benefit in kind
-      # (`includeNatura`) and the compensation for unused leave of a contract ending in the month are added. With
-      # `lines`, only the given employees are computed with their gross, additions and deductions; a taxable addition
-      # may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country has no
-      # engine, an employee is given twice, has two contracts in the month, has no contract and no gross, or is paid by
-      # the hour or day without a gross; 409 when a run for the month already exists or the accounting period is locked.
+      # (default the last day of the month). Without `lines`, every employee whose contract overlaps the month gets a
+      # line, whatever the employee's status: the gross is the contract's monthly salary reduced to the paid working
+      # days of the contract and the timesheet, unless `grossOverrides` sets it; the per diems of approved business
+      # trips ending in the month are added untaxed and the trips linked to the run; for a Lithuanian company the car
+      # benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the month are
+      # added. With `lines`, only the given employees are computed with their gross, additions and deductions; a taxable
+      # addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country
+      # has no engine, an employee is given twice, has two contracts in the month, has no contract and no gross, or is
+      # paid by the hour or day without a gross; 409 when a run for the month already exists or the accounting period is
+      # locked.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Payroll::Types::RunsCreatePayrollRequest]
@@ -377,8 +378,10 @@ module Nordlet
       # accounts of the company's chart template; each can be given per call. Answers 409 when the run is not a draft or
       # the accounting period is locked, 422 when the run has no lines or nothing to post, and emits
       # `payroll_run.approved`. For an Irish company with the automation of the `ie-payroll-withholding` deadline
-      # switched on, the month's payroll submission is sent at once and a failure is added to the run's `warnings`. Undo
-      # with `payroll/runs/reverse`, pay with `payroll/payments/export`.
+      # switched on, the month's payroll submission is sent at once and a failure is added to the run's `warnings`. For
+      # a Lithuanian company the unused leave days a line paid as compensation, recorded per balance year when the run
+      # was created, are added to the used days of the leave balances. Undo with `payroll/runs/reverse`, pay with
+      # `payroll/payments/export`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Payroll::Types::RunsApprovePayrollRequest]
@@ -414,7 +417,8 @@ module Nordlet
 
       # Posts a journal entry dated the last day of the month that mirrors the run's entry (debits and credits swapped),
       # sets the status to `reversed` with the reason, and releases the business trips the run paid so the next run
-      # picks them up again. Answers 409 when the run is not approved, when part of it is matched to bank payments
+      # picks them up again; the leave days the run marked used as compensation for unused leave are given back to the
+      # leave balances. Answers 409 when the run is not approved, when part of it is matched to bank payments
       # (`paidAmount`, unmatch them first) or when the accounting period is locked. Emits `payroll_run.reversed`.
       #
       # @param request_options [Hash]

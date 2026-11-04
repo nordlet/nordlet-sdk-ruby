@@ -30,6 +30,8 @@ module Nordlet
 
         field :status, -> { Nordlet::Fleet::Types::VehiclesCreateFleetResponseStatus }, optional: false, nullable: false
 
+        field :disposal_date, -> { String }, optional: false, nullable: true, api_name: "disposalDate"
+
         field :notes, -> { String }, optional: false, nullable: true
 
         field :documents, -> { Internal::Types::Array[Nordlet::Fleet::Types::VehiclesCreateFleetResponseDocumentsItem] }, optional: false, nullable: true

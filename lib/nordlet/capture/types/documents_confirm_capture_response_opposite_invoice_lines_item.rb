@@ -14,6 +14,10 @@ module Nordlet
 
         field :quantity, -> { String }, optional: false, nullable: false
 
+        field :unit_factor, -> { String }, optional: false, nullable: false, api_name: "unitFactor"
+
+        field :base_quantity, -> { String }, optional: false, nullable: false, api_name: "baseQuantity"
+
         field :unit_price_excl_vat, -> { String }, optional: false, nullable: true, api_name: "unitPriceExclVat"
 
         field :unit_price_incl_vat, -> { String }, optional: false, nullable: true, api_name: "unitPriceInclVat"
@@ -31,6 +35,10 @@ module Nordlet
         field :deferral_start_date, -> { String }, optional: false, nullable: true, api_name: "deferralStartDate"
 
         field :deferral_end_date, -> { String }, optional: false, nullable: true, api_name: "deferralEndDate"
+
+        field :lot_number, -> { String }, optional: false, nullable: true, api_name: "lotNumber"
+
+        field :expiry_date, -> { String }, optional: false, nullable: true, api_name: "expiryDate"
 
         field :line_net, -> { String }, optional: false, nullable: false, api_name: "lineNet"
 

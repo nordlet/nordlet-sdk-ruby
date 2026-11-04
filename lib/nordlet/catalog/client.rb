@@ -364,7 +364,8 @@ module Nordlet
       end
 
       # Create a unit of measure of the company's own, in addition to the global measurement units
-      # (`reference/units/list`). 409 when the code already exists.
+      # (`reference/units/list`). `rec20Code` is the UN/ECE Recommendation 20 code e-invoices carry for the unit. 409
+      # when the code already exists.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Catalog::Types::UnitsCreateCatalogRequest]
@@ -398,7 +399,8 @@ module Nordlet
         end
       end
 
-      # Change the code, name or active flag of a company unit. 409 when the new code already exists.
+      # Change the code, name, UN/ECE Recommendation 20 code or active flag of a company unit. 409 when the new code
+      # already exists.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Catalog::Types::UnitsUpdateCatalogRequest]
@@ -771,6 +773,147 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Catalog::Types::ItemsSuppliersDeleteCatalogResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Add an alternative unit to an item: `factor` is how many of the item's own unit one `unitCode` holds (a box of
+      # 12 pieces has factor 12). Document lines entered in that unit keep the entered quantity and unit price and move
+      # `quantity × factor` of the item's unit in stock and filings. `isDefaultSale` and `isDefaultPurchase` mark the
+      # unit the app offers first on sale and purchase documents; setting one clears it on the item's other units. 422
+      # when `unitCode` is the item's own unit or not a known unit; 409 when the item already has that unit.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Catalog::Types::ItemsUnitsCreateCatalogRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Catalog::Types::ItemsUnitsCreateCatalogResponse]
+      def items_units_create(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/catalog/items/units/create",
+          body: Nordlet::Catalog::Types::ItemsUnitsCreateCatalogRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Catalog::Types::ItemsUnitsCreateCatalogResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Change the factor, default flags or barcode of an alternative unit. Document lines already entered keep the
+      # factor they were saved with; the new factor applies to lines entered or recalculated after the change.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Catalog::Types::ItemsUnitsUpdateCatalogRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Catalog::Types::ItemsUnitsUpdateCatalogResponse]
+      def items_units_update(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/catalog/items/units/update",
+          body: Nordlet::Catalog::Types::ItemsUnitsUpdateCatalogRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Catalog::Types::ItemsUnitsUpdateCatalogResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Delete an alternative unit of an item. Document lines already entered in it keep their unit and factor.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Catalog::Types::ItemsUnitsDeleteCatalogRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Catalog::Types::ItemsUnitsDeleteCatalogResponse]
+      def items_units_delete(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/catalog/items/units/delete",
+          body: Nordlet::Catalog::Types::ItemsUnitsDeleteCatalogRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Catalog::Types::ItemsUnitsDeleteCatalogResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # List the alternative units of an item, ordered by unit code.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Catalog::Types::ItemsUnitsListCatalogRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Catalog::Types::ItemsUnitsListCatalogResponse]
+      def items_units_list(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/catalog/items/units/list",
+          body: Nordlet::Catalog::Types::ItemsUnitsListCatalogRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Catalog::Types::ItemsUnitsListCatalogResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

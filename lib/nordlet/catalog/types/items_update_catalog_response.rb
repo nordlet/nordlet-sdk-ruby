@@ -48,6 +48,8 @@ module Nordlet
 
         field :components, -> { Internal::Types::Array[Nordlet::Catalog::Types::ItemsUpdateCatalogResponseComponentsItem] }, optional: false, nullable: false
 
+        field :alternative_units, -> { Internal::Types::Array[Nordlet::Catalog::Types::ItemsUpdateCatalogResponseAlternativeUnitsItem] }, optional: false, nullable: false, api_name: "alternativeUnits"
+
         field :kind_id, -> { String }, optional: false, nullable: true, api_name: "kindId"
 
         field :sale_account_code, -> { String }, optional: false, nullable: true, api_name: "saleAccountCode"
