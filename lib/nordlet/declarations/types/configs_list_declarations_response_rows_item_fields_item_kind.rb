@@ -10,6 +10,7 @@ module Nordlet
         SECRET = "secret"
         SELECT = "select"
         URL = "url"
+        HOST = "host"
         CERTIFICATE = "certificate"
       end
     end

@@ -12,9 +12,11 @@ module Nordlet
 
       # Create a sign-in link for the e-mail address and send it; the link is valid for 15 minutes and is consumed with
       # `account/login-link/consume`. When an unused link was requested for the same address within the last minute, the
-      # call answers `sent` without sending another. `locale` sets the language of the e-mail and of the link; `app` set
-      # to `invoice` makes the link open the invoice app instead of the Nordlet app; `acceptTerms`, `acceptDpa` and
-      # `referralCode` are stored with the link and used when the address has no account yet.
+      # call answers `sent` without sending another; after five links for the address within an hour it answers 429;
+      # otherwise the earlier unused sign-in links for the address stop working. `locale` sets the language of the
+      # e-mail and of the link; `app` set to `invoice` makes the link open the invoice app instead of the Nordlet app;
+      # `acceptTerms`, `acceptDpa` and `referralCode` are stored with the link and used when the address has no account
+      # yet.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::LoginLinkRequestAccountRequest]
@@ -50,9 +52,14 @@ module Nordlet
 
       # Exchange a sign-in link token for a session; an unknown, used or expired token is refused with 401. When no
       # account has the address, one is created (`isNewUser`), which is refused with 422 unless the link was requested
-      # with `acceptTerms` and `acceptDpa`; a `referralCode` on the link records who referred the new user. A link from
-      # `account/email/change-request` changes the signed-in user's address instead, refused with 409 when another
-      # account has it.
+      # with `acceptTerms` and `acceptDpa`; a `referralCode` on the link records who referred the new user. The link
+      # `account/email/change-request` sends to the current address signs that user in and sends a confirmation link to
+      # the new address; that second link changes the address, deletes the user's other sessions and sends the previous
+      # address a link, valid for 24 hours, that changes the address back and deletes every session of the user. No link
+      # goes to the new address when another account has it, and the change and the change back are refused with 409
+      # when another account has the address. When the user has two-factor authentication on, `twoFactorRequired` is
+      # true and the session can make no call other than `account/two-factor/verify` and `account/logout` until a code
+      # is entered.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::LoginLinkConsumeAccountRequest]
@@ -302,7 +309,8 @@ module Nordlet
 
       # Create an invitation to the active company for an e-mail address with the given role and send it by e-mail in
       # `locale`; owners and admins may call it. The invitation is valid for 7 days and replaces an earlier pending one
-      # for the same address. Refused with 409 when the address already belongs to a member.
+      # for the same address. Refused with 409 when the address already belongs to a member and with 429
+      # (`rate_limited`) after 50 invitations by the user, in all their companies, within 24 hours.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::InvitesCreateAccountRequest]
@@ -767,7 +775,8 @@ module Nordlet
       # active company may call it. The key works in every company the person is a member of, with the rights of their
       # role in each; every call names the company in the `x-nordlet-company` header. `scopes` defaults to the caller's
       # scopes in the active company and may not exceed them (403); in each company the key's scopes are further limited
-      # to the person's role there. Without `expiresInDays` the key does not expire.
+      # to the person's role there. `expiresInDays` defaults to 90. The list shows the key's last four characters as
+      # `lastFour`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::APIKeysCreateAccountRequest]
@@ -801,7 +810,9 @@ module Nordlet
         end
       end
 
-      # List the signed-in person's API keys, including expired and revoked ones.
+      # List the signed-in person's API keys, including expired and revoked ones. `lastFour` is the last four characters
+      # of the key (null for keys created before it was recorded); for an app connected through OAuth it is those of the
+      # current access token.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::APIKeysListAccountRequest]
@@ -837,8 +848,8 @@ module Nordlet
 
       # Create a new key with the name and scopes of the signed-in person's key `id` and return it once; the old key
       # keeps working for `overlapHours` and then expires, and its `replacedByKeyId` points to the new one.
-      # `expiresInDays` applies to the new key. Refused with 409 when the old key is revoked or belongs to an app
-      # connected through OAuth, which renews its own access.
+      # `expiresInDays` applies to the new key and defaults to 90. Refused with 409 when the old key is revoked or
+      # belongs to an app connected through OAuth, which renews its own access.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::APIKeysRotateAccountRequest]
@@ -975,10 +986,12 @@ module Nordlet
         end
       end
 
-      # Send a confirmation link to `newEmail`; the address changes when that link is consumed with
-      # `account/login-link/consume`. When an unused link was sent to the address within the last minute, the call
-      # answers `sent` without sending another. Refused with 422 when it is already the user's address and with 409 when
-      # another account has it.
+      # Send a confirmation link for the change to `newEmail` to the user's current address. When it is consumed with
+      # `account/login-link/consume`, a second link goes to `newEmail`, and the address changes when that one is
+      # consumed. When an unused link for `newEmail` was created within the last minute, the call answers `sent` without
+      # sending another. Refused with 422 when it is already the user's address and with 429 (`rate_limited`) after five
+      # requests by the user within 24 hours. When another account has `newEmail`, the call answers the same, the
+      # confirmation link signs the user in and no link goes to `newEmail`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::EmailChangeRequestAccountRequest]
@@ -1012,7 +1025,8 @@ module Nordlet
         end
       end
 
-      # List the signed-in user's sessions that have not expired; `current` marks the one the call was made with.
+      # List the signed-in user's sessions that have not expired: a session ends 30 days after sign-in or after 7 days
+      # without a call. `current` marks the one the call was made with.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::SessionsListAccountRequest]
@@ -1115,9 +1129,9 @@ module Nordlet
         end
       end
 
-      # Return the user's profile, consent state, memberships, unexpired sessions, billing accounts (`billing` is the
-      # `app` site's, `billingAccounts` has one per site), credit transactions and the audit entries they made in their
-      # companies (the most recent 5000 of each of the last two).
+      # Return the user's profile, consent state, memberships, unexpired sessions, sign-in events, API keys (without the
+      # keys), connected OAuth apps, referral points, billing accounts (`billing` is the `app` site's, `billingAccounts`
+      # has one per site), credit transactions and every audit entry they made in their companies.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::ExportAccountRequest]
@@ -1467,6 +1481,225 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Account::Types::OauthAuthorizeDenyAccountResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Return the signed-in user's two-factor authentication state: `enabled`, `required` (true for platform
+      # administrators, who cannot use platform administration without it), the number of unused recovery codes and,
+      # while a setup started with `two-factor/setup` is not finished, the key to add to an authenticator app as
+      # `setup`.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Account::Types::TwoFactorGetAccountRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Account::Types::TwoFactorGetAccountResponse]
+      def two_factor_get(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/account/two-factor/get",
+          body: Nordlet::Account::Types::TwoFactorGetAccountRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Account::Types::TwoFactorGetAccountResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Start setting up two-factor authentication: create a new key for an authenticator app (time-based codes, RFC
+      # 6238: SHA-1, 6 digits, 30 seconds) and return it with its `otpauth://` address. Nothing changes at sign-in until
+      # `two-factor/enable` is called with a code from the app. Refused with 409 when two-factor authentication is
+      # already on.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Account::Types::TwoFactorSetupAccountRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Account::Types::TwoFactorSetupAccountResponse]
+      def two_factor_setup(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/account/two-factor/setup",
+          body: Nordlet::Account::Types::TwoFactorSetupAccountRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Account::Types::TwoFactorSetupAccountResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Turn on two-factor authentication with a current code from the authenticator app set up by `two-factor/setup`.
+      # Returns 10 recovery codes, shown only this once; each one works once in place of a code. The user's other
+      # sessions are deleted. From then on a session created by a sign-in link can make no call other than
+      # `two-factor/verify` and `account/logout` until a code is entered. A wrong code answers 422; after 5 wrong codes
+      # the session is deleted (401).
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Account::Types::TwoFactorEnableAccountRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Account::Types::TwoFactorEnableAccountResponse]
+      def two_factor_enable(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/account/two-factor/enable",
+          body: Nordlet::Account::Types::TwoFactorEnableAccountRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Account::Types::TwoFactorEnableAccountResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Finish signing in when `account/login-link/consume` answered `twoFactorRequired`: send a current code from the
+      # authenticator app or an unused recovery code. A wrong code answers 422; after 5 wrong codes the session is
+      # deleted (401) and the user signs in again with a new link.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Account::Types::TwoFactorVerifyAccountRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Account::Types::TwoFactorVerifyAccountResponse]
+      def two_factor_verify(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/account/two-factor/verify",
+          body: Nordlet::Account::Types::TwoFactorVerifyAccountRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Account::Types::TwoFactorVerifyAccountResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Replace the recovery codes with 10 new ones, shown only this once, after a current code from the authenticator
+      # app. The earlier codes stop working.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Account::Types::TwoFactorRecoveryCodesRegenerateAccountRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Account::Types::TwoFactorRecoveryCodesRegenerateAccountResponse]
+      def two_factor_recovery_codes_regenerate(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/account/two-factor/recovery-codes/regenerate",
+          body: Nordlet::Account::Types::TwoFactorRecoveryCodesRegenerateAccountRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Account::Types::TwoFactorRecoveryCodesRegenerateAccountResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Turn off two-factor authentication after a current code from the authenticator app or an unused recovery code;
+      # the key and the recovery codes are deleted. Refused with 422 for a platform administrator, for whom it is
+      # required.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Account::Types::TwoFactorDisableAccountRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Account::Types::TwoFactorDisableAccountResponse]
+      def two_factor_disable(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/account/two-factor/disable",
+          body: Nordlet::Account::Types::TwoFactorDisableAccountRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Account::Types::TwoFactorDisableAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)

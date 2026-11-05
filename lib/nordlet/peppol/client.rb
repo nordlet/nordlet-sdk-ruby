@@ -51,7 +51,10 @@ module Nordlet
       # `sale_invoice.peppol_failed`; a received-document event fetches the document from the access point, stores it as
       # a document capture with the matched supplier, emits `document_capture.peppol_received` and marks it read at the
       # access point (a document already stored is skipped). `handled` is false when the event matched no invoice or
-      # document. Answers 404 when no company uses that provider account, 401 when the signature does not match.
+      # document. A status is not moved back: pending, failed, delivered and rejected come in that order, and an event
+      # with an earlier status than the stored one changes nothing. Answers 401, with the same body, when no company
+      # uses that provider account, when the signature does not match and, for e-invoice.be, when the `created_at` of
+      # the event is more than 5 minutes from the server time.
       #
       # @param request_options [Hash]
       # @param params [Hash]

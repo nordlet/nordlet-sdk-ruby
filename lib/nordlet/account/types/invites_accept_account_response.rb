@@ -8,6 +8,8 @@ module Nordlet
 
         field :expires_at, -> { String }, optional: false, nullable: false, api_name: "expiresAt"
 
+        field :two_factor_required, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "twoFactorRequired"
+
         field :user, -> { Nordlet::Account::Types::InvitesAcceptAccountResponseUser }, optional: false, nullable: false
       end
     end

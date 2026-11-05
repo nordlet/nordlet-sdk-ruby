@@ -21,6 +21,14 @@ module Nordlet
         field :credit_transactions, -> { Internal::Types::Array[Nordlet::Account::Types::ExportAccountResponseCreditTransactionsItem] }, optional: false, nullable: false, api_name: "creditTransactions"
 
         field :audit_entries, -> { Internal::Types::Array[Nordlet::Account::Types::ExportAccountResponseAuditEntriesItem] }, optional: false, nullable: false, api_name: "auditEntries"
+
+        field :auth_events, -> { Internal::Types::Array[Nordlet::Account::Types::ExportAccountResponseAuthEventsItem] }, optional: false, nullable: false, api_name: "authEvents"
+
+        field :api_keys, -> { Internal::Types::Array[Nordlet::Account::Types::ExportAccountResponseAPIKeysItem] }, optional: false, nullable: false, api_name: "apiKeys"
+
+        field :oauth_grants, -> { Internal::Types::Array[Nordlet::Account::Types::ExportAccountResponseOauthGrantsItem] }, optional: false, nullable: false, api_name: "oauthGrants"
+
+        field :referral_points, -> { Internal::Types::Array[Nordlet::Account::Types::ExportAccountResponseReferralPointsItem] }, optional: false, nullable: false, api_name: "referralPoints"
       end
     end
   end
