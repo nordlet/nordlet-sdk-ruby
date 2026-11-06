@@ -56415,7 +56415,7 @@ client.billing.account_set_overdraft_cap(cap_cents: 1000000)
 <dl>
 <dd>
 
-Open a Stripe Checkout session for a one-time credit top-up of `amountCents` and return its URL; a Stripe customer is created for the user when there is none. `returnTo` chooses whether Checkout returns to the credits page or to the onboarding plan page, in `locale`. Answers 409 on a site without top-ups and 503 when online payments are not configured.
+Open a Stripe Checkout session for a one-time credit top-up of `amountCents` and return its URL; a Stripe customer is created for the user when there is none. `returnTo` chooses whether Checkout returns to the credits page or to the onboarding plan page, in `locale`; with `convertCompanyId` it returns to the onboarding plan page, which then converts that sandbox company to a live company. Answers 409 on a site without top-ups and 503 when online payments are not configured.
 </dd>
 </dl>
 </dd>
@@ -56462,6 +56462,14 @@ client.billing.topup_create(amount_cents: 1000000)
 <dd>
 
 **return_to:** `Nordlet::Billing::Types::TopupCreateBillingRequestReturnTo` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**convert_company_id:** `String` 
     
 </dd>
 </dl>
@@ -56543,6 +56551,60 @@ client.billing.topup_confirm(session_id: "sessionId")
 </dl>
 </details>
 
+<details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">free_sandbox_start</a>(request) -> Nordlet::Billing::Types::FreeSandboxStartBillingResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Start the free sandbox plan of the caller's `app` billing account: one sandbox company, free for 14 days from now, without a payment. A free sandbox that is already running keeps its end date. After `trialEndsAt` the sandbox company answers 402 until a paid plan is chosen. Answers 409 on the `invoice` site, when a paid plan is already active, and when the free sandbox of this account has already ended.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.billing.free_sandbox_start
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Billing::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.billing.<a href="/lib/nordlet/billing/client.rb">flat_rate_create</a>(request) -> Nordlet::Billing::Types::FlatRateCreateBillingResponse</code></summary>
 <dl>
 <dd>
@@ -56555,7 +56617,7 @@ client.billing.topup_confirm(session_id: "sessionId")
 <dl>
 <dd>
 
-Open a Stripe Checkout session for a flat-rate subscription on `plan` (by default the first plan of the request's site) for the billing account of the request's site, with the trial period of `trialDays` days, and return its URL; a Stripe customer is created for that account when it has none. The `invoicing` plan of the `invoice` site takes its trial days from the server setting `INVOICE_PLAN_TRIAL_DAYS` and returns to the invoice app. Answers 422 when the plan is not one of the site's plans, 409 when the site's flat-rate subscription is already active and 503 when online payments are not configured, the plan has no price, or the Invoicing trial is not set.
+Open a Stripe Checkout session for a flat-rate subscription on `plan` (by default the first plan of the request's site) for the billing account of the request's site and return its URL; a Stripe customer is created for that account when it has none. The plans of the `app` site have no trial period: the first month is charged at checkout. The `invoicing` plan of the `invoice` site takes its trial days from the server setting `INVOICE_PLAN_TRIAL_DAYS` and returns to the invoice app. With `convertCompanyId` Checkout returns to the onboarding plan page, which then converts that sandbox company to a live company. Answers 422 when the plan is not one of the site's plans, 409 when the site's flat-rate subscription is already active and 503 when online payments are not configured, the plan has no price, or the Invoicing trial is not set.
 </dd>
 </dl>
 </dd>
@@ -56594,6 +56656,14 @@ client.billing.flat_rate_create
 <dd>
 
 **plan:** `Nordlet::Billing::Types::FlatRateCreateBillingRequestPlan` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**convert_company_id:** `String` 
     
 </dd>
 </dl>
@@ -57885,7 +57955,7 @@ client.account.locale_set(locale: "en")
 <dl>
 <dd>
 
-Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Refused with 422 when `baseCurrency` is not a supported currency.
+Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a supported currency.
 </dd>
 </dl>
 </dd>
@@ -58195,7 +58265,7 @@ client.account.companies_create(name: "name")
 <dl>
 <dd>
 
-**is_sandbox:** `Internal::Types::Boolean` — Sandbox companies hold test data and are purged immediately on delete (immutable after creation)
+**is_sandbox:** `Internal::Types::Boolean` — Sandbox companies hold test data and are purged immediately on delete; `companies/convert-to-live` turns one into a live company
     
 </dd>
 </dl>
@@ -58755,6 +58825,68 @@ Set the company named by `companyId` to `deleted`; the caller must be its owner,
 
 ```ruby
 client.account.companies_delete(company_id: "companyId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**company_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">companies_convert_to_live</a>(request) -> Nordlet::Account::Types::CompaniesConvertToLiveAccountResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Turn the sandbox company `companyId` into a live company and keep all of its data: from then on its filings go to the authorities' production systems and a delete is no longer purged at once. The caller must be the company's owner and payer and have a paid plan (a flat-rate subscription or per-request billing). Refused with 403 when the caller is not the owner or not the payer, 409 when the company is not a sandbox company and 402 when the caller has no paid plan.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.companies_convert_to_live(company_id: "companyId")
 ```
 </dd>
 </dl>

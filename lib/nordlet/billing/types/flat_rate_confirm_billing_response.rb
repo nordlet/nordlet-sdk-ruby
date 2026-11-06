@@ -16,6 +16,8 @@ module Nordlet
 
         field :trial_ends_at, -> { String }, optional: false, nullable: true, api_name: "trialEndsAt"
 
+        field :free_sandbox_started_at, -> { String }, optional: false, nullable: true, api_name: "freeSandboxStartedAt"
+
         field :first_top_up_at, -> { String }, optional: false, nullable: true, api_name: "firstTopUpAt"
 
         field :last_charged_date, -> { String }, optional: false, nullable: true, api_name: "lastChargedDate"
