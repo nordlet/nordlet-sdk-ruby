@@ -469,7 +469,8 @@ module Nordlet
       # (422). `side` says whether the type is for sale lines, purchase lines or both, `scheme` is its VAT scheme and
       # `nameEn` its English name; both are null for a type the company added itself. A type without a rate takes the
       # line's `vatRatePercent` on the sides where `rateFromLine` is true, and 0% elsewhere. Filterable by `code`,
-      # `countryCode` and `ratePercent`; sortable by `code` and `ratePercent`.
+      # `countryCode`, `ratePercent`, `side` and `scheme`; `side` and `scheme` take `eq`, `ne` and `in`, and `side`
+      # `sale` or `purchase` also matches the types for both sides. Sortable by `code` and `ratePercent`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Reference::Types::VatClassifiersListReferenceRequest]
@@ -615,7 +616,12 @@ module Nordlet
       # from the partner's address or VAT number, business status from the VAT number) or from `customerCountryCode` and
       # `customerIsBusiness`; `date` defaults to the company's current date; when `belowDistanceSalesThreshold` is not
       # given, the distance-sales threshold is tracked from the company's ledger. Answers 422 when the partner has
-      # neither an address country nor a VAT code.
+      # neither an address country nor a VAT code. `vatTypeCodes` lists the codes of the VAT types of the company's
+      # country that fit the treatment and are valid on `date` (for `vatClassifierCode` on a line), empty when none is
+      # known; when they all belong to one of the schemes `intra_eu_b2b` and `reverse_charge`, `scheme` is that scheme.
+      # With `side` `purchase` the partner (or `customerCountryCode` and `customerIsBusiness`) is the supplier, the
+      # treatment is that of the supplier's supply to this company, `vatTypeCodes` are purchase types, and the
+      # marketplace, platform-service and special-goods fields are not used.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Reference::Types::VatResolveReferenceRequest]

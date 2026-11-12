@@ -15,7 +15,11 @@ module Nordlet
       # `sales/invoices/issue`. Answers 422 when a credit note credits a proforma, another credit note or a document
       # that is not issued, when the credited document has another partner or currency, when an OSS or IOSS document has
       # no EU `vatCountryCode`, when the lines carry VAT but the company is not a VAT payer or the VAT scheme charges
-      # none, or when the operation type or document series is for another document type.
+      # none, or when the operation type or document series is for another document type. `warnings` lists what does not
+      # refuse the document but needs a look: `vat_type_not_valid_on_date` (a line VAT type is not valid on the issue
+      # date, else today), `vat_type_domestic_for_eu_partner` (a domestic VAT type for a partner VAT-registered in
+      # another EU country), `vat_type_intra_eu_for_domestic_partner` (an intra-EU VAT type for a partner in the company
+      # country) and `vat_type_intra_eu_without_vat_number` (an intra-EU VAT type for a partner without a VAT number).
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesCreateSalesRequest]
@@ -123,9 +127,11 @@ module Nordlet
       # Return a sale document as its customer sees it: the seller as printed on it (the snapshot taken at issue, else
       # the company), the buyer with address and e-mail, the lines, the totals, `paidOn` (the date of the latest payment
       # once the document is paid), `payUrl` (as in `sales/invoices/payment-link`; null while `cardPaymentReceived`),
-      # `cardPaymentReceived` (a completed card payment was received and the invoice waits for the payout settlement)
-      # and `token`, the document's customer token for `public/invoices/get` and `public/invoices/pdf`, created on first
-      # use; `token` is null on a draft.
+      # `cardPaymentReceived` (a completed card payment was received and the invoice waits for the payout settlement),
+      # `sentWith` (the name the public invoice page prints in its "Sent with" line: Nordlet, or the brand name of the
+      # white-label partner who pays for the company, null when that partner has set no name) and `token`, the
+      # document's customer token for `public/invoices/get` and `public/invoices/pdf`, created on first use; `token` is
+      # null on a draft.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesViewSalesRequest]
@@ -310,8 +316,10 @@ module Nordlet
         end
       end
 
-      # Render an issued invoice as the national e-invoicing payload for the company country: FatturaPA (IT), KSeF FA(3)
-      # (PL) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is flagged, never invented.
+      # Render an issued invoice as the national e-invoicing payload for the company country: SII or Veri*Factu (ES),
+      # Factur-X (FR), myDATA (GR), Fiskalizacija (HR), NAV Online Számla (HU), FatturaPA (IT), KSeF FA(3) (PL), AT
+      # comunicação de faturas (PT) or UBL CIUS-RO (RO). Review the warnings - data the invoice does not carry is
+      # flagged, never invented.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesEinvoiceXMLSalesRequest]
@@ -503,7 +511,9 @@ module Nordlet
       # `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase
       # invoice is created there). Answers 409 when the document is already issued or locked or the accounting period is
       # locked, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the
-      # credited total, or when `returnToStock` is used on anything but a credit note of an invoice.
+      # credited total, or when `returnToStock` is used on anything but a credit note of an invoice. `warnings` carries
+      # the VAT type warnings of `sales/invoices/create` and `document_date_before_last_number` when the document is
+      # dated before the last number issued in its series.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::InvoicesIssueSalesRequest]
@@ -1406,7 +1416,8 @@ module Nordlet
       # type), issues it when `autoIssue` is set and e-mails it when `autoSend` is set, then moves the schedule to its
       # next occurrence (or to `finished` after the last one) and emits `recurring_invoice.generated`. A failure to
       # issue or send comes back in `error` and is stored as `lastError`; the draft stays. Answers 409 when the schedule
-      # is finished, 422 when the template is a credit note template or has no lines.
+      # is finished or its `nextRunDate` is after the company's current date, 422 when the template is a credit note
+      # template or has no lines.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Sales::Types::RecurringInvoicesGenerateSalesRequest]

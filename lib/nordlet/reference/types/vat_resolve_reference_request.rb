@@ -12,6 +12,8 @@ module Nordlet
 
         field :supply_type, -> { Nordlet::Reference::Types::VatResolveReferenceRequestSupplyType }, optional: true, nullable: false, api_name: "supplyType"
 
+        field :side, -> { Nordlet::Reference::Types::VatResolveReferenceRequestSide }, optional: true, nullable: false
+
         field :date, -> { String }, optional: true, nullable: false
 
         field :below_distance_sales_threshold, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "belowDistanceSalesThreshold"

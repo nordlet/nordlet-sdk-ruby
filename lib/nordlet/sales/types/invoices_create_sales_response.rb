@@ -137,6 +137,8 @@ module Nordlet
         field :lines, -> { Internal::Types::Array[Nordlet::Sales::Types::InvoicesCreateSalesResponseLinesItem] }, optional: false, nullable: false
 
         field :vat_evidence, -> { Nordlet::Sales::Types::InvoicesCreateSalesResponseVatEvidence }, optional: false, nullable: true, api_name: "vatEvidence"
+
+        field :warnings, -> { Internal::Types::Array[Nordlet::Sales::Types::InvoicesCreateSalesResponseWarningsItem] }, optional: false, nullable: false
       end
     end
   end

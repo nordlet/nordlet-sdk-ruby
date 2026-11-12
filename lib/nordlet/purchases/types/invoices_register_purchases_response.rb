@@ -34,6 +34,12 @@ module Nordlet
 
         field :journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "journalTransactionId"
 
+        field :reversed_at, -> { String }, optional: false, nullable: true, api_name: "reversedAt"
+
+        field :reversal_journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "reversalJournalTransactionId"
+
+        field :reversal_reason, -> { String }, optional: false, nullable: true, api_name: "reversalReason"
+
         field :credited_invoice_id, -> { String }, optional: false, nullable: true, api_name: "creditedInvoiceId"
 
         field :purchase_order_id, -> { String }, optional: false, nullable: true, api_name: "purchaseOrderId"
@@ -59,6 +65,8 @@ module Nordlet
         field :updated_at, -> { String }, optional: false, nullable: false, api_name: "updatedAt"
 
         field :lines, -> { Internal::Types::Array[Nordlet::Purchases::Types::InvoicesRegisterPurchasesResponseLinesItem] }, optional: false, nullable: false
+
+        field :warnings, -> { Internal::Types::Array[Nordlet::Purchases::Types::InvoicesRegisterPurchasesResponseWarningsItem] }, optional: false, nullable: false
       end
     end
   end

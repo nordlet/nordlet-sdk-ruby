@@ -8,6 +8,7 @@ module Nordlet
 
         NEW = "new"
         MATCHED = "matched"
+        IGNORED = "ignored"
       end
     end
   end

@@ -38,6 +38,8 @@ module Nordlet
 
         field :card_payment_received, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "cardPaymentReceived"
 
+        field :sent_with, -> { String }, optional: false, nullable: true, api_name: "sentWith"
+
         field :seller, -> { Nordlet::Public::Types::InvoicesGetPublicResponseSeller }, optional: false, nullable: false
 
         field :buyer, -> { Nordlet::Public::Types::InvoicesGetPublicResponseBuyer }, optional: false, nullable: false

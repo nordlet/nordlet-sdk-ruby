@@ -37,6 +37,12 @@ module Nordlet
         field :document_ref, -> { String }, optional: true, nullable: false, api_name: "documentRef"
 
         field :lines, -> { Internal::Types::Array[Nordlet::Purchases::Types::InvoicesCreatePurchasesRequestLinesItem] }, optional: false, nullable: false
+
+        field :net_total, -> { String }, optional: true, nullable: false, api_name: "netTotal"
+
+        field :vat_total, -> { String }, optional: true, nullable: false, api_name: "vatTotal"
+
+        field :gross_total, -> { String }, optional: true, nullable: false, api_name: "grossTotal"
       end
     end
   end

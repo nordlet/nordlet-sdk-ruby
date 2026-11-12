@@ -7,6 +7,8 @@ module Nordlet
         field :imported, -> { Integer }, optional: false, nullable: false
 
         field :skipped, -> { Integer }, optional: false, nullable: false
+
+        field :duplicates, -> { Internal::Types::Array[Nordlet::Bank::Types::TransactionsImportBankResponseDuplicatesItem] }, optional: false, nullable: false
       end
     end
   end

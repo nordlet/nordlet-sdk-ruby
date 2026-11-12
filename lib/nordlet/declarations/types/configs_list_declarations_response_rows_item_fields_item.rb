@@ -6,6 +6,8 @@ module Nordlet
       class ConfigsListDeclarationsResponseRowsItemFieldsItem < Internal::Types::Model
         field :key, -> { String }, optional: false, nullable: false
 
+        field :label, -> { String }, optional: true, nullable: false
+
         field :kind, -> { Nordlet::Declarations::Types::ConfigsListDeclarationsResponseRowsItemFieldsItemKind }, optional: false, nullable: false
 
         field :multiline, -> { Internal::Types::Boolean }, optional: true, nullable: false

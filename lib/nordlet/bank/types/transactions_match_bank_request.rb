@@ -11,6 +11,8 @@ module Nordlet
         field :document_id, -> { String }, optional: false, nullable: false, api_name: "documentId"
 
         field :invoice_amount, -> { String }, optional: true, nullable: false, api_name: "invoiceAmount"
+
+        field :remainder, -> { Nordlet::Bank::Types::TransactionsMatchBankRequestRemainder }, optional: true, nullable: false
       end
     end
   end

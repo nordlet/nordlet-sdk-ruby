@@ -626,6 +626,48 @@ module Nordlet
         end
       end
 
+      # Lists what is still open for `period`: a month (`YYYY-MM`) or the fiscal year that ends in `YYYY`. Items: draft
+      # sale documents (invoices, credit notes and advance invoices with an issue date in the period) and draft purchase
+      # documents dated in the period, bank lines dated in the period with status `new`, assets with depreciation months
+      # not posted up to the period end, expense deferral rows due by the period end and not posted, active recurring
+      # invoices whose next run date is on or before the period end, payroll runs of the period's months still in draft,
+      # and for a fiscal year the issued sale and registered purchase documents in a currency other than the base
+      # currency still open at the year end. Each item carries the `count` and the `ids` of the documents, rows, assets,
+      # recurring invoices or runs; an item with nothing open is left out. `ledger/periods/lock` returns the same items
+      # as `warnings`.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Reports::Types::PeriodChecklistReportsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Reports::Types::PeriodChecklistReportsResponse]
+      def period_checklist(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/reports/period-checklist",
+          body: Nordlet::Reports::Types::PeriodChecklistReportsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Reports::Types::PeriodChecklistReportsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # Registered purchase invoices of a period (by registration date) from partners in another EU country, summed per
       # partner country and VAT rate: net and VAT in the base currency and the number of documents, credit notes
       # counting negative. The partner's country is the country code of its address, else the first two characters of

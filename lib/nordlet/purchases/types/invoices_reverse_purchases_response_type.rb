@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 module Nordlet
-  module Capture
+  module Purchases
     module Types
-      module DocumentsUploadCaptureResponseExtractionDocumentType
+      module InvoicesReversePurchasesResponseType
         extend Nordlet::Internal::Types::Enum
 
         INVOICE = "invoice"

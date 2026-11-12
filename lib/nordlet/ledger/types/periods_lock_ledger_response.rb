@@ -11,6 +11,8 @@ module Nordlet
         field :month, -> { Integer }, optional: false, nullable: false
 
         field :status, -> { Nordlet::Ledger::Types::PeriodsLockLedgerResponseStatus }, optional: false, nullable: false
+
+        field :warnings, -> { Internal::Types::Array[Nordlet::Ledger::Types::PeriodsLockLedgerResponseWarningsItem] }, optional: false, nullable: false
       end
     end
   end

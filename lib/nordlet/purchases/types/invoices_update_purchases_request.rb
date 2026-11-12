@@ -33,6 +33,12 @@ module Nordlet
         field :einvoice_number, -> { String }, optional: true, nullable: false, api_name: "einvoiceNumber"
 
         field :lines, -> { Internal::Types::Array[Nordlet::Purchases::Types::InvoicesUpdatePurchasesRequestLinesItem] }, optional: true, nullable: false
+
+        field :net_total, -> { String }, optional: true, nullable: false, api_name: "netTotal"
+
+        field :vat_total, -> { String }, optional: true, nullable: false, api_name: "vatTotal"
+
+        field :gross_total, -> { String }, optional: true, nullable: false, api_name: "grossTotal"
       end
     end
   end

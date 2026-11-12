@@ -119,8 +119,13 @@ module Nordlet
 
       # Insert statement lines (up to 1000 per call) into a bank account as new transactions. A line without `currency`
       # takes the account currency; a line in another currency is refused with 422. A line whose `externalId` is already
-      # on the account is skipped and counted in `skipped`. An incoming line that an active match rule
-      # (`bank/match-rules/create`) recognises is linked to its settlement batch.
+      # on the account is skipped and counted in `skipped`. A line without `externalId` that is identical to a line
+      # already on the account (same booking date, amount, counterparty IBAN, or name when either IBAN is missing, and
+      # description) is skipped, counted in `skipped` and listed in `duplicates`. When `openingBalance` and
+      # `closingBalance` are both given, the opening balance plus the lines must give the closing balance (422 with both
+      # figures otherwise), and the closing balance is kept for `bank/reconciliation/get` as the balance on the latest
+      # line date. An incoming line that an active match rule (`bank/match-rules/create`) recognises is linked to its
+      # settlement batch.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Bank::Types::TransactionsImportBankRequest]
@@ -157,8 +162,10 @@ module Nordlet
       # Import a statement file into a bank account: camt.053 XML, MT940, a Stripe balance CSV or a Revolut Business
       # CSV, chosen by `format` or by the type of `templateId` (an iso20022 template also takes MT940 content).
       # Statements whose IBAN or currency differ from the account are left out; the call is refused with 422 when none
-      # remains, when a line is in another currency, when the file lacks the columns or elements the template requires
-      # or when it holds more than 50000 lines. Lines already on the account are skipped, and Stripe movements already
+      # remains, when a line is in another currency, when the opening balance plus the lines of a camt.053 or MT940
+      # statement does not give its closing balance (the message names both figures), when the file lacks the columns or
+      # elements the template requires or when it holds more than 50000 lines. The closing balance of each statement is
+      # kept for `bank/reconciliation/get`. Lines already on the account are skipped, and Stripe movements already
       # posted through a settlement payout are skipped with a warning. With a template, the mapped fields are posted to
       # their ledger accounts, partners are created, payments are matched to the invoices they reference, and invoices,
       # credit notes or advance invoices are issued where the template asks for them (`invoiceMetaField`,
@@ -239,10 +246,15 @@ module Nordlet
       # with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the
       # line to matched. A payment in another currency is converted into the invoice currency at the rate of the line
       # date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the
-      # amount settled instead; in the same currency it must equal the payment (422). Answers 409 when the line is
-      # already matched, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of
-      # the document or when the accounting period of the line date is locked. A document that becomes fully paid is
-      # announced as `sale_invoice.paid` or `purchase_invoice.paid`.
+      # amount settled instead; in the same currency it must equal the payment (422). `remainder` settles a payment that
+      # differs from the remaining balance of a sale or purchase invoice in its own currency: `advance` books an
+      # overpayment beyond the balance to the advances-received posting rule (customer payments) or to
+      # `remainder.accountCode`, which a supplier overpayment must name, on the line's partner; `write_off` books the
+      # over- or underpayment to `remainder.accountCode` and settles the invoice in full; `leave_open` settles an
+      # underpayment as a partial payment and leaves the rest open. Answers 409 when the line is already matched or
+      # ignored, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the
+      # document and no `remainder` is given, or when the accounting period of the line date is locked. A document that
+      # becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Bank::Types::TransactionsMatchBankRequest]
@@ -316,9 +328,11 @@ module Nordlet
         end
       end
 
-      # Undo a match. A payment matched to an invoice, or a line posted by an import template, gets a reversing journal
-      # transaction dated date (default: today) and the invoice paid amount and payment status are restored; a line
-      # linked to a payment-provider settlement is only unlinked. The line returns to status new.
+      # Undo a match. A payment matched to an invoice, a line posted by an import template or by
+      # `bank/transactions/post` (to an account or a tax payment) gets a reversing journal transaction dated date
+      # (default: today) and the invoice paid amount and payment status are restored; a line linked to a
+      # payment-provider settlement is only unlinked; an ignored line is restored as with `bank/transactions/unignore`.
+      # The line returns to status new.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Bank::Types::TransactionsUnmatchBankRequest]
@@ -352,10 +366,165 @@ module Nordlet
         end
       end
 
+      # Book one new bank transaction against a ledger account, for lines that settle no invoice (bank fees, interest,
+      # tax payments, transfers). Posts a journal transaction dated on the line's booking date between the bank
+      # account's ledger account and `accountCode` (incoming money: debit bank, credit the account; outgoing money the
+      # reverse), with the optional `partnerId` on the transaction and `costCenterId` and `projectId` on the counter
+      # entry, and sets the line to matched with `matchedDocumentType` `journal_transaction`. With `taxPaymentId` the
+      # line settles a tax payment recorded with `declarations/tax-payments/create`: an outgoing line for a payment, an
+      # incoming line for a refund, in the company currency and for the same amount (422 otherwise), not yet booked from
+      # another line (409); the line is matched as `tax_payment`. VAT is not booked here, because VAT returns are built
+      # from documents: a `vatClassifierCode` answers 422, and a fee with VAT is registered as a purchase invoice and
+      # the line matched to it. Answers 409 when the line is already matched or ignored or when the accounting period of
+      # the line date is locked. `bank/transactions/unmatch` reverses the posting.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Bank::Types::TransactionsPostBankRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Bank::Types::TransactionsPostBankResponse]
+      def transactions_post(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/bank/transactions/post",
+          body: Nordlet::Bank::Types::TransactionsPostBankRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Bank::Types::TransactionsPostBankResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Mark a new bank transaction as ignored, for a line that needs no booking (a duplicate the bank sent, a line
+      # booked another way), with the reason kept on the line. Nothing is posted. Answers 409 when the line is matched
+      # or already ignored; `bank/transactions/unignore` returns it to new.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Bank::Types::TransactionsIgnoreBankRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Bank::Types::TransactionsIgnoreBankResponse]
+      def transactions_ignore(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/bank/transactions/ignore",
+          body: Nordlet::Bank::Types::TransactionsIgnoreBankRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Bank::Types::TransactionsIgnoreBankResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Return an ignored bank transaction to status new and clear its reason. Answers 409 when the line is not ignored.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Bank::Types::TransactionsUnignoreBankRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Bank::Types::TransactionsUnignoreBankResponse]
+      def transactions_unignore(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/bank/transactions/unignore",
+          body: Nordlet::Bank::Types::TransactionsUnignoreBankRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Bank::Types::TransactionsUnignoreBankResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Compare a bank account's statement balance with its ledger balance on `date`. The statement balance is
+      # `statementBalance` when given, else the latest closing balance kept from an imported statement on or before
+      # `date` (`statementClosingDate`) plus the lines on the account dated after it up to `date`. The ledger balance is
+      # the posted balance of the bank account's ledger account up to `date`, in the account currency (for an account in
+      # another currency than the company's, the sum of the entries' currency amounts in that currency). `difference` is
+      # the statement balance less the ledger balance. `unbookedLines` are the lines up to `date` still in status new
+      # (at most 1000; `unbookedCount` and `unbookedTotal` cover all of them). Answers 404 when the bank account does
+      # not exist.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Bank::Types::ReconciliationGetBankRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Bank::Types::ReconciliationGetBankResponse]
+      def reconciliation_get(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/bank/reconciliation/get",
+          body: Nordlet::Bank::Types::ReconciliationGetBankRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Bank::Types::ReconciliationGetBankResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # Record a payment that is on no imported statement: inserts a bank transaction on the account dated `date`
-      # (positive for a sale invoice, negative for a purchase invoice or payroll run, in the account currency) and
-      # matches it to the document with the checks, posting and `sale_invoice.paid` or `purchase_invoice.paid` event of
-      # `bank/transactions/match`.
+      # (`amount` is always positive, in the account currency: money received for a sale invoice, money paid out for a
+      # purchase invoice or payroll run) and matches it to the document with the checks, posting and `sale_invoice.paid`
+      # or `purchase_invoice.paid` event of `bank/transactions/match`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Bank::Types::TransactionsRecordBankRequest]

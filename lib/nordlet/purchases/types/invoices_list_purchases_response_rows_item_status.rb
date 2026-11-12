@@ -8,6 +8,7 @@ module Nordlet
 
         DRAFT = "draft"
         REGISTERED = "registered"
+        REVERSED = "reversed"
       end
     end
   end

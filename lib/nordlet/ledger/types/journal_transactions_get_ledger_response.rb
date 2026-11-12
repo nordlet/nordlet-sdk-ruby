@@ -22,6 +22,8 @@ module Nordlet
 
         field :posted_at, -> { String }, optional: false, nullable: true, api_name: "postedAt"
 
+        field :reversed_by_transaction_id, -> { String }, optional: false, nullable: true, api_name: "reversedByTransactionId"
+
         field :entries, -> { Internal::Types::Array[Nordlet::Ledger::Types::JournalTransactionsGetLedgerResponseEntriesItem] }, optional: false, nullable: false
       end
     end

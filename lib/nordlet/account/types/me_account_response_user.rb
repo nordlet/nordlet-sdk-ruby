@@ -15,6 +15,8 @@ module Nordlet
         field :plan, -> { String }, optional: false, nullable: false
 
         field :is_super_admin, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isSuperAdmin"
+
+        field :white_label, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "whiteLabel"
       end
     end
   end

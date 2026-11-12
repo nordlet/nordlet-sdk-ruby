@@ -19,6 +19,8 @@ module Nordlet
         field :legal_basis, -> { String }, optional: false, nullable: false, api_name: "legalBasis"
 
         field :notes, -> { Internal::Types::Array[String] }, optional: false, nullable: false
+
+        field :vat_type_codes, -> { Internal::Types::Array[String] }, optional: false, nullable: false, api_name: "vatTypeCodes"
       end
     end
   end

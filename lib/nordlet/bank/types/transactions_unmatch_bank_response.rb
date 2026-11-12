@@ -30,6 +30,8 @@ module Nordlet
 
         field :journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "journalTransactionId"
 
+        field :ignore_reason, -> { String }, optional: false, nullable: true, api_name: "ignoreReason"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
       end
     end

@@ -12,8 +12,6 @@ module Nordlet
 
         field :sale_invoices, -> { Integer }, optional: false, nullable: false, api_name: "saleInvoices"
 
-        field :ocr_pages, -> { Integer }, optional: false, nullable: false, api_name: "ocrPages"
-
         field :file_bytes, -> { Integer }, optional: false, nullable: false, api_name: "fileBytes"
 
         field :database_bytes, -> { Integer }, optional: false, nullable: false, api_name: "databaseBytes"

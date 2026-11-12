@@ -130,9 +130,11 @@ module Nordlet
       # Return the signed-in user, their active company and role in it, the companies they belong to and their consent
       # state. `billing` is the billing account of the request's site (the `x-nordlet-site` header, `app` when absent)
       # that pays for the active company (its payer, or the user when there is none or no company), with `isPayer`
-      # saying whether that is the user; `referralPoints` is the user's current points balance. An API key may call it
-      # too: the active company is then the one named in the `x-nordlet-company` header, and `companies` lists every
-      # company the key works in.
+      # saying whether that is the user; `referralPoints` is the user's current points balance; `user.whiteLabel` says
+      # the user is a white-label partner, who may call `account/brand/get` and `account/brand/update`. An API key may
+      # call it too: the active company is then the one named in the `x-nordlet-company` header, and `companies` lists
+      # every company the key works in, each with its country, base currency, VAT payer flag, VAT period and the month
+      # its fiscal year ends in.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::MeAccountRequest]
@@ -525,7 +527,8 @@ module Nordlet
       # to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one
       # sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox
       # company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a
-      # supported currency.
+      # supported currency. An API key may call it when it holds the `account:write` scope (403 otherwise): the company
+      # is created for the person the key belongs to, and the key works in it like in their other companies.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::CompaniesCreateAccountRequest]
@@ -595,7 +598,8 @@ module Nordlet
         end
       end
 
-      # Return the profile of the active company.
+      # Return the profile of the active company. An API key reads the company named in the `x-nordlet-company` header
+      # and needs the `account:read` scope.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::CompaniesProfileAccountRequest]
@@ -632,7 +636,11 @@ module Nordlet
       # Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and
       # the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the
       # company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at
-      # creation.
+      # creation. An API key changes the company named in the `x-nordlet-company` header, needs the `account:write`
+      # scope and the owner or admin role there, and may send only `code`, `vatCode`, `smeExemptionNumber`, `legalForm`,
+      # `registryName`, `incorporatedOn`, `shareCapital`, `address`, `email`, `phone`, `accountsKeptBy`,
+      # `bookkeeperName`, `auditorName`, `auditorRegistrationNumber`, `auditRequired`; any other field is refused with
+      # 403.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::CompaniesUpdateAccountRequest]
@@ -1020,6 +1028,81 @@ module Nordlet
         code = response.code.to_i
         if code.between?(200, 299)
           Nordlet::Account::Types::ProfileUpdateAccountResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Return the brand settings of the signed-in white-label partner: `name`, `logoUrl`, `color` and `footer`, each
+      # null when not set. Refused with 403 when the user is not a white-label partner.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Account::Types::BrandGetAccountRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Account::Types::BrandGetAccountResponse]
+      def brand_get(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/account/brand/get",
+          body: Nordlet::Account::Types::BrandGetAccountRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Account::Types::BrandGetAccountResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Set the brand settings of the signed-in white-label partner; all four fields are sent and null clears one. They
+      # apply to every company the user pays for: the invoice, quote and payment reminder e-mails show `logoUrl` (an
+      # https address of an image) in the header, use `color` (`#rrggbb`) for the top line, the brand name and the
+      # buttons, and print `footer`, or `name` when there is no footer, in place of the Nordlet footer line; the public
+      # invoice page prints `name` in its "Sent with" line and leaves the line out when there is no name (`sentWith` of
+      # `public/invoices/get`); filled official form PDFs carry `name` as their producer and creator. Refused with 403
+      # when the user is not a white-label partner.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Account::Types::BrandUpdateAccountRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Account::Types::BrandUpdateAccountResponse]
+      def brand_update(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/account/brand/update",
+          body: Nordlet::Account::Types::BrandUpdateAccountRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Account::Types::BrandUpdateAccountResponse.load(response.body)
         else
           error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
           raise error_class.new(response.body, code: code)
