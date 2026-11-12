@@ -205,7 +205,9 @@ module Nordlet
       end
 
       # List the bank transactions of the company. Filterable by id, bankAccountId, status, matchedDocumentId, date,
-      # amount, counterpartyIban, counterpartyName and externalId; sortable by date, createdAt and amount.
+      # amount, counterpartyIban, counterpartyName, partnerId and externalId; sortable by date, createdAt and amount.
+      # `counterpartyName` is the name as the bank wrote it; `partnerId` and `partnerName` are the partner the line
+      # belongs to.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Bank::Types::TransactionsListBankRequest]

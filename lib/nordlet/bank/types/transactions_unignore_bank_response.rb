@@ -18,6 +18,10 @@ module Nordlet
 
         field :counterparty_iban, -> { String }, optional: false, nullable: true, api_name: "counterpartyIban"
 
+        field :partner_id, -> { String }, optional: false, nullable: true, api_name: "partnerId"
+
+        field :partner_name, -> { String }, optional: false, nullable: true, api_name: "partnerName"
+
         field :description, -> { String }, optional: false, nullable: true
 
         field :external_id, -> { String }, optional: false, nullable: true, api_name: "externalId"
