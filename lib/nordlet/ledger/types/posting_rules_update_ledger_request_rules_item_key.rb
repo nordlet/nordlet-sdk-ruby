@@ -24,6 +24,8 @@ module Nordlet
         POS_CASH_SURPLUS = "pos.cashSurplus"
         BANK_FX_GAIN = "bank.fxGain"
         BANK_FX_LOSS = "bank.fxLoss"
+        BANK_PAYMENT_DIFFERENCE_GAIN = "bank.paymentDifferenceGain"
+        BANK_PAYMENT_DIFFERENCE_LOSS = "bank.paymentDifferenceLoss"
         BANK_FEES = "bank.fees"
         BANK_CARD_PAYMENTS = "bank.cardPayments"
         BANK_TOP_UPS = "bank.topUps"

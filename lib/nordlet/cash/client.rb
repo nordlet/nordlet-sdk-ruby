@@ -233,8 +233,8 @@ module Nordlet
         end
       end
 
-      # Lists expense reports without their lines. Filterable by `employeeId` and `date`; sortable by `date` and
-      # `number`.
+      # Lists expense reports without their lines. Filterable by `employeeId`, `date` and `number`; sortable by `date`
+      # and `number`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Cash::Types::ExpenseReportsListCashRequest]

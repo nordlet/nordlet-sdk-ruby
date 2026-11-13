@@ -781,7 +781,8 @@ module Nordlet
         end
       end
 
-      # Lists business trips; filterable by `employeeId`, `status` and `payrollRunId`, sortable by `startDate`.
+      # Lists business trips; filterable by `employeeId`, `status`, `payrollRunId` and `purpose`, sortable by
+      # `startDate`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Hr::Types::BusinessTripsListHrRequest]

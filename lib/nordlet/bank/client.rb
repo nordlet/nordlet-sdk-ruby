@@ -252,11 +252,14 @@ module Nordlet
       # differs from the remaining balance of a sale or purchase invoice in its own currency: `advance` books an
       # overpayment beyond the balance to the advances-received posting rule (customer payments) or to
       # `remainder.accountCode`, which a supplier overpayment must name, on the line's partner; `write_off` books the
-      # over- or underpayment to `remainder.accountCode` and settles the invoice in full; `leave_open` settles an
-      # underpayment as a partial payment and leaves the rest open. Answers 409 when the line is already matched or
-      # ignored, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the
-      # document and no `remainder` is given, or when the accounting period of the line date is locked. A document that
-      # becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
+      # over- or underpayment to `remainder.accountCode`, else to the `bank.paymentDifferenceLoss` posting rule (a
+      # customer underpayment, a supplier overpayment, a credit note refund beyond its balance) or the
+      # `bank.paymentDifferenceGain` rule (a supplier underpayment, a customer overpayment, a credit note refund below
+      # its balance), and settles the invoice in full; `leave_open` settles an underpayment as a partial payment and
+      # leaves the rest open. Answers 409 when the line is already matched or ignored, when the amount (converted,
+      # beyond one cent of the payment) exceeds the remaining balance of the document and no `remainder` is given, or
+      # when the accounting period of the line date is locked. A document that becomes fully paid is announced as
+      # `sale_invoice.paid` or `purchase_invoice.paid`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Bank::Types::TransactionsMatchBankRequest]
@@ -1210,10 +1213,10 @@ module Nordlet
 
       # Suggest documents for a new bank transaction: issued sale invoices and advances for incoming money; registered
       # purchase invoices, issued sale credit notes and approved payroll runs for outgoing money. Candidates are unpaid
-      # documents whose remaining balance covers the payment (any balance when in another currency), scored by an equal
-      # remaining balance, the document number or payroll period in the payment description and a counterparty IBAN or
-      # name matching the partner or an employee on the run; the best `limit` come back with their reasons. A
-      # transaction that is already matched answers 409.
+      # documents with any remaining balance, also one below the payment, scored by an equal remaining balance, the
+      # document number or payroll period in the payment description and a counterparty IBAN or name matching the
+      # partner or an employee on the run; the best `limit` come back with their reasons. A transaction that is already
+      # matched answers 409.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Bank::Types::TransactionsSuggestMatchesBankRequest]

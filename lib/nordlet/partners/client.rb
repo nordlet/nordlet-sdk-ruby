@@ -686,7 +686,7 @@ module Nordlet
       end
 
       # Lists the VAT reviews opened by VIES checks of partners' VAT codes, with reason `invalid`, `name_mismatch` or
-      # `service_error`; filterable by `partnerId`, `status` and `reason`, sortable by `createdAt`.
+      # `service_error`; filterable by `partnerId`, `status`, `reason` and `vatCode`, sortable by `createdAt`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Partners::Types::VatReviewsListPartnersRequest]
