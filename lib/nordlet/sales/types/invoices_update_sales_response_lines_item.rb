@@ -28,6 +28,8 @@ module Nordlet
 
         field :vat_exemption_basis, -> { String }, optional: false, nullable: true, api_name: "vatExemptionBasis"
 
+        field :asset_id, -> { String }, optional: false, nullable: true, api_name: "assetId"
+
         field :cost_center_id, -> { String }, optional: false, nullable: true, api_name: "costCenterId"
 
         field :project_id, -> { String }, optional: false, nullable: true, api_name: "projectId"

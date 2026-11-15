@@ -621,7 +621,10 @@ module Nordlet
       # known; when they all belong to one of the schemes `intra_eu_b2b` and `reverse_charge`, `scheme` is that scheme.
       # With `side` `purchase` the partner (or `customerCountryCode` and `customerIsBusiness`) is the supplier, the
       # treatment is that of the supplier's supply to this company, `vatTypeCodes` are purchase types, and the
-      # marketplace, platform-service and special-goods fields are not used.
+      # marketplace, platform-service and special-goods fields are not used. For services (or digital services) bought
+      # from a supplier outside the EU, `vatTypeCodes` are the reverse-charge purchase types of the company's country
+      # for services from non-EU suppliers (empty where the country's list has none), and `scheme` is `reverse_charge`
+      # with `reverseCharge` true.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Reference::Types::VatResolveReferenceRequest]

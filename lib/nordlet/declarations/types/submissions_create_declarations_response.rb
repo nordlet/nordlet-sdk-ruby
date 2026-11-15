@@ -32,6 +32,10 @@ module Nordlet
 
         field :amendment, -> { Integer }, optional: false, nullable: false
 
+        field :authority_ref, -> { String }, optional: false, nullable: true, api_name: "authorityRef"
+
+        field :correction_input, -> { Nordlet::Declarations::Types::SubmissionsCreateDeclarationsResponseCorrectionInput }, optional: false, nullable: true, api_name: "correctionInput"
+
         field :origin, -> { String }, optional: false, nullable: false
 
         field :transport_system, -> { String }, optional: false, nullable: true, api_name: "transportSystem"

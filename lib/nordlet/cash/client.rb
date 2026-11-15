@@ -91,7 +91,8 @@ module Nordlet
       end
 
       # Lists cash orders. Filterable by `type`, `date`, `partnerId`, `employeeId`, `fullNumber` and `amount`; sortable
-      # by `date`, `fullNumber`, `createdAt` and `amount`.
+      # by `date`, `fullNumber`, `createdAt`, `amount`, `type`, `purpose`, `counterAccountCode` and `counterpartyName`
+      # (the name of the partner, else the name of the employee).
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Cash::Types::OrdersListCashRequest]
@@ -233,8 +234,8 @@ module Nordlet
         end
       end
 
-      # Lists expense reports without their lines. Filterable by `employeeId`, `date` and `number`; sortable by `date`
-      # and `number`.
+      # Lists expense reports without their lines. Filterable by `employeeId`, `date` and `number`; sortable by `date`,
+      # `number`, `total` and `employeeName` (the first and last name of the employee).
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Cash::Types::ExpenseReportsListCashRequest]
@@ -269,8 +270,9 @@ module Nordlet
       end
 
       # Returns, per employee, the cash advances issued to them (disbursements posted to the `cash.advances` account
-      # with the employee set), the amounts returned (receipts on the same account), the total settled by expense
-      # reports and the open balance (issued less returned less settled).
+      # with the employee set, and bank payments matched to their expense reports), the amounts returned (receipts on
+      # the same account), the total settled by expense reports and the open balance (issued less returned less
+      # settled).
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Cash::Types::AdvanceHoldersBalancesCashRequest]

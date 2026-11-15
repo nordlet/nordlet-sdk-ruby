@@ -83,7 +83,8 @@ module Nordlet
 
       # List work centers. `nextMaintenanceDate` is the latest completed maintenance date (the creation date when there
       # is none) plus `maintenanceIntervalDays`, null without an interval. Filterable by `code`, `name` and `isActive`;
-      # sortable by `code`, `name` and `createdAt`.
+      # sortable by `code`, `name`, `createdAt`, `costPerHour`, `costAccountCode`, `maintenanceIntervalDays` and
+      # `nextMaintenanceDate`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Production::Types::WorkCentersListProductionRequest]
@@ -436,7 +437,8 @@ module Nordlet
       end
 
       # List bills of materials without their lines. Filterable by `code`, `name`, `finishedItemId` and `isActive`;
-      # sortable by `code` and `name`.
+      # sortable by `code`, `name`, `finishedItemName` (the name of the finished item) and `routingCode` (the code of
+      # the routing).
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Production::Types::BomsListProductionRequest]

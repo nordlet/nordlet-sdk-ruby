@@ -26,6 +26,8 @@ module Nordlet
 
         field :recognition, -> { Nordlet::Sales::Types::InvoicesCreateSalesRequestLinesItemRecognition }, optional: true, nullable: false
 
+        field :asset_id, -> { String }, optional: true, nullable: false, api_name: "assetId"
+
         field :vat_exemption_basis, -> { String }, optional: true, nullable: false, api_name: "vatExemptionBasis"
 
         field :standalone_selling_price, -> { String }, optional: true, nullable: false, api_name: "standaloneSellingPrice"

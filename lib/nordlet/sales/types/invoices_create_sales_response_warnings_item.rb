@@ -7,6 +7,8 @@ module Nordlet
         field :code, -> { String }, optional: false, nullable: false
 
         field :message, -> { String }, optional: false, nullable: false
+
+        field :fix, -> { String }, optional: false, nullable: false
       end
     end
   end

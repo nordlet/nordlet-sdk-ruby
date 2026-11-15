@@ -56,6 +56,8 @@ module Nordlet
 
         field :disposal_journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "disposalJournalTransactionId"
 
+        field :disposal_sale_invoice_id, -> { String }, optional: false, nullable: true, api_name: "disposalSaleInvoiceId"
+
         field :created_at, -> { String }, optional: false, nullable: false, api_name: "createdAt"
       end
     end

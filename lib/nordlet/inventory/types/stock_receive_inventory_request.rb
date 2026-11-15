@@ -14,6 +14,8 @@ module Nordlet
 
         field :unit_cost, -> { String }, optional: false, nullable: false, api_name: "unitCost"
 
+        field :counter_account_code, -> { String }, optional: true, nullable: false, api_name: "counterAccountCode"
+
         field :lot_number, -> { String }, optional: true, nullable: false, api_name: "lotNumber"
 
         field :expiry_date, -> { String }, optional: true, nullable: false, api_name: "expiryDate"

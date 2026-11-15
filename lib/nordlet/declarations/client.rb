@@ -1503,6 +1503,113 @@ module Nordlet
         end
       end
 
+      # Sets the provisional pro-rata percentage of the company for a fiscal year (the year in which it ends, by the
+      # company's fiscal year end month). Purchase lines on a VAT type marked pro-rata (`prorata`) deduct that share of
+      # their VAT, book the rest into the line's expense, and the VAT returns declare only the deductible part. Without
+      # a percentage for the year such a line deducts 100 % and `purchases/invoices/register` answers the warning
+      # `prorata_not_set`. Setting it again replaces the percentage for documents registered afterwards; documents
+      # already registered are not changed and the year-end adjustment is not built.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Declarations::Types::VatProrataSetDeclarationsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Declarations::Types::VatProrataSetDeclarationsResponse]
+      def vat_prorata_set(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/declarations/vat-prorata/set",
+          body: Nordlet::Declarations::Types::VatProrataSetDeclarationsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Declarations::Types::VatProrataSetDeclarationsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Answers the percentage set with `declarations/vat-prorata/set` for the fiscal year; 404 when none is set.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Declarations::Types::VatProrataGetDeclarationsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Declarations::Types::VatProrataGetDeclarationsResponse]
+      def vat_prorata_get(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/declarations/vat-prorata/get",
+          body: Nordlet::Declarations::Types::VatProrataGetDeclarationsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Declarations::Types::VatProrataGetDeclarationsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
+      # Lists the percentages set with `declarations/vat-prorata/set`, oldest fiscal year first.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Declarations::Types::VatProrataListDeclarationsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Declarations::Types::VatProrataListDeclarationsResponse]
+      def vat_prorata_list(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/declarations/vat-prorata/list",
+          body: Nordlet::Declarations::Types::VatProrataListDeclarationsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Declarations::Types::VatProrataListDeclarationsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # Whether the general meeting adopted the annual accounts and on which date, the date the accounts were prepared,
       # and which directors signed them. The annual accounts filed with the trade register are built from these facts.
       #
@@ -3391,6 +3498,49 @@ module Nordlet
         end
       end
 
+      # Builds the file of a submitted or accepted submission again from the current data, the way it was built for that
+      # submission, and compares it with the file that was filed. `needed` is false when the two carry the same data: a
+      # correction would file the same return again. `changes` lists what differs, at most 500 entries (`changeCount`
+      # counts them all): for an XML file each element or attribute by its path below the root element (`field`), for
+      # another text file each line that is only in the filed file or only in the new one (`line`, its line number in
+      # that file); `filed` and `current` are the two values, null where the field or line is missing on that side.
+      # Dates and times of the moment a file was built (ISO date-times, and the dates of both builds written as
+      # YYYY-MM-DD, YYYYMMDD, DD.MM.YYYY or DDMMYYYY) are not counted as differences. A ZIP or PDF file is compared byte
+      # by byte and lists no `changes`. Answers 422 for a submission that is not submitted or accepted, whose deadline
+      # Nordlet cannot correct, or that has no stored file.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Declarations::Types::SubmissionsCorrectionPreviewDeclarationsRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Declarations::Types::SubmissionsCorrectionPreviewDeclarationsResponse]
+      def submissions_correction_preview(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/declarations/submissions/correction-preview",
+          body: Nordlet::Declarations::Types::SubmissionsCorrectionPreviewDeclarationsRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Declarations::Types::SubmissionsCorrectionPreviewDeclarationsResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # Builds the Lithuanian i.SAF register file of a month (`dataType` F both registers, S sale invoices only, P
       # purchase invoices only), stores it and creates a submission in status `generated` for the obligation `lt-isaf`,
       # the only obligation accepted. The XML alone comes from `declarations/lt/isaf/generate`; the submission is moved
@@ -3465,7 +3615,10 @@ module Nordlet
       end
 
       # Lists the declaration submissions of the company, newest first, filterable by `obligation`, `status`,
-      # `periodYear` and `periodMonth` and sortable by `createdAt` or `periodYear`.
+      # `periodYear` and `periodMonth` and sortable by `createdAt`, `periodYear`, `obligation`, `period` (the year, then
+      # the month), `fileName`, `status` and `externalRef`. `canAmend` is true on the newest submitted or accepted send
+      # of a period (per document for a deadline filed as one document per person) whose filing can be corrected;
+      # `correction` names the fields `calendar/submit` with `amend: true` takes for it.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Declarations::Types::SubmissionsListDeclarationsRequest]

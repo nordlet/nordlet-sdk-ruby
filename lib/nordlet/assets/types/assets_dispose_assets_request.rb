@@ -12,6 +12,8 @@ module Nordlet
 
         field :proceeds, -> { String }, optional: true, nullable: false
 
+        field :sale_invoice_id, -> { String }, optional: true, nullable: false, api_name: "saleInvoiceId"
+
         field :notes, -> { String }, optional: true, nullable: false
       end
     end

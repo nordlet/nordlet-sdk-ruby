@@ -93,6 +93,11 @@ module Nordlet
       @migration ||= Nordlet::Migration::Client.new(client: @raw_client)
     end
 
+    # @return [Nordlet::Review::Client]
+    def review
+      @review ||= Nordlet::Review::Client.new(client: @raw_client)
+    end
+
     # @return [Nordlet::Assets::Client]
     def assets
       @assets ||= Nordlet::Assets::Client.new(client: @raw_client)

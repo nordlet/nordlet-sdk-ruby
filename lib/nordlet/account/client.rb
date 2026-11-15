@@ -633,6 +633,48 @@ module Nordlet
         end
       end
 
+      # Return what an agent needs to start working in the active company in one answer: the `profile` (as
+      # `account/companies/profile`), the accounting `periods` that are open and locked, the `postingRules` (rule key to
+      # account code), the `bankAccounts`, the `vatTypesUsed` on the company's invoice lines with their line counts, the
+      # country's `filings` due from 45 days back to 120 days ahead with their calendar `key` (as `calendar/list`
+      # returns it), the filing `system`, whether the file can be built (`canDownload`) or sent (`canSubmit`) and the
+      # `missingSettings` of the filing system (`declarations/configs/update` with the `system` and the `keys` that have
+      # no stored value; a filing may not need every key of its system), and the `payroll` options: the employee fields
+      # (`hr/employees/fields`) the country's payroll engine reads. An API key reads the company named in the
+      # `x-nordlet-company` header and needs the `account:read` scope.
+      #
+      # @param request_options [Hash]
+      # @param params [Nordlet::Account::Types::CompaniesContextAccountRequest]
+      # @option request_options [String] :base_url
+      # @option request_options [Hash{String => Object}] :additional_headers
+      # @option request_options [Hash{String => Object}] :additional_query_parameters
+      # @option request_options [Hash{String => Object}] :additional_body_parameters
+      # @option request_options [Integer] :timeout_in_seconds
+      #
+      # @return [Nordlet::Account::Types::CompaniesContextAccountResponse]
+      def companies_context(request_options: {}, **params)
+        params = Nordlet::Internal::Types::Utils.normalize_keys(params)
+        request = Nordlet::Internal::JSON::Request.new(
+          base_url: request_options[:base_url],
+          method: "POST",
+          path: "v1/account/companies/context",
+          body: Nordlet::Account::Types::CompaniesContextAccountRequest.new(params).to_h,
+          request_options: request_options
+        )
+        begin
+          response = @client.send(request)
+        rescue Net::HTTPRequestTimeout
+          raise Nordlet::Errors::TimeoutError
+        end
+        code = response.code.to_i
+        if code.between?(200, 299)
+          Nordlet::Account::Types::CompaniesContextAccountResponse.load(response.body)
+        else
+          error_class = Nordlet::Errors::ResponseError.subclass_for_code(code)
+          raise error_class.new(response.body, code: code)
+        end
+      end
+
       # Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and
       # the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the
       # company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at

@@ -156,8 +156,9 @@ module Nordlet
       end
 
       # List the active items. Filterable: name, code, barcode, type, vatClassifierCode, groupId, kindId, externalId,
-      # manufacturer, department. Sortable: name, code, createdAt, updatedAt, salePriceExclVat; default name ascending.
-      # Rows carry no components; `catalog/items/get` returns them.
+      # manufacturer, department. Sortable: name, code, type, unit, vatRatePercent, createdAt, updatedAt,
+      # salePriceExclVat, purchasePriceExclVat; default name ascending. Rows carry no components; `catalog/items/get`
+      # returns them.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Catalog::Types::ItemsListCatalogRequest]

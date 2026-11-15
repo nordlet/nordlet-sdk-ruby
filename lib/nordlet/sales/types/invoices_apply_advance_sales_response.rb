@@ -42,6 +42,12 @@ module Nordlet
 
         field :journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "journalTransactionId"
 
+        field :reversed_at, -> { String }, optional: false, nullable: true, api_name: "reversedAt"
+
+        field :reversal_journal_transaction_id, -> { String }, optional: false, nullable: true, api_name: "reversalJournalTransactionId"
+
+        field :reversal_reason, -> { String }, optional: false, nullable: true, api_name: "reversalReason"
+
         field :applied_to_invoice_id, -> { String }, optional: false, nullable: true, api_name: "appliedToInvoiceId"
 
         field :credited_invoice_id, -> { String }, optional: false, nullable: true, api_name: "creditedInvoiceId"

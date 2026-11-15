@@ -16,6 +16,8 @@ module Nordlet
 
         field :project_id, -> { String }, optional: false, nullable: true, api_name: "projectId"
 
+        field :partner_id, -> { String }, optional: false, nullable: true, api_name: "partnerId"
+
         field :debit, -> { String }, optional: false, nullable: false
 
         field :credit, -> { String }, optional: false, nullable: false

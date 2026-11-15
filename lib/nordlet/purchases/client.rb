@@ -21,9 +21,11 @@ module Nordlet
       # (credit notes only) must be an invoice of the same partner, `purchaseOrderId` an order of the same partner that
       # is not draft, submitted or cancelled, and `operationTypeId` an active purchase operation type, each 422
       # otherwise; the same `documentNumber` for the same partner is refused with 409; numbers are compared without
-      # regard to case, and spaces, dashes, slashes, dots and underscores count as one separator. `warnings` lists what
-      # does not refuse the document but needs a look: `vat_type_not_valid_on_date`, `vat_type_domestic_for_eu_partner`
-      # and `vat_type_intra_eu_for_domestic_partner` as on `sales/invoices/create` (on the document date), and
+      # regard to case or leading zeros of a number (`0885101` is `885101`, `INV-007` is `INV-7`), and spaces, dashes,
+      # slashes, dots and underscores count as one separator. `warnings` lists what does not refuse the document but
+      # needs a look, each with a `fix` naming the call or field that resolves it: `partner_vat_invalid` (the VAT number
+      # of the supplier failed its VIES check), `vat_type_not_valid_on_date`, `vat_type_domestic_for_eu_partner` and
+      # `vat_type_intra_eu_for_domestic_partner` as on `sales/invoices/create` (on the document date), and
       # `possible_duplicate` when the supplier already has a document of the same type with the same document date and
       # gross total.
       #
@@ -93,11 +95,12 @@ module Nordlet
         end
       end
 
-      # Change a draft purchase invoice (409 once registered); only the fields sent are changed, and `lines` replace all
-      # existing lines with the totals recomputed. `netTotal`, `vatTotal` and `grossTotal` are the printed totals as on
-      # `purchases/invoices/create`; sent without `lines`, they are applied to the stored lines. `purchaseOrderId` and
-      # `operationTypeId` are checked as on `purchases/invoices/create` (422). A `documentNumber` already used for the
-      # partner is refused with 409, compared as on `purchases/invoices/create`.
+      # Change a draft purchase invoice (409 once registered, naming `purchases/invoices/reverse` and credit notes);
+      # only the fields sent are changed, and `lines` replace all existing lines with the totals recomputed. `netTotal`,
+      # `vatTotal` and `grossTotal` are the printed totals as on `purchases/invoices/create`; sent without `lines`, they
+      # are applied to the stored lines. `purchaseOrderId` and `operationTypeId` are checked as on
+      # `purchases/invoices/create` (422). A `documentNumber` already used for the partner is refused with 409, compared
+      # as on `purchases/invoices/create`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Purchases::Types::InvoicesUpdatePurchasesRequest]
@@ -194,7 +197,11 @@ module Nordlet
       # lines give by more than 0.01 (or the converted amounts by more than their conversion rounding), a posting
       # account is missing or no exchange rate exists for the date. Emits `purchase_invoice.registered`,
       # `purchase_invoice.paid` when the credited invoice becomes fully paid, and `stock.changed` when stock moves.
-      # `warnings` carries the VAT type warnings of `purchases/invoices/create`.
+      # `warnings` carries the VAT type warnings of `purchases/invoices/create` and `prorata_not_set` when a line is on
+      # a pro-rata VAT type and no percentage is set for the fiscal year with `declarations/vat-prorata/set` (the line
+      # then deducts 100 %; with a percentage it deducts that share and the rest goes into the line expense). A draft
+      # whose stored gross total is the net plus VAT of its lines, as drafts saved before import VAT types left it out
+      # of the amount owed, is registered with the gross total the lines give.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Purchases::Types::InvoicesRegisterPurchasesRequest]
@@ -305,7 +312,8 @@ module Nordlet
       # List purchase invoices and credit notes without lines, with the supplier's `partnerName`. Filterable by
       # `partnerId`, `type`, `status`, `paymentStatus`, `documentNumber`, `documentDate`, `currency`, `operationTypeId`,
       # `purchaseOrderId`, `grossTotal`, `netTotal`, `vatTotal` and `dueDate`; sortable by `createdAt`, `documentDate`,
-      # `documentNumber`, `grossTotal` and `dueDate`.
+      # `documentNumber`, `grossTotal`, `dueDate`, `status`, `paymentStatus` and `partnerName` (the name of the
+      # supplier).
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Purchases::Types::InvoicesListPurchasesRequest]
@@ -488,8 +496,8 @@ module Nordlet
       end
 
       # List purchase orders without lines, with the supplier's `partnerName`. Filterable by `partnerId`, `status`,
-      # `orderNumber`, `orderDate`, `currency` and `grossTotal`; sortable by `createdAt`, `orderDate`, `orderNumber` and
-      # `grossTotal`.
+      # `orderNumber`, `orderDate`, `currency` and `grossTotal`; sortable by `createdAt`, `orderDate`, `orderNumber`,
+      # `grossTotal`, `status` and `partnerName` (the name of the supplier).
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Purchases::Types::OrdersListPurchasesRequest]

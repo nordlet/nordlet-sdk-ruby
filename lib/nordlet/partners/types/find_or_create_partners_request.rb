@@ -75,6 +75,8 @@ module Nordlet
         field :is_active, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "isActive"
 
         field :legal_country_class, -> { Nordlet::Partners::Types::FindOrCreatePartnersRequestLegalCountryClass }, optional: true, nullable: false, api_name: "legalCountryClass"
+
+        field :iban, -> { String }, optional: true, nullable: false
       end
     end
   end

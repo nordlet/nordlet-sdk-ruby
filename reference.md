@@ -1302,7 +1302,7 @@ client.reference.eu_vat_rates_set_overrides(
 <dl>
 <dd>
 
-Works out the VAT treatment of a supply by this company: the scheme (domestic, intra-EU B2B, reverse charge, OSS, IOSS, marketplace deemed supplier, export, out of scope or SME exempt), the country whose VAT applies, its rates with the company's overrides applied, and the legal basis. The customer comes from `partnerId` (country from the partner's address or VAT number, business status from the VAT number) or from `customerCountryCode` and `customerIsBusiness`; `date` defaults to the company's current date; when `belowDistanceSalesThreshold` is not given, the distance-sales threshold is tracked from the company's ledger. Answers 422 when the partner has neither an address country nor a VAT code. `vatTypeCodes` lists the codes of the VAT types of the company's country that fit the treatment and are valid on `date` (for `vatClassifierCode` on a line), empty when none is known; when they all belong to one of the schemes `intra_eu_b2b` and `reverse_charge`, `scheme` is that scheme. With `side` `purchase` the partner (or `customerCountryCode` and `customerIsBusiness`) is the supplier, the treatment is that of the supplier's supply to this company, `vatTypeCodes` are purchase types, and the marketplace, platform-service and special-goods fields are not used.
+Works out the VAT treatment of a supply by this company: the scheme (domestic, intra-EU B2B, reverse charge, OSS, IOSS, marketplace deemed supplier, export, out of scope or SME exempt), the country whose VAT applies, its rates with the company's overrides applied, and the legal basis. The customer comes from `partnerId` (country from the partner's address or VAT number, business status from the VAT number) or from `customerCountryCode` and `customerIsBusiness`; `date` defaults to the company's current date; when `belowDistanceSalesThreshold` is not given, the distance-sales threshold is tracked from the company's ledger. Answers 422 when the partner has neither an address country nor a VAT code. `vatTypeCodes` lists the codes of the VAT types of the company's country that fit the treatment and are valid on `date` (for `vatClassifierCode` on a line), empty when none is known; when they all belong to one of the schemes `intra_eu_b2b` and `reverse_charge`, `scheme` is that scheme. With `side` `purchase` the partner (or `customerCountryCode` and `customerIsBusiness`) is the supplier, the treatment is that of the supplier's supply to this company, `vatTypeCodes` are purchase types, and the marketplace, platform-service and special-goods fields are not used. For services (or digital services) bought from a supplier outside the EU, `vatTypeCodes` are the reverse-charge purchase types of the company's country for services from non-EU suppliers (empty where the country's list has none), and `scheme` is `reverse_charge` with `reverseCharge` true.
 </dd>
 </dl>
 </dd>
@@ -3605,7 +3605,7 @@ client.partners.validate_vat
 <dl>
 <dd>
 
-Lists the VAT reviews opened by VIES checks of partners' VAT codes, with reason `invalid`, `name_mismatch` or `service_error`; filterable by `partnerId`, `status`, `reason` and `vatCode`, sortable by `createdAt`.
+Lists the VAT reviews opened by VIES checks of partners' VAT codes, with reason `invalid`, `name_mismatch` or `service_error`; filterable by `partnerId`, `status`, `reason` and `vatCode`, sortable by `createdAt`, `partnerName` (the name of the partner), `vatCode`, `reason`, `details` (the service message for a service error, else the name found in VIES) and `resolution`.
 </dd>
 </dl>
 </dd>
@@ -3780,7 +3780,7 @@ client.partners.vat_reviews_resolve(
 <dl>
 <dd>
 
-Creates a partner. `groupId`, `statusId` and `priceListId` must belong to the company; without `legalCountryClass` the class is derived from the address country (`lt`, `eu` or `non_eu`); `documentRef` attaches an uploaded file that is not yet linked to a record; a `code` already used by a live partner of the company is refused with 409. A `vatCode` is checked against VIES at once and the result stored on the partner: an invalid number, a VIES name that shares no word with the partner's name, or a VIES failure opens a VAT review (`vat_review.opened`), while a code that is not an EU VAT number is stored unchecked (see `partners/validate-vat`).
+Creates a partner; without `isCustomer` it is a customer unless `isSupplier` is true. `groupId`, `statusId` and `priceListId` must belong to the company; without `legalCountryClass` the class is derived from the address country (`lt`, `eu` or `non_eu`); `documentRef` attaches an uploaded file that is not yet linked to a record; a `code` already used by a live partner of the company is refused with 409. A `vatCode` is checked against VIES at once and the result stored on the partner: an invalid number, a VIES name that shares no word with the partner's name, or a VIES failure opens a VAT review (`vat_review.opened`), while a code that is not an EU VAT number is stored unchecked (see `partners/validate-vat`).
 </dd>
 </dl>
 </dd>
@@ -4122,7 +4122,7 @@ client.partners.create(name: "name")
 <dl>
 <dd>
 
-Returns the live partner matched by `code`, then `vatCode` (compared without spaces, dots and dashes and without regard to case), then `email` (at least one is required), or creates one from the body with the same validation and VIES check as `partners/create`; `created` says which happened. Without `isCustomer` a new partner is a customer unless `isSupplier` is true. A creation that loses a race on the partner code returns the partner the other call created.
+Returns the live partner matched by `code`, then `vatCode` (compared without spaces, dots and dashes and without regard to case), then `email` (at least one is required), or creates one from the body with the same validation and VIES check as `partners/create`; `created` says which happened. Without `isCustomer` a new partner is a customer unless `isSupplier` is true. A creation that loses a race on the partner code returns the partner the other call created. An `iban` (check digits validated as in `partners/bank-accounts/create`, 422 when they fail) is added as a bank account of the returned partner when the partner does not have it yet; it becomes the default account when the partner has none.
 </dd>
 </dl>
 </dd>
@@ -4433,6 +4433,14 @@ client.partners.find_or_create(name: "name")
 <dd>
 
 **legal_country_class:** `Nordlet::Partners::Types::FindOrCreatePartnersRequestLegalCountryClass` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**iban:** `String` 
     
 </dd>
 </dl>
@@ -5073,7 +5081,7 @@ client.partners.anonymize(id: "id")
 <dl>
 <dd>
 
-Lists live partners; filterable by `name`, `code`, `vatCode`, `email`, `type`, `isCustomer`, `isSupplier`, `isActive`, `legalCountryClass`, `isEmployee`, `groupId`, `statusId` and `nextCallDate`, sortable by `name`, `code`, `createdAt`, `nextCallDate` and `rating`.
+Lists live partners; filterable by `name`, `code`, `vatCode`, `email`, `type`, `isCustomer`, `isSupplier`, `isActive`, `legalCountryClass`, `isEmployee`, `groupId`, `statusId` and `nextCallDate`, sortable by `name`, `code`, `createdAt`, `nextCallDate`, `rating`, `vatCode`, `vatValid` and `roles` (customer and supplier flags).
 </dd>
 </dl>
 </dd>
@@ -6660,7 +6668,7 @@ client.leads.delete(id: "id")
 <dl>
 <dd>
 
-Lists leads with their source and type names; filterable by `name`, `contactName`, `email`, `phone`, `status`, `sourceId`, `typeId`, `countryCode`, `assignedUserId`, `partnerId`, `estimatedValue` and `createdAt`, sortable by `name`, `status`, `estimatedValue`, `createdAt` and `updatedAt`.
+Lists leads with their source and type names; filterable by `name`, `contactName`, `email`, `phone`, `status`, `sourceId`, `typeId`, `countryCode`, `assignedUserId`, `partnerId`, `estimatedValue` and `createdAt`, sortable by `name`, `contactName`, `email`, `phone`, `status`, `typeName` (the name of the lead type), `sourceName` (the name of the lead source), `estimatedValue`, `createdAt` and `updatedAt`.
 </dd>
 </dl>
 </dd>
@@ -8744,7 +8752,7 @@ client.catalog.items_delete(id: "id")
 <dl>
 <dd>
 
-List the active items. Filterable: name, code, barcode, type, vatClassifierCode, groupId, kindId, externalId, manufacturer, department. Sortable: name, code, createdAt, updatedAt, salePriceExclVat; default name ascending. Rows carry no components; `catalog/items/get` returns them.
+List the active items. Filterable: name, code, barcode, type, vatClassifierCode, groupId, kindId, externalId, manufacturer, department. Sortable: name, code, type, unit, vatRatePercent, createdAt, updatedAt, salePriceExclVat, purchasePriceExclVat; default name ascending. Rows carry no components; `catalog/items/get` returns them.
 </dd>
 </dl>
 </dd>
@@ -10869,7 +10877,7 @@ client.catalog.price_lists_items_delete(
 <dl>
 <dd>
 
-Create a draft sale document - an invoice, credit note, proforma or advance invoice (`type`) - with its lines; the totals are computed from the lines and `discountPercent`, and the number is assigned by `sales/invoices/issue`. Answers 422 when a credit note credits a proforma, another credit note or a document that is not issued, when the credited document has another partner or currency, when an OSS or IOSS document has no EU `vatCountryCode`, when the lines carry VAT but the company is not a VAT payer or the VAT scheme charges none, or when the operation type or document series is for another document type. `warnings` lists what does not refuse the document but needs a look: `vat_type_not_valid_on_date` (a line VAT type is not valid on the issue date, else today), `vat_type_domestic_for_eu_partner` (a domestic VAT type for a partner VAT-registered in another EU country), `vat_type_intra_eu_for_domestic_partner` (an intra-EU VAT type for a partner in the company country) and `vat_type_intra_eu_without_vat_number` (an intra-EU VAT type for a partner without a VAT number).
+Create a draft sale document - an invoice, credit note, proforma or advance invoice (`type`) - with its lines; the totals are computed from the lines and `discountPercent`, and the number is assigned by `sales/invoices/issue`. Answers 422 when a credit note credits a proforma, another credit note or a document that is not issued, when the credited document has another partner or currency, when an OSS or IOSS document has no EU `vatCountryCode`, when the lines carry VAT but the company is not a VAT payer or the VAT scheme charges none, or when the operation type or document series is for another document type. `warnings` lists what does not refuse the document but needs a look, each with a `fix` naming the call or field that resolves it: `partner_vat_invalid` (the VAT number of the partner failed its VIES check), `vat_type_not_valid_on_date` (a line VAT type is not valid on the issue date, else today), `vat_type_domestic_for_eu_partner` (a domestic VAT type for a partner VAT-registered in another EU country), `vat_type_intra_eu_for_domestic_partner` (an intra-EU VAT type for a partner in the company country) and `vat_type_intra_eu_without_vat_number` (an intra-EU VAT type for a partner without a VAT number).
 </dd>
 </dl>
 </dd>
@@ -12174,7 +12182,7 @@ client.sales.invoices_delete(id: "id")
 <dl>
 <dd>
 
-Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked or the accounting period is locked, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice. `warnings` carries the VAT type warnings of `sales/invoices/create` and `document_date_before_last_number` when the document is dated before the last number issued in its series.
+Issue a draft sale document: assigns the next number (from its document series, else from `series` or the type's default prefix and the year), the issue date (`issueDate`, else the draft's, else today) and a missing due date from the partner's payment term, and for an invoice, credit note or advance invoice posts the journal entry and stores the VAT evidence. `warehouseId` (or the series' warehouse) takes the sold goods of an invoice out of stock, the first-expiring lot first (lots without an expiry date after those with one, then the oldest layers first), leaving out expired lots, with a cost of goods sold entry; `returnToStock` puts them back for a credit note that credits an invoice. A credit note is set against the unpaid balance of the credited document. Emits `sale_invoice.issued`, `sale_invoice.paid` when a credit note settles the credited invoice in full, and `intercompany.invoice_mirrored` when the partner is linked to another company of the group (a draft purchase invoice is created there). Answers 409 when the document is already issued or locked, the accounting period is locked or the credited invoice is reversed, 422 when the lines carry VAT under a scheme that charges none, when credit notes would exceed the credited total, or when `returnToStock` is used on anything but a credit note of an invoice. `warnings` carries the VAT type warnings of `sales/invoices/create` and `document_date_before_last_number` when the document is dated before the last number issued in its series.
 </dd>
 </dl>
 </dd>
@@ -12237,6 +12245,79 @@ client.sales.invoices_issue(id: "id")
 <dd>
 
 **return_to_stock:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Sales::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.sales.<a href="/lib/nordlet/sales/client.rb">invoices_reverse</a>(request) -> Nordlet::Sales::Types::InvoicesReverseSalesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Undoes an issued invoice or advance invoice: posts a journal entry dated the issue date that mirrors the invoice's entry (debits and credits swapped), cancels its pending revenue recognition and sets the status to `reversed` with the reason. The invoice keeps its number, which stays used, and leaves the VAT returns, the national lists, the reports, partner balances and debt aging. Emits `sale_invoice.reversed`. Answers 409 pointing to a credit note when the document is not issued, is a credit note, is locked, was e-mailed, was sent over Peppol or to an e-invoicing or tax authority system (or carries national marks registered at issue), has payments matched to it, is credited by a credit note, has an advance applied, moved goods in or out of stock, has revenue recognised or a refund liability, is the sale invoice of an asset disposal (naming the asset), was mirrored to another company of the group, or when the accounting period of its issue date is locked (naming the period).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.sales.invoices_reverse(
+  id: "id",
+  reason: "reason"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reason:** `String` 
     
 </dd>
 </dl>
@@ -12753,7 +12834,7 @@ client.sales.invoices_apply_advance(
 <dl>
 <dd>
 
-List the sale documents of the company with the partner name. An advance invoice also carries `advanceUnappliedAmount`: its gross total less the amounts applied with `sales/invoices/apply-advance` and the issued credit notes on it (null on other documents). Filterable by partnerId, type, status, paymentStatus, fullNumber, issueDate, currency, agreementId, creditedInvoiceId, operationTypeId, documentSeriesId, lockedAt, grossTotal, netTotal, vatTotal, dueDate, orderNumber, seriesLabel, locale and recurringInvoiceId; sortable by createdAt, issueDate, fullNumber, grossTotal, netTotal, vatTotal, status and paymentStatus.
+List the sale documents of the company with the partner name. An advance invoice also carries `advanceUnappliedAmount`: its gross total less the amounts applied with `sales/invoices/apply-advance` and the issued credit notes on it (null on other documents). Filterable by partnerId, type, status, paymentStatus, fullNumber, issueDate, currency, agreementId, creditedInvoiceId, operationTypeId, documentSeriesId, lockedAt, grossTotal, netTotal, vatTotal, dueDate, orderNumber, seriesLabel, locale and recurringInvoiceId; sortable by createdAt, issueDate, fullNumber, grossTotal, netTotal, vatTotal, status, paymentStatus, seriesLabel, partnerName (the name of the partner) and creditedInvoiceReference (the reference of the credited invoice).
 </dd>
 </dl>
 </dd>
@@ -14113,7 +14194,7 @@ client.sales.invoice_templates_delete(id: "id")
 <dl>
 <dd>
 
-List invoice templates. Filterable by name, documentType and partnerId; sortable by name, documentType and createdAt.
+List invoice templates. Filterable by name, documentType and partnerId; sortable by name, documentType, createdAt, currency, paymentTermDays and lines (the number of lines).
 </dd>
 </dl>
 </dd>
@@ -14688,7 +14769,7 @@ client.sales.recurring_invoices_generate(id: "id")
 <dl>
 <dd>
 
-Generate every invoice due up to `asOfDate` (default today) from the active schedules of the company, catching up to 60 missed occurrences per schedule, as `sales/recurring-invoices/generate` does for one; each generated invoice emits `recurring_invoice.generated`. The answer lists what was generated and the schedules that failed; a failure is also stored as the schedule's `lastError`.
+Generate every invoice due up to `asOfDate` (default today) from the active schedules of the company, catching up to 60 missed occurrences per schedule, as `sales/recurring-invoices/generate` does for one (409 when `asOfDate` is after the company's current date); each generated invoice emits `recurring_invoice.generated`. The answer lists what was generated and the schedules that failed; a failure is also stored as the schedule's `lastError`.
 </dd>
 </dl>
 </dd>
@@ -14750,7 +14831,7 @@ client.sales.recurring_invoices_run
 <dl>
 <dd>
 
-List recurring invoice schedules with the names of their template and partner. Filterable by status, partnerId, templateId, frequency, nextRunDate and autoIssue; sortable by nextRunDate, startDate, status, frequency and createdAt.
+List recurring invoice schedules with the names of their template and partner. Filterable by status, partnerId, templateId, frequency, nextRunDate and autoIssue; sortable by nextRunDate, startDate, status, frequency, createdAt, templateName (the name of the template), partnerName (the name of the partner), interval and occurrences.
 </dd>
 </dl>
 </dd>
@@ -16480,7 +16561,7 @@ client.operation_types.delete(id: "id")
 <dl>
 <dd>
 
-List operation types. Filterable by `code`, `name`, `isSale`, `isPurchase` and `isActive`; sortable by `code`, `name`, `sortOrder` and `createdAt`.
+List operation types. Filterable by `code`, `name`, `isSale`, `isPurchase` and `isActive`; sortable by `code`, `name`, `accounts` (the debit account code, then the credit account code), `flags` (the names of the flags that are set, in the order isPurchase, isSale, isWriteOff, isInternalMovement, isPurchaseReturn, isSalesReturn, isConsignment, isProduction, isAssetIn, isAssetOut, isCashRegisterSale), `isSale`, `isPurchase`, `sortOrder`, `isActive` and `createdAt`.
 </dd>
 </dl>
 </dd>
@@ -17023,7 +17104,7 @@ client.document_series.delete(id: "id")
 <dl>
 <dd>
 
-List document series. Filterable by documentType, prefix, operationTypeId and isActive; sortable by prefix, documentType and createdAt.
+List document series. Filterable by documentType, prefix, operationTypeId and isActive; sortable by prefix, name, label, documentType, operationTypeName (the code and name of the operation type), nextNumber, numberLength, isDefault, isActive and createdAt.
 </dd>
 </dl>
 </dd>
@@ -17118,7 +17199,7 @@ client.document_series.list
 <dl>
 <dd>
 
-Create a draft purchase invoice or credit note (`type`) from a supplier document; it is posted with `purchases/invoices/register`. Lines without a unit price take the item's supplier or purchase price, `currency` defaults to the company's invoice currency, `documentRef` links an uploaded file, and the gross total is the amount owed: it leaves out self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return) and the value of lines whose VAT type is import VAT assessed by customs. `netTotal`, `vatTotal` and `grossTotal` are the totals printed on the document, with the meanings of the response fields: a difference of at most 0.01 from the totals of the lines is put on the line with the largest amount and the printed totals are stored, a larger one is refused with 422 naming both sets of totals. `creditedInvoiceId` (credit notes only) must be an invoice of the same partner, `purchaseOrderId` an order of the same partner that is not draft, submitted or cancelled, and `operationTypeId` an active purchase operation type, each 422 otherwise; the same `documentNumber` for the same partner is refused with 409; numbers are compared without regard to case, and spaces, dashes, slashes, dots and underscores count as one separator. `warnings` lists what does not refuse the document but needs a look: `vat_type_not_valid_on_date`, `vat_type_domestic_for_eu_partner` and `vat_type_intra_eu_for_domestic_partner` as on `sales/invoices/create` (on the document date), and `possible_duplicate` when the supplier already has a document of the same type with the same document date and gross total.
+Create a draft purchase invoice or credit note (`type`) from a supplier document; it is posted with `purchases/invoices/register`. Lines without a unit price take the item's supplier or purchase price, `currency` defaults to the company's invoice currency, `documentRef` links an uploaded file, and the gross total is the amount owed: it leaves out self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return) and the value of lines whose VAT type is import VAT assessed by customs. `netTotal`, `vatTotal` and `grossTotal` are the totals printed on the document, with the meanings of the response fields: a difference of at most 0.01 from the totals of the lines is put on the line with the largest amount and the printed totals are stored, a larger one is refused with 422 naming both sets of totals. `creditedInvoiceId` (credit notes only) must be an invoice of the same partner, `purchaseOrderId` an order of the same partner that is not draft, submitted or cancelled, and `operationTypeId` an active purchase operation type, each 422 otherwise; the same `documentNumber` for the same partner is refused with 409; numbers are compared without regard to case or leading zeros of a number (`0885101` is `885101`, `INV-007` is `INV-7`), and spaces, dashes, slashes, dots and underscores count as one separator. `warnings` lists what does not refuse the document but needs a look, each with a `fix` naming the call or field that resolves it: `partner_vat_invalid` (the VAT number of the supplier failed its VIES check), `vat_type_not_valid_on_date`, `vat_type_domestic_for_eu_partner` and `vat_type_intra_eu_for_domestic_partner` as on `sales/invoices/create` (on the document date), and `possible_duplicate` when the supplier already has a document of the same type with the same document date and gross total.
 </dd>
 </dl>
 </dd>
@@ -17399,7 +17480,7 @@ client.purchases.invoices_get(id: "id")
 <dl>
 <dd>
 
-Change a draft purchase invoice (409 once registered); only the fields sent are changed, and `lines` replace all existing lines with the totals recomputed. `netTotal`, `vatTotal` and `grossTotal` are the printed totals as on `purchases/invoices/create`; sent without `lines`, they are applied to the stored lines. `purchaseOrderId` and `operationTypeId` are checked as on `purchases/invoices/create` (422). A `documentNumber` already used for the partner is refused with 409, compared as on `purchases/invoices/create`.
+Change a draft purchase invoice (409 once registered, naming `purchases/invoices/reverse` and credit notes); only the fields sent are changed, and `lines` replace all existing lines with the totals recomputed. `netTotal`, `vatTotal` and `grossTotal` are the printed totals as on `purchases/invoices/create`; sent without `lines`, they are applied to the stored lines. `purchaseOrderId` and `operationTypeId` are checked as on `purchases/invoices/create` (422). A `documentNumber` already used for the partner is refused with 409, compared as on `purchases/invoices/create`.
 </dd>
 </dl>
 </dd>
@@ -17659,7 +17740,7 @@ client.purchases.invoices_delete(id: "id")
 <dl>
 <dd>
 
-Register a draft purchase invoice or credit note: posts the journal entry dated `registrationDate` (default the document date) and sets the status to `registered`. The entry debits each line's expense account (the line's `accountCode`, else the item's purchase or expense account, else the operation type's expense account, else the `purchases.goodsForResale` or `purchases.defaultExpense` rule account), debits VAT receivable with the deductible VAT (the share of the line's VAT that its VAT type allows to deduct; the rest, and all VAT of a company that is not a VAT payer, is booked into the expense), credits payables (the operation type's credit account when set) and credits output VAT for self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return); a line whose VAT type is import VAT assessed by customs posts only its VAT, owed to the document's partner, and is not received into stock; a credit note posts the reverse. Lines with `deferralStartDate` and `deferralEndDate` are debited to the `purchases.prepaidExpenses` account instead and get a monthly release schedule for `purchases/deferrals/post`. With `warehouseId` the product lines of an invoice are received into stock at their base-currency cost, into the lot named by the line's `lotNumber` (an unknown lot is created, and the line's `expiryDate` is stored on a lot that has none) (422 on an order-linked invoice, whose goods arrive through `purchases/receipts/create`, for a line that is also deferred and for a lot- or serial-tracked item without `lotNumber`); `returnFromStock` on a credit note that credits an invoice takes the goods back out of stock at their FIFO cost and books the difference to the credited amount on the `inventory.cogs` account (422 on an invoice, without `creditedInvoiceId`, or when no goods of the credited invoice are in stock). A credit note that credits a registered invoice in the same currency is applied to it as a payment up to the open amount. Refused with 409 when already registered or the accounting period is locked, and with 422 when the credit notes would exceed the credited invoice, the gross total differs from what the lines give by more than 0.01 (or the converted amounts by more than their conversion rounding), a posting account is missing or no exchange rate exists for the date. Emits `purchase_invoice.registered`, `purchase_invoice.paid` when the credited invoice becomes fully paid, and `stock.changed` when stock moves. `warnings` carries the VAT type warnings of `purchases/invoices/create`.
+Register a draft purchase invoice or credit note: posts the journal entry dated `registrationDate` (default the document date) and sets the status to `registered`. The entry debits each line's expense account (the line's `accountCode`, else the item's purchase or expense account, else the operation type's expense account, else the `purchases.goodsForResale` or `purchases.defaultExpense` rule account), debits VAT receivable with the deductible VAT (the share of the line's VAT that its VAT type allows to deduct; the rest, and all VAT of a company that is not a VAT payer, is booked into the expense), credits payables (the operation type's credit account when set) and credits output VAT for self-assessed VAT (reverse charge, intra-EU acquisitions and import VAT the buyer declares in its VAT return); a line whose VAT type is import VAT assessed by customs posts only its VAT, owed to the document's partner, and is not received into stock; a credit note posts the reverse. Lines with `deferralStartDate` and `deferralEndDate` are debited to the `purchases.prepaidExpenses` account instead and get a monthly release schedule for `purchases/deferrals/post`. With `warehouseId` the product lines of an invoice are received into stock at their base-currency cost, into the lot named by the line's `lotNumber` (an unknown lot is created, and the line's `expiryDate` is stored on a lot that has none) (422 on an order-linked invoice, whose goods arrive through `purchases/receipts/create`, for a line that is also deferred and for a lot- or serial-tracked item without `lotNumber`); `returnFromStock` on a credit note that credits an invoice takes the goods back out of stock at their FIFO cost and books the difference to the credited amount on the `inventory.cogs` account (422 on an invoice, without `creditedInvoiceId`, or when no goods of the credited invoice are in stock). A credit note that credits a registered invoice in the same currency is applied to it as a payment up to the open amount. Refused with 409 when already registered or the accounting period is locked, and with 422 when the credit notes would exceed the credited invoice, the gross total differs from what the lines give by more than 0.01 (or the converted amounts by more than their conversion rounding), a posting account is missing or no exchange rate exists for the date. Emits `purchase_invoice.registered`, `purchase_invoice.paid` when the credited invoice becomes fully paid, and `stock.changed` when stock moves. `warnings` carries the VAT type warnings of `purchases/invoices/create` and `prorata_not_set` when a line is on a pro-rata VAT type and no percentage is set for the fiscal year with `declarations/vat-prorata/set` (the line then deducts 100 %; with a percentage it deducts that share and the rest goes into the line expense). A draft whose stored gross total is the net plus VAT of its lines, as drafts saved before import VAT types left it out of the amount owed, is registered with the gross total the lines give.
 </dd>
 </dl>
 </dd>
@@ -17901,7 +17982,7 @@ client.purchases.deferrals_post
 <dl>
 <dd>
 
-List purchase invoices and credit notes without lines, with the supplier's `partnerName`. Filterable by `partnerId`, `type`, `status`, `paymentStatus`, `documentNumber`, `documentDate`, `currency`, `operationTypeId`, `purchaseOrderId`, `grossTotal`, `netTotal`, `vatTotal` and `dueDate`; sortable by `createdAt`, `documentDate`, `documentNumber`, `grossTotal` and `dueDate`.
+List purchase invoices and credit notes without lines, with the supplier's `partnerName`. Filterable by `partnerId`, `type`, `status`, `paymentStatus`, `documentNumber`, `documentDate`, `currency`, `operationTypeId`, `purchaseOrderId`, `grossTotal`, `netTotal`, `vatTotal` and `dueDate`; sortable by `createdAt`, `documentDate`, `documentNumber`, `grossTotal`, `dueDate`, `status`, `paymentStatus` and `partnerName` (the name of the supplier).
 </dd>
 </dl>
 </dd>
@@ -18386,7 +18467,7 @@ client.purchases.orders_get(id: "id")
 <dl>
 <dd>
 
-List purchase orders without lines, with the supplier's `partnerName`. Filterable by `partnerId`, `status`, `orderNumber`, `orderDate`, `currency` and `grossTotal`; sortable by `createdAt`, `orderDate`, `orderNumber` and `grossTotal`.
+List purchase orders without lines, with the supplier's `partnerName`. Filterable by `partnerId`, `status`, `orderNumber`, `orderDate`, `currency` and `grossTotal`; sortable by `createdAt`, `orderDate`, `orderNumber`, `grossTotal`, `status` and `partnerName` (the name of the supplier).
 </dd>
 </dl>
 </dd>
@@ -22968,6 +23049,195 @@ client.declarations.tax_payments_delete(id: "id")
 </dl>
 </details>
 
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">vat_prorata_set</a>(request) -> Nordlet::Declarations::Types::VatProrataSetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Sets the provisional pro-rata percentage of the company for a fiscal year (the year in which it ends, by the company's fiscal year end month). Purchase lines on a VAT type marked pro-rata (`prorata`) deduct that share of their VAT, book the rest into the line's expense, and the VAT returns declare only the deductible part. Without a percentage for the year such a line deducts 100 % and `purchases/invoices/register` answers the warning `prorata_not_set`. Setting it again replaces the percentage for documents registered afterwards; documents already registered are not changed and the year-end adjustment is not built.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.vat_prorata_set(
+  fiscal_year: 1000000,
+  percent: "percent"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**fiscal_year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**percent:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">vat_prorata_get</a>(request) -> Nordlet::Declarations::Types::VatProrataGetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Answers the percentage set with `declarations/vat-prorata/set` for the fiscal year; 404 when none is set.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.vat_prorata_get(fiscal_year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**fiscal_year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">vat_prorata_list</a>(request) -> Nordlet::Declarations::Types::VatProrataListDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Lists the percentages set with `declarations/vat-prorata/set`, oldest fiscal year first.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.vat_prorata_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">annual_accounts_get</a>(request) -> Nordlet::Declarations::Types::AnnualAccountsGetDeclarationsResponse</code></summary>
 <dl>
 <dd>
@@ -26779,6 +27049,68 @@ client.declarations.submissions_confirm(id: "id")
 </dl>
 </details>
 
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">submissions_correction_preview</a>(request) -> Nordlet::Declarations::Types::SubmissionsCorrectionPreviewDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Builds the file of a submitted or accepted submission again from the current data, the way it was built for that submission, and compares it with the file that was filed. `needed` is false when the two carry the same data: a correction would file the same return again. `changes` lists what differs, at most 500 entries (`changeCount` counts them all): for an XML file each element or attribute by its path below the root element (`field`), for another text file each line that is only in the filed file or only in the new one (`line`, its line number in that file); `filed` and `current` are the two values, null where the field or line is missing on that side. Dates and times of the moment a file was built (ISO date-times, and the dates of both builds written as YYYY-MM-DD, YYYYMMDD, DD.MM.YYYY or DDMMYYYY) are not counted as differences. A ZIP or PDF file is compared byte by byte and lists no `changes`. Answers 422 for a submission that is not submitted or accepted, whose deadline Nordlet cannot correct, or that has no stored file.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.submissions_correction_preview(id: "id")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">submissions_create</a>(request) -> Nordlet::Declarations::Types::SubmissionsCreateDeclarationsResponse</code></summary>
 <dl>
 <dd>
@@ -26970,7 +27302,7 @@ client.declarations.submissions_mark(
 <dl>
 <dd>
 
-Lists the declaration submissions of the company, newest first, filterable by `obligation`, `status`, `periodYear` and `periodMonth` and sortable by `createdAt` or `periodYear`.
+Lists the declaration submissions of the company, newest first, filterable by `obligation`, `status`, `periodYear` and `periodMonth` and sortable by `createdAt`, `periodYear`, `obligation`, `period` (the year, then the month), `fileName`, `status` and `externalRef`. `canAmend` is true on the newest submitted or accepted send of a period (per document for a deadline filed as one document per person) whose filing can be corrected; `correction` names the fields `calendar/submit` with `amend: true` takes for it.
 </dd>
 </dl>
 </dd>
@@ -27065,7 +27397,7 @@ client.declarations.submissions_list
 <dl>
 <dd>
 
-Lists the company's chart of accounts. Filterable by `code`, `name`, `type` and `isPostable`; sortable by `code` and `name`. A `name` filter with `contains` matches the stored name and the name shown in the language of the request (`displayName`).
+Lists the company's chart of accounts. Filterable by `code`, `name`, `type` and `isPostable`; sortable by `code`, `name`, `type` and `isPostable`. A `name` filter with `contains` matches the stored name and the name shown in the language of the request (`displayName`).
 </dd>
 </dl>
 </dd>
@@ -27691,7 +28023,7 @@ client.ledger.periods_unlock(
 <dl>
 <dd>
 
-Lists journal transactions with the partner name. Filterable by `date`, `status`, `documentType`, `partnerId` and `documentId`; sortable by `date` and `createdAt`.
+Lists journal transactions with the partner name. Filterable by `date`, `status`, `documentType`, `partnerId` and `documentId`; sortable by `date`, `createdAt`, `description`, `partnerName` (the name of the partner), `documentType` and `status`.
 </dd>
 </dl>
 </dd>
@@ -28841,7 +29173,7 @@ client.ledger.owners_delete(id: "id")
 <dl>
 <dd>
 
-Lists the company's owners. Filterable by `name` and `code`; sortable by `name` and `createdAt`.
+Lists the company's owners. Filterable by `name` and `code`; sortable by `name`, `createdAt`, `code`, `sharesQuantity`, `sharesAmount`, `sharesType`, `sharesAcquisitionDate`, `partnerLiability` and `withholdingTaxPercent`.
 </dd>
 </dl>
 </dd>
@@ -28997,7 +29329,7 @@ client.ledger.journal_transactions_get(id: "id")
 <dl>
 <dd>
 
-Posts a manual journal transaction (`documentType` `manual`, status `posted`) in the company's base currency. Every `accountCode` must be a postable account of the chart, cost centers must exist and be active, projects must exist, and the debits must equal the credits. Answers 422 for an amount that is not whole cents (a third or fourth decimal other than zero; `10.5000` is accepted), for a `currency` other than the base currency and for an inactive cost center, and 409 when the accounting period of `date` is locked.
+Posts a manual journal transaction (`documentType` `manual`, status `posted`) in the company's base currency. Every `accountCode` must be a postable account of the chart, cost centers must exist and be active, projects must exist, an entry `partnerId` must be a partner of the company (422), and the debits must equal the credits. An entry with a `partnerId` on the receivable or payable account (posting rules `sales.receivable`, `purchases.payables`) is counted by `reports/partner-balances` and `reports/debt-aging`. Answers 422 for an unknown or non-postable account, an unknown cost center or project, debits that differ from the credits, an amount that is not whole cents (a third or fourth decimal other than zero; `10.5000` is accepted), for a `currency` other than the base currency and for an inactive cost center, and 409 when the accounting period of `date` is locked.
 </dd>
 </dl>
 </dd>
@@ -29088,7 +29420,7 @@ client.ledger.journal_transactions_create(
 <dl>
 <dd>
 
-Posts a journal transaction (`documentType` `manual_reversal`, `documentId` the original) dated `date` (default the original date) whose entries mirror the original's (debits and credits swapped). Only a `manual` transaction is reversed here; a transaction posted by a document is reversed through that document. Answers 409 when the transaction is not manual, when it is already reversed and when the accounting period of `date` is locked, and 400 when `date` is before the original date.
+Posts a journal transaction (`documentType` `manual_reversal`, `documentId` the original) dated `date` (default the original date) whose entries mirror the original's (debits and credits swapped). Only a `manual` transaction or a `tax_provision` (posted by `ledger/tax-provision/post`) is reversed here; a transaction posted by a document is reversed through that document. Answers 409 when the transaction is neither, when it is already reversed and when the accounting period of `date` is locked, and 400 when `date` is before the original date.
 </dd>
 </dl>
 </dd>
@@ -29138,6 +29470,295 @@ client.ledger.journal_transactions_reverse(
 <dd>
 
 **date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">fx_revaluation_run</a>(request) -> Nordlet::Ledger::Types::FxRevaluationRunLedgerResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Revalues the open sale and purchase documents in a currency other than the base currency (open amount at `date`, payments up to `date` deducted) and the balances of the foreign-currency bank accounts at the stored exchange rate of `date` against the rate of each document or the booked base balance, and posts one journal transaction dated `date` (`documentType` `fx_revaluation`): the difference on each receivable or payable account with the partner on the entry, and the unrealised gain or loss on the `bank.fxUnrealisedGain` and `bank.fxUnrealisedLoss` posting rule accounts. A second transaction (`documentType` `fx_revaluation_reversal`) reverses it on the next calendar day. Nothing is posted and `runId` is null when nothing differs. The payment match keeps booking the realised difference against the rate of the document. Runs only on request, once per `date`: 409 when `date` is already revalued (reverse that run first) and when `date` or the next day is in a locked accounting period; 422 when a stored rate is missing.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.fx_revaluation_run(date: "2026-07-01")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">fx_revaluation_reverse</a>(request) -> Nordlet::Ledger::Types::FxRevaluationReverseLedgerResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Cancels the run `id` of `ledger/fx-revaluation/run`: posts a mirror of the revaluation transaction on the run date (`documentType` `fx_revaluation_undo`) and a mirror of its next-day reversal on the reversal date (`documentType` `fx_revaluation_undo_reversal`), so the net effect is zero, and frees the date for a new run. Answers 404 for an unknown run, 409 when the run is already reversed or when the run date or the next day is in a locked accounting period.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.fx_revaluation_reverse(
+  id: "id",
+  reason: "reason"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reason:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">accruals_create</a>(request) -> Nordlet::Ledger::Types::AccrualsCreateLedgerResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Posts a journal transaction (`documentType` `accrual`) dated `date` from `lines` (each line either a debit or a credit, whole cents, balanced; an optional `partnerId` is counted by the partner reports on the receivable and payable accounts) and a mirror transaction (`documentType` `accrual_reversal`, `documentId` the accrual) dated the first day of the next month. 422 for an unknown or non-postable account, an unknown partner, an unbalanced or one-sided line; 409 when the accounting period of `date` or of the reversal date is locked.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.accruals_create(
+  date: "2026-07-01",
+  reason: "reason",
+  lines: [{
+    account_code: "accountCode"
+  }]
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reason:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lines:** `Internal::Types::Array[Nordlet::Ledger::Types::AccrualsCreateLedgerRequestLinesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Ledger::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ledger.<a href="/lib/nordlet/ledger/client.rb">tax_provision_post</a>(request) -> Nordlet::Ledger::Types::TaxProvisionPostLedgerResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Posts a journal transaction (`documentType` `tax_provision`, `documentId` the fiscal year) dated the last day of the fiscal year `fiscalYear`: debit the `tax.corporateExpense` posting rule account, credit `tax.corporatePayable`. `amount` defaults to the tax payable of the year's corporate tax return for Lithuanian (PLN204) and Romanian (D101) companies; for other countries it is required (422). 422 when the amount is zero or not whole cents; 409 when the accounting period is locked and when the year already has a provision that is not reversed (reverse it with `ledger/journal/transactions/reverse`).
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.ledger.tax_provision_post(fiscal_year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**fiscal_year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**amount:** `String` 
     
 </dd>
 </dl>
@@ -29751,7 +30372,7 @@ client.officers.delete(id: "id")
 <dl>
 <dd>
 
-Individuals and entities that sell goods, rent out property or transport, or perform personal services through the platform the company operates. The yearly DAC7 report is built from them.
+Individuals and entities that sell goods, rent out property or transport, or perform personal services through the platform the company operates. The yearly DAC7 report is built from them. Filterable by kind and vatCode; sortable by createdAt, lastName, entityName, name (the full name of an individual, else the entity name), kind, country (the country code of the address) and vatCode.
 </dd>
 </dl>
 </dd>
@@ -30401,7 +31022,7 @@ client.platform_sellers.delete(id: "id")
 <dl>
 <dd>
 
-Runs every check the import runs (accounts, partners, balances, open invoices, assets, stock) and returns the same summary and warnings, then rolls everything back. Nothing is stored.
+Runs every check the import runs (accounts, partners, balances, open invoices, assets, stock) and returns the same summary and warnings, then rolls everything back. Nothing is stored. When the package has problems in several rows of `journal`, `openReceivables`, `openPayables`, `fixedAssets` or `stock`, the 422 lists every one of them, each under its row (`journal[2]`) in `fieldErrors`; a problem in `accounts`, `partners`, `items`, `assetGroups`, `openingBalances` or the package as a whole is reported alone, because the rows after it depend on it.
 </dd>
 </dl>
 </dd>
@@ -30678,6 +31299,61 @@ client.migration.books_import(cutover_date: "2026-07-01")
 <dd>
 
 **request_options:** `Nordlet::Migration::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## review
+<details><summary><code>client.review.<a href="/lib/nordlet/review/client.rb">queue_list</a>(request) -> Nordlet::Review::Types::QueueListReviewResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Read-only. Lists, each with its `kind`, the `id` of the record, a `message` and the `fix` (the call or field that resolves it): `draft_warning` (a draft purchase or sale document with a warning of `purchases/invoices/create` or `sales/invoices/create`, one item per warning, with its `code`), `bank_transaction_unbooked` (a bank line with the status `new`), `partner_vat_invalid` (a partner whose VAT number failed its VIES check) and `filing_settings_missing` (a filing due in the window of `account/companies/context` whose settings are missing, with the `declarations/configs/update` call; the id is the calendar key). Each kind lists at most 200 records, the newest first. An empty list means nothing needs a look.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.review.queue_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Review::RequestOptions` 
     
 </dd>
 </dl>
@@ -31473,7 +32149,7 @@ client.assets.assets_get(id: "id")
 <dl>
 <dd>
 
-List the fixed assets; filterable by `code`, `name`, `groupId`, `status`, `acquisitionDate`, `acquisitionCost` and `accumulatedDepreciation`, sortable by `code`, `name`, `acquisitionDate` and `acquisitionCost`.
+List the fixed assets; filterable by `code`, `name`, `groupId`, `status`, `acquisitionDate`, `acquisitionCost` and `accumulatedDepreciation`, sortable by `code`, `name`, `acquisitionDate`, `acquisitionCost`, `groupName` (the name of the asset group), `vehiclePlate` (the plate number of the linked vehicle), `status`, `totalCost` (the acquisition cost plus the modernisations), `accumulatedDepreciation` and `netBookValue` (the total cost less the accumulated depreciation, zero when disposed).
 </dd>
 </dl>
 </dd>
@@ -31665,7 +32341,7 @@ client.assets.assets_modernize(
 <dl>
 <dd>
 
-Dispose of a fixed asset (sold, scrapped or written off). Removes its cost and accumulated depreciation, books the net book value as a disposal loss and the proceeds as a disposal gain (posting rules assets.disposalLoss, assets.disposalGain, assets.disposalProceeds), and stops its depreciation. Depreciation must be posted for every month before the disposal month.
+Dispose of a fixed asset (sold, scrapped or written off). Removes its cost and accumulated depreciation, books the net book value as a disposal loss and the proceeds as a disposal gain (posting rules assets.disposalLoss, assets.disposalGain, assets.disposalProceeds), and stops its depreciation. Depreciation must be posted for every month before the disposal month. With `saleInvoiceId` (reason `sold`) the proceeds are the net of the issued invoice lines that name this asset (`assetId` on the sales invoice line, converted to the base currency at the invoice rate), `proceeds` must then be omitted, the buyer is the partner of the disposal entry, and the receivable and the VAT stay on the invoice; 422 when the invoice is not an issued invoice, has no line for the asset, or when `proceeds` is given with it.
 </dd>
 </dl>
 </dd>
@@ -31724,6 +32400,14 @@ client.assets.assets_dispose(
 <dd>
 
 **proceeds:** `String` — Sale price excluding VAT; 0 when scrapped or written off
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sale_invoice_id:** `String` — The issued sales invoice that sold the asset
     
 </dd>
 </dl>
@@ -32168,7 +32852,7 @@ client.hr.positions_list
 <dl>
 <dd>
 
-Creates an employee record. `payrollOptions` holds the country-specific settings the payroll engine reads for the person (see `hr/employees/fields`); `applyAllowance` defaults to true and `pensionAccumulation` to false. An `iban` whose check digits fail (ISO 13616) is refused with 422.
+Creates an employee record. `payrollOptions` holds the country-specific settings the payroll engine reads for the person (see `hr/employees/fields`); `applyAllowance` defaults to true and `pensionAccumulation` to false. An `iban` whose check digits fail (ISO 13616), a `birthDate` in the future or before 1900, and a `personalCode` that is not a valid OIB (Croatia) or DNI/NIE (Spain) are refused with 422.
 </dd>
 </dl>
 </dd>
@@ -32369,7 +33053,7 @@ client.hr.employees_create(
 <dl>
 <dd>
 
-Changes the given fields of an employee; a null clears the fields that allow it (code, personal code, birth date, contact details, address, IBAN, social insurance number and start, hire date, notes). `status` and `terminationDate` are set here too. An `iban` whose check digits fail (ISO 13616) is refused with 422.
+Changes the given fields of an employee; a null clears the fields that allow it (code, personal code, birth date, contact details, address, IBAN, social insurance number and start, hire date, notes). `status` and `terminationDate` are set here too. An `iban` whose check digits fail (ISO 13616), a `birthDate` in the future or before 1900, and a `personalCode` that is not a valid OIB (Croatia) or DNI/NIE (Spain) are refused with 422.
 </dd>
 </dl>
 </dd>
@@ -32707,7 +33391,7 @@ client.hr.employees_fields
 <dl>
 <dd>
 
-Lists the employees that are not deleted; filterable by `firstName`, `lastName`, `code`, `status` and `email`, sortable by `lastName`, `code` and `createdAt`.
+Lists the employees that are not deleted; filterable by `firstName`, `lastName`, `code`, `status` and `email`, sortable by `lastName`, `code`, `email`, `hireDate`, `status`, `createdAt` and `activeContractNo` (the number of the latest active contract).
 </dd>
 </dl>
 </dd>
@@ -33713,7 +34397,7 @@ client.hr.per_diem_rates_create(
 <dl>
 <dd>
 
-Lists per diem rates; filterable by `countryCode`, sortable by `countryCode` and `validFrom`.
+Lists per diem rates; filterable by `countryCode`, sortable by `countryCode`, `validFrom` and `dailyAmount`.
 </dd>
 </dl>
 </dd>
@@ -34031,7 +34715,7 @@ client.hr.business_trips_get(id: "id")
 <dl>
 <dd>
 
-Lists business trips; filterable by `employeeId`, `status`, `payrollRunId` and `purpose`, sortable by `startDate`.
+Lists business trips; filterable by `employeeId`, `status`, `payrollRunId` and `purpose`, sortable by `startDate`, `employeeName` (the first and last name of the employee), `destinationCountryCode`, `purpose`, `perDiemAmount` and `status`.
 </dd>
 </dl>
 </dd>
@@ -35507,7 +36191,7 @@ client.fleet.vehicles_get(id: "id")
 <dl>
 <dd>
 
-List vehicles with their current assignment. Filterable by `plateNumber`, `make`, `model` and `status`; sortable by `plateNumber`, `make` and `createdAt`.
+List vehicles with their current assignment. Filterable by `plateNumber`, `make`, `model` and `status`; sortable by `plateNumber`, `make`, `createdAt`, `fixedAssetCode` (the code of the linked fixed asset), `fuelType`, `marketValue`, `technicalInspectionDue`, `insuranceDue`, `status` and `assignedEmployeeName` (the name of the employee the vehicle is assigned to today).
 </dd>
 </dl>
 </dd>
@@ -36401,7 +37085,7 @@ client.payroll.calc(
 <dl>
 <dd>
 
-Creates a draft payroll run for a month, computing each line with the company country's payroll engine, the employee's approved runs of the year so far and of the two previous years, the month's timesheet and `payDate` (default the last day of the month). Without `lines`, every employee whose contract overlaps the month gets a line, whatever the employee's status: the gross is the contract's monthly salary reduced to the paid working days of the contract and the timesheet, unless `grossOverrides` sets it; the per diems of approved business trips ending in the month are added untaxed and the trips linked to the run; for a Lithuanian company the car benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the month are added. With `lines`, only the given employees are computed with their gross, additions and deductions; a taxable addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country has no engine, an employee is given twice, has two contracts in the month, has no contract and no gross, or is paid by the hour or day without a gross; 409 when a run for the month already exists or the accounting period is locked.
+Creates a draft payroll run for a month, computing each line with the company country's payroll engine, the employee's approved runs of the year so far and of the two previous years, the month's timesheet and `payDate` (default the last day of the month). Without `lines`, every employee whose contract overlaps the month gets a line, whatever the employee's status: the gross is the contract's monthly salary reduced to the paid working days of the contract and the timesheet, unless `grossOverrides` sets it; the per diems of approved business trips ending in the month are added untaxed and the trips linked to the run; for a Lithuanian company the car benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the month are added. With `lines`, only the given employees are computed with their gross, additions and deductions, and the per diems of their approved, unlinked business trips ending in the month are added untaxed and the trips linked to the run; a taxable addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country has no engine, an employee is given twice, has two contracts in the month, has no contract and no gross, or is paid by the hour or day without a gross; 409 when a run for the month already exists or the accounting period is locked.
 </dd>
 </dl>
 </dd>
@@ -36576,7 +37260,7 @@ client.payroll.runs_get(id: "id")
 <dl>
 <dd>
 
-Lists payroll runs without their lines; filterable by `status`, `year` and `month`, sortable by `createdAt`, `year` and `month`.
+Lists payroll runs without their lines; filterable by `status`, `year` and `month`, sortable by `createdAt`, `year`, `month`, `period` (the year, then the month), `status`, `grossTotal`, `incomeTaxTotal`, `contributions` (the employee plus the employer contributions) and `netTotal`.
 </dd>
 </dl>
 </dd>
@@ -36764,7 +37448,7 @@ client.payroll.lines_attendance(id: "id")
 <dl>
 <dd>
 
-Posts the run's journal entry dated the last day of the month and sets the status to `approved`: the wage expense (net pay, income tax, employee contributions and deductions) and the employer contributions are debited; the net payable, the income tax, the social contributions (on one account, or split between the employee and employer accounts when their codes differ) and the deductions are credited. The accounts default to the payroll accounts of the company's chart template; each can be given per call. Answers 409 when the run is not a draft or the accounting period is locked, 422 when the run has no lines or nothing to post, and emits `payroll_run.approved`. For an Irish company with the automation of the `ie-payroll-withholding` deadline switched on, the month's payroll submission is sent at once and a failure is added to the run's `warnings`. For a Lithuanian company the unused leave days a line paid as compensation, recorded per balance year when the run was created, are added to the used days of the leave balances. Undo with `payroll/runs/reverse`, pay with `payroll/payments/export`.
+Posts the run's journal entry dated the last day of the month and sets the status to `approved`: the wage expense (net pay, income tax, employee contributions and deductions) and the employer contributions are debited; the net payable, the income tax, the social contributions (on one account, or split between the employee and employer accounts when their codes differ) and the deductions are credited. The accounts default to the payroll accounts of the company's chart template; each can be given per call (`incomeTaxAccountCode` and `socialContributionsAccountCode`; the older names `gpmAccountCode` and `sodraAccountCode` are still accepted). Answers 409 when the run is not a draft or the accounting period is locked, 422 when the run has no lines or nothing to post, and emits `payroll_run.approved`. For an Irish company with the automation of the `ie-payroll-withholding` deadline switched on, the month's payroll submission is sent at once and a failure is added to the run's `warnings`. For a Lithuanian company the unused leave days a line paid as compensation, recorded per balance year when the run was created, are added to the used days of the leave balances. Undo with `payroll/runs/reverse`, pay with `payroll/payments/export`.
 </dd>
 </dl>
 </dd>
@@ -36819,6 +37503,22 @@ client.payroll.runs_approve(id: "id")
 <dd>
 
 **payable_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**income_tax_account_code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**social_contributions_account_code:** `String` 
     
 </dd>
 </dl>
@@ -37017,7 +37717,7 @@ client.payroll.runs_cancel(id: "id")
 <dl>
 <dd>
 
-Builds a SEPA credit transfer file (pain.001.001.03) for an approved run: one transfer from the chosen bank account to each employee's IBAN for the line's net when it is positive, with a remittance text in `locale` (default the locale of the calling user) and the run period, executed on `executionDate` (default the company's current date). Answers 409 when the run is not approved, and 422 when the bank account has no IBAN or is not in the company's base currency, an employee has no IBAN (`hr/employees/update`) or no line has a positive net. The file is returned in `xml`; nothing is sent to the bank.
+Builds a credit transfer file (ISO 20022 pain.001.001.03) for an approved run, a SEPA credit transfer in EUR and a generic pain.001 without the SEPA service level in any other currency, in the currency of the bank account: one transfer from the chosen bank account to each employee's IBAN for the line's net when it is positive, with a remittance text in `locale` (default the locale of the calling user) and the run period, executed on `executionDate` (default the company's current date). Answers 409 when the run is not approved, and 422 when the bank account has no IBAN or is not in the company's base currency, an employee has no IBAN (`hr/employees/update`) or no line has a positive net. The file is returned in `xml`; nothing is sent to the bank.
 </dd>
 </dl>
 </dd>
@@ -37849,7 +38549,7 @@ client.agreements.agreements_delete(id: "id")
 <dl>
 <dd>
 
-List the company's agreements without their items, each with `partnerName`. Filterable by `number`, `name`, `partnerId`, `employeeId`, `bankAccountId`, `kind`, `typeId`, `status`, `startDate`, `endDate` and `value`; sortable by `number`, `startDate` and `createdAt` (default `startDate` descending).
+List the company's agreements without their items, each with `partnerName`. Filterable by `number`, `name`, `partnerId`, `employeeId`, `bankAccountId`, `kind`, `typeId`, `status`, `startDate`, `endDate` and `value`; sortable by `number`, `startDate`, `createdAt`, `name`, `partyName` (the partner name, else the employee name, else the bank account name), `kind`, `endDate`, `status`, `value` and `documentRef` (default `startDate` descending).
 </dd>
 </dl>
 </dd>
@@ -38732,7 +39432,7 @@ client.inventory.warehouses_update(id: "id")
 <dl>
 <dd>
 
-Record a manual receipt of an item into a warehouse at `unitCost` (document type `manual_receipt`); the quantity must be positive (422). A lot- or serial-tracked item needs `lotNumber` (422); an unknown lot is created, and `expiryDate` is stored on a lot that has none. A serial-tracked item is received one unit at a time (422), and 409 when that serial number is already in stock. Open shortages of the item in the warehouse (negative stock policy `allow`) are settled from the receipt. Emits `stock.changed`. Receipts against a purchase order go through `purchases/receipts/create`.
+Record a manual receipt of an item into a warehouse at `unitCost` (document type `manual_receipt`); the quantity must be positive (422). A lot- or serial-tracked item needs `lotNumber` (422); an unknown lot is created, and `expiryDate` is stored on a lot that has none. A serial-tracked item is received one unit at a time (422), and 409 when that serial number is already in stock. Open shortages of the item in the warehouse (negative stock policy `allow`) are settled from the receipt. Emits `stock.changed`. Receipts against a purchase order go through `purchases/receipts/create`. With `counterAccountCode` the receipt also posts a journal entry (debit the `inventory.stock` posting rule account, credit the counter-account; 422 for an unknown or non-postable account, 409 when the accounting period of `date` is locked) and answers its `journalTransactionId`; without it nothing is posted and `warnings` holds `stock_receipt_not_posted`, because a purchase invoice already receives its goods into stock and must not be posted twice.
 </dd>
 </dl>
 </dd>
@@ -38801,6 +39501,14 @@ client.inventory.stock_receive(
 <dd>
 
 **unit_cost:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**counter_account_code:** `String` 
     
 </dd>
 </dl>
@@ -39265,7 +39973,7 @@ client.inventory.stock_levels
 <dl>
 <dd>
 
-List the stock movements. Filterable: itemId, warehouseId, lotId, direction, documentType, date, quantity, totalCost. Sortable: date, createdAt, quantity, totalCost; default newest first.
+List the stock movements. Filterable: itemId, warehouseId, lotId, direction, documentType, date, quantity, totalCost. Sortable: date, createdAt, quantity, totalCost, itemName (the name of the item), warehouseName (the name of the warehouse), direction, documentType; default newest first.
 </dd>
 </dl>
 </dd>
@@ -39359,7 +40067,7 @@ client.inventory.stock_movements_list
 <dl>
 <dd>
 
-List the lots with their quantity on hand (the remaining quantity of the lot's incoming movements). Filterable: itemId, lotNumber, expiryDate. Sortable: lotNumber, expiryDate, createdAt; default newest first.
+List the lots with their quantity on hand (the remaining quantity of the lot's incoming movements). Filterable: itemId, lotNumber, expiryDate. Sortable: lotNumber, expiryDate, createdAt, itemName (the name of the item), onHand; default newest first.
 </dd>
 </dl>
 </dd>
@@ -39768,7 +40476,7 @@ client.inventory.landed_costs_get(id: "id")
 <dl>
 <dd>
 
-List the landed costs without their lines. Filterable: date, method, goodsReceiptId, sourceInvoiceId. Sortable: date, createdAt, amount; default newest first.
+List the landed costs without their lines. Filterable: date, method, goodsReceiptId, sourceInvoiceId. Sortable: date, createdAt, amount, method, notes, goodsReceiptNumber (the number of the goods receipt); default newest first.
 </dd>
 </dl>
 </dd>
@@ -40123,7 +40831,7 @@ client.inventory.reorder_rules_delete(id: "id")
 <dl>
 <dd>
 
-List the reorder rules. Filterable: itemId, warehouseId, isActive. Sortable: createdAt, minQty; default newest first.
+List the reorder rules. Filterable: itemId, warehouseId, isActive. Sortable: createdAt, minQty, reorderQty, itemName (the name of the item), warehouseName (the name of the warehouse, empty for all warehouses); default newest first.
 </dd>
 </dl>
 </dd>
@@ -40495,7 +41203,7 @@ client.production.work_centers_update(id: "id")
 <dl>
 <dd>
 
-List work centers. `nextMaintenanceDate` is the latest completed maintenance date (the creation date when there is none) plus `maintenanceIntervalDays`, null without an interval. Filterable by `code`, `name` and `isActive`; sortable by `code`, `name` and `createdAt`.
+List work centers. `nextMaintenanceDate` is the latest completed maintenance date (the creation date when there is none) plus `maintenanceIntervalDays`, null without an interval. Filterable by `code`, `name` and `isActive`; sortable by `code`, `name`, `createdAt`, `costPerHour`, `costAccountCode`, `maintenanceIntervalDays` and `nextMaintenanceDate`.
 </dd>
 </dl>
 </dd>
@@ -41378,7 +42086,7 @@ client.production.boms_get(id: "id")
 <dl>
 <dd>
 
-List bills of materials without their lines. Filterable by `code`, `name`, `finishedItemId` and `isActive`; sortable by `code` and `name`.
+List bills of materials without their lines. Filterable by `code`, `name`, `finishedItemId` and `isActive`; sortable by `code`, `name`, `finishedItemName` (the name of the finished item) and `routingCode` (the code of the routing).
 </dd>
 </dl>
 </dd>
@@ -43045,7 +43753,7 @@ client.cash.orders_get(id: "id")
 <dl>
 <dd>
 
-Lists cash orders. Filterable by `type`, `date`, `partnerId`, `employeeId`, `fullNumber` and `amount`; sortable by `date`, `fullNumber`, `createdAt` and `amount`.
+Lists cash orders. Filterable by `type`, `date`, `partnerId`, `employeeId`, `fullNumber` and `amount`; sortable by `date`, `fullNumber`, `createdAt`, `amount`, `type`, `purpose`, `counterAccountCode` and `counterpartyName` (the name of the partner, else the name of the employee).
 </dd>
 </dl>
 </dd>
@@ -43365,7 +44073,7 @@ client.cash.expense_reports_get(id: "id")
 <dl>
 <dd>
 
-Lists expense reports without their lines. Filterable by `employeeId`, `date` and `number`; sortable by `date` and `number`.
+Lists expense reports without their lines. Filterable by `employeeId`, `date` and `number`; sortable by `date`, `number`, `total` and `employeeName` (the first and last name of the employee).
 </dd>
 </dl>
 </dd>
@@ -43459,7 +44167,7 @@ client.cash.expense_reports_list
 <dl>
 <dd>
 
-Returns, per employee, the cash advances issued to them (disbursements posted to the `cash.advances` account with the employee set), the amounts returned (receipts on the same account), the total settled by expense reports and the open balance (issued less returned less settled).
+Returns, per employee, the cash advances issued to them (disbursements posted to the `cash.advances` account with the employee set, and bank payments matched to their expense reports), the amounts returned (receipts on the same account), the total settled by expense reports and the open balance (issued less returned less settled).
 </dd>
 </dl>
 </dd>
@@ -43759,7 +44467,7 @@ client.projects.get(id: "id")
 <dl>
 <dd>
 
-List projects. Filterable by `code`, `name`, `status` and `partnerId`; sortable by `code`, `name` and `createdAt`.
+List projects. Filterable by `code`, `name`, `status` and `partnerId`; sortable by `code`, `name`, `status`, `createdAt`, and by the all-time figures of `projects/report`: `revenue`, `costs`, `profit`, `unbilledHours` and `unbilledAmount`.
 </dd>
 </dl>
 </dd>
@@ -45033,7 +45741,7 @@ client.transport.waybills_get(id: "id")
 <dl>
 <dd>
 
-List waybills with the consignee's name. Filterable by `status`, `consigneePartnerId`, `documentDate`, `fullNumber` and `dispatchAt`; sortable by `createdAt`, `dispatchAt` and `fullNumber`.
+List waybills with the consignee's name. Filterable by `status`, `consigneePartnerId`, `documentDate`, `fullNumber` and `dispatchAt`; sortable by `createdAt`, `dispatchAt`, `fullNumber`, `consigneeName` (the name of the consignee), `vehiclePlate`, `unloadAddress`, `status` and `valueEur`.
 </dd>
 </dl>
 </dd>
@@ -46729,7 +47437,7 @@ client.calendar.get(key: "key")
 <dl>
 <dd>
 
-With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only returns whose format has a correction mark accept it.
+With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only deadlines whose `calendar/get` row has `correction` accept it. `correction` carries what that row's `correction.required` and `correction.optional` name: `reason`, `reasonCode` (one of `correction.reasonCodes`), `authorityReference`, the administration's own number of the filing being corrected, and `discoveredOn`, the date the error was found (YYYY-MM-DD, not after the company's today); a missing required one answers 422 with fieldErrors. For a deadline filed as one document per person, `documentKeys` limits the correction to those documents.
 </dd>
 </dl>
 </dd>
@@ -46768,6 +47476,22 @@ client.calendar.submit(key: "key")
 <dd>
 
 **amend:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**correction:** `Nordlet::Calendar::Types::SubmitCalendarRequestCorrection` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**document_keys:** `Internal::Types::Array[String]` 
     
 </dd>
 </dl>
@@ -47107,7 +47831,7 @@ client.calendar.delete(key: "key")
 <dl>
 <dd>
 
-List the audit log of the company: who did what to which entity, with the recorded change in `diff`. Filterable by `action`, `entity`, `entityId`, `actorType` and `actorId`; sortable by `createdAt` and `id`, newest first by default.
+List the audit log of the company: who did what to which entity, with the recorded change in `diff`. Filterable by `action`, `entity`, `entityId`, `actorType` and `actorId`; sortable by `createdAt`, `id`, `actor` (the actor type, then the start of the actor id), `action`, `entity` (the entity, then the start of the entity id) and `diff` (the recorded change as text), newest first by default.
 </dd>
 </dl>
 </dd>
@@ -48239,7 +48963,7 @@ client.bank.statements_import(
 <dl>
 <dd>
 
-List the bank transactions of the company. Filterable by id, bankAccountId, status, matchedDocumentId, date, amount, counterpartyIban, counterpartyName, partnerId and externalId; sortable by date, createdAt and amount. `counterpartyName` is the name as the bank wrote it; `partnerId` and `partnerName` are the partner the line belongs to.
+List the bank transactions of the company. Filterable by id, bankAccountId, status, matchedDocumentId, date, amount, counterpartyIban, counterpartyName, partnerId and externalId; sortable by date, createdAt, amount, bankAccountName (the name of the bank account), partnerName (the name of the partner, else the counterparty name), description and status. `counterpartyName` is the name as the bank wrote it; `partnerId` and `partnerName` are the partner the line belongs to.
 </dd>
 </dl>
 </dd>
@@ -48333,7 +49057,7 @@ client.bank.transactions_list
 <dl>
 <dd>
 
-Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice or an approved payroll run (company currency only) for outgoing money. Posts the payment journal transaction between the bank account and the receivable or payable account the invoice was posted to (the account of its operation type, else the posting rule) or the net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. A payment in another currency is converted into the invoice currency at the rate of the line date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the amount settled instead; in the same currency it must equal the payment (422). `remainder` settles a payment that differs from the remaining balance of a sale or purchase invoice in its own currency: `advance` books an overpayment beyond the balance to the advances-received posting rule (customer payments) or to `remainder.accountCode`, which a supplier overpayment must name, on the line's partner; `write_off` books the over- or underpayment to `remainder.accountCode`, else to the `bank.paymentDifferenceLoss` posting rule (a customer underpayment, a supplier overpayment, a credit note refund beyond its balance) or the `bank.paymentDifferenceGain` rule (a supplier underpayment, a customer overpayment, a credit note refund below its balance), and settles the invoice in full; `leave_open` settles an underpayment as a partial payment and leaves the rest open. Answers 409 when the line is already matched or ignored, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the document and no `remainder` is given, or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
+Match one new bank transaction to a document: an issued sale invoice or advance for incoming money; an issued sale credit note, a registered purchase invoice, an approved payroll run or an expense report (the last two in company currency only) for outgoing money. An expense report is paid to the employee by debiting the cash advances account (`cash.advances`) against the bank account, which settles the employee's advance balance in `cash/advance-holders/balances`; a report already paid in full or a payment above its remaining amount answers 409. Posts the payment journal transaction between the bank account and the receivable or payable account the invoice was posted to (the account of its operation type, else the posting rule) or the net payable account, with any exchange difference on the gain or loss account, raises the paid amount of the document and sets the line to matched. A payment in another currency is converted into the invoice currency at the rate of the line date, and the difference against the invoice's own rate is the exchange difference; `invoiceAmount` states the amount settled instead; in the same currency it must equal the payment (422). `remainder` settles a payment that differs from the remaining balance of a sale or purchase invoice in its own currency: `advance` books an overpayment beyond the balance to the advances-received posting rule (customer payments) or, for a supplier overpayment, to the `purchases.advancesPaid` posting rule, or to `remainder.accountCode` when given, on the line's partner; `write_off` books the over- or underpayment to `remainder.accountCode`, else to the `bank.paymentDifferenceLoss` posting rule (a customer underpayment, a supplier overpayment, a credit note refund beyond its balance) or the `bank.paymentDifferenceGain` rule (a supplier underpayment, a customer overpayment, a credit note refund below its balance), and settles the invoice in full; `leave_open` settles an underpayment as a partial payment and leaves the rest open. Answers 409 when the line is already matched or ignored, when the amount (converted, beyond one cent of the payment) exceeds the remaining balance of the document and no `remainder` is given, or when the accounting period of the line date is locked. A document that becomes fully paid is announced as `sale_invoice.paid` or `purchase_invoice.paid`.
 </dd>
 </dl>
 </dd>
@@ -49023,7 +49747,7 @@ client.bank.transactions_record(
 <dl>
 <dd>
 
-Build a SEPA credit transfer file (pain.001.001.03) that pays the remaining amount of each registered purchase invoice from the bank account on `executionDate` (default: today), to the partner's default bank account. The bank account needs an IBAN and every invoice must be in EUR and have a partner bank account on file (422 otherwise, see `partners/bank-accounts/create`); an invoice that is already paid answers 409. The file is returned as `xml`; nothing is posted or marked paid.
+Build a credit transfer file (ISO 20022 pain.001.001.03) that pays the remaining amount of each registered purchase invoice from the bank account on `executionDate` (default: today), to the partner's default bank account. The bank account needs an IBAN and every invoice must be in the currency of the bank account and have a partner bank account on file (422 otherwise, see `partners/bank-accounts/create`); an invoice that is already paid answers 409. A file in EUR is a SEPA credit transfer (service level SEPA); a file in another currency is a generic pain.001 without the SEPA service level, in the currency of the account. The file is returned as `xml`; nothing is posted or marked paid.
 </dd>
 </dl>
 </dd>
@@ -50438,7 +51162,7 @@ client.bank.mandates_get(id: "id")
 <dl>
 <dd>
 
-List the mandates of the company. Filterable by partnerId, status, scheme, reference and iban; sortable by createdAt and signatureDate.
+List the mandates of the company. Filterable by partnerId, status, scheme, reference and iban; sortable by createdAt, signatureDate, reference, partnerName (the name of the partner, else the debtor name), iban, scheme, sequenceType, collectionsCount, expiresOn (the last collection date, else the signature date) and status.
 </dd>
 </dl>
 </dd>
@@ -50532,7 +51256,7 @@ client.bank.mandates_list
 <dl>
 <dd>
 
-List the issued EUR sale invoices that are unpaid or partly paid and whose partner holds an active mandate, each with the mandate `bank/direct-debits/export` would use (the most recently signed active one). Filterable by partnerId, fullNumber, issueDate and dueDate; sortable by issueDate, dueDate, fullNumber, grossTotal and createdAt.
+List the issued EUR sale invoices that are unpaid or partly paid and whose partner holds an active mandate, each with the mandate `bank/direct-debits/export` would use (the most recently signed active one). Filterable by partnerId, fullNumber, issueDate and dueDate; sortable by issueDate, dueDate, fullNumber, grossTotal, createdAt, partnerName (the name of the partner), remaining (the gross total less the paid amount) and mandateReference (the reference of the mandate shown).
 </dd>
 </dl>
 </dd>
@@ -50707,7 +51431,7 @@ client.bank.direct_debits_export(
 <dl>
 <dd>
 
-Suggest documents for a new bank transaction: issued sale invoices and advances for incoming money; registered purchase invoices, issued sale credit notes and approved payroll runs for outgoing money. Candidates are unpaid documents with any remaining balance, also one below the payment, scored by an equal remaining balance, the document number or payroll period in the payment description and a counterparty IBAN or name matching the partner or an employee on the run; the best `limit` come back with their reasons. A transaction that is already matched answers 409.
+Suggest documents for a new bank transaction: issued sale invoices and advances for incoming money; registered purchase invoices, issued sale credit notes and approved payroll runs for outgoing money. Candidates are unpaid documents with any remaining balance, also one below the payment, scored by an equal remaining balance, the document number or payroll period in the payment description and a counterparty IBAN or name matching the partner or an employee on the run; the best `limit` come back with their reasons; a candidate with no matching reason (score 0) is left out. A transaction that is already matched answers 409.
 </dd>
 </dl>
 </dd>
@@ -50858,7 +51582,7 @@ client.bank.settlements_import(
 <dl>
 <dd>
 
-List the settlement batches with their line counts and the clearing figures against the bank lines. Filterable by provider, payoutId, status, currency and bankAccountId; sortable by payoutDate, createdAt and netTotal.
+List the settlement batches with their line counts and the clearing figures against the bank lines. Filterable by provider, payoutId, status, currency and bankAccountId; sortable by payoutDate, createdAt, netTotal, payoutId, provider, bankAccountName (the name of the bank account), grossTotal, feeTotal, lineCount (the number of lines) and status.
 </dd>
 </dl>
 </dd>
@@ -51612,7 +52336,7 @@ client.bank.securities_get(id: "id")
 <dl>
 <dd>
 
-List the imported securities operations, newest first; filterable by `bankAccountId`, `kind`, `status`, `symbol` and `date`, sortable by `date` and `createdAt`.
+List the imported securities operations, newest first; filterable by `bankAccountId`, `kind`, `status`, `symbol` and `date`, sortable by `date`, `createdAt`, `bankAccountName` (the name of the bank account), `kind`, `symbol`, `quantity`, `amount`, `fee`, `cashBase`, `costBase`, `realizedBase` and `status`.
 </dd>
 </dl>
 </dd>
@@ -52576,7 +53300,7 @@ client.files.get(id: "id")
 <dl>
 <dd>
 
-List the company's files. Filterable by `entity`, `entityId` and `fileName`; sortable by `createdAt`, `fileName` and `sizeBytes`.
+List the company's files. Filterable by `entity`, `entityId` and `fileName`; sortable by `createdAt`, `fileName`, `sizeBytes`, `entity`, `entityId` and `mimeType`.
 </dd>
 </dl>
 </dd>
@@ -58638,6 +59362,60 @@ Return the profile of the active company. An API key reads the company named in 
 
 ```ruby
 client.account.companies_profile
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Account::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.account.<a href="/lib/nordlet/account/client.rb">companies_context</a>(request) -> Nordlet::Account::Types::CompaniesContextAccountResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Return what an agent needs to start working in the active company in one answer: the `profile` (as `account/companies/profile`), the accounting `periods` that are open and locked, the `postingRules` (rule key to account code), the `bankAccounts`, the `vatTypesUsed` on the company's invoice lines with their line counts, the country's `filings` due from 45 days back to 120 days ahead with their calendar `key` (as `calendar/list` returns it), the filing `system`, whether the file can be built (`canDownload`) or sent (`canSubmit`) and the `missingSettings` of the filing system (`declarations/configs/update` with the `system` and the `keys` that have no stored value; a filing may not need every key of its system), and the `payroll` options: the employee fields (`hr/employees/fields`) the country's payroll engine reads. An API key reads the company named in the `x-nordlet-company` header and needs the `account:read` scope.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.account.companies_context
 ```
 </dd>
 </dl>

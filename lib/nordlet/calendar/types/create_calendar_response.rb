@@ -32,6 +32,8 @@ module Nordlet
 
         field :can_amend, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "canAmend"
 
+        field :correction, -> { Nordlet::Calendar::Types::CreateCalendarResponseCorrection }, optional: false, nullable: true
+
         field :can_download, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "canDownload"
 
         field :automated, -> { Internal::Types::Boolean }, optional: false, nullable: false

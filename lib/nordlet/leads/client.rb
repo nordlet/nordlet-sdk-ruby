@@ -153,7 +153,8 @@ module Nordlet
 
       # Lists leads with their source and type names; filterable by `name`, `contactName`, `email`, `phone`, `status`,
       # `sourceId`, `typeId`, `countryCode`, `assignedUserId`, `partnerId`, `estimatedValue` and `createdAt`, sortable
-      # by `name`, `status`, `estimatedValue`, `createdAt` and `updatedAt`.
+      # by `name`, `contactName`, `email`, `phone`, `status`, `typeName` (the name of the lead type), `sourceName` (the
+      # name of the lead source), `estimatedValue`, `createdAt` and `updatedAt`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Leads::Types::ListLeadsRequest]

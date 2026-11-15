@@ -229,11 +229,12 @@ module Nordlet
       # days of the contract and the timesheet, unless `grossOverrides` sets it; the per diems of approved business
       # trips ending in the month are added untaxed and the trips linked to the run; for a Lithuanian company the car
       # benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the month are
-      # added. With `lines`, only the given employees are computed with their gross, additions and deductions; a taxable
-      # addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country
-      # has no engine, an employee is given twice, has two contracts in the month, has no contract and no gross, or is
-      # paid by the hour or day without a gross; 409 when a run for the month already exists or the accounting period is
-      # locked.
+      # added. With `lines`, only the given employees are computed with their gross, additions and deductions, and the
+      # per diems of their approved, unlinked business trips ending in the month are added untaxed and the trips linked
+      # to the run; a taxable addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers
+      # 422 when the country has no engine, an employee is given twice, has two contracts in the month, has no contract
+      # and no gross, or is paid by the hour or day without a gross; 409 when a run for the month already exists or the
+      # accounting period is locked.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Payroll::Types::RunsCreatePayrollRequest]
@@ -302,7 +303,8 @@ module Nordlet
       end
 
       # Lists payroll runs without their lines; filterable by `status`, `year` and `month`, sortable by `createdAt`,
-      # `year` and `month`.
+      # `year`, `month`, `period` (the year, then the month), `status`, `grossTotal`, `incomeTaxTotal`, `contributions`
+      # (the employee plus the employer contributions) and `netTotal`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Payroll::Types::RunsListPayrollRequest]
@@ -375,13 +377,14 @@ module Nordlet
       # expense (net pay, income tax, employee contributions and deductions) and the employer contributions are debited;
       # the net payable, the income tax, the social contributions (on one account, or split between the employee and
       # employer accounts when their codes differ) and the deductions are credited. The accounts default to the payroll
-      # accounts of the company's chart template; each can be given per call. Answers 409 when the run is not a draft or
-      # the accounting period is locked, 422 when the run has no lines or nothing to post, and emits
-      # `payroll_run.approved`. For an Irish company with the automation of the `ie-payroll-withholding` deadline
-      # switched on, the month's payroll submission is sent at once and a failure is added to the run's `warnings`. For
-      # a Lithuanian company the unused leave days a line paid as compensation, recorded per balance year when the run
-      # was created, are added to the used days of the leave balances. Undo with `payroll/runs/reverse`, pay with
-      # `payroll/payments/export`.
+      # accounts of the company's chart template; each can be given per call (`incomeTaxAccountCode` and
+      # `socialContributionsAccountCode`; the older names `gpmAccountCode` and `sodraAccountCode` are still accepted).
+      # Answers 409 when the run is not a draft or the accounting period is locked, 422 when the run has no lines or
+      # nothing to post, and emits `payroll_run.approved`. For an Irish company with the automation of the
+      # `ie-payroll-withholding` deadline switched on, the month's payroll submission is sent at once and a failure is
+      # added to the run's `warnings`. For a Lithuanian company the unused leave days a line paid as compensation,
+      # recorded per balance year when the run was created, are added to the used days of the leave balances. Undo with
+      # `payroll/runs/reverse`, pay with `payroll/payments/export`.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Payroll::Types::RunsApprovePayrollRequest]
@@ -488,12 +491,14 @@ module Nordlet
         end
       end
 
-      # Builds a SEPA credit transfer file (pain.001.001.03) for an approved run: one transfer from the chosen bank
-      # account to each employee's IBAN for the line's net when it is positive, with a remittance text in `locale`
-      # (default the locale of the calling user) and the run period, executed on `executionDate` (default the company's
-      # current date). Answers 409 when the run is not approved, and 422 when the bank account has no IBAN or is not in
-      # the company's base currency, an employee has no IBAN (`hr/employees/update`) or no line has a positive net. The
-      # file is returned in `xml`; nothing is sent to the bank.
+      # Builds a credit transfer file (ISO 20022 pain.001.001.03) for an approved run, a SEPA credit transfer in EUR and
+      # a generic pain.001 without the SEPA service level in any other currency, in the currency of the bank account:
+      # one transfer from the chosen bank account to each employee's IBAN for the line's net when it is positive, with a
+      # remittance text in `locale` (default the locale of the calling user) and the run period, executed on
+      # `executionDate` (default the company's current date). Answers 409 when the run is not approved, and 422 when the
+      # bank account has no IBAN or is not in the company's base currency, an employee has no IBAN
+      # (`hr/employees/update`) or no line has a positive net. The file is returned in `xml`; nothing is sent to the
+      # bank.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Payroll::Types::PaymentsExportPayrollRequest]

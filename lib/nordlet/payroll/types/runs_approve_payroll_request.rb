@@ -12,6 +12,10 @@ module Nordlet
 
         field :payable_account_code, -> { String }, optional: true, nullable: false, api_name: "payableAccountCode"
 
+        field :income_tax_account_code, -> { String }, optional: true, nullable: false, api_name: "incomeTaxAccountCode"
+
+        field :social_contributions_account_code, -> { String }, optional: true, nullable: false, api_name: "socialContributionsAccountCode"
+
         field :gpm_account_code, -> { String }, optional: true, nullable: false, api_name: "gpmAccountCode"
 
         field :sodra_account_code, -> { String }, optional: true, nullable: false, api_name: "sodraAccountCode"
