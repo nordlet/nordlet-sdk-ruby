@@ -12,7 +12,7 @@
 <dl>
 <dd>
 
-Fetches the euro exchange rates the Bank of Lithuania web service publishes for `date` (default: the company's current date) and stores them in the rate table shared by all companies, replacing the rates already stored for that date. Answers 404 when no rates are published for the date.
+Fetches the official exchange rates for `date` (default: the company's current date) quoted against the company's base currency and stores them in the rate table shared by all companies, replacing the rates already stored for the same base, currency and date. A company that keeps its books in GBP gets the HMRC monthly rates of the month of `date` (units per 1 GBP, dated the first day of the month), one in USD the Federal Reserve H.10 rates of the two weeks up to `date` (units per 1 USD), and every other company the euro rates the Bank of Lithuania publishes for `date` (units per 1 EUR). `baseCurrency` in the answer names the base the rates are quoted against. Answers 404 when no rates are published for the date.
 </dd>
 </dl>
 </dd>
@@ -74,7 +74,7 @@ client.reference.exchange_rates_sync
 <dl>
 <dd>
 
-Lists the stored euro exchange rates, which are shared by all companies. Filterable by `currencyCode` and `date`; sortable by `date` and `currencyCode`.
+Lists the stored official exchange rates, which are shared by all companies. `rate` is the units of `currencyCode` per one unit of `baseCurrency`: EUR rates come from the Bank of Lithuania, GBP rates from HMRC, USD rates from the Federal Reserve. Filterable by `baseCurrency`, `currencyCode` and `date`; sortable by `date`, `baseCurrency` and `currencyCode`.
 </dd>
 </dl>
 </dd>
@@ -1226,7 +1226,7 @@ client.reference.eu_vat_rates_list
 <dl>
 <dd>
 
-Replace the VAT rate mapping this company uses for one EU country. Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
+Replace the VAT rate mapping this company uses for one EU country, or for a country outside the EEA whose rates come from its VAT types (GB). Pass an empty rates array to drop the overrides and return to the TEDB defaults. Overrides feed rate suggestions (vat/resolve) and OSS/IOSS return rate classification.
 </dd>
 </dl>
 </dd>
@@ -2784,7 +2784,7 @@ client.partners.contacts_list
 <dl>
 <dd>
 
-Adds a bank account to the partner in `partnerId`. The IBAN is stored without spaces in upper case; an IBAN whose check digits fail (ISO 13616) is refused with 422 and one the partner already has with 409. With `isDefault` true the partner's other accounts lose their default mark.
+Adds a bank account to the partner in `partnerId`, identified by `iban` or, where the country has no IBAN, by `bankAccountNumber` with `bankCode` (sort code, routing number); one of them is required (422). The IBAN is stored without spaces in upper case and the bank code and account number without spaces and hyphens; an IBAN whose check digits fail (ISO 13616) is refused with 422 and an account the partner already has with 409. With `isDefault` true the partner's other accounts lose their default mark.
 </dd>
 </dl>
 </dd>
@@ -2799,10 +2799,7 @@ Adds a bank account to the partner in `partnerId`. The IBAN is stored without sp
 <dd>
 
 ```ruby
-client.partners.bank_accounts_create(
-  iban: "iban",
-  partner_id: "partnerId"
-)
+client.partners.bank_accounts_create(partner_id: "partnerId")
 ```
 </dd>
 </dl>
@@ -2818,6 +2815,30 @@ client.partners.bank_accounts_create(
 <dd>
 
 **iban:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_code:** `String` — Sort code, routing number or other national bank code, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_number:** `String` — Account number, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**account_type:** `Nordlet::Partners::Types::BankAccountsCreatePartnersRequestAccountType` — Checking or savings account; a US ACH file needs it
     
 </dd>
 </dl>
@@ -2841,7 +2862,7 @@ client.partners.bank_accounts_create(
 <dl>
 <dd>
 
-**currency:** `String` 
+**currency:** `String` — Defaults to the company's base currency
     
 </dd>
 </dl>
@@ -2927,6 +2948,30 @@ client.partners.bank_accounts_update(id: "id")
 <dl>
 <dd>
 
+**bank_code:** `String` — Sort code, routing number or other national bank code, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_number:** `String` — Account number, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**account_type:** `Nordlet::Partners::Types::BankAccountsUpdatePartnersRequestAccountType` — Checking or savings account; a US ACH file needs it
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **bank_name:** `String` 
     
 </dd>
@@ -2943,7 +2988,7 @@ client.partners.bank_accounts_update(id: "id")
 <dl>
 <dd>
 
-**currency:** `String` 
+**currency:** `String` — Defaults to the company's base currency
     
 </dd>
 </dl>
@@ -3535,7 +3580,7 @@ client.partners.debt_reminders_upcoming
 <dl>
 <dd>
 
-Checks a VAT number against VIES, either a free `vatCode` or the VAT code of the partner in `partnerId` (exactly one of the two); a code without an EU country prefix and 2 to 12 alphanumeric characters is refused with 422, as is a partner without a VAT code, and a VIES outage answers 503. With a partner the outcome is written to it (`vatValid`, `vatValidatedAt`): an invalid number or a VIES name that shares no word with the partner's name opens or refreshes the partner's VAT review (`vat_review.opened`), a VIES failure opens one with reason `service_error`, and a valid matching number resolves the open review as `revalidated` (`vat_review.resolved`). Reviews are listed and closed with `partners/vat-reviews/list` and `partners/vat-reviews/resolve`.
+Checks a VAT number against VIES, or a UK number (`GB` and 9 or 12 digits) with HMRC's Check a UK VAT number service, either a free `vatCode` or the VAT code of the partner in `partnerId` (exactly one of the two); a code without an EU country prefix and 2 to 12 alphanumeric characters or a UK prefix and 9 or 12 digits is refused with 422, as is a partner without a VAT code, and a VIES or HMRC outage, or a UK check that is not set up, answers 503. A UK check gives HMRC's consultation number as `requestIdentifier` when the company's own `vatCode` is a UK number HMRC knows. With a partner the outcome is written to it (`vatValid`, `vatValidatedAt`): an invalid number or a VIES name that shares no word with the partner's name opens or refreshes the partner's VAT review (`vat_review.opened`), a VIES failure opens one with reason `service_error`, and a valid matching number resolves the open review as `revalidated` (`vat_review.resolved`). Reviews are listed and closed with `partners/vat-reviews/list` and `partners/vat-reviews/resolve`.
 </dd>
 </dl>
 </dd>
@@ -3574,6 +3619,68 @@ client.partners.validate_vat
 <dd>
 
 **partner_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Partners::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.partners.<a href="/lib/nordlet/partners/client.rb">companies_house_get</a>(request) -> Nordlet::Partners::Types::CompaniesHouseGetPartnersResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reads a UK company from the Companies House register by `companyNumber` (letters and digits; spaces are removed and letters upper-cased): its name, status, type, incorporation and cessation dates, registered office address (`subdivision` from the office's country: England, Wales, Scotland or Northern Ireland), accounting reference date, the next due dates of its accounts and confirmation statement, and SIC codes. Nothing is stored. A number Companies House does not know answers 404; a lookup that is not set up, Companies House being unreachable or its rate limit answers 503.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.partners.companies_house_get(company_number: "companyNumber")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**company_number:** `String` 
     
 </dd>
 </dl>
@@ -3780,7 +3887,7 @@ client.partners.vat_reviews_resolve(
 <dl>
 <dd>
 
-Creates a partner; without `isCustomer` it is a customer unless `isSupplier` is true. `groupId`, `statusId` and `priceListId` must belong to the company; without `legalCountryClass` the class is derived from the address country (`lt`, `eu` or `non_eu`); `documentRef` attaches an uploaded file that is not yet linked to a record; a `code` already used by a live partner of the company is refused with 409. A `vatCode` is checked against VIES at once and the result stored on the partner: an invalid number, a VIES name that shares no word with the partner's name, or a VIES failure opens a VAT review (`vat_review.opened`), while a code that is not an EU VAT number is stored unchecked (see `partners/validate-vat`).
+Creates a partner; without `isCustomer` it is a customer unless `isSupplier` is true. `groupId`, `statusId` and `priceListId` must belong to the company; without `legalCountryClass` the class is derived from the address country (`lt`, `eu` or `non_eu`); `documentRef` attaches an uploaded file that is not yet linked to a record; a `code` already used by a live partner of the company is refused with 409. A `vatCode` is checked at once against VIES, or a UK number with HMRC and the result stored on the partner: an invalid number, a VIES name that shares no word with the partner's name, or a VIES failure opens a VAT review (`vat_review.opened`), while a code that neither service can check is stored unchecked (see `partners/validate-vat`).
 </dd>
 </dl>
 </dd>
@@ -3875,6 +3982,14 @@ client.partners.create(name: "name")
 <dd>
 
 **birth_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_business:** `Internal::Types::Boolean` — Whether the partner acts as a business for VAT; when not set, a partner with a VAT code is a business. Regulation (EU) 282/2011 art. 18 lets a customer without a VAT number be treated as a business on other proof
     
 </dd>
 </dl>
@@ -4224,6 +4339,14 @@ client.partners.find_or_create(name: "name")
 <dl>
 <dd>
 
+**is_business:** `Internal::Types::Boolean` — Whether the partner acts as a business for VAT; when not set, a partner with a VAT code is a business. Regulation (EU) 282/2011 art. 18 lets a customer without a VAT number be treated as a business on other proof
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **is_customer:** `Internal::Types::Boolean` 
     
 </dd>
@@ -4534,7 +4657,7 @@ client.partners.get(id: "id")
 <dl>
 <dd>
 
-Changes the given fields of a partner; the clearable fields accept null. A new address country re-derives `legalCountryClass` unless the class is given, and a `code` already used by another live partner of the company is refused with 409. A changed `vatCode` resets the VIES result and is checked at once as in `partners/create`; a removed code, or one that is not an EU VAT number, resolves the partner's open VAT review as `superseded` (`vat_review.resolved`).
+Changes the given fields of a partner; the clearable fields accept null. A new address country re-derives `legalCountryClass` unless the class is given, and a `code` already used by another live partner of the company is refused with 409. A changed `vatCode` resets the VIES result and is checked at once as in `partners/create`; a removed code, or one that neither service can check, resolves the partner's open VAT review as `superseded` (`vat_review.resolved`).
 </dd>
 </dl>
 </dd>
@@ -4637,6 +4760,14 @@ client.partners.update(id: "id")
 <dd>
 
 **birth_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_business:** `Internal::Types::Boolean` — Whether the partner acts as a business for VAT; when not set, a partner with a VAT code is a business. Regulation (EU) 282/2011 art. 18 lets a customer without a VAT number be treated as a business on other proof
     
 </dd>
 </dl>
@@ -6306,7 +6437,7 @@ client.leads.create(name: "name")
 <dl>
 <dd>
 
-**currency:** `String` 
+**currency:** `String` — Defaults to the company's base currency
     
 </dd>
 </dl>
@@ -6550,7 +6681,7 @@ client.leads.update(id: "id")
 <dl>
 <dd>
 
-**currency:** `String` 
+**currency:** `String` — Defaults to the company's base currency
     
 </dd>
 </dl>
@@ -9867,7 +9998,7 @@ client.catalog.item_groups_list
 <dl>
 <dd>
 
-Create or replace the supplier record of an item for a partner (one per item and partner): supplier code, purchase price excluding VAT, currency (EUR when omitted) and notes. Fields omitted from the request are cleared on an existing record.
+Create or replace the supplier record of an item for a partner (one per item and partner): supplier code, purchase price excluding VAT, currency (the base currency of the company when omitted) and notes. Fields omitted from the request are cleared on an existing record.
 </dd>
 </dl>
 </dd>
@@ -10428,7 +10559,7 @@ client.catalog.items_units_list(item_id: "itemId")
 <dl>
 <dd>
 
-Create a price list (currency EUR and active when omitted). 409 when the code already exists.
+Create a price list (in the base currency of the company and active when omitted). 409 when the code already exists.
 </dd>
 </dl>
 </dd>
@@ -21310,7 +21441,7 @@ client.declarations.eu_digital_reporting_list(
 <dl>
 <dd>
 
-Which platform sellers are reportable for the year (Council Directive (EU) 2021/514, Annex V) and why the others are excluded, the data still missing, and how the company files the report in its Member State.
+Which platform sellers are reportable for the year (Council Directive (EU) 2021/514, Annex V; for a UK company, the HMRC digital platform reporting rules and the jurisdictions HMRC lists as reportable for the year) and why the others are excluded, the data still missing, and how the company files the report in its Member State or with HMRC.
 </dd>
 </dl>
 </dd>
@@ -21372,7 +21503,7 @@ client.declarations.eu_dac7preview(year: 1000000)
 <dl>
 <dd>
 
-Builds the DAC7 (DPI) XML report of a year for the Member State of the company and returns it base64-encoded with the file name the administration expects. Answers 422 when no DAC7 filing channel exists for the company country. The sellers and the missing data behind it come from `declarations/eu/dac7/preview`.
+Builds the DAC7 (DPI) XML report of a year for the Member State of the company, or the HMRC digital platform report (OECD DPI XML 1.0, file name equal to the MessageRefId) for a UK company, and returns it base64-encoded with the file name the administration expects. Answers 422 when no DAC7 filing channel exists for the company country. The sellers and the missing data behind it come from `declarations/eu/dac7/preview`.
 </dd>
 </dl>
 </dd>
@@ -26425,6 +26556,1357 @@ client.declarations.li_lohnlisten_generate(year: 1000000)
 <dd>
 
 **year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">gb_hmrc_authorize_url_get</a>(request) -> Nordlet::Declarations::Types::GbHmrcAuthorizeURLGetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Starts connecting the company to HMRC's VAT (MTD) API: returns the HMRC sign-in address the user opens in the browser to grant Nordlet the `read:vat` and `write:vat` scopes. HMRC sends the browser back to Nordlet's registered address with `code` and `state`, which are passed to `declarations/gb/hmrc/connect`. Answers 503 when Nordlet's HMRC application is not set up.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.gb_hmrc_authorize_url_get
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">gb_hmrc_connect</a>(request) -> Nordlet::Declarations::Types::GbHmrcConnectDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Finishes connecting the company to HMRC: trades the `code` HMRC returned for the company's tokens and stores them in the `gb-hmrc-vat` settings. `state` must be the one of the sign-in address from `declarations/gb/hmrc/authorize-url/get`, else 422. HMRC lets the connection last 18 months; Nordlet renews the 4-hour access token itself.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.gb_hmrc_connect(
+  code: "code",
+  state: "state"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**code:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**state:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">gb_corporation_tax_compute</a>(request) -> Nordlet::Declarations::Types::GbCorporationTaxComputeDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Computes UK Corporation Tax for an accounting period of at most 12 months from its taxable total profits: the small profits rate when the augmented profits (taxable total profits plus `exemptDistributions`) do not exceed the lower limit, the main rate less marginal relief between the limits, the main rate above the upper limit. The limits are reduced by days for a period shorter than 12 months and divided by one plus `associatedCompanies` (those that carried on a trade or business in the period). A period that straddles 1 April of a year whose limits differ is split into parts by financial year. A `closeInvestmentHolding` company pays the main rate. Financial years 2022 to 2026 are known; another answers 422.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.gb_corporation_tax_compute(
+  period_start: "2026-07-01",
+  period_end: "2026-07-01",
+  taxable_total_profits: "taxableTotalProfits"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**period_start:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**period_end:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**taxable_total_profits:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**exempt_distributions:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**associated_companies:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**close_investment_holding:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">gb_vat_obligations_list</a>(request) -> Nordlet::Declarations::Types::GbVatObligationsListDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Lists the company's VAT return periods as HMRC holds them: open (`status` O) or fulfilled (F). Without `status`, `from` and `to` are required and at most 366 days apart. `device` carries the facts of the user's browser that HMRC requires.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.gb_vat_obligations_list(device: {
+  user_agent: "userAgent",
+  device_id: "deviceId",
+  screens: [{
+    width: 1000000,
+    height: 1000000,
+    scaling_factor: 1.1,
+    colour_depth: 1000000
+  }],
+  window_size: {
+    width: 1000000,
+    height: 1000000
+  },
+  timezone: "timezone"
+})
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**device:** `Nordlet::Declarations::Types::GbVatObligationsListDeclarationsRequestDevice` — Facts of the browser the user files from, which HMRC requires with every VAT (MTD) API call: `navigator.userAgent`, a UUID the browser keeps for the device, every screen (width, height, scaling factor, colour depth in bits), the window size in pixels and the time zone as `UTC±hh:mm`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `Nordlet::Declarations::Types::GbVatObligationsListDeclarationsRequestStatus` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">gb_vat_returns_get</a>(request) -> Nordlet::Declarations::Types::GbVatReturnsGetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reads a VAT return the company submitted to HMRC, by the `periodKey` of its obligation. Answers 404 when HMRC has no return for the period.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.gb_vat_returns_get(
+  device: {
+    user_agent: "userAgent",
+    device_id: "deviceId",
+    screens: [{
+      width: 1000000,
+      height: 1000000,
+      scaling_factor: 1.1,
+      colour_depth: 1000000
+    }],
+    window_size: {
+      width: 1000000,
+      height: 1000000
+    },
+    timezone: "timezone"
+  },
+  period_key: "periodKey"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**device:** `Nordlet::Declarations::Types::GbVatReturnsGetDeclarationsRequestDevice` — Facts of the browser the user files from, which HMRC requires with every VAT (MTD) API call: `navigator.userAgent`, a UUID the browser keeps for the device, every screen (width, height, scaling factor, colour depth in bits), the window size in pixels and the time zone as `UTC±hh:mm`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**period_key:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">gb_vat_liabilities_list</a>(request) -> Nordlet::Declarations::Types::GbVatLiabilitiesListDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Lists the company's VAT liabilities HMRC holds whose period ends between `from` (2017-12-01 or later) and `to` (today or earlier), at most 365 days apart.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.gb_vat_liabilities_list(
+  device: {
+    user_agent: "userAgent",
+    device_id: "deviceId",
+    screens: [{
+      width: 1000000,
+      height: 1000000,
+      scaling_factor: 1.1,
+      colour_depth: 1000000
+    }],
+    window_size: {
+      width: 1000000,
+      height: 1000000
+    },
+    timezone: "timezone"
+  },
+  from: "2026-07-01",
+  to: "2026-07-01"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**device:** `Nordlet::Declarations::Types::GbVatLiabilitiesListDeclarationsRequestDevice` — Facts of the browser the user files from, which HMRC requires with every VAT (MTD) API call: `navigator.userAgent`, a UUID the browser keeps for the device, every screen (width, height, scaling factor, colour depth in bits), the window size in pixels and the time zone as `UTC±hh:mm`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">gb_vat_payments_list</a>(request) -> Nordlet::Declarations::Types::GbVatPaymentsListDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Lists the VAT payments HMRC received from the company between `from` (2017-12-01 or later) and `to` (today or earlier), at most 365 days apart.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.gb_vat_payments_list(
+  device: {
+    user_agent: "userAgent",
+    device_id: "deviceId",
+    screens: [{
+      width: 1000000,
+      height: 1000000,
+      scaling_factor: 1.1,
+      colour_depth: 1000000
+    }],
+    window_size: {
+      width: 1000000,
+      height: 1000000
+    },
+    timezone: "timezone"
+  },
+  from: "2026-07-01",
+  to: "2026-07-01"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**device:** `Nordlet::Declarations::Types::GbVatPaymentsListDeclarationsRequestDevice` — Facts of the browser the user files from, which HMRC requires with every VAT (MTD) API call: `navigator.userAgent`, a UUID the browser keeps for the device, every screen (width, height, scaling factor, colour depth in bits), the window size in pixels and the time zone as `UTC±hh:mm`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">gb_vat_penalties_get</a>(request) -> Internal::Types::Hash[String, Object]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the penalties HMRC applied to the company's VAT account in the last 24 months as HMRC answers them: `totalisations`, `lateSubmissionPenalty` and `latePaymentPenalty`.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.gb_vat_penalties_get(device: {
+  user_agent: "userAgent",
+  device_id: "deviceId",
+  screens: [{
+    width: 1000000,
+    height: 1000000,
+    scaling_factor: 1.1,
+    colour_depth: 1000000
+  }],
+  window_size: {
+    width: 1000000,
+    height: 1000000
+  },
+  timezone: "timezone"
+})
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**device:** `Nordlet::Declarations::Types::GbVatPenaltiesGetDeclarationsRequestDevice` — Facts of the browser the user files from, which HMRC requires with every VAT (MTD) API call: `navigator.userAgent`, a UUID the browser keeps for the device, every screen (width, height, scaling factor, colour depth in bits), the window size in pixels and the time zone as `UTC±hh:mm`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">us941get</a>(request) -> Nordlet::Declarations::Types::Us941GetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The Form 941 figures of a quarter from the approved US payroll runs whose pay date (the period end without one) falls in it: line 1 the employees paid for the pay period that includes the 12th of the quarter's last month, line 2 the wages, line 3 the federal income tax withheld, lines 5a, 5c and 5d the social security, Medicare and Additional Medicare wages with their tax at 12.4%, 2.9% and 0.9%, line 7 the fractions of cents between those and the amounts withheld and owed, lines 10 and 12, and line 16 the liability of each month by pay date with the liability of each pay date for Schedule B. `deposits` (the deposits made for the quarter) fills line 13 and line 14 or 15. Lines 5b, 5f, 8, 9 and 11 are not filled. Answers 422 for a company outside the US.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.us941get(
+  year: 1000000,
+  quarter: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quarter:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**deposits:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">us940get</a>(request) -> Nordlet::Declarations::Types::Us940GetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The Form 940 figures of a year from the approved US payroll runs paid in it: line 1a the state of the employees paid (the `usWorkState` employee option) or line 1b when there are several, line 3 the payments to employees, line 5 the part of each employee's payments above $7,000, line 7 the taxable FUTA wages, line 8 at 0.6%, line 12, and Part 5 with the liability of each quarter when line 12 is more than $500. Exempt payments (line 4), the state unemployment tax adjustments (lines 9 and 10) and the credit reduction of Schedule A (line 11) are not filled. Answers 422 for a company outside the US.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.us940get(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">us_w2list</a>(request) -> Nordlet::Declarations::Types::UsW2ListDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The Forms W-2 of a year, one per employee paid in an approved US payroll run of the year, and the Form W-3 totals: box a the employee's `personalCode` (the social security number), box e the name, boxes 1 to 6 the wages, the federal income tax, the social security wages and tax and the Medicare wages and tax (with the Additional Medicare Tax), and boxes 15 to 17 for Delaware with the company's `deWithholdingAccount`; W-3 box c the number of forms and box e the company's `ein`. Answers 422 for a company outside the US.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.us_w2list(year: 1000000)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">us_de_withholding_get</a>(request) -> Nordlet::Declarations::Types::UsDeWithholdingGetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The Delaware withholding of a month (YYYY-MM), a quarter (YYYY-Qn) or a year (YYYY, for the annual reconciliation) from the approved US payroll runs paid in it: the employees with Delaware income tax withheld, their wages and the tax withheld. Answers 422 for a company outside the US.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.us_de_withholding_get(period: "period")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**period:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">us_de_unemployment_get</a>(request) -> Nordlet::Declarations::Types::UsDeUnemploymentGetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The Delaware unemployment insurance figures of a quarter from the approved US payroll runs paid in it, for the employees charged Delaware unemployment insurance: the total wages, the wages above each employee's yearly wage base, the taxable wages, the contributions, and each employee with the social security number (`personalCode`) and the wages of the quarter. Answers 422 for a company outside the US.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.us_de_unemployment_get(
+  year: 1000000,
+  quarter: 1000000
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**year:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quarter:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">us_de_gross_receipts_get</a>(request) -> Nordlet::Declarations::Types::UsDeGrossReceiptsGetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The Delaware gross receipts tax of a month (YYYY-MM) or a quarter (YYYY-Qn) for one business activity of the company's license: the net amounts of the sale invoices issued in the period (credit notes subtracted, advance invoices left out because the final invoice carries the sale, amounts in another currency at the rate stored on the invoice), less `excludedReceipts` (receipts from outside Delaware and from related entities, which the caller states), less the monthly or quarterly deduction of the activity, at the rate of the activity in 30 Del. C. chapters 23, 25, 27 and 29. An invoice in another currency without a stored rate is left out with a warning. Answers 422 for a company outside the US.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.us_de_gross_receipts_get(
+  period: "period",
+  activity: "services"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**period:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**activity:** `Nordlet::Declarations::Types::UsDeGrossReceiptsGetDeclarationsRequestActivity` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**excluded_receipts:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">us_state_sales_get</a>(request) -> Nordlet::Declarations::Types::UsStateSalesGetDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The sales of a US company per state between two issue dates, to see where its sales may oblige it to collect a state's sales tax: the number and net amount of the issued sale invoices and credit notes (subtracted) by the state of the customer's address (`subdivision`, since invoices carry no delivery address), the sales to customers in the US without a state, and the sales to customers outside the US. Advance invoices are left out because the final invoice carries the sale; amounts in another currency are at the rate stored on the invoice, and an invoice without one is left out with a warning. Answers 422 for a company outside the US.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.us_state_sales_get(
+  from: "2026-07-01",
+  to: "2026-07-01"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">us_de_franchise_tax_compute</a>(request) -> Nordlet::Declarations::Types::UsDeFranchiseTaxComputeDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The Delaware franchise tax of a domestic corporation for its annual franchise tax report, by 8 Del. C. § 503: the authorized shares method on the total of `authorizedShares`, and, when `issuedShares` and `totalGrossAssets` (the total assets of Form 1120 Schedule L) are given, the assumed par value capital method, where a share class without `parValue` has no par value; `tax` is the lesser of the two (at least $175 and $400, at most $200,000), or $250,000 for a Large Corporate Filer. `annualReportFee` is the filing fee of a non-exempt domestic corporation, paid with the report. Answers 422 for a company outside the US.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.us_de_franchise_tax_compute(authorized_shares: [{
+  shares: 1000000
+}])
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**authorized_shares:** `Internal::Types::Array[Nordlet::Declarations::Types::UsDeFranchiseTaxComputeDeclarationsRequestAuthorizedSharesItem]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**issued_shares:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**total_gross_assets:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**large_corporate_filer:** `Internal::Types::Boolean` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Declarations::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.declarations.<a href="/lib/nordlet/declarations/client.rb">us_workweeks_list</a>(request) -> Nordlet::Declarations::Types::UsWorkweeksListDeclarationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The hours worked in each workweek that touches the period, per employee of a US company (or the one `employeeId`), for the overtime and records of the Fair Labor Standards Act: the workweek starts on the employee's `usWorkweekStart` day and runs 7 days; the hours are those entered on the work and business-trip days of the timesheets; `overtimeHours` are the hours above 40 in the workweek, 0 for an employee whose `usFlsaExempt` is yes. An employee without `usWorkweekStart` is left out with a warning. Overtime pay is entered on the payroll run as an addition of payment type `overtime-pay` with its hours. Answers 422 for a company outside the US.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.declarations.us_workweeks_list(
+  from: "2026-07-01",
+  to: "2026-07-01"
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**from:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**employee_id:** `String` 
     
 </dd>
 </dl>
@@ -32957,6 +34439,30 @@ client.hr.employees_create(
 <dl>
 <dd>
 
+**bank_code:** `String` — Sort code, routing number or other national bank code, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_number:** `String` — Account number, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_type:** `Nordlet::Hr::Types::EmployeesCreateHrRequestBankAccountType` — Checking or savings account; a US ACH file needs it
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **social_insurance_no:** `String` 
     
 </dd>
@@ -33148,6 +34654,30 @@ client.hr.employees_update(id: "id")
 <dd>
 
 **iban:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_code:** `String` — Sort code, routing number or other national bank code, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_number:** `String` — Account number, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_type:** `Nordlet::Hr::Types::EmployeesUpdateHrRequestBankAccountType` — Checking or savings account; a US ACH file needs it
     
 </dd>
 </dl>
@@ -33609,7 +35139,7 @@ client.hr.employees_anonymize(id: "id")
 <dl>
 <dd>
 
-Creates an employment contract for an employee. A `permanent` contract takes no `endDate` and a `fixed_term` one requires it; the number comes from `contractNo` or, with `agreementId`, from the employee's agreement; `workHours` defaults by `salaryType`. Answers 422 when the end date is before the start, and 409 when the employee already has a contract overlapping the period (end it with `hr/contracts/end` first) or the contract number already exists.
+Creates an employment contract for an employee. A `permanent` contract takes no `endDate` and a `fixed_term` one requires it; the number comes from `contractNo` or, with `agreementId`, from the employee's agreement; `workHours` defaults by `salaryType`; `payFrequency` (default `monthly`) is the pay period of the payroll runs that pay the contract, one of `payroll/frequencies/list`. Answers 422 when the end date is before the start or the company country's payroll engine does not calculate the pay frequency, and 409 when the employee already has a contract overlapping the period (end it with `hr/contracts/end` first) or the contract number already exists.
 </dd>
 </dl>
 </dd>
@@ -33724,6 +35254,14 @@ client.hr.contracts_create(
 <dd>
 
 **salary_type:** `Nordlet::Hr::Types::ContractsCreateHrRequestSalaryType` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pay_frequency:** `Nordlet::Hr::Types::ContractsCreateHrRequestPayFrequency` 
     
 </dd>
 </dl>
@@ -35472,7 +37010,7 @@ client.hr.timesheets_generate(
 <dl>
 <dd>
 
-Creates or replaces the timesheet of an employee for a month from the given days; `workedDays` and `workedHours` count the `work` and `business_trip` days with hours. Answers 422 for a day outside the month, a day given twice or more than 24 hours in a day. `payroll/runs/create` reads the timesheet for the paid days, the days worked and the business-trip days of the month.
+Creates or replaces the timesheet of an employee for a month from the given days; `workedDays` and `workedHours` count the `work` and `business_trip` days with hours. Answers 422 for a day outside the month, a day given twice or more than 24 hours in a day. `payroll/runs/create` reads the timesheets of the months a run's period touches for the paid days, the days worked and the business-trip days of the period.
 </dd>
 </dl>
 </dd>
@@ -36944,6 +38482,60 @@ client.payroll.payment_types_list
 </dl>
 </details>
 
+<details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">frequencies_list</a>(request) -> Nordlet::Payroll::Types::FrequenciesListPayrollResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reads the pay frequencies the company country's payroll engine calculates, the values `payroll/runs/create` takes as `frequency` and `hr/contracts/create` as `payFrequency`. Answers 422 when Nordlet has no payroll engine for the company's country.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.payroll.frequencies_list
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Payroll::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.payroll.<a href="/lib/nordlet/payroll/client.rb">calc</a>(request) -> Nordlet::Payroll::Types::CalcPayrollResponse</code></summary>
 <dl>
 <dd>
@@ -37085,7 +38677,7 @@ client.payroll.calc(
 <dl>
 <dd>
 
-Creates a draft payroll run for a month, computing each line with the company country's payroll engine, the employee's approved runs of the year so far and of the two previous years, the month's timesheet and `payDate` (default the last day of the month). Without `lines`, every employee whose contract overlaps the month gets a line, whatever the employee's status: the gross is the contract's monthly salary reduced to the paid working days of the contract and the timesheet, unless `grossOverrides` sets it; the per diems of approved business trips ending in the month are added untaxed and the trips linked to the run; for a Lithuanian company the car benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the month are added. With `lines`, only the given employees are computed with their gross, additions and deductions, and the per diems of their approved, unlinked business trips ending in the month are added untaxed and the trips linked to the run; a taxable addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country has no engine, an employee is given twice, has two contracts in the month, has no contract and no gross, or is paid by the hour or day without a gross; 409 when a run for the month already exists or the accounting period is locked.
+Creates a draft payroll run for a pay period, computing each line with the company country's payroll engine, the employee's approved runs of the tax year before the period and of the two previous tax years, the timesheets of the period and `payDate` (default the last day of the period). A `monthly` run (the default `frequency`) takes `year` and `month`; a `semimonthly` run takes a `periodStart` on the 1st (to the 15th) or the 16th (to the month end), and a `weekly`, `biweekly` or `four_weekly` run a `periodStart` from which the period runs 7, 14 or 28 days. `payroll/frequencies/list` gives the frequencies the company country's engine calculates; the engine also sets the run's `taxYear` and `taxPeriod` (by default the calendar year and the month). A run of a frequency other than monthly gets the year and month of its period end. Without `lines`, every employee whose contract has the run's pay frequency and overlaps the period gets a line, whatever the employee's status: the gross is the contract's salary for one period (a monthly, weekly or yearly salary brought to a year and divided by the periods of the year: 12, 24, 13, 26 or 52) reduced to the paid working days of the contract and the timesheets, unless `grossOverrides` sets it; the per diems of approved business trips ending in the period are added untaxed and the trips linked to the run; for a Lithuanian company the car benefit in kind (`includeNatura`) and the compensation for unused leave of a contract ending in the period are added. The timesheets count only when every month the period touches has one. With `lines`, only the given employees are computed with their gross, additions and deductions, and the per diems of their approved, unlinked business trips ending in the period are added untaxed and the trips linked to the run; a taxable addition may carry a `paymentType` from `payroll/payment-types/list` and `hours`. Answers 422 when the country has no engine or its engine does not calculate the frequency, the period is not given the way its frequency needs, an employee is given twice, has two contracts in the period, has no contract and no gross, or is paid by the hour or day without a gross; 409 when a run of the same frequency already covers part of the period or the accounting period is locked.
 </dd>
 </dl>
 </dd>
@@ -37100,10 +38692,7 @@ Creates a draft payroll run for a month, computing each line with the company co
 <dd>
 
 ```ruby
-client.payroll.runs_create(
-  year: 1000000,
-  month: 1000000
-)
+client.payroll.runs_create
 ```
 </dd>
 </dl>
@@ -37118,6 +38707,14 @@ client.payroll.runs_create(
 <dl>
 <dd>
 
+**frequency:** `Nordlet::Payroll::Types::RunsCreatePayrollRequestFrequency` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **year:** `Integer` 
     
 </dd>
@@ -37127,6 +38724,14 @@ client.payroll.runs_create(
 <dd>
 
 **month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**period_start:** `String` 
     
 </dd>
 </dl>
@@ -37260,7 +38865,7 @@ client.payroll.runs_get(id: "id")
 <dl>
 <dd>
 
-Lists payroll runs without their lines; filterable by `status`, `year` and `month`, sortable by `createdAt`, `year`, `month`, `period` (the year, then the month), `status`, `grossTotal`, `incomeTaxTotal`, `contributions` (the employee plus the employer contributions) and `netTotal`.
+Lists payroll runs without their lines; filterable by `status`, `year`, `month`, `frequency` and `taxYear`, sortable by `createdAt`, `year`, `month`, `period` (the year, then the month), `periodStart`, `status`, `grossTotal`, `incomeTaxTotal`, `contributions` (the employee plus the employer contributions) and `netTotal`.
 </dd>
 </dl>
 </dd>
@@ -37448,7 +39053,7 @@ client.payroll.lines_attendance(id: "id")
 <dl>
 <dd>
 
-Posts the run's journal entry dated the last day of the month and sets the status to `approved`: the wage expense (net pay, income tax, employee contributions and deductions) and the employer contributions are debited; the net payable, the income tax, the social contributions (on one account, or split between the employee and employer accounts when their codes differ) and the deductions are credited. The accounts default to the payroll accounts of the company's chart template; each can be given per call (`incomeTaxAccountCode` and `socialContributionsAccountCode`; the older names `gpmAccountCode` and `sodraAccountCode` are still accepted). Answers 409 when the run is not a draft or the accounting period is locked, 422 when the run has no lines or nothing to post, and emits `payroll_run.approved`. For an Irish company with the automation of the `ie-payroll-withholding` deadline switched on, the month's payroll submission is sent at once and a failure is added to the run's `warnings`. For a Lithuanian company the unused leave days a line paid as compensation, recorded per balance year when the run was created, are added to the used days of the leave balances. Undo with `payroll/runs/reverse`, pay with `payroll/payments/export`.
+Posts the run's journal entry dated the last day of the run's period and sets the status to `approved`: the wage expense (net pay, income tax, employee contributions and deductions) and the employer contributions are debited; the net payable, the income tax, the social contributions (on one account, or split between the employee and employer accounts when their codes differ) and the deductions are credited. The accounts default to the payroll accounts of the company's chart template; each can be given per call (`incomeTaxAccountCode` and `socialContributionsAccountCode` among them). Answers 409 when the run is not a draft or the accounting period is locked, 422 when the run has no lines or nothing to post, and emits `payroll_run.approved`. For an Irish company with the automation of the `ie-payroll-withholding` deadline switched on, the month's payroll submission is sent at once and a failure is added to the run's `warnings`. For a Lithuanian company the unused leave days a line paid as compensation, recorded per balance year when the run was created, are added to the used days of the leave balances. For a US company whose filing option `usDepositSchedule` is `semiweekly`, the federal tax deposit of the run's pay date is added to the calendar (`us-tax-deposit-semiweekly`, the pay date as period), due on the Wednesday after a Wednesday to Friday payday and the Friday after a Saturday to Tuesday payday, moved past District of Columbia legal holidays. Undo with `payroll/runs/reverse`, pay with `payroll/payments/export`.
 </dd>
 </dl>
 </dd>
@@ -37526,22 +39131,6 @@ client.payroll.runs_approve(id: "id")
 <dl>
 <dd>
 
-**gpm_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**sodra_account_code:** `String` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **employer_social_account_code:** `String` 
     
 </dd>
@@ -37582,7 +39171,7 @@ client.payroll.runs_approve(id: "id")
 <dl>
 <dd>
 
-Posts a journal entry dated the last day of the month that mirrors the run's entry (debits and credits swapped), sets the status to `reversed` with the reason, and releases the business trips the run paid so the next run picks them up again; the leave days the run marked used as compensation for unused leave are given back to the leave balances. Answers 409 when the run is not approved, when part of it is matched to bank payments (`paidAmount`, unmatch them first) or when the accounting period is locked. Emits `payroll_run.reversed`.
+Posts a journal entry dated the last day of the run's period that mirrors the run's entry (debits and credits swapped), sets the status to `reversed` with the reason, and releases the business trips the run paid so the next run picks them up again; the leave days the run marked used as compensation for unused leave are given back to the leave balances. A US run removes the semiweekly federal tax deposit of its pay date from the calendar unless another approved run has the same pay date. Answers 409 when the run is not approved, when part of it is matched to bank payments (`paidAmount`, unmatch them first) or when the accounting period is locked. Emits `payroll_run.reversed`.
 </dd>
 </dl>
 </dd>
@@ -37717,7 +39306,7 @@ client.payroll.runs_cancel(id: "id")
 <dl>
 <dd>
 
-Builds a credit transfer file (ISO 20022 pain.001.001.03) for an approved run, a SEPA credit transfer in EUR and a generic pain.001 without the SEPA service level in any other currency, in the currency of the bank account: one transfer from the chosen bank account to each employee's IBAN for the line's net when it is positive, with a remittance text in `locale` (default the locale of the calling user) and the run period, executed on `executionDate` (default the company's current date). Answers 409 when the run is not approved, and 422 when the bank account has no IBAN or is not in the company's base currency, an employee has no IBAN (`hr/employees/update`) or no line has a positive net. The file is returned in `xml`; nothing is sent to the bank.
+Builds a payment file for an approved run: one transfer from the chosen bank account to each employee's account for the line's net when it is positive, with a remittance text in `locale` (default the locale of the calling user) and the run period. The format follows the bank account: a GBP account of a UK company with a sort code and account number gets a Bacs Standard 18 Direct Credit file (needs `paymentFileSettings.serviceUserNumber`; the employee's `bankCode` is the 6-digit sort code and `bankAccountNumber` the 8-digit account number; `executionDate` is the day the pay arrives, a Bacs working day whose processing day is after today, default the earliest), a USD account of a US company with a routing number and account number gets a Nacha ACH file of PPD credits with the entry description PAYROLL (needs `paymentFileSettings.immediateOrigin` and `companyIdentification`; the employee's `bankCode` is the 9-digit routing number, plus `bankAccountNumber` and `bankAccountType`; default `executionDate` the company's current date), and an account with an IBAN gets ISO 20022 pain.001.001.03, a SEPA credit transfer in EUR and a generic pain.001 in other currencies (the employee's IBAN; default `executionDate` the company's current date). Answers 409 when the run is not approved, and 422 when the bank account fits no format or is not in the company's base currency, an employee lacks the account details the format needs (`hr/employees/update`) or no line has a positive net. The file is returned in `content`, with `format`, `fileName` and `contentType`; nothing is sent to the bank.
 </dd>
 </dl>
 </dd>
@@ -38219,7 +39808,7 @@ client.agreements.agreements_create(
 <dl>
 <dd>
 
-**currency:** `String` 
+**currency:** `String` — Defaults to the company's base currency
     
 </dd>
 </dl>
@@ -38858,7 +40447,7 @@ client.agreements.insurance_policies_create(
 <dl>
 <dd>
 
-**currency:** `String` 
+**currency:** `String` — Defaults to the company's base currency
     
 </dd>
 </dl>
@@ -47437,7 +49026,7 @@ client.calendar.get(key: "key")
 <dl>
 <dd>
 
-With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only deadlines whose `calendar/get` row has `correction` accept it. `correction` carries what that row's `correction.required` and `correction.optional` name: `reason`, `reasonCode` (one of `correction.reasonCodes`), `authorityReference`, the administration's own number of the filing being corrected, and `discoveredOn`, the date the error was found (YYYY-MM-DD, not after the company's today); a missing required one answers 422 with fieldErrors. For a deadline filed as one document per person, `documentKeys` limits the correction to those documents.
+With amend: true the return is filed again as a correction of the one already submitted or accepted for the period; only deadlines whose `calendar/get` row has `correction` accept it. `correction` carries what that row's `correction.required` and `correction.optional` name: `reason`, `reasonCode` (one of `correction.reasonCodes`), `authorityReference`, the administration's own number of the filing being corrected, and `discoveredOn`, the date the error was found (YYYY-MM-DD, not after the company's today); a missing required one answers 422 with fieldErrors. For a deadline filed as one document per person, `documentKeys` limits the correction to those documents. `device` carries the facts of the user's browser that an administration requires with the filing (HMRC for the UK VAT return); a filing sent through such an administration without it fails.
 </dd>
 </dl>
 </dd>
@@ -47492,6 +49081,14 @@ client.calendar.submit(key: "key")
 <dd>
 
 **document_keys:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**device:** `Nordlet::Calendar::Types::SubmitCalendarRequestDevice` — Facts of the browser the user files from, which HMRC requires with every VAT (MTD) API call: `navigator.userAgent`, a UUID the browser keeps for the device, every screen (width, height, scaling factor, colour depth in bits), the window size in pixels and the time zone as `UTC±hh:mm`.
     
 </dd>
 </dl>
@@ -48476,7 +50073,7 @@ client.webhooks.deliveries_redeliver(id: "id")
 <dl>
 <dd>
 
-Create a bank, Stripe or broker account. `currency` defaults to the company base currency and `accountCode` to the default bank account of the chart of accounts. A `documentRef` also creates a bank agreement with that document attached. A Stripe account with an `iban` is refused with 422; an account with the same IBAN already existing answers 409.
+Create a bank, Stripe or broker account. `currency` defaults to the company base currency and `accountCode` to the default bank account of the chart of accounts. Where the country has no IBAN the account is identified by `bankCode` (sort code, routing number) and `bankAccountNumber`, stored without spaces and hyphens. A `documentRef` also creates a bank agreement with that document attached. A Stripe account with an `iban` or an account number is refused with 422; an account with the same IBAN already existing answers 409.
 </dd>
 </dl>
 </dd>
@@ -48523,6 +50120,30 @@ client.bank.accounts_create(name: "name")
 <dd>
 
 **iban:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_code:** `String` — Sort code, routing number or other national bank code, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_number:** `String` — Account number, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payment_file_settings:** `Nordlet::Bank::Types::AccountsCreateBankRequestPaymentFileSettings` — What the bank gave the company for payment files from this account: the Bacs service user number for a UK account, the ACH Immediate Origin and Company Identification for a US account
     
 </dd>
 </dl>
@@ -48672,7 +50293,7 @@ client.bank.accounts_list
 <dl>
 <dd>
 
-Change the name, type, IBAN, ledger account code or active flag of a bank account. Setting type to stripe clears the IBAN, and sending an `iban` together with it is refused with 422.
+Change the name, type, IBAN, bank code and account number, payment file settings (`paymentFileSettings` replaces the stored settings as a whole), ledger account code or active flag of a bank account. Setting type to stripe clears the IBAN and the account number, and sending an `iban` together with it is refused with 422.
 </dd>
 </dl>
 </dd>
@@ -48727,6 +50348,30 @@ client.bank.accounts_update(id: "id")
 <dd>
 
 **iban:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_code:** `String` — Sort code, routing number or other national bank code, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_number:** `String` — Account number, for an account without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payment_file_settings:** `Nordlet::Bank::Types::AccountsUpdateBankRequestPaymentFileSettings` — What the bank gave the company for payment files from this account: the Bacs service user number for a UK account, the ACH Immediate Origin and Company Identification for a US account
     
 </dd>
 </dl>
@@ -49747,7 +51392,7 @@ client.bank.transactions_record(
 <dl>
 <dd>
 
-Build a credit transfer file (ISO 20022 pain.001.001.03) that pays the remaining amount of each registered purchase invoice from the bank account on `executionDate` (default: today), to the partner's default bank account. The bank account needs an IBAN and every invoice must be in the currency of the bank account and have a partner bank account on file (422 otherwise, see `partners/bank-accounts/create`); an invoice that is already paid answers 409. A file in EUR is a SEPA credit transfer (service level SEPA); a file in another currency is a generic pain.001 without the SEPA service level, in the currency of the account. The file is returned as `xml`; nothing is posted or marked paid.
+Build a payment file that pays the remaining amount of each registered purchase invoice from the bank account on `executionDate`, to the partner's default bank account that the format can use. The format follows the bank account: a GBP account of a UK company with a sort code and account number gets a Bacs Standard 18 Direct Credit file (needs `paymentFileSettings.serviceUserNumber`; `executionDate` is the day the money arrives, a Bacs working day whose processing day is after today, default the earliest), a USD account of a US company with a routing number and account number gets a Nacha ACH credit file (needs `paymentFileSettings.immediateOrigin` and `companyIdentification`; CCD for a business partner, PPD for a partner that is not one, see `partners/update` `isBusiness`; default `executionDate` today), and an account with an IBAN gets ISO 20022 pain.001.001.03, a SEPA credit transfer in EUR and a generic pain.001 in other currencies (default `executionDate` today). Every invoice must be in the currency of the bank account and the partner must have a bank account the format can use (IBAN; sort code and account number; routing number, account number and `accountType`), 422 otherwise, see `partners/bank-accounts/create`; an invoice that is already paid answers 409. The file is returned in `content`, with `format`, `fileName` and `contentType`; nothing is posted or marked paid.
 </dd>
 </dl>
 </dd>
@@ -50822,7 +52467,7 @@ client.bank.match_rules_list
 <dl>
 <dd>
 
-Record a SEPA direct debit mandate a partner has signed: debtor IBAN and BIC, scheme (CORE or B2B), recurrent or one-off, and the signature date. `reference` is the mandate reference written into the collection files; without one `MNDT-` followed by a generated id is used. `debtorName` defaults to the partner name. A reference already in use answers 409.
+Record a direct debit mandate a partner has signed, with the signature date. Schemes: `CORE` and `B2B` are SEPA mandates on the debtor's IBAN (and BIC), recurrent or one-off; `BACS` is a UK Direct Debit Instruction on a 6-digit sort code (`bankCode`) and an 8-digit account number, recurrent only, lodged with AUDDIS through `bank/mandates/auddis-export` before the first collection; `PPD` (consumer) and `CCD` (business) are US ACH debit authorizations on a 9-digit routing number (`bankCode`), an account number and `accountType`. Without `scheme`, an IBAN gives `CORE`, a UK company `BACS`, and a US company `CCD` for a business partner or `PPD` for one that is not (see `partners/update` `isBusiness`). `reference` is the mandate reference written into the collection files; without one `MNDT-` followed by a generated id is used (for `BACS` `MNDT` and the start of a generated id, upper case; a Bacs reference has 6 to 18 characters of A-Z, 0-9, . & / - and space, with at least six letters or digits, not one repeated character, not starting with DDIC). `debtorName` defaults to the partner name. A reference already in use answers 409.
 </dd>
 </dl>
 </dd>
@@ -50839,7 +52484,6 @@ Record a SEPA direct debit mandate a partner has signed: debtor IBAN and BIC, sc
 ```ruby
 client.bank.mandates_create(
   partner_id: "partnerId",
-  iban: "iban",
   signature_date: "2026-07-01"
 )
 ```
@@ -50873,6 +52517,30 @@ client.bank.mandates_create(
 <dd>
 
 **bic:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_code:** `String` — Sort code (Bacs) or routing number (ACH), for a mandate without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bank_account_number:** `String` — Account number, for a mandate without an IBAN
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**account_type:** `Nordlet::Bank::Types::MandatesCreateBankRequestAccountType` — Checking or savings account; a US ACH file needs it
     
 </dd>
 </dl>
@@ -51038,7 +52706,7 @@ client.bank.mandates_update(id: "id")
 <dl>
 <dd>
 
-Cancel an active mandate. A mandate that is already cancelled or completed answers 409.
+Cancel an active mandate. A BACS mandate that was lodged with AUDDIS is then reported cancelled by the next `bank/mandates/auddis-export`. A mandate that is already cancelled or completed answers 409.
 </dd>
 </dl>
 </dd>
@@ -51256,7 +52924,7 @@ client.bank.mandates_list
 <dl>
 <dd>
 
-List the issued EUR sale invoices that are unpaid or partly paid and whose partner holds an active mandate, each with the mandate `bank/direct-debits/export` would use (the most recently signed active one). Filterable by partnerId, fullNumber, issueDate and dueDate; sortable by issueDate, dueDate, fullNumber, grossTotal, createdAt, partnerName (the name of the partner), remaining (the gross total less the paid amount) and mandateReference (the reference of the mandate shown).
+List the issued sale invoices that are unpaid or partly paid and whose partner holds an active mandate of a scheme in the invoice currency (CORE and B2B for EUR, BACS for GBP, PPD and CCD for USD), each with the mandate `bank/direct-debits/export` would use (the most recently signed active one of those schemes). Filterable by partnerId, fullNumber, issueDate and dueDate; sortable by issueDate, dueDate, fullNumber, grossTotal, createdAt, partnerName (the name of the partner), remaining (the gross total less the paid amount) and mandateReference (the reference of the mandate shown).
 </dd>
 </dl>
 </dd>
@@ -51350,7 +53018,7 @@ client.bank.direct_debits_candidates
 <dl>
 <dd>
 
-Build a SEPA direct debit file (pain.008.001.02) that collects the remaining amount of each issued EUR sale invoice into the bank account on `collectionDate` (default: today) under the partner's most recently signed active mandate. The bank account needs an IBAN and the company a valid `sepaCreditorId` (422, see `account/companies/update`); an invoice whose partner has no active mandate, or whose mandate expired (36 months without a collection), answers 422; an invoice already paid, or a one-off mandate asked to collect more than one invoice, answers 409. The sequence type is OOFF for a one-off mandate, FRST for the first collection under a recurrent one and RCUR after that. On success the collection count and last collection date of each mandate are advanced and a one-off mandate is completed; nothing is posted.
+Build a direct debit file that collects the remaining amount of each issued sale invoice into the bank account on `collectionDate` under the partner's most recently signed active mandate of a scheme the file carries. The format follows the bank account: a GBP account of a UK company with a sort code and account number gets a Bacs Standard 18 Direct Debit file (BACS mandates; needs `paymentFileSettings.serviceUserNumber`; each mandate must have been lodged with `bank/mandates/auddis-export` and the collection processed at least two Bacs working days after the lodgement; `collectionDate` is the day the money is collected, a Bacs working day whose processing day is after today, default the earliest; transaction code 01 for the first collection under a mandate and 17 after that), a USD account of a US company with a routing number and account number gets a Nacha ACH debit file (PPD and CCD mandates; needs `paymentFileSettings.immediateOrigin` and `companyIdentification`; `collectionDate` not before the mandate's signature date; default today), and an account with an IBAN gets a SEPA direct debit file pain.008.001.02 (CORE and B2B mandates; needs a valid `sepaCreditorId`, see `account/companies/update`; a mandate expires after 36 months without a collection; sequence type OOFF for a one-off mandate, FRST for the first collection under a recurrent one and RCUR after that; default today). Each invoice must be in the currency of the format (EUR, GBP, USD), 422 otherwise; an invoice whose partner has no usable active mandate answers 422; an invoice already paid, or a one-off mandate asked to collect more than one invoice, answers 409. On success the collection count and last collection date of each mandate are advanced and a one-off mandate is completed; nothing is posted. The file is returned in `content`, with `format`, `fileName`, `contentType` and the `collectionDate` used.
 </dd>
 </dl>
 </dd>
@@ -51400,6 +53068,84 @@ client.bank.direct_debits_export(
 <dd>
 
 **collection_date:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `Nordlet::Bank::RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.bank.<a href="/lib/nordlet/bank/client.rb">mandates_auddis_export</a>(request) -> Nordlet::Bank::Types::MandatesAuddisExportBankResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Build a Bacs AUDDIS file that lodges new Bacs Direct Debit Instructions (transaction code 0N, each active BACS mandate not yet lodged) and cancels lodged ones (0C, each cancelled BACS mandate whose cancellation was not yet lodged) with the paying banks. Without `mandateIds` every such mandate of the company is included. The bank account must be a GBP account of a UK company with a sort code, an account number and `paymentFileSettings.serviceUserNumber` (422 otherwise). `processingDate` is the Bacs processing day of the file, a Bacs working day after today (default the next one); it is stored as the mandate's `lodgedOn` or `cancellationLodgedOn`, and a first collection can be processed two Bacs working days after `lodgedOn`. Nothing to lodge answers 409. The file is returned in `content`, with `format`, `fileName` and `contentType`; nothing is sent to the bank.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```ruby
+client.bank.mandates_auddis_export(bank_account_id: "bankAccountId")
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**bank_account_id:** `String` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**mandate_ids:** `Internal::Types::Array[String]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**processing_date:** `String` 
     
 </dd>
 </dl>
@@ -58934,7 +60680,7 @@ client.account.locale_set(locale: "en")
 <dl>
 <dd>
 
-Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a supported currency. An API key may call it when it holds the `account:write` scope (403 otherwise): the company is created for the person the key belongs to, and the key works in it like in their other companies.
+Create a company with the caller as its owner and payer, seed its chart of accounts from the template of `countryCode`, and make it the active company of the session. `timeZone` defaults to the country's, `isVatPayer` to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a supported currency, when both `fiscalYearEndDay` and `fiscalYearWeekday` are given, when `fiscalYearWeekday` comes without `fiscalYearWeekRule`, or when an entry of `identifiers` is not an identifier of a company in `countryCode` or does not have its format. An API key may call it when it holds the `account:write` scope (403 otherwise): the company is created for the person the key belongs to, and the key works in it like in their other companies.
 </dd>
 </dl>
 </dd>
@@ -58996,6 +60742,14 @@ client.account.companies_create(name: "name")
 <dl>
 <dd>
 
+**identifiers:** `Internal::Types::Hash[String, String]` — Registration numbers of the company other than `code` and `vatCode`, by key: `utr` (GB, Corporation Tax Unique Taxpayer Reference (UTR), 10 digits); `taxOfficeNumber` (GB, PAYE tax office number, 3 digits); `taxOfficeReference` (GB, PAYE tax office reference, 1 to 10 letters, digits or punctuation, not starting with a space); `accountsOfficeReference` (GB, Accounts Office reference, 13 characters: 3 digits, P, a letter, 7 digits and a digit or X); `ein` (US, Employer Identification Number (EIN), 9 digits whose first two are a prefix the IRS assigns); `deBusinessLicense` (US, Delaware business license number); `deWithholdingAccount` (US, Delaware withholding account number, 9 digits, the federal EIN); `deUnemploymentAccount` (US, Delaware unemployment insurance account number); `deUnemploymentRate` (US, Delaware unemployment insurance tax rate (%), a percentage from 0 to 100 with at most 4 decimals); `deEntityFileNumber` (US, Delaware Division of Corporations file number (formed in Delaware)); `deForeignEntityFileNumber` (US, Delaware Division of Corporations file number (formed in another state))
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **is_vat_payer:** `Internal::Types::Boolean` 
     
 </dd>
@@ -59012,7 +60766,39 @@ client.account.companies_create(name: "name")
 <dl>
 <dd>
 
+**vat_period_end_month:** `Integer` — A month in which a VAT period ends, for VAT periods that do not follow the calendar quarters
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **fiscal_year_end_month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fiscal_year_end_day:** `Integer` — Day of `fiscalYearEndMonth` the fiscal year ends on; the last day of the month when omitted
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fiscal_year_weekday:** `Integer` — For a 52-53-week fiscal year: the weekday it always ends on, 0 Sunday to 6 Saturday
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fiscal_year_week_rule:** `Nordlet::Account::Types::CompaniesCreateAccountRequestFiscalYearWeekRule` — With `fiscalYearWeekday`: `last` ends the year on the last such weekday of `fiscalYearEndMonth`, `nearest` on the one nearest the last day of that month
     
 </dd>
 </dl>
@@ -59454,7 +61240,7 @@ client.account.companies_context
 <dl>
 <dd>
 
-Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at creation. An API key changes the company named in the `x-nordlet-company` header, needs the `account:write` scope and the owner or admin role there, and may send only `code`, `vatCode`, `smeExemptionNumber`, `legalForm`, `registryName`, `incorporatedOn`, `shareCapital`, `address`, `email`, `phone`, `accountsKeptBy`, `bookkeeperName`, `auditorName`, `auditorRegistrationNumber`, `auditRequired`; any other field is refused with 403.
+Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at creation. Refused with 422 when, with the stored values, the company would have both `fiscalYearEndDay` and `fiscalYearWeekday`, or `fiscalYearWeekday` without `fiscalYearWeekRule`. `identifiers` replaces the stored set; an entry that is not an identifier of a company in the company's country or does not have its format is refused with 422. An API key changes the company named in the `x-nordlet-company` header, needs the `account:write` scope and the owner or admin role there, and may send only `code`, `vatCode`, `smeExemptionNumber`, `identifiers`, `legalForm`, `registryName`, `incorporatedOn`, `shareCapital`, `address`, `email`, `phone`, `accountsKeptBy`, `bookkeeperName`, `auditorName`, `auditorRegistrationNumber`, `auditRequired`; any other field is refused with 403.
 </dd>
 </dl>
 </dd>
@@ -59516,6 +61302,14 @@ client.account.companies_update
 <dl>
 <dd>
 
+**identifiers:** `Internal::Types::Hash[String, String]` — Registration numbers of the company other than `code` and `vatCode`, by key: `utr` (GB, Corporation Tax Unique Taxpayer Reference (UTR), 10 digits); `taxOfficeNumber` (GB, PAYE tax office number, 3 digits); `taxOfficeReference` (GB, PAYE tax office reference, 1 to 10 letters, digits or punctuation, not starting with a space); `accountsOfficeReference` (GB, Accounts Office reference, 13 characters: 3 digits, P, a letter, 7 digits and a digit or X); `ein` (US, Employer Identification Number (EIN), 9 digits whose first two are a prefix the IRS assigns); `deBusinessLicense` (US, Delaware business license number); `deWithholdingAccount` (US, Delaware withholding account number, 9 digits, the federal EIN); `deUnemploymentAccount` (US, Delaware unemployment insurance account number); `deUnemploymentRate` (US, Delaware unemployment insurance tax rate (%), a percentage from 0 to 100 with at most 4 decimals); `deEntityFileNumber` (US, Delaware Division of Corporations file number (formed in Delaware)); `deForeignEntityFileNumber` (US, Delaware Division of Corporations file number (formed in another state))
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **is_vat_payer:** `Internal::Types::Boolean` 
     
 </dd>
@@ -59532,7 +61326,39 @@ client.account.companies_update
 <dl>
 <dd>
 
+**vat_period_end_month:** `Integer` — A month in which a VAT period ends, for VAT periods that do not follow the calendar quarters
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **fiscal_year_end_month:** `Integer` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fiscal_year_end_day:** `Integer` — Day of `fiscalYearEndMonth` the fiscal year ends on; the last day of the month when omitted
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fiscal_year_weekday:** `Integer` — For a 52-53-week fiscal year: the weekday it always ends on, 0 Sunday to 6 Saturday
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fiscal_year_week_rule:** `Nordlet::Account::Types::CompaniesUpdateAccountRequestFiscalYearWeekRule` — With `fiscalYearWeekday`: `last` ends the year on the last such weekday of `fiscalYearEndMonth`, `nearest` on the one nearest the last day of that month
     
 </dd>
 </dl>

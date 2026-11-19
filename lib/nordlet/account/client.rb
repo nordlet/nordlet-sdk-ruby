@@ -527,8 +527,11 @@ module Nordlet
       # to true and `defaultInvoiceCurrency` to the base currency. Without a paid plan the caller may create only one
       # sandbox company, which starts the free sandbox plan; a live company, a second sandbox company, or a sandbox
       # company after the free sandbox has ended is refused with 402. Refused with 422 when `baseCurrency` is not a
-      # supported currency. An API key may call it when it holds the `account:write` scope (403 otherwise): the company
-      # is created for the person the key belongs to, and the key works in it like in their other companies.
+      # supported currency, when both `fiscalYearEndDay` and `fiscalYearWeekday` are given, when `fiscalYearWeekday`
+      # comes without `fiscalYearWeekRule`, or when an entry of `identifiers` is not an identifier of a company in
+      # `countryCode` or does not have its format. An API key may call it when it holds the `account:write` scope (403
+      # otherwise): the company is created for the person the key belongs to, and the key works in it like in their
+      # other companies.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::CompaniesCreateAccountRequest]
@@ -678,11 +681,14 @@ module Nordlet
       # Change the profile of the active company; owners and admins may call it. Only the fields sent are changed, and
       # the nullable ones can be sent as null to clear them. `logo` stores a base64-encoded image as a file of the
       # company and sets `logoFileId`. The country, base currency, sandbox flag and cash-basis flag are fixed at
-      # creation. An API key changes the company named in the `x-nordlet-company` header, needs the `account:write`
-      # scope and the owner or admin role there, and may send only `code`, `vatCode`, `smeExemptionNumber`, `legalForm`,
-      # `registryName`, `incorporatedOn`, `shareCapital`, `address`, `email`, `phone`, `accountsKeptBy`,
-      # `bookkeeperName`, `auditorName`, `auditorRegistrationNumber`, `auditRequired`; any other field is refused with
-      # 403.
+      # creation. Refused with 422 when, with the stored values, the company would have both `fiscalYearEndDay` and
+      # `fiscalYearWeekday`, or `fiscalYearWeekday` without `fiscalYearWeekRule`. `identifiers` replaces the stored set;
+      # an entry that is not an identifier of a company in the company's country or does not have its format is refused
+      # with 422. An API key changes the company named in the `x-nordlet-company` header, needs the `account:write`
+      # scope and the owner or admin role there, and may send only `code`, `vatCode`, `smeExemptionNumber`,
+      # `identifiers`, `legalForm`, `registryName`, `incorporatedOn`, `shareCapital`, `address`, `email`, `phone`,
+      # `accountsKeptBy`, `bookkeeperName`, `auditorName`, `auditorRegistrationNumber`, `auditRequired`; any other field
+      # is refused with 403.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Account::Types::CompaniesUpdateAccountRequest]

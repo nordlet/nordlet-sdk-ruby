@@ -10,6 +10,7 @@ module Nordlet
         INTRA_EU_B2B = "intra_eu_b2b"
         REVERSE_CHARGE = "reverse_charge"
         OSS_UNION = "oss_union"
+        OSS_NON_UNION = "oss_non_union"
         IOSS = "ioss"
         MARKETPLACE_DEEMED = "marketplace_deemed"
         EXPORT = "export"

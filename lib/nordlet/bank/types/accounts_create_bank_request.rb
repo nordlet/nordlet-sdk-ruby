@@ -10,6 +10,12 @@ module Nordlet
 
         field :iban, -> { String }, optional: true, nullable: false
 
+        field :bank_code, -> { String }, optional: true, nullable: false, api_name: "bankCode"
+
+        field :bank_account_number, -> { String }, optional: true, nullable: false, api_name: "bankAccountNumber"
+
+        field :payment_file_settings, -> { Nordlet::Bank::Types::AccountsCreateBankRequestPaymentFileSettings }, optional: true, nullable: false, api_name: "paymentFileSettings"
+
         field :currency, -> { String }, optional: true, nullable: false
 
         field :account_code, -> { String }, optional: true, nullable: false, api_name: "accountCode"

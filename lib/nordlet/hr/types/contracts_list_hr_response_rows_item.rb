@@ -30,6 +30,8 @@ module Nordlet
 
         field :salary_type, -> { Nordlet::Hr::Types::ContractsListHrResponseRowsItemSalaryType }, optional: false, nullable: false, api_name: "salaryType"
 
+        field :pay_frequency, -> { Nordlet::Hr::Types::ContractsListHrResponseRowsItemPayFrequency }, optional: false, nullable: false, api_name: "payFrequency"
+
         field :work_hours, -> { String }, optional: false, nullable: false, api_name: "workHours"
 
         field :work_hours_unit, -> { Nordlet::Hr::Types::ContractsListHrResponseRowsItemWorkHoursUnit }, optional: false, nullable: false, api_name: "workHoursUnit"

@@ -18,9 +18,15 @@ module Nordlet
 
         field :debtor_name, -> { String }, optional: false, nullable: false, api_name: "debtorName"
 
-        field :iban, -> { String }, optional: false, nullable: false
+        field :iban, -> { String }, optional: false, nullable: true
 
         field :bic, -> { String }, optional: false, nullable: true
+
+        field :bank_code, -> { String }, optional: false, nullable: true, api_name: "bankCode"
+
+        field :bank_account_number, -> { String }, optional: false, nullable: true, api_name: "bankAccountNumber"
+
+        field :account_type, -> { Nordlet::Bank::Types::MandatesListBankResponseRowsItemAccountType }, optional: false, nullable: true, api_name: "accountType"
 
         field :signature_date, -> { String }, optional: false, nullable: false, api_name: "signatureDate"
 
@@ -28,7 +34,11 @@ module Nordlet
 
         field :last_collection_date, -> { String }, optional: false, nullable: true, api_name: "lastCollectionDate"
 
-        field :expires_on, -> { String }, optional: false, nullable: false, api_name: "expiresOn"
+        field :expires_on, -> { String }, optional: false, nullable: true, api_name: "expiresOn"
+
+        field :lodged_on, -> { String }, optional: false, nullable: true, api_name: "lodgedOn"
+
+        field :cancellation_lodged_on, -> { String }, optional: false, nullable: true, api_name: "cancellationLodgedOn"
 
         field :cancelled_at, -> { String }, optional: false, nullable: true, api_name: "cancelledAt"
 

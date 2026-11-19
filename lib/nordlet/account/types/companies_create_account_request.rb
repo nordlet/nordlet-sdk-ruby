@@ -12,11 +12,21 @@ module Nordlet
 
         field :sme_exemption_number, -> { String }, optional: true, nullable: false, api_name: "smeExemptionNumber"
 
+        field :identifiers, -> { Internal::Types::Hash[String, String] }, optional: true, nullable: false
+
         field :is_vat_payer, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "isVatPayer"
 
         field :vat_period, -> { Nordlet::Account::Types::CompaniesCreateAccountRequestVatPeriod }, optional: true, nullable: false, api_name: "vatPeriod"
 
+        field :vat_period_end_month, -> { Integer }, optional: true, nullable: false, api_name: "vatPeriodEndMonth"
+
         field :fiscal_year_end_month, -> { Integer }, optional: true, nullable: false, api_name: "fiscalYearEndMonth"
+
+        field :fiscal_year_end_day, -> { Integer }, optional: true, nullable: false, api_name: "fiscalYearEndDay"
+
+        field :fiscal_year_weekday, -> { Integer }, optional: true, nullable: false, api_name: "fiscalYearWeekday"
+
+        field :fiscal_year_week_rule, -> { Nordlet::Account::Types::CompaniesCreateAccountRequestFiscalYearWeekRule }, optional: true, nullable: false, api_name: "fiscalYearWeekRule"
 
         field :time_zone, -> { String }, optional: true, nullable: false, api_name: "timeZone"
 

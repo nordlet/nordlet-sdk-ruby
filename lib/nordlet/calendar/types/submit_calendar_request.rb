@@ -11,6 +11,8 @@ module Nordlet
         field :correction, -> { Nordlet::Calendar::Types::SubmitCalendarRequestCorrection }, optional: true, nullable: false
 
         field :document_keys, -> { Internal::Types::Array[String] }, optional: true, nullable: false, api_name: "documentKeys"
+
+        field :device, -> { Nordlet::Calendar::Types::SubmitCalendarRequestDevice }, optional: true, nullable: false
       end
     end
   end

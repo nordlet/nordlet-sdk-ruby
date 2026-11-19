@@ -12,6 +12,8 @@ module Nordlet
 
         field :vat_code, -> { String }, optional: false, nullable: true, api_name: "vatCode"
 
+        field :identifiers, -> { Internal::Types::Hash[String, String] }, optional: false, nullable: false
+
         field :sme_exemption_number, -> { String }, optional: false, nullable: true, api_name: "smeExemptionNumber"
 
         field :is_vat_payer, -> { Internal::Types::Boolean }, optional: false, nullable: false, api_name: "isVatPayer"
@@ -24,7 +26,7 @@ module Nordlet
 
         field :chart_template, -> { String }, optional: false, nullable: false, api_name: "chartTemplate"
 
-        field :country_chart_template, -> { String }, optional: false, nullable: false, api_name: "countryChartTemplate"
+        field :country_chart_template, -> { String }, optional: false, nullable: true, api_name: "countryChartTemplate"
 
         field :base_currency, -> { String }, optional: false, nullable: false, api_name: "baseCurrency"
 
@@ -76,7 +78,15 @@ module Nordlet
 
         field :vat_period, -> { Nordlet::Account::Types::CompaniesProfileAccountResponseVatPeriod }, optional: false, nullable: true, api_name: "vatPeriod"
 
+        field :vat_period_end_month, -> { Integer }, optional: false, nullable: true, api_name: "vatPeriodEndMonth"
+
         field :fiscal_year_end_month, -> { Integer }, optional: false, nullable: true, api_name: "fiscalYearEndMonth"
+
+        field :fiscal_year_end_day, -> { Integer }, optional: false, nullable: true, api_name: "fiscalYearEndDay"
+
+        field :fiscal_year_weekday, -> { Integer }, optional: false, nullable: true, api_name: "fiscalYearWeekday"
+
+        field :fiscal_year_week_rule, -> { Nordlet::Account::Types::CompaniesProfileAccountResponseFiscalYearWeekRule }, optional: false, nullable: true, api_name: "fiscalYearWeekRule"
 
         field :time_zone, -> { String }, optional: false, nullable: false, api_name: "timeZone"
 

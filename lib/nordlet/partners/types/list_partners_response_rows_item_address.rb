@@ -15,6 +15,8 @@ module Nordlet
         field :postal_code, -> { String }, optional: true, nullable: false, api_name: "postalCode"
 
         field :country_code, -> { String }, optional: true, nullable: false, api_name: "countryCode"
+
+        field :subdivision, -> { String }, optional: true, nullable: false
       end
     end
   end

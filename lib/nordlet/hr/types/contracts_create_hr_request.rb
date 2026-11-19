@@ -26,6 +26,8 @@ module Nordlet
 
         field :salary_type, -> { Nordlet::Hr::Types::ContractsCreateHrRequestSalaryType }, optional: true, nullable: false, api_name: "salaryType"
 
+        field :pay_frequency, -> { Nordlet::Hr::Types::ContractsCreateHrRequestPayFrequency }, optional: true, nullable: false, api_name: "payFrequency"
+
         field :work_hours, -> { String }, optional: true, nullable: false, api_name: "workHours"
 
         field :notes, -> { String }, optional: true, nullable: false

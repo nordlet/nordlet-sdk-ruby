@@ -24,6 +24,8 @@ module Nordlet
 
         field :birth_date, -> { String }, optional: true, nullable: false, api_name: "birthDate"
 
+        field :is_business, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "isBusiness"
+
         field :is_customer, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "isCustomer"
 
         field :is_supplier, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "isSupplier"

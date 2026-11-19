@@ -4,9 +4,13 @@ module Nordlet
   module Payroll
     module Types
       class RunsCreatePayrollRequest < Internal::Types::Model
-        field :year, -> { Integer }, optional: false, nullable: false
+        field :frequency, -> { Nordlet::Payroll::Types::RunsCreatePayrollRequestFrequency }, optional: true, nullable: false
 
-        field :month, -> { Integer }, optional: false, nullable: false
+        field :year, -> { Integer }, optional: true, nullable: false
+
+        field :month, -> { Integer }, optional: true, nullable: false
+
+        field :period_start, -> { String }, optional: true, nullable: false, api_name: "periodStart"
 
         field :include_natura, -> { Internal::Types::Boolean }, optional: true, nullable: false, api_name: "includeNatura"
 

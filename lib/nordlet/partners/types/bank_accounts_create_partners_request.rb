@@ -4,7 +4,13 @@ module Nordlet
   module Partners
     module Types
       class BankAccountsCreatePartnersRequest < Internal::Types::Model
-        field :iban, -> { String }, optional: false, nullable: false
+        field :iban, -> { String }, optional: true, nullable: false
+
+        field :bank_code, -> { String }, optional: true, nullable: false, api_name: "bankCode"
+
+        field :bank_account_number, -> { String }, optional: true, nullable: false, api_name: "bankAccountNumber"
+
+        field :account_type, -> { Nordlet::Partners::Types::BankAccountsCreatePartnersRequestAccountType }, optional: true, nullable: false, api_name: "accountType"
 
         field :bank_name, -> { String }, optional: true, nullable: false, api_name: "bankName"
 

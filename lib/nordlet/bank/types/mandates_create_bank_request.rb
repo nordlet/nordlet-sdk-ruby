@@ -6,9 +6,15 @@ module Nordlet
       class MandatesCreateBankRequest < Internal::Types::Model
         field :partner_id, -> { String }, optional: false, nullable: false, api_name: "partnerId"
 
-        field :iban, -> { String }, optional: false, nullable: false
+        field :iban, -> { String }, optional: true, nullable: false
 
         field :bic, -> { String }, optional: true, nullable: false
+
+        field :bank_code, -> { String }, optional: true, nullable: false, api_name: "bankCode"
+
+        field :bank_account_number, -> { String }, optional: true, nullable: false, api_name: "bankAccountNumber"
+
+        field :account_type, -> { Nordlet::Bank::Types::MandatesCreateBankRequestAccountType }, optional: true, nullable: false, api_name: "accountType"
 
         field :scheme, -> { Nordlet::Bank::Types::MandatesCreateBankRequestScheme }, optional: true, nullable: false
 

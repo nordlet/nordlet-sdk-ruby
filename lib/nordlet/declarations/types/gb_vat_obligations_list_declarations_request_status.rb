@@ -3,11 +3,11 @@
 module Nordlet
   module Declarations
     module Types
-      module ConfigsListDeclarationsResponseRowsItemFieldsItemCompanyField
+      module GbVatObligationsListDeclarationsRequestStatus
         extend Nordlet::Internal::Types::Enum
 
-        CODE = "code"
-        VAT_CODE = "vatCode"
+        O = "O"
+        F = "F"
       end
     end
   end

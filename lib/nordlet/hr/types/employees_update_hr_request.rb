@@ -22,6 +22,12 @@ module Nordlet
 
         field :iban, -> { String }, optional: true, nullable: false
 
+        field :bank_code, -> { String }, optional: true, nullable: false, api_name: "bankCode"
+
+        field :bank_account_number, -> { String }, optional: true, nullable: false, api_name: "bankAccountNumber"
+
+        field :bank_account_type, -> { Nordlet::Hr::Types::EmployeesUpdateHrRequestBankAccountType }, optional: true, nullable: false, api_name: "bankAccountType"
+
         field :social_insurance_no, -> { String }, optional: true, nullable: false, api_name: "socialInsuranceNo"
 
         field :social_insurance_start, -> { String }, optional: true, nullable: false, api_name: "socialInsuranceStart"

@@ -10,6 +10,16 @@ module Nordlet
 
         field :month, -> { Integer }, optional: false, nullable: false
 
+        field :frequency, -> { Nordlet::Payroll::Types::RunsGetPayrollResponseFrequency }, optional: false, nullable: false
+
+        field :period_start, -> { String }, optional: false, nullable: false, api_name: "periodStart"
+
+        field :period_end, -> { String }, optional: false, nullable: false, api_name: "periodEnd"
+
+        field :tax_year, -> { Integer }, optional: false, nullable: false, api_name: "taxYear"
+
+        field :tax_period, -> { Integer }, optional: false, nullable: true, api_name: "taxPeriod"
+
         field :country_code, -> { String }, optional: false, nullable: false, api_name: "countryCode"
 
         field :pay_date, -> { String }, optional: false, nullable: true, api_name: "payDate"

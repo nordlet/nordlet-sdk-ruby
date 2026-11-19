@@ -8,7 +8,13 @@ module Nordlet
 
         field :partner_id, -> { String }, optional: false, nullable: false, api_name: "partnerId"
 
-        field :iban, -> { String }, optional: false, nullable: false
+        field :iban, -> { String }, optional: false, nullable: true
+
+        field :bank_code, -> { String }, optional: false, nullable: true, api_name: "bankCode"
+
+        field :bank_account_number, -> { String }, optional: false, nullable: true, api_name: "bankAccountNumber"
+
+        field :account_type, -> { Nordlet::Partners::Types::BankAccountsUpdatePartnersResponseAccountType }, optional: false, nullable: true, api_name: "accountType"
 
         field :bank_name, -> { String }, optional: false, nullable: true, api_name: "bankName"
 

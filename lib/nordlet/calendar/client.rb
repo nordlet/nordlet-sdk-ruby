@@ -89,7 +89,8 @@ module Nordlet
       # `authorityReference`, the administration's own number of the filing being corrected, and `discoveredOn`, the
       # date the error was found (YYYY-MM-DD, not after the company's today); a missing required one answers 422 with
       # fieldErrors. For a deadline filed as one document per person, `documentKeys` limits the correction to those
-      # documents.
+      # documents. `device` carries the facts of the user's browser that an administration requires with the filing
+      # (HMRC for the UK VAT return); a filing sent through such an administration without it fails.
       #
       # @param request_options [Hash]
       # @param params [Nordlet::Calendar::Types::SubmitCalendarRequest]

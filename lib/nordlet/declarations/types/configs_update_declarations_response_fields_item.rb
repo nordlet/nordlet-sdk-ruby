@@ -14,7 +14,7 @@ module Nordlet
 
         field :options, -> { Internal::Types::Array[String] }, optional: true, nullable: false
 
-        field :company_field, -> { Nordlet::Declarations::Types::ConfigsUpdateDeclarationsResponseFieldsItemCompanyField }, optional: true, nullable: false, api_name: "companyField"
+        field :company_field, -> { String }, optional: true, nullable: false, api_name: "companyField"
       end
     end
   end
